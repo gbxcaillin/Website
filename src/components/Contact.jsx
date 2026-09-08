@@ -51,7 +51,7 @@ export default function Contact() {
             </div>
             <div>
               <dt className="mono">Office</dt>
-              <dd>{site.city}</dd>
+              <dd>{site.address}</dd>
             </div>
             <div>
               <dt className="mono">Hours</dt>

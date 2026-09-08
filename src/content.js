@@ -7,17 +7,22 @@ export const site = {
   tagline: 'Sharper operations.',
   taglineAccent: 'Stronger commercial outcomes.',
   city: 'Melbourne, Australia',
-  email: 'hello@gbxps.com',
+  email: 'admin@gbxps.com',
+  address: '260 Spencer Street, Melbourne VIC 3000',
+  abn: '45 674 252 905',
+  copyright: 'Copyright GBX PS Pty Ltd 2025',
+  motto: 'Combining insight with impact for sustainable business growth.',
   // Replace with your real Formspree endpoint, e.g. https://formspree.io/f/abcdwxyz
   formspreeEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
 }
 
+// Primary navigation. Each item routes to a page.
 export const nav = [
-  { label: 'Services', href: '#services' },
-  { label: 'Leadership', href: '#leadership' },
-  { label: 'Approach', href: '#approach' },
-  { label: 'Reach', href: '#reach' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services', to: '/services' },
+  { label: 'Leadership', to: '/leadership' },
+  { label: 'Approach', to: '/approach' },
+  { label: 'Reach', to: '/reach' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export const hero = {
@@ -26,8 +31,8 @@ export const hero = {
   subheading: 'Stronger commercial outcomes.',
   body:
     'GBX PS is a boutique consultancy based in Melbourne. We help professional-services firms, advice practices and regulated businesses run more clearly, sell more confidently and grow with discipline.',
-  primary: { label: 'Start a conversation', href: '#contact' },
-  secondary: { label: 'Our services', href: '#services' },
+  primary: { label: 'Start a conversation', to: '/contact' },
+  secondary: { label: 'Our services', to: '/services' },
   stats: [
     { value: 'AFSL', label: 'Compliance depth' },
     { value: '09', label: 'Cities served' },
@@ -46,37 +51,82 @@ export const services = {
       title: 'Business Analytics & Performance',
       body:
         'KPI frameworks, dashboards, conversion tracking, operational benchmarking, profitability analysis and data-led decision-making.',
+      detail:
+        'We turn scattered numbers into a clear operating picture. From a single source of truth we build the dashboards, benchmarks and reporting rhythm that let you see performance early and act on it with confidence.',
+      includes: [
+        'KPI frameworks and scorecards',
+        'Dashboards and management reporting',
+        'Conversion and funnel tracking',
+        'Operational benchmarking',
+        'Profitability and margin analysis',
+      ],
     },
     {
       number: '02',
       title: 'Business Success Consulting',
       body:
         'Workflow improvement, offer structuring, client value propositions, CRM strategy, process automation and scalable practice growth.',
+      detail:
+        'We refine how the practice actually runs, so growth does not add friction. Working across workflow, offer and systems, we remove the bottlenecks that quietly cap capacity and margin.',
+      includes: [
+        'Workflow and process improvement',
+        'Offer structuring and value propositions',
+        'CRM strategy and setup',
+        'Process automation',
+        'Scalable operating models',
+      ],
     },
     {
       number: '03',
       title: 'Sales Enablement & Lead Generation',
       body:
         'Compliant sales processes, funnels, paid media, referral systems, nurture journeys and conversion frameworks.',
+      detail:
+        'We build compliant, repeatable ways to win and keep clients. From first touch to referral, the sales system is documented, measurable and honest about what works.',
+      includes: [
+        'Compliant sales processes',
+        'Funnels and nurture journeys',
+        'Paid media and lead campaigns',
+        'Referral and introducer systems',
+        'Conversion frameworks',
+      ],
     },
     {
       number: '04',
       title: 'Portfolio Construction & Investment Support',
       body:
         'Research-driven portfolio design, investment modelling, dynamic allocation, custom mandates and adviser-facing investment support.',
+      detail:
+        'We support advisers and firms with research-led portfolio thinking. From modelling to mandates, the work is rigorous, documented and built to sit comfortably within your compliance obligations.',
+      includes: [
+        'Research-driven portfolio design',
+        'Investment modelling',
+        'Dynamic asset allocation',
+        'Custom mandates',
+        'Adviser-facing investment support',
+      ],
     },
     {
       number: '05',
       title: 'Financial Education & Compliance Training',
       body:
         'Financial education, training resources, documentation support, compliance-conscious process discipline and practical translation of technical concepts.',
+      detail:
+        'We make technical material usable. Complex investment, portfolio and compliance concepts become training, documentation and process discipline your team can apply day to day.',
+      includes: [
+        'Financial education programs',
+        'Training resources and materials',
+        'Documentation support',
+        'Compliance-conscious processes',
+        'Practical concept translation',
+      ],
     },
   ],
 }
 
 export const leadership = {
   eyebrow: 'Leadership',
-  heading: 'Four senior anchors.',
+  heading: 'Three senior anchors.',
   intro:
     'Every engagement is led by a principal who stays close to the work. No hand-offs to junior teams, no layers between you and the people accountable for the outcome.',
   people: [
@@ -98,14 +148,6 @@ export const leadership = {
     },
     {
       number: '3',
-      name: 'Anders Torcello',
-      role: 'Sales / Growth / Client Relations',
-      body:
-        'Anchors sales and growth capability, with more than a decade building sales programs across Australia and the United States in regulated sectors.',
-      initials: 'AT',
-    },
-    {
-      number: '4',
       name: 'Patrick Gray',
       role: 'Financial Education / Investment / Training',
       body:
@@ -181,8 +223,13 @@ export const cta = {
   heading: 'Ready for sharper operations?',
   body:
     'Start with a conversation. We will listen, ask the useful questions and tell you plainly where we think the opportunity is.',
-  primary: { label: 'Start the conversation', href: '#contact' },
-  secondary: { label: 'View services', href: '#services' },
+  primary: { label: 'Start the conversation', to: '/contact' },
+  secondary: { label: 'View services', to: '/services' },
+}
+
+export const brand = {
+  eyebrow: 'Our philosophy',
+  line: 'Combining insight with impact for sustainable business growth.',
 }
 
 export const footer = {
@@ -192,24 +239,54 @@ export const footer = {
     {
       title: 'Services',
       links: [
-        { label: 'Analytics & Performance', href: '#services' },
-        { label: 'Success Consulting', href: '#services' },
-        { label: 'Sales Enablement', href: '#services' },
-        { label: 'Portfolio Construction', href: '#services' },
-        { label: 'Education & Compliance', href: '#services' },
+        { label: 'Analytics & Performance', to: '/services' },
+        { label: 'Success Consulting', to: '/services' },
+        { label: 'Sales Enablement', to: '/services' },
+        { label: 'Portfolio Construction', to: '/services' },
+        { label: 'Education & Compliance', to: '/services' },
       ],
     },
     {
       title: 'Firm',
       links: [
-        { label: 'Leadership', href: '#leadership' },
-        { label: 'Approach', href: '#approach' },
-        { label: 'Global reach', href: '#reach' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'Leadership', to: '/leadership' },
+        { label: 'Approach', to: '/approach' },
+        { label: 'Global reach', to: '/reach' },
+        { label: 'Contact', to: '/contact' },
       ],
     },
   ],
-  details: ['GBX PS Pty Ltd', 'Melbourne, Victoria, Australia', 'ABN 00 000 000 000'],
+  details: ['GBX PS Pty Ltd', '260 Spencer Street, Melbourne VIC 3000', 'ABN 45 674 252 905'],
   disclaimer:
     'GBX PS Pty Ltd provides business consulting, analytics and training services. Information on this site is general in nature and does not constitute personal financial advice.',
+}
+
+// Per-page document titles and meta descriptions.
+export const pageMeta = {
+  home: {
+    title: 'GBX Professional Services | Business Performance Consulting, Melbourne',
+    description:
+      'Boutique business-performance and process-improvement consultancy based in Melbourne, with depth in financial-services compliance. Sharper operations. Stronger commercial outcomes.',
+  },
+  services: {
+    title: 'Services | GBX Professional Services',
+    description:
+      'Five disciplines: business analytics and performance, success consulting, sales enablement, portfolio construction and financial education and compliance training.',
+  },
+  leadership: {
+    title: 'Leadership | GBX Professional Services',
+    description: 'Senior anchors leading every GBX PS engagement across strategy, marketing and financial education.',
+  },
+  approach: {
+    title: 'Approach | GBX Professional Services',
+    description: 'A four-stage method applied with discipline: Health Check, Scope, Deliver and Sustain.',
+  },
+  reach: {
+    title: 'Global reach | GBX Professional Services',
+    description: 'Melbourne-based, working with clients across Australia, Asia, the Middle East and the United States.',
+  },
+  contact: {
+    title: 'Contact | GBX Professional Services',
+    description: 'Start a conversation with GBX PS. Tell us what you are working on and we will reply within two business days.',
+  },
 }

@@ -1,14 +1,25 @@
+import { Link } from 'react-router-dom'
 import { footer, site } from '../content.js'
-import { FramedLogo } from './Logo.jsx'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
-            <FramedLogo size={104} tone="dark" />
+            <Link to="/" className="footer__logo" aria-label="GBX Professional Services, home">
+              {/* Animated GBX mark. The GIF plays once on load and holds on the
+                  complete framed logo, so once the page has settled it reads as
+                  the resting brand logo. */}
+              <img
+                src="/media/logo-mark.gif"
+                alt="GBX Professional Services"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+            </Link>
+            <p className="footer__motto">{site.motto}</p>
             <p className="footer__blurb">{footer.blurb}</p>
           </div>
 
@@ -18,9 +29,9 @@ export default function Footer() {
               <ul>
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="footer__link">
+                    <Link to={l.to} className="footer__link">
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -28,7 +39,7 @@ export default function Footer() {
           ))}
 
           <div className="footer__col">
-            <p className="footer__title mono">Firm</p>
+            <p className="footer__title mono">Office</p>
             <ul>
               {footer.details.map((d) => (
                 <li key={d} className="footer__detail">
@@ -45,9 +56,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p className="footer__copy">
-            &copy; {year} {site.legalName}. All rights reserved.
-          </p>
+          <p className="footer__copy">{site.copyright}. All rights reserved.</p>
           <p className="footer__disclaimer">{footer.disclaimer}</p>
         </div>
       </div>

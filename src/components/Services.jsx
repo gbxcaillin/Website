@@ -1,16 +1,23 @@
+import { Link } from 'react-router-dom'
 import { services } from '../content.js'
 
-export default function Services() {
+/**
+ * Compact services grid used on the home page. `showHeading` lets a page hide the
+ * built-in section heading when it supplies its own.
+ */
+export default function Services({ showHeading = true }) {
   return (
-    <section className="section section--paper" id="services" aria-labelledby="services-heading">
+    <section className="section section--paper" aria-labelledby="services-heading">
       <div className="container">
-        <div className="section__head">
-          <p className="eyebrow">{services.eyebrow}</p>
-          <h2 id="services-heading" className="section__heading">
-            {services.heading}
-          </h2>
-          <p className="section__intro">{services.intro}</p>
-        </div>
+        {showHeading && (
+          <div className="section__head">
+            <p className="eyebrow">{services.eyebrow}</p>
+            <h2 id="services-heading" className="section__heading">
+              {services.heading}
+            </h2>
+            <p className="section__intro">{services.intro}</p>
+          </div>
+        )}
 
         <ol className="service-grid">
           {services.items.map((s) => (
@@ -20,9 +27,9 @@ export default function Services() {
               </span>
               <h3 className="service-card__title">{s.title}</h3>
               <p className="service-card__body">{s.body}</p>
-              <a href="#contact" className="text-link">
-                Discuss this service
-              </a>
+              <Link to="/services" className="text-link">
+                Learn more
+              </Link>
             </li>
           ))}
           <li className="service-card service-card--note">
@@ -32,6 +39,9 @@ export default function Services() {
               practices that operate under them. Compliance is designed into the process, not added
               at the end.
             </p>
+            <Link to="/services" className="text-link">
+              View all services
+            </Link>
           </li>
         </ol>
       </div>
