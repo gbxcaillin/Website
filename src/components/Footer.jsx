@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { footer, site } from '../content.js'
-import { FramedLogo } from './Logo.jsx'
 
 export default function Footer() {
   return (
@@ -8,8 +7,17 @@ export default function Footer() {
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
-            <Link to="/" aria-label="GBX Professional Services, home">
-              <FramedLogo size={104} tone="dark" />
+            <Link to="/" className="footer__logo" aria-label="GBX Professional Services, home">
+              {/* Animated GBX mark. The GIF plays once on load and holds on the
+                  complete framed logo, so once the page has settled it reads as
+                  the resting brand logo. */}
+              <img
+                src="/media/logo-mark.gif"
+                alt="GBX Professional Services"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
             </Link>
             <p className="footer__blurb">{footer.blurb}</p>
           </div>
@@ -30,7 +38,7 @@ export default function Footer() {
           ))}
 
           <div className="footer__col">
-            <p className="footer__title mono">Firm</p>
+            <p className="footer__title mono">Office</p>
             <ul>
               {footer.details.map((d) => (
                 <li key={d} className="footer__detail">

@@ -1442,11 +1442,17 @@ button {
   gap: 1.25rem;
 }
 
-.brand-film__video {
+.brand-film__media {
   width: clamp(200px, 34vw, 360px);
   height: auto;
   display: block;
   /* The source is void-black, so it sits seamlessly on the band. */
+}
+
+.brand-film__still {
+  display: none;
+  width: clamp(200px, 34vw, 360px);
+  height: auto;
 }
 
 .brand-film__eyebrow {
@@ -1464,15 +1470,13 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Freeze the mark: show the poster frame instead of motion. */
-  .brand-film__video {
+  /* Freeze the mark: show the still poster instead of motion (GIFs ignore this
+     preference on their own, so we swap the element out). */
+  .brand-film__media {
     display: none;
   }
-  .brand-film__inner {
-    padding-top: 1rem;
-  }
-  .brand-film::before {
-    display: none;
+  .brand-film__still {
+    display: block;
   }
 }
 
@@ -1505,4 +1509,16 @@ button {
   .reach-section .city-groups {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* Footer animated GIF logo (framed, on void black) */
+.footer__logo {
+  display: inline-block;
+  border: 1px solid var(--line-on-dark);
+  line-height: 0;
+}
+.footer__logo img {
+  display: block;
+  width: 120px;
+  height: 120px;
 }
