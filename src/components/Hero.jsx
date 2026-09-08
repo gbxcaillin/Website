@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import { hero } from '../content.js'
-import { FramedLogo } from './Logo.jsx'
-import HeroVisual from './HeroVisual.jsx'
+import officeWebp from '../assets/office.webp'
+import officeJpg from '../assets/office.jpg'
 
 export default function Hero() {
   return (
-    <section className="hero" id="top" aria-labelledby="hero-heading">
+    <section className="hero" aria-labelledby="hero-heading">
       <div className="hero__copy">
         <div className="hero__copy-inner">
           <p className="eyebrow">{hero.eyebrow}</p>
@@ -14,12 +15,12 @@ export default function Hero() {
           </h1>
           <p className="hero__body">{hero.body}</p>
           <div className="btn-row">
-            <a href={hero.primary.href} className="btn btn--primary">
+            <Link to={hero.primary.to} className="btn btn--primary">
               {hero.primary.label}
-            </a>
-            <a href={hero.secondary.href} className="btn btn--outline-dark">
+            </Link>
+            <Link to={hero.secondary.to} className="btn btn--outline-dark">
               {hero.secondary.label}
-            </a>
+            </Link>
           </div>
 
           <dl className="hero__stats">
@@ -33,16 +34,23 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero__panel" aria-hidden="true">
-        <HeroVisual />
-        <div className="hero__panel-overlay" />
-        <div className="hero__panel-line" />
-        <div className="hero__panel-logo">
-          <FramedLogo size={96} tone="dark" />
-        </div>
-        <div className="hero__panel-caption">
+      <div className="hero__panel">
+        <picture>
+          <source srcSet={officeWebp} type="image/webp" />
+          <img
+            className="hero__panel-img"
+            src={officeJpg}
+            alt="The GBX Professional Services office in Melbourne, with the firm's mark on the wall and the city skyline beyond."
+            width="1376"
+            height="768"
+            fetchPriority="high"
+          />
+        </picture>
+        <div className="hero__panel-overlay" aria-hidden="true" />
+        <div className="hero__panel-line" aria-hidden="true" />
+        <div className="hero__panel-caption" aria-hidden="true">
           <span className="mono">EST. MELBOURNE</span>
-          <span className="mono">37.81° S / 144.96° E</span>
+          <span className="mono">260 SPENCER ST</span>
         </div>
       </div>
     </section>

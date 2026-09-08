@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { cta } from '../content.js'
 
 export default function CTA() {
@@ -11,12 +12,12 @@ export default function CTA() {
           <p className="cta__body">{cta.body}</p>
         </div>
         <div className="btn-row btn-row--end">
-          <a href={cta.primary.href} className="btn btn--primary">
+          <Link to={cta.primary.to} className="btn btn--primary">
             {cta.primary.label}
-          </a>
-          <a href={cta.secondary.href} className="btn btn--outline-light">
+          </Link>
+          <Link to={cta.secondary.to} className="btn btn--outline-light">
             {cta.secondary.label}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

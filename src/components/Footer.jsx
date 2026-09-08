@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom'
 import { footer, site } from '../content.js'
 import { FramedLogo } from './Logo.jsx'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
-            <FramedLogo size={104} tone="dark" />
+            <Link to="/" aria-label="GBX Professional Services, home">
+              <FramedLogo size={104} tone="dark" />
+            </Link>
             <p className="footer__blurb">{footer.blurb}</p>
           </div>
 
@@ -18,9 +20,9 @@ export default function Footer() {
               <ul>
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="footer__link">
+                    <Link to={l.to} className="footer__link">
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -45,9 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p className="footer__copy">
-            &copy; {year} {site.legalName}. All rights reserved.
-          </p>
+          <p className="footer__copy">{site.copyright}. All rights reserved.</p>
           <p className="footer__disclaimer">{footer.disclaimer}</p>
         </div>
       </div>

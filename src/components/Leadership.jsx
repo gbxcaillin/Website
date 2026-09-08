@@ -1,16 +1,19 @@
+import { Link } from 'react-router-dom'
 import { leadership } from '../content.js'
 
-export default function Leadership() {
+export default function Leadership({ showHeading = true }) {
   return (
-    <section className="section section--soft" id="leadership" aria-labelledby="leadership-heading">
+    <section className="section section--soft" aria-labelledby="leadership-heading">
       <div className="container">
-        <div className="section__head">
-          <p className="eyebrow">{leadership.eyebrow}</p>
-          <h2 id="leadership-heading" className="section__heading">
-            {leadership.heading}
-          </h2>
-          <p className="section__intro">{leadership.intro}</p>
-        </div>
+        {showHeading && (
+          <div className="section__head">
+            <p className="eyebrow">{leadership.eyebrow}</p>
+            <h2 id="leadership-heading" className="section__heading">
+              {leadership.heading}
+            </h2>
+            <p className="section__intro">{leadership.intro}</p>
+          </div>
+        )}
 
         <ul className="people-grid">
           {leadership.people.map((p) => (
@@ -29,9 +32,9 @@ export default function Leadership() {
                 <h3 className="person-card__name">{p.name}</h3>
                 <p className="person-card__role">{p.role}</p>
                 <p className="person-card__desc">{p.body}</p>
-                <a href="#contact" className="text-link">
+                <Link to="/contact" className="text-link">
                   Work with {p.name.split(' ')[0]}
-                </a>
+                </Link>
               </div>
             </li>
           ))}

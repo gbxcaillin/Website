@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { nav } from '../content.js'
 import { Lockup } from './Logo.jsx'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -20,7 +22,10 @@ export default function Header() {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
-  const close = () => setOpen(false)
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
 
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
@@ -30,18 +35,21 @@ export default function Header() {
         <nav className="header__nav" aria-label="Primary">
           <ul>
             {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="nav-link">
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}
+                >
                   {item.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
         </nav>
 
-        <a href="#contact" className="btn btn--primary btn--sm header__cta">
+        <Link to="/contact" className="btn btn--primary btn--sm header__cta">
           Start a conversation
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -62,16 +70,19 @@ export default function Header() {
         <nav aria-label="Mobile">
           <ul>
             {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="nav-link nav-link--mobile" onClick={close}>
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  className={({ isActive }) => `nav-link nav-link--mobile ${isActive ? 'nav-link--active' : ''}`}
+                >
                   {item.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
-          <a href="#contact" className="btn btn--primary" onClick={close}>
+          <Link to="/contact" className="btn btn--primary">
             Start a conversation
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
