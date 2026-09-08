@@ -48,7 +48,7 @@ export default function BrandFilm() {
           height="460"
         />
         <p className="eyebrow eyebrow--on-dark brand-film__eyebrow">{brand.eyebrow}</p>
-        <p className="brand-film__line">{brand.line}</p>
+        <p className="brand-film__line">&ldquo;{brand.line}&rdquo;</p>
       </div>
     </section>
   )

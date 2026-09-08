@@ -19,6 +19,7 @@ export default function Footer() {
                 loading="lazy"
               />
             </Link>
+            <p className="footer__motto">{site.motto}</p>
             <p className="footer__blurb">{footer.blurb}</p>
           </div>
 

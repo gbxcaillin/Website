@@ -11,6 +11,7 @@ export const site = {
   address: '260 Spencer Street, Melbourne VIC 3000',
   abn: '45 674 252 905',
   copyright: 'Copyright GBX PS Pty Ltd 2025',
+  motto: 'Combining insight with impact for sustainable business growth.',
   // Replace with your real Formspree endpoint, e.g. https://formspree.io/f/abcdwxyz
   formspreeEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
 }
@@ -227,8 +228,8 @@ export const cta = {
 }
 
 export const brand = {
-  eyebrow: 'The GBX mark',
-  line: 'Discipline you can see. Outcomes you can measure.',
+  eyebrow: 'Our philosophy',
+  line: 'Combining insight with impact for sustainable business growth.',
 }
 
 export const footer = {
