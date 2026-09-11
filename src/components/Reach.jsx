@@ -29,7 +29,7 @@ export default function Reach({ showHeading = true }) {
           <img
             className="reach-band__img"
             src={citiesJpg}
-            alt="Night skylines of the cities GBX PS works across: Melbourne, Sydney, Brisbane, Adelaide, Singapore, Dubai, Boston, New York and Hong Kong."
+            alt="Night skylines of hubs in the GBX partner network: Melbourne, Sydney, Brisbane, Adelaide, Singapore, Dubai, Boston, New York and Hong Kong."
             width="1584"
             height="672"
             loading="lazy"
