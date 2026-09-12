@@ -1,6 +1,23 @@
+import { useEffect, useRef } from 'react'
 import { approach } from '../content.js'
+import accentMp4 from '../assets/approach-accent.mp4'
+import accentPoster from '../assets/approach-accent-poster.jpg'
 
 export default function Approach({ showHeading = true }) {
+  const videoRef = useRef(null)
+
+  // The accent loops on its own; pause it for reduced-motion users (poster shows).
+  useEffect(() => {
+    const v = videoRef.current
+    if (
+      v &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      v.pause()
+    }
+  }, [])
+
   return (
     <section className="section section--dark" aria-labelledby="approach-heading">
       <div className="container">
@@ -13,7 +30,25 @@ export default function Approach({ showHeading = true }) {
             <p className="section__intro">{approach.intro}</p>
           </div>
         )}
+      </div>
 
+      {/* Full-bleed accent: the four pillars lighting up, looping. */}
+      <div className="approach-accent" aria-hidden="true">
+        <video
+          ref={videoRef}
+          className="approach-accent__media"
+          src={accentMp4}
+          poster={accentPoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          tabIndex={-1}
+        />
+      </div>
+
+      <div className="container">
         <ol className="steps">
           {approach.steps.map((step) => (
             <li key={step.number} className="step">
