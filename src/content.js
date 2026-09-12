@@ -349,6 +349,33 @@ export const toolsPage = {
   toolsHeading: 'Tools',
   tools: [
     {
+      slug: 'health-check',
+      to: '/tools/health-check',
+      name: 'Business Health Check',
+      tagline: 'A two-minute scorecard across the six areas that decide performance.',
+      body:
+        'Rate your business on finance, sales, operations, marketing, systems and AI, and see where the biggest gains are hiding. It shows you where to look. The full Health Check is where we dig in.',
+      cta: 'Start the check',
+    },
+    {
+      slug: 'unit-economics',
+      to: '/tools/unit-economics',
+      name: 'Unit Economics Calculator',
+      tagline: 'Is your growth actually profitable? Find out in a minute.',
+      body:
+        'Enter a few numbers to see your customer lifetime value, acquisition cost, the ratio between them, and how long it takes to pay back. Instant clarity on whether the model works.',
+      cta: 'Run the numbers',
+    },
+    {
+      slug: 'ai-readiness',
+      to: '/tools/ai-readiness',
+      name: 'AI Readiness Assessment',
+      tagline: 'See how ready your business really is to adopt AI.',
+      body:
+        'Five quick questions across use cases, data, process, governance and capability return a readiness tier and the gaps to close first. A clear starting point before you invest.',
+      cta: 'Assess readiness',
+    },
+    {
       slug: 'prompt-optimizer',
       href: '/tools/prompt-optimizer/',
       name: 'Prompt Optimizer',
@@ -453,6 +480,21 @@ export const pageMeta = {
     title: 'Insights | GBX Professional Services',
     description:
       'Practical articles from GBX Professional Services across AI, marketing, business analytics, sales, investment research and financial education.',
+  },
+  healthCheck: {
+    title: 'Business Health Check | GBX Professional Services',
+    description:
+      'A free two-minute scorecard across finance, sales, operations, marketing, systems and AI. See where your business is strong and where the biggest gains are hiding.',
+  },
+  unitEconomics: {
+    title: 'Unit Economics Calculator | GBX Professional Services',
+    description:
+      'A free calculator for customer lifetime value, acquisition cost, the LTV to CAC ratio and payback period. See in a minute whether your growth is profitable.',
+  },
+  aiReadiness: {
+    title: 'AI Readiness Assessment | GBX Professional Services',
+    description:
+      'A free five-question assessment of how ready your business is to adopt AI, across use cases, data, process, governance and capability, with the gaps to close first.',
   },
   contact: {
     title: 'Contact | GBX Professional Services',
