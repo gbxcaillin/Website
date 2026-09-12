@@ -395,7 +395,7 @@ export const toolsPage = {
       cta: 'Open the tool',
     },
   ],
-  insightsHeading: 'Insights',
+  insightsHeading: 'Recent insights',
   insightsEmpty: 'More articles are on the way.',
 }
 

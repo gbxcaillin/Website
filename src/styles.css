@@ -2533,3 +2533,7 @@ button {
   line-height: 1.4;
   color: var(--ink);
 }
+
+.insights-more {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
