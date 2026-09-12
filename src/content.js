@@ -362,40 +362,9 @@ export const toolsPage = {
   insightsEmpty: 'More articles are on the way.',
 }
 
-// Articles. Add new entries to the top of the list. Each `body` paragraph is plain text.
-export const articles = [
-  {
-    slug: 'writing-prompts-that-work',
-    title: 'How to write AI prompts that actually work',
-    date: '2025-09-12',
-    readingTime: '6 min read',
-    summary:
-      'Most AI disappointment is a prompting problem, not a model problem. A simple, repeatable structure gets you dramatically better results, and our Prompt Optimizer builds on it, tailoring the prompt to the specific AI model you are using.',
-    tool: {
-      href: '/tools/prompt-optimizer/',
-      heading: 'Try it without the hand-assembly',
-      body: 'Our Prompt Optimizer applies this structure for you and tailors the result to the specific AI model you are using.',
-      label: 'Open the Prompt Optimizer',
-    },
-    body: [
-      { type: 'p', text: 'If you have ever asked an AI for help and got back something vague, generic or subtly wrong, the model is usually not the problem. The prompt is. A large language model can only work with what you give it, and most prompts give it far too little to go on.' },
-      { type: 'p', text: 'The good news is that better prompting is a skill, not a talent. A handful of habits will lift the quality of almost everything you get back. Here is the structure we use, and the one our Prompt Optimizer builds for you automatically.' },
-      { type: 'h', text: 'Give it a role' },
-      { type: 'p', text: 'Start by telling the model who it should be. "You are a senior financial-services compliance analyst" produces a very different answer to no framing at all. A role sets the vocabulary, the depth and the assumptions the model brings to the task.' },
-      { type: 'h', text: 'Supply the context' },
-      { type: 'p', text: 'The model cannot see what you can see. Tell it who the output is for, what has happened so far, and any constraints that matter. A paragraph of context is often worth more than a page of instructions.' },
-      { type: 'h', text: 'State the task plainly' },
-      { type: 'p', text: 'Be specific about the one thing you want. "Summarise this in five bullet points a busy director can scan" beats "help me with this". If there are several things, number them, and consider running them as separate prompts.' },
-      { type: 'h', text: 'Set the constraints' },
-      { type: 'p', text: 'Length, tone, what to avoid, the audience, the reading level. Constraints are not limits on the model, they are how you get the specific answer you actually need instead of a plausible average of everything.' },
-      { type: 'h', text: 'Describe the output format' },
-      { type: 'p', text: 'Ask for the exact shape you want to receive: a table, a list, a short email, JSON, headings. Telling the model how to lay the answer out saves you the reformatting and makes the result usable straight away.' },
-      { type: 'h', text: 'Iterate' },
-      { type: 'p', text: 'Your first prompt is a draft. Read the response, notice where it missed, and add the missing context or constraint. Two or three quick rounds will get you further than trying to write the perfect prompt in one go.' },
-      { type: 'p', text: 'Put those six habits together and you have a prompt that gives a model a real chance of being useful. If you would rather not assemble it by hand every time, our Prompt Optimizer does the work for you, and goes a step further by tailoring the result to the specific AI model you are using.' },
-    ],
-  },
-]
+// Insights articles and their categories live in insights.js (kept separate so
+// this file stays readable). Re-exported here so existing imports keep working.
+export { articles, insightCategories } from './insights.js'
 
 // Condensed home-page teasers for sections that have a full page of their own.
 // They give just enough to orient a reader and invite them to explore further.
@@ -479,6 +448,11 @@ export const pageMeta = {
     title: 'Tools & Insights | GBX Professional Services',
     description:
       'Free tools and articles from GBX Professional Services, starting with the Prompt Optimizer: turn a rough idea into a clear, well-structured AI prompt in your browser.',
+  },
+  insights: {
+    title: 'Insights | GBX Professional Services',
+    description:
+      'Practical articles from GBX Professional Services across AI, marketing, business analytics, sales, investment research and financial education.',
   },
   contact: {
     title: 'Contact | GBX Professional Services',
