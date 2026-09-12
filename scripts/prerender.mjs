@@ -145,6 +145,14 @@ const publisher = {
   logo: { '@type': 'ImageObject', url: SITE_URL + '/apple-touch-icon.png' },
 }
 
+function toolPageBody(slug, meta) {
+  const t = C.toolsPage.tools.find((x) => x.slug === slug)
+  return `<main><p>Tools</p><h1>${esc(t ? t.name : meta.title)}</h1>
+    ${t ? `<p>${esc(t.tagline)}</p><p>${esc(t.body)}</p>` : `<p>${esc(meta.description)}</p>`}
+    <p>Runs entirely in your browser. Nothing you enter is sent anywhere.</p>
+    <a href="/contact">Start a conversation</a></main>`
+}
+
 const routes = [
   { path: '/', meta: C.pageMeta.home, body: homeBody() },
   { path: '/services', meta: C.pageMeta.services, body: servicesBody() },
@@ -152,6 +160,9 @@ const routes = [
   { path: '/approach', meta: C.pageMeta.approach, body: approachBody() },
   { path: '/reach', meta: C.pageMeta.reach, body: reachBody() },
   { path: '/tools', meta: C.pageMeta.tools, body: toolsBody() },
+  { path: '/tools/health-check', meta: C.pageMeta.healthCheck, body: toolPageBody('health-check', C.pageMeta.healthCheck) },
+  { path: '/tools/unit-economics', meta: C.pageMeta.unitEconomics, body: toolPageBody('unit-economics', C.pageMeta.unitEconomics) },
+  { path: '/tools/ai-readiness', meta: C.pageMeta.aiReadiness, body: toolPageBody('ai-readiness', C.pageMeta.aiReadiness) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
 ]
