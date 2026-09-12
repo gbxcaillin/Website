@@ -99,17 +99,17 @@ export const services = {
     },
     {
       number: '04',
-      title: 'Investment Operations & Adviser Support',
+      title: 'Investment Frameworks & Adviser Support',
       body:
-        'Operational and analytical support for licensed advisers and investment firms: research collation, modelling assistance, reporting and documentation. Support only, not financial product advice.',
+        'Frameworks, tools, education and support for advice firms and investment managers working to achieve specific investment outcomes for their clients. Support only, not financial product advice.',
       detail:
-        'We give licensed advisers and investment businesses operational and analytical horsepower: collating research, supporting models, and tightening reporting, documentation and process. The regulated work, financial product advice, dealing and portfolio management, stays with the appropriately licensed professionals we support. GBX PS does not hold an AFSL and does not provide financial product advice or any other financial service.',
+        'We give advice firms and investment managers the frameworks, tools, education and operational support to pursue specific investment outcomes for their clients. The regulated decisions, financial product advice, dealing and portfolio management, stay with those licensed businesses. GBX PS does not hold an AFSL and does not provide financial product advice or any other financial service.',
       includes: [
-        'Research collation and support',
-        'Modelling and analysis assistance',
-        'Reporting and documentation',
-        'Process and workflow for advice teams',
-        'Support for licensed advisers and firms',
+        'Investment frameworks and tools',
+        'Modelling and analysis support',
+        'Research collation and reporting',
+        'Education for advice and investment teams',
+        'Support for advice firms and investment managers',
       ],
     },
     {
@@ -220,7 +220,7 @@ export const contact = {
     'Business analytics and performance',
     'Business success consulting',
     'Sales enablement and lead generation',
-    'Investment operations and adviser support',
+    'Investment frameworks and adviser support',
     'Financial and compliance education',
     'Not sure yet',
   ],
@@ -249,7 +249,7 @@ export const footer = {
         { label: 'Analytics & Performance', to: '/services' },
         { label: 'Success Consulting', to: '/services' },
         { label: 'Sales Enablement', to: '/services' },
-        { label: 'Investment Operations', to: '/services' },
+        { label: 'Investment Frameworks', to: '/services' },
         { label: 'Education & Compliance', to: '/services' },
       ],
     },
@@ -278,7 +278,7 @@ export const pageMeta = {
   services: {
     title: 'Services | GBX Professional Services',
     description:
-      'Five service lines: business analytics and performance, success consulting, sales enablement, investment operations and adviser support, and financial and compliance education.',
+      'Five service lines: business analytics and performance, success consulting, sales enablement, investment frameworks and adviser support, and financial and compliance education.',
   },
   leadership: {
     title: 'Leadership | GBX Professional Services',
