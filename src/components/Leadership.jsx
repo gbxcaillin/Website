@@ -29,8 +29,9 @@ export default function Leadership({ showHeading = true }) {
                 <span className="person-card__line" />
               </div>
               <div className="person-card__body">
+                <p className="person-card__lead">{p.lead}</p>
                 <h3 className="person-card__name">{p.name}</h3>
-                <p className="person-card__role">{p.role}</p>
+                <p className="person-card__role mono">{p.role}</p>
                 <p className="person-card__desc">{p.body}</p>
                 <Link to="/contact" className="text-link">
                   Work with {p.name.split(' ')[0]}

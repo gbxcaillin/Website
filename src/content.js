@@ -41,14 +41,14 @@ export const hero = {
   secondary: { label: 'Our services', to: '/services' },
   stats: [
     { value: 'Global', label: 'Partner network' },
-    { value: '05', label: 'Service lines' },
+    { value: '06', label: 'Service lines' },
     { value: '04', label: 'Stage method' },
   ],
 }
 
 export const services = {
   eyebrow: 'What we do',
-  heading: 'Five disciplines, one operating view.',
+  heading: 'Six disciplines, one operating view.',
   intro:
     'Each engagement draws on the capability it needs. Most clients start with one service and extend into the others as the operating picture becomes clearer.',
   items: [
@@ -127,37 +127,55 @@ export const services = {
         'Practical concept translation',
       ],
     },
+    {
+      number: '06',
+      title: 'Business AI Readiness',
+      body:
+        'Assessment and roadmap for adopting AI with discipline: where it adds value, what to prepare, and how to govern it. Data, process, risk and capability, made ready.',
+      detail:
+        'We help businesses move from AI curiosity to practical, governed adoption. We assess where AI genuinely creates value, ready your data, processes and people, and put the guardrails, governance and skills in place so adoption is safe, useful and worth it. Vendor-neutral and outcome-led.',
+      includes: [
+        'AI opportunity and value assessment',
+        'Data and process readiness',
+        'Governance, risk and compliance guardrails',
+        'Tooling and vendor evaluation',
+        'Team capability and training',
+      ],
+    },
   ],
 }
 
 export const leadership = {
   eyebrow: 'Leadership',
-  heading: 'Three senior anchors.',
+  heading: 'Three leaders, one standard.',
   intro:
-    'Every engagement is led by a principal who stays close to the work. No hand-offs to junior teams, no layers between you and the people accountable for the outcome.',
+    'We are led, not layered. Every engagement is run by one of our leaders, close to the work and accountable for the outcome. No hand-offs to junior teams, no distance between you and the people doing the thinking.',
   people: [
     {
       number: '1',
       name: 'Caillin Clyne',
+      lead: 'Systems Leader',
       role: 'Strategy / Analytics / Commercial',
       body:
-        'Anchors strategic, analytical and commercial capability, bringing portfolio-level thinking, commercial judgement and operating discipline to how client businesses are structured and run.',
+        'Leads strategy, analytics and commercial capability, bringing portfolio-level thinking, commercial judgement and operating discipline to how client businesses are structured and run.',
       initials: 'CC',
     },
     {
       number: '2',
       name: 'Rose Sunny',
+      lead: 'Thought Leader',
       role: 'Creative / Marketing / Brand',
       body:
-        'Anchors creative and marketing capability, translating strategy into client-facing material, digital campaigns, brand assets and growth content.',
+        'Leads creative and marketing capability, translating strategy into client-facing material, digital campaigns, brand assets and growth content.',
       initials: 'RS',
     },
     {
       number: '3',
       name: 'Patrick Gray',
+      lead: 'Education Leader',
       role: 'Financial Education / Compliance / Training',
       body:
-        'Anchors financial education and technical training capability, supported by an extensive education background and experience translating investment, portfolio and compliance concepts into practical, general learning.',
+        'Leads financial education and technical training capability, supported by an extensive education background and experience translating investment, portfolio and compliance concepts into practical, general learning.',
       initials: 'PG',
     },
   ],
@@ -222,6 +240,7 @@ export const contact = {
     'Sales enablement and lead generation',
     'Investment frameworks and adviser support',
     'Financial and compliance education',
+    'Business AI readiness',
     'Not sure yet',
   ],
 }
@@ -251,6 +270,7 @@ export const footer = {
         { label: 'Sales Enablement', to: '/services' },
         { label: 'Investment Frameworks', to: '/services' },
         { label: 'Education & Compliance', to: '/services' },
+        { label: 'AI Readiness', to: '/services' },
       ],
     },
     {
@@ -278,11 +298,11 @@ export const pageMeta = {
   services: {
     title: 'Services | GBX Professional Services',
     description:
-      'Five service lines: business analytics and performance, success consulting, sales enablement, investment frameworks and adviser support, and financial and compliance education.',
+      'Five service lines: business analytics and performance, success consulting, sales enablement, investment frameworks and adviser support, financial and compliance education, and business AI readiness.',
   },
   leadership: {
     title: 'Leadership | GBX Professional Services',
-    description: 'Senior anchors leading every GBX PS engagement across strategy, marketing, and financial education.',
+    description: 'The leaders behind every GBX PS engagement: a systems leader, a thought leader and an education leader.',
   },
   approach: {
     title: 'Approach | GBX Professional Services',

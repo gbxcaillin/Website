@@ -831,13 +831,22 @@ button {
   font-size: 1.6rem;
 }
 
-.person-card__role {
+/* Leader title, e.g. "Systems Leader" */
+.person-card__lead {
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 0.66rem;
-  letter-spacing: 0.18em;
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gbx-teal);
+}
+
+/* Discipline breakdown under the name, quieter than the leader title */
+.person-card__role {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  text-transform: none;
 }
 
 .person-card__desc {
