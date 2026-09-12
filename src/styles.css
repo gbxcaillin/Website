@@ -1442,14 +1442,14 @@ button {
    Media assets: hero photo, brand film, city band
    ========================================================================== */
 
-/* Hero panel now carries a real photograph */
+/* Hero panel now carries a real photograph, cropped to keep the GBX logo in view */
 .hero__panel-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 30% center;
 }
 
 /* Brand film: the animated GBX mark on void black */
@@ -1634,4 +1634,22 @@ button {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* Short, wide screens (laptops): compress the hero so the buttons and stats sit
+   above the fold instead of overflowing and feeling cramped. */
+@media (min-width: 900px) and (max-height: 900px) {
+  .hero__copy {
+    padding-block: clamp(1.5rem, 3vh, 2.5rem);
+  }
+  .hero__heading {
+    font-size: clamp(2.4rem, 4vw, 3.7rem);
+    margin: 0.75rem 0 1.25rem;
+  }
+  .hero__body {
+    margin-bottom: 1.4rem;
+  }
+  .hero__stats {
+    margin-top: 2rem;
+  }
 }
