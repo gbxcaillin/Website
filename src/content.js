@@ -280,6 +280,27 @@ export const brand = {
   line: 'Combining insight with impact for sustainable business growth.',
 }
 
+// Condensed home-page teasers for sections that have a full page of their own.
+// They give just enough to orient a reader and invite them to explore further.
+export const homeSummaries = {
+  approach: {
+    eyebrow: 'How we work',
+    heading: 'A four-stage method.',
+    line:
+      'The same disciplined path underpins every engagement, from a two-week diagnostic to a multi-year partnership.',
+    stages: ['Health Check', 'Scope', 'Deliver', 'Sustain'],
+    link: { label: 'See how we work', to: '/approach' },
+  },
+  reach: {
+    eyebrow: 'Global reach',
+    heading: 'Melbourne-based, delivering globally.',
+    line:
+      'A network of trusted partners and associates across Australia, Asia, the Middle East and North America brings local presence to global work.',
+    stat: 'AU · Asia · Middle East · North America',
+    link: { label: 'Explore our reach', to: '/reach' },
+  },
+}
+
 export const footer = {
   blurb:
     'Boutique business-performance and process-improvement consultancy in Melbourne, working with professional-services and financial-services businesses.',
