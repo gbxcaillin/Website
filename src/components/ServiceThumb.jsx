@@ -16,6 +16,7 @@ export default function ServiceThumb({ thumb }) {
           className="svc-thumb__media"
           src={thumb.mp4}
           poster={thumb.poster}
+          autoPlay
           muted
           loop
           playsInline
