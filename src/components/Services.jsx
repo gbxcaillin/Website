@@ -35,9 +35,9 @@ export default function Services({ showHeading = true }) {
           <li className="service-card service-card--note">
             <p className="eyebrow">Regulated sectors</p>
             <p className="service-card__body">
-              We have particular depth with Australian Financial Services Licence holders and the
-              practices that operate under them. Compliance is designed into the process, not added
-              at the end.
+              We work alongside Australian Financial Services Licence holders and the practices that
+              operate under them, strengthening the business around their obligations. GBX PS is not
+              an AFSL holder and does not provide financial services.
             </p>
             <Link to="/services" className="text-link">
               View all services
