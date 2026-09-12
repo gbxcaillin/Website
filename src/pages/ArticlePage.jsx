@@ -48,6 +48,18 @@ export default function ArticlePage() {
           )}
         </div>
 
+        {article.tool && (
+          <aside className="article-tool">
+            <div>
+              <h2 className="article-tool__heading">{article.tool.heading}</h2>
+              <p className="article-tool__body">{article.tool.body}</p>
+            </div>
+            <a href={article.tool.href} className="btn btn--primary btn--sm article-tool__cta">
+              {article.tool.label}
+            </a>
+          </aside>
+        )}
+
         <p className="article__back">
           <Link to="/tools" className="text-link">
             Back to Tools &amp; Insights

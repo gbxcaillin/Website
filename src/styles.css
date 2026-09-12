@@ -1939,6 +1939,30 @@ button {
   line-height: 1.7;
   color: var(--ink);
 }
+.article-tool {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--gbx-soft);
+  border: 1px solid var(--line);
+}
+.article-tool__heading {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+}
+.article-tool__body {
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+.article-tool__cta {
+  flex: none;
+}
 .article__back {
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
   padding-top: 1.5rem;
