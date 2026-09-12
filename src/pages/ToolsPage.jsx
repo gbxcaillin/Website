@@ -25,9 +25,15 @@ export default function ToolsPage() {
                 <h2 className="tool-card__name">{t.name}</h2>
                 <p className="tool-card__tagline">{t.tagline}</p>
                 <p className="tool-card__body">{t.body}</p>
-                <Link to={t.to} className="btn btn--primary btn--sm tool-card__cta">
-                  {t.cta}
-                </Link>
+                {t.href ? (
+                  <a href={t.href} className="btn btn--primary btn--sm tool-card__cta">
+                    {t.cta}
+                  </a>
+                ) : (
+                  <Link to={t.to} className="btn btn--primary btn--sm tool-card__cta">
+                    {t.cta}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
