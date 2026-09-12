@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { contact, site } from '../content.js'
+import conversationWebp from '../assets/contact-conversation.webp'
+import conversationJpg from '../assets/contact-conversation.jpg'
 
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
@@ -58,6 +60,13 @@ export default function Contact() {
               <dd>Monday to Friday, 9am to 5.30pm AEST</dd>
             </div>
           </dl>
+
+          <div className="contact__image" aria-hidden="true">
+            <picture>
+              <source srcSet={conversationWebp} type="image/webp" />
+              <img src={conversationJpg} alt="" width="1000" height="667" loading="lazy" />
+            </picture>
+          </div>
         </div>
 
         <form

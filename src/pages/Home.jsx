@@ -2,6 +2,7 @@ import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta } from '../content.js'
 import Hero from '../components/Hero.jsx'
 import Services from '../components/Services.jsx'
+import Divider from '../components/Divider.jsx'
 import Approach from '../components/Approach.jsx'
 import BrandFilm from '../components/BrandFilm.jsx'
 import Reach from '../components/Reach.jsx'
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <Hero />
       <Services />
+      <Divider />
       <Approach />
       <BrandFilm />
       <Reach />
