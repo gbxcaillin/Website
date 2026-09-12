@@ -23,8 +23,9 @@ export const site = {
   abn: '45 674 252 905',
   copyright: 'Copyright GBX PS Pty Ltd 2025',
   motto: 'Combining insight with impact for sustainable business growth.',
-  // Replace with your real Formspree endpoint, e.g. https://formspree.io/f/abcdwxyz
-  formspreeEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+  // Tool and contact submissions POST here (Cloudflare Pages Function).
+  // See docs/lead-capture-setup.md.
+  leadEndpoint: '/api/tool-lead',
 }
 
 // Primary navigation. Each item routes to a page.

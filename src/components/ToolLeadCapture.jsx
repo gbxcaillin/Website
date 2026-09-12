@@ -22,17 +22,17 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
     if (form._gotcha && form._gotcha.value) return // honeypot
     setStatus('sending')
     try {
-      const fd = new FormData()
-      fd.append('email', email)
-      fd.append('tool', toolName)
-      fd.append('_subject', `Tool lead: ${toolName}`)
-      Object.entries(data || {}).forEach(([k, v]) => fd.append(k, String(v)))
-      fd.append('summary', findingsText)
-      fd.append('page', typeof window !== 'undefined' ? window.location.href : '')
-      const res = await fetch(site.formspreeEndpoint, {
+      const res = await fetch(site.leadEndpoint, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: fd,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          kind: 'tool',
+          source: toolName,
+          email,
+          fields: data || {},
+          summary: findingsText,
+          page: typeof window !== 'undefined' ? window.location.href : '',
+        }),
       })
       setStatus(res.ok ? 'sent' : 'error')
     } catch {

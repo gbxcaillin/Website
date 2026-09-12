@@ -16,10 +16,21 @@ export default function Contact() {
 
     setStatus('sending')
     try {
-      const res = await fetch(site.formspreeEndpoint, {
+      const res = await fetch(site.leadEndpoint, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          kind: 'contact',
+          source: 'Contact enquiry',
+          email: data.get('email') || '',
+          name: data.get('name') || '',
+          fields: {
+            organisation: data.get('organisation') || '',
+            interests: data.getAll('interest'),
+          },
+          summary: data.get('message') || '',
+          page: typeof window !== 'undefined' ? window.location.href : '',
+        }),
       })
       if (res.ok) {
         setStatus('sent')
@@ -71,7 +82,7 @@ export default function Contact() {
 
         <form
           className="form"
-          action={site.formspreeEndpoint}
+          action={site.leadEndpoint}
           method="POST"
           onSubmit={onSubmit}
           aria-describedby="form-status"
@@ -113,7 +124,6 @@ export default function Contact() {
           </label>
 
           <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" className="visually-hidden" aria-hidden="true" />
-          <input type="hidden" name="_subject" value="New enquiry via gbxps.com" />
 
           <div className="form__footer">
             <button type="submit" className="btn btn--primary" disabled={status === 'sending'}>
