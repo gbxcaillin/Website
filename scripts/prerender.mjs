@@ -163,6 +163,7 @@ const routes = [
   { path: '/tools/health-check', meta: C.pageMeta.healthCheck, body: toolPageBody('health-check', C.pageMeta.healthCheck) },
   { path: '/tools/unit-economics', meta: C.pageMeta.unitEconomics, body: toolPageBody('unit-economics', C.pageMeta.unitEconomics) },
   { path: '/tools/ai-readiness', meta: C.pageMeta.aiReadiness, body: toolPageBody('ai-readiness', C.pageMeta.aiReadiness) },
+  { path: '/tools/positioning', meta: C.pageMeta.positioning, body: toolPageBody('positioning', C.pageMeta.positioning) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
 ]

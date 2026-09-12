@@ -2505,3 +2505,31 @@ button {
   line-height: 1.6;
   margin: 0.5rem 0 1rem;
 }
+
+/* Positioning Statement Builder outputs */
+.pos-outputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.pos-block {
+  border: 1px solid var(--line);
+  background: var(--gbx-paper);
+  padding: 1rem 1.1rem;
+}
+.pos-block__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.pos-block__copy {
+  font-size: 0.68rem;
+}
+.pos-block__text {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--ink);
+}

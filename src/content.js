@@ -376,6 +376,15 @@ export const toolsPage = {
       cta: 'Assess readiness',
     },
     {
+      slug: 'positioning',
+      to: '/tools/positioning',
+      name: 'Positioning Statement Builder',
+      tagline: 'Turn what you do into one clear, repeatable sentence.',
+      body:
+        'Answer six short prompts and get a positioning statement, a one-line pitch and an elevator version you can use straight away. Clear positioning is the foundation. Sharpening it is where we help.',
+      cta: 'Build your statement',
+    },
+    {
       slug: 'prompt-optimizer',
       href: '/tools/prompt-optimizer/',
       name: 'Prompt Optimizer',
@@ -495,6 +504,11 @@ export const pageMeta = {
     title: 'AI Readiness Assessment | GBX Professional Services',
     description:
       'A free five-question assessment of how ready your business is to adopt AI, across use cases, data, process, governance and capability, with the gaps to close first.',
+  },
+  positioning: {
+    title: 'Positioning Statement Builder | GBX Professional Services',
+    description:
+      'A free tool that turns six short answers into a clear positioning statement, a one-line pitch and an elevator version you can use straight away. Runs in your browser.',
   },
   contact: {
     title: 'Contact | GBX Professional Services',
