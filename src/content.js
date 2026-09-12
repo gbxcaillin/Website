@@ -34,22 +34,20 @@ export const nav = [
   { label: 'Leadership', to: '/leadership' },
   { label: 'Approach', to: '/approach' },
   { label: 'Reach', to: '/reach' },
+  { label: 'Tools & Insights', to: '/tools' },
   { label: 'Contact', to: '/contact' },
 ]
 
 export const hero = {
   eyebrow: 'Business performance and process improvement',
-  heading: 'Sharper operations.',
-  subheading: 'Stronger commercial outcomes.',
+  // One clear statement rather than a stacked title/subtitle. The accent phrase
+  // is the second half of the same sentence, in teal, not a separate line.
+  heading: 'We help your business ',
+  subheading: 'run sharper and grow with discipline.',
   body:
-    'GBX Professional Services is a boutique consultancy based in Melbourne. We help professional-services firms, advice practices and other regulated businesses run more clearly, sell more confidently and grow with discipline.',
+    'GBX Professional Services is a boutique consultancy in Melbourne. We work with professional-services firms, advice practices and other regulated businesses to sharpen how they operate, sell and grow, one clear step at a time.',
   primary: { label: 'Start a conversation', to: '/contact' },
   secondary: { label: 'Our services', to: '/services' },
-  stats: [
-    { value: 'Global', label: 'Partner network' },
-    { value: '07', label: 'Service lines' },
-    { value: '04', label: 'Stage method' },
-  ],
 }
 
 export const services = {
@@ -206,29 +204,63 @@ export const approach = {
   eyebrow: 'How we work',
   heading: 'A four-stage method, applied with discipline.',
   intro:
-    'The same structure underpins every engagement, from a two-week diagnostic to a multi-year operating partnership. It keeps the work honest and the outcomes measurable.',
+    'The same structure underpins every engagement, from a two-week diagnostic to a multi-year operating partnership. It keeps the work honest, the priorities clear and the outcomes measurable, so you always know what we are doing, why, and what it is worth.',
   steps: [
     {
       number: '01',
       title: 'Health Check',
       body: 'Assess current state, uncover opportunities and define priorities.',
+      detail:
+        'We start by understanding how the business actually runs today. Through interviews, a review of your numbers, systems and processes, and time with the people doing the work, we build an honest picture of what is working, what is holding you back, and where the fastest, most durable gains sit. You finish this stage with a clear, prioritised view of the opportunity, not a generic report.',
     },
     {
       number: '02',
       title: 'Scope',
       body: 'Shape a practical roadmap with clear deliverables and success metrics.',
+      detail:
+        'With priorities agreed, we shape a practical roadmap: what we will do, in what order, who owns each piece, and how we will measure success. We size the work to your capacity and appetite, from a focused sprint to a staged program, so the plan is ambitious enough to matter and realistic enough to deliver.',
     },
     {
       number: '03',
       title: 'Deliver',
       body: 'Execute with discipline, transparency and a focus on useful outcomes.',
+      detail:
+        'We do the work alongside your team, not at a distance from it. Dashboards get built, processes get redesigned, systems get implemented and people get supported through the change. Progress is transparent and measured against the metrics we set, so momentum is visible and course corrections happen early rather than late.',
     },
     {
       number: '04',
       title: 'Sustain',
       body: 'Embed capability, monitor outcomes and refine the system over time.',
+      detail:
+        'Improvement that leaves when we do is not improvement. We embed the capability, documentation and reporting rhythm that let the gains hold, train your people to own the new way of working, and stay available to refine the system as the business grows. The goal is a business that runs better without depending on us.',
     },
   ],
+  principles: {
+    eyebrow: 'What guides the work',
+    heading: 'Principles we hold to.',
+    items: [
+      {
+        title: 'Clarity over complexity',
+        body:
+          'We favour simple, well-run systems that your team can actually operate over clever ones that only a consultant can. If it cannot be explained plainly, it is not finished.',
+      },
+      {
+        title: 'Evidence, not opinion',
+        body:
+          'Decisions are grounded in your numbers and your context. We benchmark, measure and report so progress is a matter of record, not of persuasion.',
+      },
+      {
+        title: 'Compliance-aware by default',
+        body:
+          'Many of our clients operate under real regulatory obligations. We design around those obligations from the start, so growth never comes at the cost of the licence.',
+      },
+      {
+        title: 'Capability that stays',
+        body:
+          'We aim to make ourselves unnecessary. Every engagement leaves your team more capable, better equipped and less dependent on outside help.',
+      },
+    ],
+  },
 }
 
 export const reach = {
@@ -248,6 +280,32 @@ export const reach = {
     { name: 'Boston', region: 'North America' },
     { name: 'New York', region: 'North America' },
   ],
+  details: {
+    eyebrow: 'How the network works',
+    heading: 'Local presence, one accountable team.',
+    items: [
+      {
+        title: 'Led from Melbourne',
+        body:
+          'Every engagement is led and owned from our Melbourne base. You have one accountable point of contact and one standard of work, wherever the engagement happens to run.',
+      },
+      {
+        title: 'A trusted partner network',
+        body:
+          'When work benefits from people on the ground, we draw on a network of trusted partners and associates across Australia, Asia, the Middle East and North America. They extend our reach without diluting our accountability.',
+      },
+      {
+        title: 'In person, remote or blended',
+        body:
+          'We work the way the engagement needs. On site when presence matters, remote when it does not, and a considered blend of the two for most long-running programs.',
+      },
+      {
+        title: 'Built for regulated, cross-border work',
+        body:
+          'We are used to the demands of professional and regulated businesses operating across jurisdictions, and we structure engagements so obligations in each market are respected.',
+      },
+    ],
+  },
 }
 
 export const contact = {
@@ -255,6 +313,8 @@ export const contact = {
   heading: 'Tell us what you are working on.',
   intro:
     'A short note is enough. We will reply within two business days with a view on whether we can help and what a first conversation might look like.',
+  interestsLabel: 'Which services are you interested in?',
+  interestsHint: 'Select any that apply.',
   interests: [
     'Business analytics and performance',
     'Business success consulting',
@@ -279,6 +339,57 @@ export const brand = {
   eyebrow: 'Our philosophy',
   line: 'Combining insight with impact for sustainable business growth.',
 }
+
+// Tools & Insights: a hub for practical tools we have built and articles worth sharing.
+export const toolsPage = {
+  eyebrow: 'Tools & Insights',
+  heading: 'Practical tools and ideas worth sharing.',
+  intro:
+    'A growing collection of free tools we have built and articles from our work. No sign-up, no sales pitch, just things we think are genuinely useful.',
+  toolsHeading: 'Tools',
+  tools: [
+    {
+      slug: 'prompt-optimizer',
+      to: '/tools/prompt-optimizer',
+      name: 'Prompt Optimizer',
+      tagline: 'Turn a rough idea into a clear, well-structured AI prompt.',
+      body:
+        'Paste what you want an AI to do and the optimizer rewrites it into a structured prompt with role, context, task, constraints and output format. Runs entirely in your browser. Nothing you type is sent anywhere.',
+      cta: 'Open the tool',
+    },
+  ],
+  insightsHeading: 'Insights',
+  insightsEmpty: 'More articles are on the way.',
+}
+
+// Articles. Add new entries to the top of the list. Each `body` paragraph is plain text.
+export const articles = [
+  {
+    slug: 'writing-prompts-that-work',
+    title: 'How to write AI prompts that actually work',
+    date: '2025-09-12',
+    readingTime: '6 min read',
+    summary:
+      'Most AI disappointment is a prompting problem, not a model problem. A simple, repeatable structure gets you dramatically better results, and it is the same structure our Prompt Optimizer applies.',
+    body: [
+      { type: 'p', text: 'If you have ever asked an AI for help and got back something vague, generic or subtly wrong, the model is usually not the problem. The prompt is. A large language model can only work with what you give it, and most prompts give it far too little to go on.' },
+      { type: 'p', text: 'The good news is that better prompting is a skill, not a talent. A handful of habits will lift the quality of almost everything you get back. Here is the structure we use, and the one our Prompt Optimizer builds for you automatically.' },
+      { type: 'h', text: 'Give it a role' },
+      { type: 'p', text: 'Start by telling the model who it should be. "You are a senior financial-services compliance analyst" produces a very different answer to no framing at all. A role sets the vocabulary, the depth and the assumptions the model brings to the task.' },
+      { type: 'h', text: 'Supply the context' },
+      { type: 'p', text: 'The model cannot see what you can see. Tell it who the output is for, what has happened so far, and any constraints that matter. A paragraph of context is often worth more than a page of instructions.' },
+      { type: 'h', text: 'State the task plainly' },
+      { type: 'p', text: 'Be specific about the one thing you want. "Summarise this in five bullet points a busy director can scan" beats "help me with this". If there are several things, number them, and consider running them as separate prompts.' },
+      { type: 'h', text: 'Set the constraints' },
+      { type: 'p', text: 'Length, tone, what to avoid, the audience, the reading level. Constraints are not limits on the model, they are how you get the specific answer you actually need instead of a plausible average of everything.' },
+      { type: 'h', text: 'Describe the output format' },
+      { type: 'p', text: 'Ask for the exact shape you want to receive: a table, a list, a short email, JSON, headings. Telling the model how to lay the answer out saves you the reformatting and makes the result usable straight away.' },
+      { type: 'h', text: 'Iterate' },
+      { type: 'p', text: 'Your first prompt is a draft. Read the response, notice where it missed, and add the missing context or constraint. Two or three quick rounds will get you further than trying to write the perfect prompt in one go.' },
+      { type: 'p', text: 'Put those six habits together and you have a prompt that gives a model a real chance of being useful. If you would rather not assemble it by hand every time, our Prompt Optimizer does exactly this: you describe the task, and it returns a structured prompt you can copy straight into your AI of choice.' },
+    ],
+  },
+]
 
 // Condensed home-page teasers for sections that have a full page of their own.
 // They give just enough to orient a reader and invite them to explore further.
@@ -323,6 +434,7 @@ export const footer = {
         { label: 'Leadership', to: '/leadership' },
         { label: 'Approach', to: '/approach' },
         { label: 'Global reach', to: '/reach' },
+        { label: 'Tools & Insights', to: '/tools' },
         { label: 'Contact', to: '/contact' },
       ],
     },
@@ -356,6 +468,16 @@ export const pageMeta = {
     title: 'Global reach | GBX Professional Services',
     description:
       'Melbourne-based and delivering globally through a network of partners and associates across Australia, Asia, the Middle East and North America.',
+  },
+  tools: {
+    title: 'Tools & Insights | GBX Professional Services',
+    description:
+      'Free tools and articles from GBX Professional Services, starting with the Prompt Optimizer: turn a rough idea into a clear, well-structured AI prompt in your browser.',
+  },
+  promptOptimizer: {
+    title: 'Prompt Optimizer | GBX Professional Services',
+    description:
+      'A free, browser-based tool that rewrites a rough idea into a clear, well-structured AI prompt with role, context, task, constraints and output format. Nothing you type leaves your device.',
   },
   contact: {
     title: 'Contact | GBX Professional Services',
