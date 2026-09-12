@@ -498,6 +498,11 @@ const MODELS = [
   {id:"pixverse-v6",name:"PixVerse V6",type:"video",family:"PixVerse",desc:"Great for short videos",provider:"PixVerse",spec:{speed:9,anime:8,mot:7,cin:7}},
   {id:"happyhorse-1.1",name:"HappyHorse 1.1",type:"video",family:"HappyHorse",desc:"Cinematic videos with multi-shot narrative & native audio",provider:"HappyHorse",spec:{story:9,aud:9,cin:8,con:8}},
   {id:"happyhorse",name:"HappyHorse",type:"video",family:"HappyHorse",desc:"Cinematic videos with multi-shot narrative & native audio",provider:"HappyHorse",spec:{story:8,aud:8,cin:7,con:7}},
+  {id:"runway-gen-4-5",name:"Runway Gen-4.5",type:"video",family:"Runway",desc:"Cinematic model with strong physics & prompt adherence (no audio)",provider:"Runway",spec:{cin:9,mot:9,con:8,story:7,anime:6,ref:7,speed:3}},
+  {id:"luma-ray-3-2",name:"Luma Ray 3.2",type:"video",family:"Luma",desc:"Direction-first: 16 keyframes, 20s/1080p, HDR + EXR export",provider:"Luma AI",spec:{cin:8,mot:7,con:7,story:6,ref:9,speed:5}},
+  {id:"hunyuanvideo-1-5",name:"HunyuanVideo 1.5",type:"video",family:"HunyuanVideo",desc:"Open 8.3B model that runs on a consumer GPU (~14GB)",provider:"Tencent",spec:{cin:7,mot:7,con:6,anime:7,ref:6,story:5,speed:8}},
+  {id:"vidu-s1",name:"Vidu S1",type:"video",family:"Vidu",desc:"Real-time, voice-driven interactive avatar video (540p)",provider:"ShengShu",spec:{speed:10,aud:7,con:7,anime:7,mot:6,cin:4}},
+  {id:"magi-2-preview",name:"MAGI-2 Preview",type:"video",family:"MAGI",desc:"Open 114B MoE; unified audio+video in one pass (needs 8x Hopper)",provider:"Sand.ai",spec:{cin:6,mot:7,aud:7,con:6,speed:4}},
   {id:"wan-3.0-v",name:"Wan 3.0",type:"video",family:"Wan",desc:"~30s videos from documents, slides, spreadsheets & web pages",provider:"Alibaba",spec:{ref:9,story:9,cin:8,aud:8,mot:8,con:8}},
   {id:"wan-2.7-v",name:"Wan 2.7",type:"video",family:"Wan",desc:"Cinematic videos with audio & start/end frame control",provider:"Alibaba",spec:{ref:9,cin:8,aud:8,mot:8,con:8}},
   {id:"veo-3.1",name:"Veo 3.1",type:"video",family:"Veo",desc:"High fidelity videos with audio & 4K",provider:"Google DeepMind",spec:{cin:10,aud:10,mot:9,con:9,story:9}},
@@ -527,7 +532,9 @@ const MODELS = [
   {id:"vidu-q2",name:"Vidu Q2",type:"video",family:"Vidu",desc:"Great for anime scenes and storyboards",provider:"Shengshu",spec:{anime:9,story:8,ref:8}},
 
   // === IMAGE MODELS ===
-  {id:"gpt-image-2",name:"GPT Image 2",type:"image",family:"GPT Image",desc:"OpenAI's next-gen image model",provider:"OpenAI",spec:{adh:10,text:9,edit:9,design:8,photo:8,illus:8}},
+  {id:"gpt-image-2-5-sunburst",name:"GPT Image 2.5 Sunburst",type:"image",family:"GPT Image",desc:"OpenAI's top-quality tier; #1 on both arenas (Sep 2026)",provider:"OpenAI",spec:{adh:10,text:10,edit:10,design:9,photo:9,illus:8}},
+  {id:"gpt-image-2-5-flare",name:"GPT Image 2.5 Flare",type:"image",family:"GPT Image",desc:"OpenAI's fast default; ~7x faster, 4x cheaper than GPT Image 2",provider:"OpenAI",spec:{adh:10,text:10,edit:9,design:9,photo:9,illus:8,speed:8}},
+  {id:"gpt-image-2",name:"GPT Image 2",type:"image",family:"GPT Image",desc:"OpenAI's prior image model; now the value/legacy tier",provider:"OpenAI",spec:{adh:10,text:9,edit:9,design:8,photo:8,illus:8}},
   {id:"nano-banana-2-lite",name:"Nano Banana 2 Lite",type:"image",family:"Nano Banana",desc:"Google's high-efficiency image model",provider:"Google",spec:{speed:9,edit:8,photo:7,text:7}},
   {id:"nano-banana-2",name:"Nano Banana 2",type:"image",family:"Nano Banana",desc:"Google's Gemini 3.1 Flash image model",provider:"Google",spec:{edit:10,text:9,photo:9,adh:9,port:8}},
   {id:"seedream-5.0-pro",name:"Seedream 5.0 Pro",type:"image",family:"Seedream",desc:"ByteDance's flagship 5.0 image model",provider:"ByteDance",spec:{photo:9,text:9,adh:9,port:9,edit:8}},
@@ -561,14 +568,18 @@ const MODELS = [
   {id:"juggernaut-flux-pro",name:"Juggernaut Flux Pro",type:"image",family:"Juggernaut",desc:"Enhanced naturalism & fidelity",provider:"Juggernaut",spec:{photo:9,port:9}},
   {id:"openart-sdxl",name:"OpenArt SDXL",type:"image",family:"OpenArt",desc:"SDXL tuned for versatile creative imagery",provider:"OpenArt",spec:{illus:8,photo:7,design:7}},
   {id:"juggernaut-xl",name:"Juggernaut XL",type:"image",family:"Juggernaut",desc:"SDXL with strong realism and detail",provider:"Juggernaut",spec:{photo:9,port:9,illus:7}},
-  {id:"mai-image-2-5-pro",name:"MAI-Image 2.5 Pro",type:"image",family:"MAI Image",desc:"Microsoft's quality-first model; strong text & editing on the arena",provider:"Microsoft",spec:{text:9,edit:9,photo:9,adh:8,port:8,design:8}},
+  {id:"mai-image-2-6",name:"MAI-Image 2.6",type:"image",family:"MAI Image",desc:"Microsoft's newest; #1 editing at launch, 'cheapest Elo on the frontier'",provider:"Microsoft",spec:{edit:9,photo:8,text:8,adh:8,port:8,design:7}},
+  {id:"mai-image-2-6-flash",name:"MAI-Image 2.6 Flash",type:"image",family:"MAI Image",desc:"Fast high-throughput edit tier; 2.8x faster than GPT-Image-2 Medium",provider:"Microsoft",spec:{edit:8,speed:9,photo:7,text:7,adh:7}},
+  {id:"reve-2-1",name:"Reve 2.1",type:"image",family:"Reve",desc:"Layout-first, native 4K; posters, dense layouts & exact text",provider:"Reve",spec:{design:9,text:9,edit:9,adh:9,photo:7,illus:7}},
+  {id:"muse-image",name:"Muse Image",type:"image",family:"Muse",desc:"Meta's agentic model; plans, web-searches & codes charts/QR",provider:"Meta",spec:{adh:9,edit:9,photo:8,port:8,text:8,design:7,illus:7}},
+  {id:"mai-image-2-5-pro",name:"MAI-Image 2.5 Pro",type:"image",family:"MAI Image",desc:"Microsoft's prior quality-first tier",provider:"Microsoft",spec:{text:9,edit:9,photo:9,adh:8,port:8,design:8}},
   {id:"mai-image-2-5",name:"MAI-Image 2.5",type:"image",family:"MAI Image",desc:"Microsoft's image model; top-3 image editing on Arena",provider:"Microsoft",spec:{text:9,edit:8,photo:8,adh:8,port:7,design:7}},
   {id:"dynavision-xl",name:"DynaVision XL",type:"image",family:"DynaVision",desc:"Stylized 3D all-in-one SDXL checkpoint",provider:"DynaVision",spec:{illus:9,design:7}},
   {id:"flux-2-lora-realism",name:"Flux 2 LoRA Gallery Realism",type:"image",family:"Flux",desc:"Enhanced photorealism",provider:"Black Forest Labs",spec:{photo:10,port:9}},
 
   // === AUDIO / MUSIC MODELS (researched Sep 2026) ===
   // — Music generation —
-  {id:"suno-v5-5",name:"Suno v5.5",type:"audio",family:"Suno",desc:"Full songs with vocals; the category leader",provider:"Suno Inc.",spec:{song:10,inst:8,sfx:3,control:8,speed:8}},
+  {id:"suno-v5-5",name:"Suno v6",type:"audio",family:"Suno",desc:"Full songs with vocals; v6/v6-wild/v6-mini, first licensed-data generation",provider:"Suno Inc.",spec:{song:9,inst:8,sfx:3,control:9,speed:7}},
   {id:"elevenlabs-music",name:"ElevenLabs Music",type:"audio",family:"ElevenLabs Music",desc:"Most human-sounding, commercially-cleared vocals",provider:"ElevenLabs",spec:{song:9,inst:7,voice:6,sfx:3,control:8,speed:8}},
   {id:"udio-v4",name:"Udio v4",type:"audio",family:"Udio",desc:"Audiophile-grade production and remixing",provider:"Uncharted Labs",spec:{song:9,inst:9,sfx:2,control:9,speed:7}},
   {id:"mureka-v9",name:"Mureka V9.5",type:"audio",family:"Mureka",desc:"Lyrics-first songs with stems & MIDI export",provider:"Kunlun Tech",spec:{song:8,inst:7,voice:5,sfx:2,control:8,speed:8}},
@@ -600,7 +611,8 @@ const MODELS = [
   {id:"claude-opus-5",name:"Claude Opus 5",type:"text",family:"Claude",desc:"Anthropic's flagship for deep creative and coding work",provider:"Anthropic",spec:{game:9,write:10,world:9,brain:8,follow:10,long:10}},
   {id:"claude-sonnet-5",name:"Claude Sonnet 5",type:"text",family:"Claude",desc:"Fast, capable Claude for creative work and app building",provider:"Anthropic",spec:{game:9,write:9,world:9,brain:8,follow:9,long:9}},
   {id:"claude-haiku-4-5",name:"Claude Haiku 4.5",type:"text",family:"Claude",desc:"Quick, affordable Claude for drafts and iteration",provider:"Anthropic",spec:{game:7,write:7,world:7,brain:7,follow:8,long:7}},
-  {id:"gpt-5-6-sol",name:"ChatGPT (GPT-5.6 Sol)",type:"text",family:"ChatGPT",desc:"OpenAI's flagship reasoning tier; strong one-shot builds from a spec",provider:"OpenAI",spec:{game:9,write:6,world:7,brain:8,follow:9,long:7}},
+  {id:"gpt-6-astra",name:"ChatGPT (GPT-6 Astra)",type:"text",family:"ChatGPT",desc:"OpenAI's new flagship; reasoning/agents/one-shot builds strong, prose weak",provider:"OpenAI",spec:{game:9,write:5,world:6,brain:10,follow:9,long:8}},
+  {id:"gpt-5-6-sol",name:"ChatGPT (GPT-5.6 Sol)",type:"text",family:"ChatGPT",desc:"OpenAI's best-writing tier; strong one-shot builds from a spec",provider:"OpenAI",spec:{game:9,write:6,world:7,brain:8,follow:9,long:7}},
   {id:"gpt-5-6-terra",name:"ChatGPT (GPT-5.6 Terra)",type:"text",family:"ChatGPT",desc:"OpenAI's balanced everyday tier",provider:"OpenAI",spec:{game:8,write:7,world:7,brain:8,follow:9,long:7}},
   {id:"gpt-5-6-luna",name:"ChatGPT (GPT-5.6 Luna)",type:"text",family:"ChatGPT",desc:"OpenAI's fast, cost-efficient tier for iteration",provider:"OpenAI",spec:{game:7,write:6,world:6,brain:8,follow:8,long:6}},
   {id:"gemini-3-1-pro",name:"Gemini 3.1 Pro",type:"text",family:"Gemini",desc:"Google's flagship; top-ranked at one-shot web games",provider:"Google",spec:{game:10,write:8,world:8,brain:8,follow:9,long:10}},
@@ -664,7 +676,8 @@ const SENTIMENT = {
   "claude-fable-5": {mood:"loved", note:"Still leads blind creative-writing tests for voice and risk; caveat: doesn't preserve a specific personal voice as well as a tuned Sonnet. Superseded as flagship by Fable 5.1 (Sep 2026).", adj:{write:1, world:1}},
   "claude-sonnet-5": {mood:"loved", note:"Reviewers say it wins writing quality and instruction-following outright at a large price undercut; the uplift felt like polish, not a paradigm.", adj:{write:1, follow:1}},
   "claude-haiku-4-5": {mood:"sleeper", note:"Punches above its price on coding and 'vibe coding'; a common fallback when pricier models stall.", adj:{game:1}},
-  "gpt-5-6-sol": {mood:"mixed", note:"Strong long-horizon coding lane; headline benchmark leadership is contested by users as partly test-gamed.", adj:{game:1}},
+  "gpt-6-astra": {mood:"mixed", note:"OpenAI's new flagship dominates verifiable-answer tasks, math and agentic/one-shot game+3D builds, but creative writing is a genuine weakness — it ranks below GPT-5.6 Sol on writing benchmarks ('no personality, reads as machine-written'). Reach for reasoning and agents, not prose.", adj:{brain:1, write:-1}},
+  "gpt-5-6-sol": {mood:"mixed", note:"Still OpenAI's best writing model (beats Astra on writing Elo) and a strong long-horizon coding lane; headline benchmark leadership is contested as partly test-gamed.", adj:{game:1}},
   "gpt-5-6-luna": {mood:"mixed", note:"Fast and cheap, but repetitive phrasing and shallow structure on long-form creative.", adj:{write:-1}},
   "gemini-3-1-pro": {mood:"gap", note:"Big reasoning and long-document gains, but users report reduced warmth/creativity and in-session drift — it drops constraints and contradicts itself over long sessions.", adj:{write:-1, follow:-1, long:1}},
   "gemini-3-7-flash": {mood:"sleeper", note:"A genuine value pick for low-cost coding and agents — and the current WebDev Arena leader for one-shot web builds; reviewers caution before accepting its edits unattended in production.", adj:{game:1, follow:1}},
@@ -673,8 +686,14 @@ const SENTIMENT = {
   // — Image —
   "juggernaut-flux-pro": {mood:"sleeper", note:"Credited with fixing Flux's 'wax skin' — best-in-class believable portraits from simple prompts.", adj:{port:2, photo:1}},
   "juggernaut-xl": {mood:"mixed", note:"Still loved for local, uncensored photoreal work; SDXL-era weak prompt adherence and in-image text.", adj:{adh:-1}},
-  "gpt-image-2": {mood:"gap", note:"#1 on the arena, but imprecise for exact graphic design/layout and prone to shading degradation after repeated edits; text and realism are genuinely strong.", adj:{design:-2, edit:-1, text:1, photo:1}},
-  "nano-banana-2": {mood:"mixed", note:"Best-in-class text and prompt adherence; a loud, persistent 'flat/cartoonish' realism complaint and aggressive non-configurable safety.", adj:{photo:-1, text:1, adh:1}},
+  "gpt-image-2-5-sunburst": {mood:"loved", note:"Debuted #1 on both arenas (Sep 8) with the widest #1-to-#2 gap recorded: sharper detail, natural lighting, reliable multi-turn edits. Nano Banana 2 still wins some pure-photorealism rounds.", adj:{}},
+  "gpt-image-2-5-flare": {mood:"loved", note:"The fast tier that debuted #2 behind its own Sunburst sibling — near-flagship quality at ~7x the speed and a quarter the cost of GPT Image 2.", adj:{}},
+  "gpt-image-2": {mood:"gap", note:"Superseded by GPT Image 2.5 (now #3); still imprecise for exact graphic design/layout and prone to shading degradation after repeated edits, though text and realism are strong.", adj:{design:-2, edit:-1, text:1, photo:1}},
+  "nano-banana-2": {mood:"mixed", note:"Slipping down the boards (~#6-9) after the GPT 2.5 / MAI 2.6 / Reve / Muse wave, but still the go-to for skin, materials, cinematic light and product hero shots; loses on instruction-following and text.", adj:{photo:-1, text:1, adh:1}},
+  "reve-2-1": {mood:"sleeper", note:"Layout-first, native 4K; ranks above Nano Banana 2 and Seedream on the arena — the posters / dense-layout / exact-text pick, with famously cheap iterative edits.", adj:{}},
+  "muse-image": {mood:"mixed", note:"Meta's agentic model (plans, web-searches, codes charts/QR); Arena #2 at launch but testers put it a notch below the GPT/Google leaders in real use, and there was pushback over Meta training on user photos.", adj:{}},
+  "mai-image-2-6": {mood:"sleeper", note:"Launched straight to #2 text-to-image / #1 editing (Sep 4), held the editing crown four days until GPT Image 2.5 took it; now #3-4 and the cheapest Elo on the frontier.", adj:{}},
+  "mai-image-2-6-flash": {mood:"sleeper", note:"The high-throughput edit tier: strong arena editing at a fraction of the price and 2.8x the speed of GPT-Image-2 Medium.", adj:{}},
   "seedream-5.0-pro": {mood:"gap", note:"Cheaper and less restrictive with strong spatial reasoning (realism effectively tied with Nano Banana 2 in blind usable-shot rates), but portraits still regressed vs 4.5 and the banding artifact remains unfixed — keep portrait traffic on 4.5.", adj:{port:-1, edit:-1, adh:1}},
   "seedream-4.5": {mood:"loved", note:"Excellent multi-script/dense typography and 10-reference editing — the portrait-realism edge over 5.0 Pro.", adj:{text:1}},
   "qwen-image-3.0": {mood:"sleeper", note:"Headline strength is dense text, infographics and non-Latin scripts across 12 languages; launched with no weights/benchmarks, drawing skepticism.", adj:{text:2}},
@@ -701,13 +720,18 @@ const SENTIMENT = {
   "vidu-q2": {mood:"sleeper", note:"Same reference-consistency strength as Q3 at lower fidelity.", adj:{ref:1, con:1}},
   "grok-imagine-v": {mood:"mixed", note:"Redemption arc: native 1080p (Aug 2026), voice cloning, and 7 reference anchors killed the old '720p ceiling' complaint — now reviewed as a serious image-to-video option while staying the cheapest fast loop with audio.", adj:{speed:2}},
   "grok-imagine-1.5": {mood:"mixed", note:"Redemption arc: native 1080p plus voice and reference locking put it top-5 on the image-to-video arena — 'suddenly a serious image-to-video leader' — while staying the cheapest fast iteration loop with audio.", adj:{speed:2, cin:1}},
-  "gemini-omni-flash": {mood:"sleeper", note:"The 1.1 Flash update (Aug 27) made it chainable — 40s scene extensions, first/last-frame mode, cheap 360p drafts — and it now tops the image-to-video arena; quietly one of the strongest video workflows in Google's stack.", adj:{ref:1}},
+  "gemini-omni-flash": {mood:"loved", note:"Went GA Aug 27 with 40s chained scenes, first/last-frame control and 360p-4K tiers; now #2 on both text-to-video boards and #1 image-to-video (no-audio) — one of the strongest video workflows in Google's stack.", adj:{ref:1}},
+  "runway-gen-4-5": {mood:"mixed", note:"Quality is universally respected but credit burn (~25 credits/s) is the #1 complaint, and with no audio it has fallen off the with-audio boards; Runway itself pivoted to reselling rivals' models via Media Router.", adj:{speed:-1}},
+  "luma-ray-3-2": {mood:"sleeper", note:"Beloved in film/post for HDR/EXR export and 16-keyframe direction; low mindshare among casual prompters, and no audio generation.", adj:{ref:1}},
+  "hunyuanvideo-1-5": {mood:"loved", note:"The open-source darling: 'SOTA you can actually run' in ~14GB VRAM, with a fast ComfyUI + LoRA ecosystem; no native audio.", adj:{speed:1}},
+  "vidu-s1": {mood:"hype", note:"Opens the real-time interactive category (live voice-driven avatars); genuine excitement tempered by 540p and its narrow scope — it streams characters, it doesn't render finished clips.", adj:{}},
+  "magi-2-preview": {mood:"sleeper", note:"First open ~100B-scale video MoE with unified audio in one pass; mid-pack arena Elo and an 8x-Hopper hardware requirement keep it niche.", adj:{}},
   "wan-3.0-v": {mood:"sleeper", note:"Now #1 on the text-to-video arena: 'not the image-quality ceiling, but possibly the most usable video model for ordinary people' — strong object permanence; weak on dialogue, in-frame text and crowds; no open weights shipped, which irritates the community.", adj:{con:1}},
   "happyhorse-1.1": {mood:"gap", note:"Topped every arena board in April but slid to mid-pack (#7-9) by September as rivals shipped faster; the prompting conventions still hold.", adj:{cin:-1}},
   "happyhorse": {mood:"gap", note:"The family topped the arenas in April but has slid to mid-pack as rivals shipped faster.", adj:{cin:-1}},
   "minimax-h3-max": {mood:"hype", note:"fal's post-trained speed variant instantly topped the I2V-with-audio arena — the 5s-clip-in-under-3s speed is a real breakthrough, but the top rankings lean on fal's own evals and the model is days old.", adj:{}},
   // — Audio / Music —
-  "suno-v5-5": {mood:"mixed", note:"Still the default leader for vocal songs, but backlash deepened when download caps took effect Sep 3, 2026 — free tier now 7 lifetime downloads (Pro 20/mo, Premier 60/mo), applied retroactively; Suno Studio's stems and MIDI export are genuinely valued.", adj:{control:1, song:-1}},
+  "suno-v5-5": {mood:"mixed", note:"v6/v6-wild/v6-mini shipped Sep 9 and retired the whole pre-v6 line; broadly agreed to sound cleaner than v5.5 with a real section-editing leap, but the launch collided with the Sep 3 download caps (free = 7 lifetime downloads) and the forced retirement, so 'best model yet' sits next to 'I'm cancelling'.", adj:{control:1, song:-1}},
   "elevenlabs-music": {mood:"loved", note:"Broadly cited as the top pick when the vocal has to pass as human, helped by an unusually clean licensed-data and commercial-clearance story (self-serve clearance still excludes film/TV/games).", adj:{}},
   "udio-v4": {mood:"mixed", note:"Praised as the audiophile's choice for instrumental cleanliness, but the post-settlement download lockdown gutted its practical value; Sony escalated in July 2026 with a new 30,000-recording suit (~$4.5B exposure).", adj:{inst:1, speed:-1}},
   "mureka-v9": {mood:"sleeper", note:"The under-the-radar Suno competitor whose MIDI export, deep stems, and voice cloning give producers more downstream control than the big two.", adj:{control:1}},
@@ -748,7 +772,12 @@ const FREE_ACCESS = {
   "gemini-3-1-pro": {url:"https://aistudio.google.com", how:"Free to try in Google AI Studio (no free API tier)"},
   "gemini-3-7-flash": {url:"https://aistudio.google.com", how:"Free in Google AI Studio"},
   // — Image —
+  "gpt-image-2-5-sunburst": {url:"https://chatgpt.com", how:"Free in ChatGPT (rolling out to all tiers; daily cap)"},
+  "gpt-image-2-5-flare": {url:"https://chatgpt.com", how:"Free in ChatGPT (rolling out to all tiers; daily cap)"},
   "gpt-image-2": {url:"https://chatgpt.com", how:"Free in ChatGPT, all plans (daily cap)"},
+  "mai-image-2-6": {url:"https://microsoft.ai/models/mai-image-2-6/", how:"Free experimentation in MAI Playground; public preview in Foundry"},
+  "mai-image-2-6-flash": {url:"https://microsoft.ai/models/mai-image-2-6/", how:"Free experimentation in MAI Playground; public preview in Foundry"},
+  "muse-image": {url:"https://www.meta.ai", how:"Free in the Meta AI app / meta.ai (no public API yet)"},
   "nano-banana-2": {url:"https://gemini.google.com", how:"Free in the Gemini app + AI Studio (daily cap)"},
   "nano-banana-2-lite": {url:"https://gemini.google.com", how:"Free in the Gemini app (daily cap)"},
   "nano-banana-pro": {url:"https://gemini.google.com", how:"Free in the Gemini app + AI Studio (daily cap)"},
@@ -782,6 +811,10 @@ const FREE_ACCESS = {
   "seadance-1": {url:"https://dreamina.capcut.com", how:"Free daily credits on Dreamina / Jimeng"},
   "minimax-h3": {url:"https://huggingface.co/MiniMaxAI/MiniMax-H3", how:"Open weights on Hugging Face (license restricts local use in US/EU/UK/SK)"},
   "minimax-h3-max": {url:"https://fal.ai/minimax-h3-max", how:"5 free generations/day for signed-in fal users"},
+  "hunyuanvideo-1-5": {url:"https://huggingface.co/tencent/HunyuanVideo-1.5", how:"Apache 2.0 open weights + free hosted try-out on Tencent's site"},
+  "vidu-s1": {url:"https://www.vidu.com/vidu-stream", how:"Free trial credits; browser demo (pick/upload a character, start a live call)"},
+  "magi-2-preview": {url:"https://huggingface.co/sand-ai/MAGI-2-preview", how:"Apache 2.0 open weights + inference code (self-host; ~307GB, 8x Hopper)"},
+  "luma-ray-3-2": {url:"https://lumalabs.ai", how:"Dream Machine free tier (~30 gens/mo, watermarked; Ray 3.2 on free tier unconfirmed)"},
   "hailuo-02": {url:"https://hailuoai.video", how:"Free daily trial credits on the Hailuo app"},
   "hailuo-2.3": {url:"https://hailuoai.video", how:"Free daily trial credits on the Hailuo app"},
   "kling-3.0-omni-v": {url:"https://klingai.com", how:"Free daily credits on klingai.com (watermarked)"},
@@ -1273,6 +1306,87 @@ const VIDEO_STRATEGIES = {
       return r;
     }
   },
+
+  // ── RUNWAY (Gen-4.5) ──
+  Runway: {
+    negativePrompt: null,
+    tips: [
+      "Gen-4.5: keep prompts simple, direct and motion-focused — subject + action + camera movement + what changes over time",
+      "Positive phrasing only; describe what you want, never 'no X'",
+      "It executes complex sequenced instructions well — specify detailed camera choreography, event timing and atmospheric changes in one prompt",
+      "Use style descriptors for motion style (live action, smooth animation, stop motion) and aesthetic",
+      "Limits: 1,000-char prompt, 2-10s, no native audio, no last-frame input; credit burn (~25 credits/s) is the standing complaint",
+      "Community pattern: iterate cheaply in Kling, finish hero/character shots in Runway"
+    ],
+    transform(p, model) {
+      let r = ensurePresentTense(stripQualityTags(p));
+      if (!hasCamera(r)) r += '. Slow, deliberate camera push-in';
+      if (!hasLighting(r)) r += moodLight(r, model);
+      r += ', natural physics with weight and momentum';
+      return r;
+    }
+  },
+
+  // ── LUMA (Ray 3.2) ──
+  Luma: {
+    negativePrompt: null,
+    tips: [
+      "Ray 3.2 is direction-first: 20s/1080p, native HDR + EXR export, up to 16 keyframes per clip",
+      "Be specific and directive; explicitly describe physical interactions ('fabric draping with weight', 'realistic bubble physics')",
+      "Use keyframes (up to 16) when pacing/art direction matters, instead of longer prose",
+      "Video-to-video: start from the source, describe the END state, keep Adherence on Auto until you have a reason not to",
+      "Iterate in Draft Mode (~5x faster), then master the winning shot to 4K HDR without changing identity/motion/composition",
+      "Best-in-class frame-level control for film/post; no audio generation"
+    ],
+    transform(p, model) {
+      let r = ensurePresentTense(stripQualityTags(p));
+      if (!hasCamera(r)) r += '. Deliberate, directed camera move';
+      if (!hasLighting(r)) r += moodLight(r, model);
+      return r;
+    }
+  },
+
+  // ── HUNYUANVIDEO 1.5 (Tencent, open) ──
+  HunyuanVideo: {
+    negativePrompt: "blurry, low quality, distorted, jittery motion, flickering, deformed",
+    tips: [
+      "Open 8.3B model — runs in ~14GB VRAM; 5-10s at 480p/720p (1080p via built-in super-resolution)",
+      "Formula: Subject + Motion + Scene + [Shot Type] + [Camera Movement] + [Lighting] + [Style] + [Atmosphere]; longer detailed prompts measurably help",
+      "Sequential action language: 'first... then... next... finally...' builds motion as a time-ordered process",
+      "Concrete actions over abstract emotion: 'the boy smiles, eyes crinkling' beats 'happy'",
+      "State spatial orientation (left/right frame, foreground/background) in multi-subject scenes; standard camera vocabulary works",
+      "I2V: emphasize subject motion + scene motion + camera movement; leave the default Qwen3 auto prompt-rewrite on; no native audio"
+    ],
+    transform(p, model) {
+      let r = ensurePresentTense(stripQualityTags(p));
+      if (!hasCamera(r)) r += '. Slow dolly-in following the subject';
+      if (!hasLighting(r)) r += moodLight(r, model);
+      return r;
+    }
+  },
+
+  // ── VIDU S1 (real-time interactive) ──
+  Vidu: {
+    negativePrompt: null,
+    tips: [
+      "Vidu S1 is a real-time interactive model, not a clip generator: it builds a live, voice-controlled character from one image + a chosen or cloned voice",
+      "Voice IS the prompt — your speech is a live instruction driving the character's whole visual behavior; direct it while it generates",
+      "Start from one clean reference image; the model infers expressions and gestures with no preset animations",
+      "Scope: live 540p character streams only — use Vidu Q3 for finished, edited clips"
+    ]
+  },
+
+  // ── MAGI-2 (Sand.ai, open) ──
+  MAGI: {
+    negativePrompt: null,
+    tips: [
+      "Open 114B-param MoE unified audio-video model (Apache 2.0): T2V + I2V with sound generated in the same pass; fixed 10s clips",
+      "Use the built-in prompt-enhancement (PE) — it rewrites short prompts into the long structured captions the model was trained on",
+      "If prompting manually, write long structured captions, not one-liners; describe the soundscape/dialogue since audio and video are joint",
+      "I2V: prompt + a first-frame image; dimensions must be multiples of 16",
+      "Heavy to self-host (~307GB weights, 8x Hopper-class GPUs)"
+    ]
+  },
 };
 
 // ═══════════════════════════════════════════════════════
@@ -1316,6 +1430,7 @@ const IMAGE_STRATEGIES = {
   "GPT Image": {
     negativePrompt: null,
     tips: [
+      "Current flagship is GPT Image 2.5 (Sep 2026): flare (fast default) and sunburst (top quality) swept #1+#2 on both arenas; GPT Image 2 is now #3. 2.5 handles up to 3840px/edge and role-assigned reference images",
       "6-slot framework: Subject+Action, Context/Setting, Style/Medium, Lighting, Camera/Composition, Mood+Constraints",
       "Natural language, like briefing a creative director; 30-80 words of clear, specific prose",
       "No negative prompt parameter; express constraints as inline exclusions at end: 'No watermark, no extra text'",
@@ -1543,6 +1658,31 @@ const IMAGE_STRATEGIES = {
     }
   },
 
+  // ── REVE (2.1) ──
+  Reve: {
+    negativePrompt: null,
+    tips: [
+      "Layout-first, native 4K: it plans the image as a structured, editable layout, then renders — every element is addressable for single-region re-render",
+      "Write prompts as layout instructions, not just style descriptors: give every element a home ('title at top, subject centered, logo bottom-right')",
+      "Exact in-image text in single quotes, kept short; separate subject / text / background clearly for faithful reproduction",
+      "Edit via natural-language single-region instructions instead of re-rolling (edits are famously cheap, ~$0.01)",
+      "The poster / dense-layout / exact-text design niche pick; strong multilingual text"
+    ]
+  },
+
+  // ── MUSE IMAGE (Meta) ──
+  Muse: {
+    negativePrompt: null,
+    tips: [
+      "Meta's agentic model: it plans, web-searches, writes/runs code (accurate charts, QR codes), and critiques/refines its own drafts",
+      "Natural descriptive sentences beat tag-soup (Subject + Style + Details + Composition); trim adjectives rather than adding them",
+      "Up to 10 reference images for identity/character consistency — reference beats description; say what to keep",
+      "Name the exact text/layout/details that must not change during an edit; iterate one localized edit at a time",
+      "Ask for web-grounded facts, or charts/QR codes explicitly — it codes them for accuracy",
+      "No negative field and no seed/aspect/guidance params — steer entirely through the description"
+    ]
+  },
+
   // ── JUGGERNAUT ──
   Juggernaut: {
     negativePrompt: "blurry, low quality, distorted, plastic skin, unrealistic, oversmoothed, artificial",
@@ -1687,7 +1827,8 @@ const TEXT_STRATEGIES = {
       "Structure prompts with Markdown headers: # Role and Objective, # Instructions, # Output Format, # Context",
       "GPT-5 burns reasoning on contradictions; scan your prompt and resolve any conflicting instructions before sending",
       "In long prompts, state critical instructions at the beginning AND repeat them at the end",
-      "Current family is GPT-5.6 (Sol = flagship reasoning, Terra = balanced, Luna = fast); the older GPT-5 Thinking/Instant and GPT-4o names are superseded",
+      "Current lineup (Sep 2026): GPT-6 Astra is the new flagship (single model, no tiers); GPT-5.6 (Sol = reasoning, Terra = balanced, Luna = fast free default) stays below it. Match the job: Astra for reasoning/agents/one-shot games, Sol for creative writing (Sol still writes better) and spec-to-code",
+      "Astra's guide: structure as GOAL / CONTEXT / PRIORITY / AUTONOMY / TOOLS / OUTPUT / VERIFICATION / STOP-CONDITION; it has NO default reasoning-effort level, so set one ('reasoning effort: medium'), and ban slop words by name ('avoid: bottom line, leverage, delve, game-changer, seamlessly, testament to')",
       "Reasoning tier (GPT-5.6 Sol) wants a high-level goal like briefing a senior colleague; skip 'think step by step'",
       "Fast tiers (GPT-5.6 Luna/Terra) want explicit steps spelled out: 'First plan..., then build..., then verify'",
       "Control verbosity explicitly: 'no preamble, no recap, at most 3 sentences after the code'",
@@ -1800,13 +1941,13 @@ const AUDIO_STRATEGIES = {
   "suno-v5-5": {
     negativePrompt: "aggressive screaming, distorted metal guitar, lo-fi, spoken word",
     tips: [
-      "Split the two boxes: Style box = global sound (genre, production, key instruments, vocal identity, mood); Lyrics box = the words + section structure only",
-      "Top-anchor the style: lead with vocal role + genre, e.g. 'Female pop vocalist, breathy, intimate, 90s R&B groove' — this locks identity before lyrics are parsed",
-      "Use recognized structure metatags: [Intro] [Verse] [Chorus] [Bridge] [Outro]; custom tags like [My Special Section] are ignored",
-      "Keep style tags to ~15-30 words; over-stuffing dilutes adherence",
-      "Punctuation is phrasing: commas, dashes and ellipses in lyrics become micro-pauses and breaths",
-      "Use the Exclude Styles field to steer away from unwanted genres",
-      "Use Suno Studio (paid) for multitrack editing, stem separation and MIDI export when you need control"
+      "Current generation is v6 (Sep 9, 2026): v6 (precise, Pro/Premier), v6-wild (exploratory), v6-mini (free tier). All pre-v6 models are retired for new generation; the first line trained with licensed partners (WMG, BMG, Believe)",
+      "v6 parses real musician vocabulary — spell out instrumentation, song structure, mood and stylistic references directly rather than vibe words",
+      "Pick the model by intent: v6 when you know what you want; v6-wild for ideas 'you didn't ask for'",
+      "Edit, don't regenerate: plain-language section edits ('change the chorus to a gospel choir') and single-lyric swaps work on existing tracks",
+      "Style box / Lyrics box split still holds: style = global sound (genre, production, instruments, vocal identity); lyrics = words + [Intro] [Verse] [Chorus] [Bridge] [Outro] metatags; punctuation is phrasing",
+      "Variety slider at 0 keeps your style tags fully authoritative; use the Exclude Styles field to steer away from genres",
+      "Enable Max Mode (extra credits) for songs over ~2 min or cross-track vocal consistency; free tier is capped at 7 lifetime downloads"
     ]
   },
   "elevenlabs-music": {
