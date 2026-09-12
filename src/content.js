@@ -41,14 +41,14 @@ export const hero = {
   secondary: { label: 'Our services', to: '/services' },
   stats: [
     { value: 'Global', label: 'Partner network' },
-    { value: '06', label: 'Service lines' },
+    { value: '07', label: 'Service lines' },
     { value: '04', label: 'Stage method' },
   ],
 }
 
 export const services = {
   eyebrow: 'What we do',
-  heading: 'Six disciplines, one operating view.',
+  heading: 'Seven disciplines, one operating view.',
   intro:
     'Each engagement draws on the capability it needs. Most clients start with one service and extend into the others as the operating picture becomes clearer.',
   items: [
@@ -99,6 +99,21 @@ export const services = {
     },
     {
       number: '04',
+      title: 'Brand & Marketing',
+      body:
+        'Positioning, brand identity, campaigns and content that turn strategy into demand. Brand refresh and revamp, marketing plans, and the creative to run them.',
+      detail:
+        'We translate strategy into a brand people recognise and marketing that brings them in. From positioning, identity and messaging through to marketing plans, campaigns and content, we build the demand engine and the creative to run it. Compliance-aware throughout, so regulated businesses stay on the right side of the line.',
+      includes: [
+        'Brand strategy, refresh and revamp',
+        'Positioning, messaging and tone of voice',
+        'Visual identity and creative',
+        'Marketing plans and campaign calendars',
+        'Content, digital and growth marketing',
+      ],
+    },
+    {
+      number: '05',
       title: 'Investment Frameworks & Adviser Support',
       body:
         'Frameworks, tools, education and support for advice firms and investment managers working to achieve specific investment outcomes for their clients. Support only, not financial product advice.',
@@ -113,7 +128,7 @@ export const services = {
       ],
     },
     {
-      number: '05',
+      number: '06',
       title: 'Financial Education & Compliance Training',
       body:
         'General financial and compliance education, training resources, documentation support and process discipline. Education only, not personal financial advice.',
@@ -128,7 +143,7 @@ export const services = {
       ],
     },
     {
-      number: '06',
+      number: '07',
       title: 'Business AI Readiness',
       body:
         'Assessment and roadmap for adopting AI with discipline: where it adds value, what to prepare, and how to govern it. Data, process, risk and capability, made ready.',
@@ -238,6 +253,7 @@ export const contact = {
     'Business analytics and performance',
     'Business success consulting',
     'Sales enablement and lead generation',
+    'Brand and marketing',
     'Investment frameworks and adviser support',
     'Financial and compliance education',
     'Business AI readiness',
@@ -268,6 +284,7 @@ export const footer = {
         { label: 'Analytics & Performance', to: '/services' },
         { label: 'Success Consulting', to: '/services' },
         { label: 'Sales Enablement', to: '/services' },
+        { label: 'Brand & Marketing', to: '/services' },
         { label: 'Investment Frameworks', to: '/services' },
         { label: 'Education & Compliance', to: '/services' },
         { label: 'AI Readiness', to: '/services' },
@@ -298,7 +315,7 @@ export const pageMeta = {
   services: {
     title: 'Services | GBX Professional Services',
     description:
-      'Five service lines: business analytics and performance, success consulting, sales enablement, investment frameworks and adviser support, financial and compliance education, and business AI readiness.',
+      'Five service lines: business analytics and performance, success consulting, sales enablement, brand and marketing, investment frameworks and adviser support, financial and compliance education, and business AI readiness.',
   },
   leadership: {
     title: 'Leadership | GBX Professional Services',
