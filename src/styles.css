@@ -1621,7 +1621,11 @@ button {
 /* Approach section accent: the four pillars lighting up (full-bleed, looping) */
 .approach-accent {
   width: 100%;
-  height: clamp(180px, 26vw, 360px);
+  /* Match the clip's own 16:9 frame so the pillars show full height, uncropped,
+     rather than being sliced into a short banner. Capped to the viewport so it
+     never overflows a tall/ultrawide screen. */
+  aspect-ratio: 16 / 9;
+  max-height: 100vh;
   overflow: hidden;
   margin-block: clamp(2.5rem, 6vw, 4.5rem);
   border-top: 1px solid var(--line-on-dark);
@@ -1631,7 +1635,7 @@ button {
 .approach-accent__media {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
 }

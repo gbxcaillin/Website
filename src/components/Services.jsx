@@ -49,11 +49,10 @@ function resumeThumb(e) {
 
 export default function Services({ showHeading = true }) {
   const gridRef = useRef(null)
-  // Start the thumbnails from script (not the autoPlay attribute, which makes some
-  // mobile browsers jump-scroll to the video). Reduced-motion users keep the poster.
+  // Thumbnails autoplay via the attribute; pause them for reduced-motion users.
   useEffect(() => {
-    if (prefersReducedMotion()) return
-    gridRef.current?.querySelectorAll('video').forEach((v) => v.play().catch(() => {}))
+    if (!prefersReducedMotion()) return
+    gridRef.current?.querySelectorAll('video').forEach((v) => v.pause())
   }, [])
 
   return (
