@@ -652,8 +652,13 @@ button {
     padding-right: 0;
   }
   .hero__panel {
-    min-height: 360px;
-    aspect-ratio: 4 / 3;
+    /* Size the height from the viewport width (not an aspect-ratio, which with a
+       min-height would derive a width wider than the phone and overflow the page). */
+    aspect-ratio: auto;
+    min-height: 0;
+    width: 100%;
+    height: 64vw;
+    max-height: 380px;
   }
   .hero__panel-logo svg {
     width: 72px;
@@ -1292,7 +1297,8 @@ button {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   color: rgba(255, 253, 248, 0.55);
-  flex-shrink: 0;
+  /* Allow it to wrap on narrow screens instead of forcing horizontal overflow. */
+  min-width: 0;
 }
 
 .footer__disclaimer {

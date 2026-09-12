@@ -38,6 +38,7 @@ export default function Header() {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
+                  end={item.to === '/'}
                   className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}
                 >
                   {item.label}
@@ -73,6 +74,7 @@ export default function Header() {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
+                  end={item.to === '/'}
                   className={({ isActive }) => `nav-link nav-link--mobile ${isActive ? 'nav-link--active' : ''}`}
                 >
                   {item.label}

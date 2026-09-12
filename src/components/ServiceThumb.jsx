@@ -1,8 +1,8 @@
 /**
  * Service card thumbnail. Two kinds:
- *  - 'video': a tiny muted MP4 (converted from the source GIF). It shows its poster
- *    frame at rest and only plays while the parent card is hovered/focused, driven by
- *    Services.jsx. preload="none" keeps it off the wire until it actually plays.
+ *  - 'video': a tiny muted MP4 (converted from the source GIF). It autoplays and loops
+ *    by default; hovering the parent card pauses it and leaving resumes it, driven by
+ *    Services.jsx (which also pauses them for reduced-motion users).
  *  - 'image': a static WebP with a JPEG fallback.
  * Decorative, so aria-hidden and empty alt.
  */
@@ -16,10 +16,11 @@ export default function ServiceThumb({ thumb }) {
           className="svc-thumb__media"
           src={thumb.mp4}
           poster={thumb.poster}
+          autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
           tabIndex={-1}
         />
       ) : (

@@ -29,6 +29,7 @@ export const site = {
 
 // Primary navigation. Each item routes to a page.
 export const nav = [
+  { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
   { label: 'Leadership', to: '/leadership' },
   { label: 'Approach', to: '/approach' },

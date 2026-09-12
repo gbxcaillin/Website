@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 /**
  * Two lockups per the brief:
  *  - <Lockup />   simplified horizontal "GBX / Professional Services" for the header.
@@ -7,7 +9,7 @@
 export function Lockup({ tone = 'dark' }) {
   const ink = tone === 'dark' ? 'var(--gbx-void)' : 'var(--gbx-paper)'
   return (
-    <a href="#top" className="lockup" aria-label="GBX Professional Services, back to top">
+    <Link to="/" className="lockup" aria-label="GBX Professional Services, home">
       <span className="lockup__mark" style={{ color: ink }} aria-hidden="true">
         GBX
       </span>
@@ -15,7 +17,7 @@ export function Lockup({ tone = 'dark' }) {
       <span className="lockup__text" style={{ color: ink }}>
         Professional Services
       </span>
-    </a>
+    </Link>
   )
 }
 

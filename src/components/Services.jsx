@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { services } from '../content.js'
 import ServiceThumb from './ServiceThumb.jsx'
@@ -35,25 +36,26 @@ const prefersReducedMotion = () =>
   window.matchMedia &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-// Play the card's thumbnail video on hover/focus; freeze it back to the poster on leave.
-function playThumb(e) {
+// Thumbnails autoplay by default. Hovering a card pauses its video; leaving resumes it.
+function pauseThumb(e) {
+  const v = e.currentTarget.querySelector('video')
+  if (v) v.pause()
+}
+function resumeThumb(e) {
   if (prefersReducedMotion()) return
   const v = e.currentTarget.querySelector('video')
   if (v) v.play().catch(() => {})
 }
-function stopThumb(e) {
-  const v = e.currentTarget.querySelector('video')
-  if (v) {
-    v.pause()
-    try {
-      v.currentTime = 0
-    } catch {
-      /* ignore */
-    }
-  }
-}
 
 export default function Services({ showHeading = true }) {
+  const gridRef = useRef(null)
+  // Respect reduced-motion: pause the autoplaying thumbnails for those users.
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      gridRef.current?.querySelectorAll('video').forEach((v) => v.pause())
+    }
+  }, [])
+
   return (
     <section className="section section--paper" aria-labelledby="services-heading">
       <div className="container">
@@ -67,15 +69,13 @@ export default function Services({ showHeading = true }) {
           </div>
         )}
 
-        <ol className="service-grid">
+        <ol className="service-grid" ref={gridRef}>
           {services.items.map((s) => (
             <li
               key={s.number}
               className="service-card service-card--has-thumb"
-              onMouseEnter={playThumb}
-              onMouseLeave={stopThumb}
-              onFocus={playThumb}
-              onBlur={stopThumb}
+              onMouseEnter={pauseThumb}
+              onMouseLeave={resumeThumb}
             >
               <ServiceThumb thumb={THUMBS[s.number]} />
               <span className="service-card__number mono" aria-hidden="true">
