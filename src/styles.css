@@ -688,8 +688,9 @@ button {
 }
 
 .service-card {
+  --card-pad: clamp(1.75rem, 3vw, 2.5rem);
   background: var(--gbx-paper);
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -698,6 +699,34 @@ button {
 
 .service-card:hover {
   background: #fff;
+}
+
+/* Thumbnail bleeds to the card's top edges */
+.svc-thumb {
+  margin: calc(-1 * var(--card-pad)) calc(-1 * var(--card-pad)) 0.4rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--gbx-void);
+  border-bottom: 1px solid var(--line);
+}
+
+.svc-thumb__media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+
+.service-card--has-thumb:hover .svc-thumb__media {
+  transform: scale(1.04);
+}
+
+/* Placeholder shown when a service has no thumbnail yet */
+.svc-thumb--placeholder {
+  background:
+    linear-gradient(160deg, rgba(46, 139, 110, 0.22) 0%, rgba(46, 139, 110, 0) 55%),
+    linear-gradient(0deg, var(--gbx-void) 0%, var(--gbx-charcoal) 100%);
 }
 
 .service-card__number {
@@ -1545,4 +1574,40 @@ button {
 }
 .footer__motto + .footer__blurb {
   margin-top: 1rem;
+}
+
+/* Slim full-bleed divider band (dark surface, teal seam) */
+.divider-band {
+  width: 100%;
+  height: clamp(90px, 12vw, 170px);
+  overflow: hidden;
+  background: var(--gbx-void);
+}
+.divider-band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Contact page image (under the details, balancing the form) */
+.contact__image {
+  margin-top: 2rem;
+  border: 1px solid var(--line);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--gbx-soft);
+}
+.contact__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  /* On mobile the copy stacks above the form; keep the image but let it breathe */
+  .contact__image {
+    max-width: 32rem;
+  }
 }

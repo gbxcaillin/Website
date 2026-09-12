@@ -1,10 +1,58 @@
 import { Link } from 'react-router-dom'
 import { services } from '../content.js'
+import ServiceThumb from './ServiceThumb.jsx'
 
-/**
- * Compact services grid used on the home page. `showHeading` lets a page hide the
- * built-in section heading when it supplies its own.
- */
+// Animated (MP4, plays on hover) thumbnails
+import analyticsMp4 from '../assets/svc-analytics.mp4'
+import analyticsPoster from '../assets/svc-analytics-poster.jpg'
+import salesMp4 from '../assets/svc-sales.mp4'
+import salesPoster from '../assets/svc-sales-poster.jpg'
+import investmentMp4 from '../assets/svc-investment.mp4'
+import investmentPoster from '../assets/svc-investment-poster.jpg'
+import aiMp4 from '../assets/svc-ai.mp4'
+import aiPoster from '../assets/svc-ai-poster.jpg'
+// Static thumbnails (WebP + JPEG)
+import consultingWebp from '../assets/svc-consulting.webp'
+import consultingJpg from '../assets/svc-consulting.jpg'
+import brandWebp from '../assets/svc-brand.webp'
+import brandJpg from '../assets/svc-brand.jpg'
+import educationWebp from '../assets/svc-education.webp'
+import educationJpg from '../assets/svc-education.jpg'
+
+// Keyed by the service `number` in content.js.
+const THUMBS = {
+  '01': { type: 'video', mp4: analyticsMp4, poster: analyticsPoster },
+  '02': { type: 'image', webp: consultingWebp, jpg: consultingJpg },
+  '03': { type: 'video', mp4: salesMp4, poster: salesPoster },
+  '04': { type: 'image', webp: brandWebp, jpg: brandJpg },
+  '05': { type: 'video', mp4: investmentMp4, poster: investmentPoster },
+  '06': { type: 'image', webp: educationWebp, jpg: educationJpg },
+  '07': { type: 'video', mp4: aiMp4, poster: aiPoster },
+}
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+// Play the card's thumbnail video on hover/focus; freeze it back to the poster on leave.
+function playThumb(e) {
+  if (prefersReducedMotion()) return
+  const v = e.currentTarget.querySelector('video')
+  if (v) v.play().catch(() => {})
+}
+function stopThumb(e) {
+  const v = e.currentTarget.querySelector('video')
+  if (v) {
+    v.pause()
+    try {
+      v.currentTime = 0
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
 export default function Services({ showHeading = true }) {
   return (
     <section className="section section--paper" aria-labelledby="services-heading">
@@ -21,7 +69,15 @@ export default function Services({ showHeading = true }) {
 
         <ol className="service-grid">
           {services.items.map((s) => (
-            <li key={s.number} className="service-card">
+            <li
+              key={s.number}
+              className="service-card service-card--has-thumb"
+              onMouseEnter={playThumb}
+              onMouseLeave={stopThumb}
+              onFocus={playThumb}
+              onBlur={stopThumb}
+            >
+              <ServiceThumb thumb={THUMBS[s.number]} />
               <span className="service-card__number mono" aria-hidden="true">
                 {s.number}
               </span>
@@ -36,8 +92,8 @@ export default function Services({ showHeading = true }) {
             <p className="eyebrow">Regulated sectors</p>
             <p className="service-card__body">
               We work alongside Australian Financial Services Licence holders and the practices that
-              operate under them, strengthening the business around their obligations. GBX Professional Services is not
-              an AFSL holder and does not provide financial services.
+              operate under them, strengthening the business around their obligations. GBX
+              Professional Services is not an AFSL holder and does not provide financial services.
             </p>
             <Link to="/services" className="text-link">
               View all services
