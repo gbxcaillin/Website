@@ -72,6 +72,13 @@ export default function ToolsPage() {
               ))}
             </ul>
           )}
+          {articles.length > 0 && (
+            <p className="insights-more">
+              <Link to="/insights" className="text-link">
+                View all insights
+              </Link>
+            </p>
+          )}
         </div>
       </section>
 
