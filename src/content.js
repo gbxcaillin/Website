@@ -1,3 +1,8 @@
+// NAME STYLE: always write the firm name in full as "GBX Professional Services".
+// Do not use the "GBX PS" shorthand in copy. The only exception is the registered
+// legal entity "GBX PS Pty Ltd", which stays verbatim in legal contexts (copyright,
+// disclaimer, ABN/firm details). The bare mark "GBX" (the logo) is fine on its own.
+//
 // All site copy lives here so it can be edited without touching components.
 // Copy rule: no em dashes. Use commas, periods, en dashes or restructured sentences.
 //
@@ -36,7 +41,7 @@ export const hero = {
   heading: 'Sharper operations.',
   subheading: 'Stronger commercial outcomes.',
   body:
-    'GBX PS is a boutique consultancy based in Melbourne. We help professional-services firms, advice practices and other regulated businesses run more clearly, sell more confidently and grow with discipline.',
+    'GBX Professional Services is a boutique consultancy based in Melbourne. We help professional-services firms, advice practices and other regulated businesses run more clearly, sell more confidently and grow with discipline.',
   primary: { label: 'Start a conversation', to: '/contact' },
   secondary: { label: 'Our services', to: '/services' },
   stats: [
@@ -118,7 +123,7 @@ export const services = {
       body:
         'Frameworks, tools, education and support for advice firms and investment managers working to achieve specific investment outcomes for their clients. Support only, not financial product advice.',
       detail:
-        'We give advice firms and investment managers the frameworks, tools, education and operational support to pursue specific investment outcomes for their clients. The regulated decisions, financial product advice, dealing and portfolio management, stay with those licensed businesses. GBX PS does not hold an AFSL and does not provide financial product advice or any other financial service.',
+        'We give advice firms and investment managers the frameworks, tools, education and operational support to pursue specific investment outcomes for their clients. The regulated decisions, financial product advice, dealing and portfolio management, stay with those licensed businesses. GBX Professional Services does not hold an AFSL and does not provide financial product advice or any other financial service.',
       includes: [
         'Investment frameworks and tools',
         'Modelling and analysis support',
@@ -230,7 +235,7 @@ export const reach = {
   heading: 'Melbourne-based, delivering globally.',
   intro:
     'We are based in Melbourne and work with clients wherever they operate. Through a network of trusted partners and associates across Australia, Asia, the Middle East and North America, we bring local presence to global engagements, in person, remotely, or as a blend that suits the work.',
-  // These are hubs across the GBX partner network, not GBX PS offices.
+  // These are hubs across the GBX partner network, not GBX Professional Services offices.
   cities: [
     { name: 'Melbourne', region: 'Australia', hq: true },
     { name: 'Sydney', region: 'Australia' },
@@ -302,7 +307,7 @@ export const footer = {
   ],
   details: ['GBX PS Pty Ltd', '260 Spencer Street, Melbourne VIC 3000', 'ABN 45 674 252 905'],
   disclaimer:
-    'GBX PS Pty Ltd provides business consulting, analytics, education and training services. GBX PS does not hold an Australian Financial Services Licence (AFSL) and does not provide financial product advice, dealing or any other financial service. Information on this site is general in nature, does not take account of your objectives, financial situation or needs, and is not personal financial advice. Where a financial service is required, it is provided by an appropriately licensed party.',
+    'GBX PS Pty Ltd provides business consulting, analytics, education and training services. GBX Professional Services does not hold an Australian Financial Services Licence (AFSL) and does not provide financial product advice, dealing or any other financial service. Information on this site is general in nature, does not take account of your objectives, financial situation or needs, and is not personal financial advice. Where a financial service is required, it is provided by an appropriately licensed party.',
 }
 
 // Per-page document titles and meta descriptions.
@@ -319,7 +324,7 @@ export const pageMeta = {
   },
   leadership: {
     title: 'Leadership | GBX Professional Services',
-    description: 'The leaders behind every GBX PS engagement: a systems leader, a thought leader and an education leader.',
+    description: 'The leaders behind every GBX Professional Services engagement: a systems leader, a thought leader and an education leader.',
   },
   approach: {
     title: 'Approach | GBX Professional Services',
@@ -332,6 +337,6 @@ export const pageMeta = {
   },
   contact: {
     title: 'Contact | GBX Professional Services',
-    description: 'Start a conversation with GBX PS. Tell us what you are working on and we will reply within two business days.',
+    description: 'Start a conversation with GBX Professional Services. Tell us what you are working on and we will reply within two business days.',
   },
 }

@@ -36,7 +36,7 @@ export default function Services({ showHeading = true }) {
             <p className="eyebrow">Regulated sectors</p>
             <p className="service-card__body">
               We work alongside Australian Financial Services Licence holders and the practices that
-              operate under them, strengthening the business around their obligations. GBX PS is not
+              operate under them, strengthening the business around their obligations. GBX Professional Services is not
               an AFSL holder and does not provide financial services.
             </p>
             <Link to="/services" className="text-link">
