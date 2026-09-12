@@ -6,16 +6,16 @@ import accentPoster from '../assets/approach-accent-poster.jpg'
 export default function Approach({ showHeading = true }) {
   const videoRef = useRef(null)
 
-  // The accent loops on its own; pause it for reduced-motion users (poster shows).
+  // Start the accent from script rather than the autoPlay attribute, which makes some
+  // mobile browsers jump-scroll to the video on load. Reduced-motion users keep the poster.
   useEffect(() => {
     const v = videoRef.current
-    if (
-      v &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
+    if (!v) return
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       v.pause()
+      return
     }
+    v.play().catch(() => {})
   }, [])
 
   return (
@@ -39,7 +39,6 @@ export default function Approach({ showHeading = true }) {
           className="approach-accent__media"
           src={accentMp4}
           poster={accentPoster}
-          autoPlay
           muted
           loop
           playsInline
