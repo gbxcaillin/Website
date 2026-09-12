@@ -41,17 +41,13 @@ export default function Hero() {
             className="hero__panel-img"
             src={officeJpg}
             alt="The GBX Professional Services office in Melbourne, with the firm's mark on the wall and the city skyline beyond."
-            width="1376"
-            height="768"
+            width="1536"
+            height="1024"
             fetchPriority="high"
           />
         </picture>
         <div className="hero__panel-overlay" aria-hidden="true" />
         <div className="hero__panel-line" aria-hidden="true" />
-        <div className="hero__panel-caption" aria-hidden="true">
-          <span className="mono">EST. MELBOURNE</span>
-          <span className="mono">260 SPENCER ST</span>
-        </div>
       </div>
     </section>
   )
