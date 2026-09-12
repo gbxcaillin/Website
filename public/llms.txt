@@ -1,0 +1,19 @@
+# GBX Professional Services
+
+> Boutique business-performance and process-improvement consultancy in Melbourne, Australia. GBX Professional Services helps professional-services firms, advice practices and other regulated businesses run more clearly, sell more confidently and grow with discipline. Founded 17 January 2024.
+
+GBX Professional Services does not hold an Australian Financial Services Licence (AFSL) and does not provide financial product advice or any other financial service. Investment-related work is operational, analytical and educational support to licensed professionals only.
+
+## Services
+- [Services](https://gbxps.com/services): Seven disciplines: business analytics and performance, business success consulting, sales enablement and lead generation, brand and marketing, investment frameworks and adviser support, financial and compliance education, and business AI readiness.
+- [Approach](https://gbxps.com/approach): A four-stage method: Health Check, Scope, Deliver, Sustain.
+- [Leadership](https://gbxps.com/leadership): A systems leader, a thought leader and an education leader.
+- [Global reach](https://gbxps.com/reach): Melbourne-based, delivering globally through a partner network across Australia, Asia, the Middle East and North America.
+
+## Tools and Insights
+- [Tools & Insights](https://gbxps.com/tools): Free tools and articles.
+- [Prompt Optimizer](https://gbxps.com/tools/prompt-optimizer/): A browser-based tool that turns a rough idea into a clear, model-tailored AI prompt.
+- [Insights](https://gbxps.com/insights): Practical articles across AI, marketing, business analytics, new business tools, sales, investment research and financial education.
+
+## Contact
+- [Contact](https://gbxps.com/contact): 260 Spencer Street, Melbourne VIC 3000. admin@gbxps.com.
