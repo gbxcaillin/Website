@@ -371,6 +371,12 @@ export const articles = [
     readingTime: '6 min read',
     summary:
       'Most AI disappointment is a prompting problem, not a model problem. A simple, repeatable structure gets you dramatically better results, and our Prompt Optimizer builds on it, tailoring the prompt to the specific AI model you are using.',
+    tool: {
+      href: '/tools/prompt-optimizer/',
+      heading: 'Try it without the hand-assembly',
+      body: 'Our Prompt Optimizer applies this structure for you and tailors the result to the specific AI model you are using.',
+      label: 'Open the Prompt Optimizer',
+    },
     body: [
       { type: 'p', text: 'If you have ever asked an AI for help and got back something vague, generic or subtly wrong, the model is usually not the problem. The prompt is. A large language model can only work with what you give it, and most prompts give it far too little to go on.' },
       { type: 'p', text: 'The good news is that better prompting is a skill, not a talent. A handful of habits will lift the quality of almost everything you get back. Here is the structure we use, and the one our Prompt Optimizer builds for you automatically.' },
