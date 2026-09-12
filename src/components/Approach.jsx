@@ -54,9 +54,27 @@ export default function Approach({ showHeading = true }) {
               </span>
               <h3 className="step__title">{step.title}</h3>
               <p className="step__body">{step.body}</p>
+              {step.detail && <p className="step__detail">{step.detail}</p>}
             </li>
           ))}
         </ol>
+
+        {approach.principles && (
+          <div className="approach-principles">
+            <div className="approach-principles__head">
+              <p className="eyebrow eyebrow--on-dark">{approach.principles.eyebrow}</p>
+              <h2 className="section__heading">{approach.principles.heading}</h2>
+            </div>
+            <ul className="principle-grid">
+              {approach.principles.items.map((p) => (
+                <li key={p.title} className="principle">
+                  <h3 className="principle__title">{p.title}</h3>
+                  <p className="principle__body">{p.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   )

@@ -22,15 +22,6 @@ export default function Hero() {
               {hero.secondary.label}
             </Link>
           </div>
-
-          <dl className="hero__stats">
-            {hero.stats.map((s) => (
-              <div key={s.label} className="hero__stat">
-                <dt className="hero__stat-label">{s.label}</dt>
-                <dd className="hero__stat-value">{s.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
 

@@ -53,6 +53,23 @@ export default function Reach({ showHeading = true }) {
             </div>
           ))}
         </div>
+
+        {reach.details && (
+          <div className="reach-model">
+            <div className="reach-model__head">
+              <p className="eyebrow">{reach.details.eyebrow}</p>
+              <h2 className="section__heading">{reach.details.heading}</h2>
+            </div>
+            <ul className="reach-model__grid">
+              {reach.details.items.map((d) => (
+                <li key={d.title} className="reach-model__item">
+                  <h3 className="reach-model__title">{d.title}</h3>
+                  <p className="reach-model__body">{d.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   )

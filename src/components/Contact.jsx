@@ -87,25 +87,25 @@ export default function Contact() {
             </label>
           </div>
 
-          <div className="form__row">
-            <label className="field">
-              <span className="field__label">Organisation</span>
-              <input name="organisation" type="text" autoComplete="organization" />
-            </label>
-            <label className="field">
-              <span className="field__label">Area of interest</span>
-              <select name="interest" defaultValue="">
-                <option value="" disabled>
-                  Select one
-                </option>
-                {contact.interests.map((i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          <label className="field">
+            <span className="field__label">Organisation</span>
+            <input name="organisation" type="text" autoComplete="organization" />
+          </label>
+
+          <fieldset className="field field--fieldset">
+            <legend className="field__label">
+              {contact.interestsLabel}{' '}
+              <span className="field__hint">{contact.interestsHint}</span>
+            </legend>
+            <div className="checkbox-grid">
+              {contact.interests.map((i) => (
+                <label key={i} className="checkbox">
+                  <input type="checkbox" name="interest" value={i} />
+                  <span className="checkbox__label">{i}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
 
           <label className="field">
             <span className="field__label">Message</span>
