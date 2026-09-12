@@ -7,6 +7,7 @@ import LeadershipPage from './pages/LeadershipPage.jsx'
 import ApproachPage from './pages/ApproachPage.jsx'
 import ReachPage from './pages/ReachPage.jsx'
 import ToolsPage from './pages/ToolsPage.jsx'
+import InsightsPage from './pages/InsightsPage.jsx'
 import ArticlePage from './pages/ArticlePage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="approach" element={<ApproachPage />} />
           <Route path="reach" element={<ReachPage />} />
           <Route path="tools" element={<ToolsPage />} />
+          <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />

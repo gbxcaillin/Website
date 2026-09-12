@@ -2067,3 +2067,50 @@ button {
     position: static;
   }
 }
+
+/* Insights: category filter + tags */
+.insights-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.filter-chip {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.filter-chip:hover {
+  border-color: var(--gbx-teal);
+  color: var(--gbx-deep-teal);
+}
+.filter-chip--active {
+  background: var(--gbx-teal);
+  border-color: var(--gbx-teal);
+  color: #fff;
+}
+.filter-chip--active:hover {
+  color: #fff;
+}
+.article-card__cat {
+  color: var(--gbx-teal);
+}
+.eyebrow--link {
+  transition: color 0.2s var(--ease);
+}
+.eyebrow--link:hover {
+  color: var(--gbx-deep-teal);
+}

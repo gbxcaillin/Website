@@ -1,7 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
-import { articles } from '../content.js'
+import { articles, insightCategories } from '../content.js'
 import NotFound from './NotFound.jsx'
+
+const catLabel = Object.fromEntries(insightCategories.map((c) => [c.slug, c.label]))
 
 function formatDate(iso) {
   const d = new Date(iso)
@@ -27,7 +29,13 @@ export default function ArticlePage() {
   return (
     <article className="section section--paper article">
       <div className="container article__inner">
-        <p className="eyebrow">Insights</p>
+        {article.category && catLabel[article.category] ? (
+          <Link to={`/insights?category=${article.category}`} className="eyebrow eyebrow--link">
+            {catLabel[article.category]}
+          </Link>
+        ) : (
+          <p className="eyebrow">Insights</p>
+        )}
         <h1 className="article__title">{article.title}</h1>
         <p className="article__meta mono">
           {formatDate(article.date)}

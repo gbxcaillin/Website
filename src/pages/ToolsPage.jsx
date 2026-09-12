@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
-import { pageMeta, toolsPage, articles } from '../content.js'
+import { pageMeta, toolsPage, articles, insightCategories } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
 import CTA from '../components/CTA.jsx'
+
+const catLabel = Object.fromEntries(insightCategories.map((c) => [c.slug, c.label]))
 
 function formatDate(iso) {
   const d = new Date(iso)
@@ -42,15 +44,23 @@ export default function ToolsPage() {
 
       <section className="section section--soft">
         <div className="container">
-          <p className="eyebrow">{toolsPage.insightsHeading}</p>
+          <div className="insights-head">
+            <p className="eyebrow">{toolsPage.insightsHeading}</p>
+            {articles.length > 0 && (
+              <Link to="/insights" className="text-link">
+                View all insights
+              </Link>
+            )}
+          </div>
           {articles.length === 0 ? (
             <p className="section__intro">{toolsPage.insightsEmpty}</p>
           ) : (
             <ul className="article-list">
-              {articles.map((a) => (
+              {articles.slice(0, 4).map((a) => (
                 <li key={a.slug} className="article-card">
                   <Link to={`/insights/${a.slug}`} className="article-card__link">
                     <div className="article-card__meta mono">
+                      <span className="article-card__cat">{catLabel[a.category]}</span>
                       <span>{formatDate(a.date)}</span>
                       {a.readingTime && <span>{a.readingTime}</span>}
                     </div>
