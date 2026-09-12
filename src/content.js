@@ -350,11 +350,11 @@ export const toolsPage = {
   tools: [
     {
       slug: 'prompt-optimizer',
-      to: '/tools/prompt-optimizer',
+      href: '/tools/prompt-optimizer/',
       name: 'Prompt Optimizer',
-      tagline: 'Turn a rough idea into a clear, well-structured AI prompt.',
+      tagline: 'Research-backed prompts, tailored to each AI model.',
       body:
-        'Paste what you want an AI to do and the optimizer rewrites it into a structured prompt with role, context, task, constraints and output format. Runs entirely in your browser. Nothing you type is sent anywhere.',
+        'Enter a prompt, choose the AI models you are working with, and get optimized versions tuned to each text, image, video or audio model. Runs entirely in your browser. Nothing you type is sent anywhere.',
       cta: 'Open the tool',
     },
   ],
@@ -370,7 +370,7 @@ export const articles = [
     date: '2025-09-12',
     readingTime: '6 min read',
     summary:
-      'Most AI disappointment is a prompting problem, not a model problem. A simple, repeatable structure gets you dramatically better results, and it is the same structure our Prompt Optimizer applies.',
+      'Most AI disappointment is a prompting problem, not a model problem. A simple, repeatable structure gets you dramatically better results, and our Prompt Optimizer builds on it, tailoring the prompt to the specific AI model you are using.',
     body: [
       { type: 'p', text: 'If you have ever asked an AI for help and got back something vague, generic or subtly wrong, the model is usually not the problem. The prompt is. A large language model can only work with what you give it, and most prompts give it far too little to go on.' },
       { type: 'p', text: 'The good news is that better prompting is a skill, not a talent. A handful of habits will lift the quality of almost everything you get back. Here is the structure we use, and the one our Prompt Optimizer builds for you automatically.' },
@@ -386,7 +386,7 @@ export const articles = [
       { type: 'p', text: 'Ask for the exact shape you want to receive: a table, a list, a short email, JSON, headings. Telling the model how to lay the answer out saves you the reformatting and makes the result usable straight away.' },
       { type: 'h', text: 'Iterate' },
       { type: 'p', text: 'Your first prompt is a draft. Read the response, notice where it missed, and add the missing context or constraint. Two or three quick rounds will get you further than trying to write the perfect prompt in one go.' },
-      { type: 'p', text: 'Put those six habits together and you have a prompt that gives a model a real chance of being useful. If you would rather not assemble it by hand every time, our Prompt Optimizer does exactly this: you describe the task, and it returns a structured prompt you can copy straight into your AI of choice.' },
+      { type: 'p', text: 'Put those six habits together and you have a prompt that gives a model a real chance of being useful. If you would rather not assemble it by hand every time, our Prompt Optimizer does the work for you, and goes a step further by tailoring the result to the specific AI model you are using.' },
     ],
   },
 ]
@@ -473,11 +473,6 @@ export const pageMeta = {
     title: 'Tools & Insights | GBX Professional Services',
     description:
       'Free tools and articles from GBX Professional Services, starting with the Prompt Optimizer: turn a rough idea into a clear, well-structured AI prompt in your browser.',
-  },
-  promptOptimizer: {
-    title: 'Prompt Optimizer | GBX Professional Services',
-    description:
-      'A free, browser-based tool that rewrites a rough idea into a clear, well-structured AI prompt with role, context, task, constraints and output format. Nothing you type leaves your device.',
   },
   contact: {
     title: 'Contact | GBX Professional Services',
