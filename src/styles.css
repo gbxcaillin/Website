@@ -2537,3 +2537,100 @@ button {
 .insights-more {
   margin-top: clamp(1.5rem, 3vw, 2.25rem);
 }
+
+/* ==========================================================================
+   Tool wizard (one question per screen)
+   ========================================================================== */
+.wizard {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.wizard__progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+.wizard__progress .mono {
+  color: var(--ink-3);
+  flex: none;
+}
+.wizard__bar {
+  flex: 1;
+  height: 4px;
+  background: var(--line);
+  overflow: hidden;
+}
+.wizard__bar span {
+  display: block;
+  height: 100%;
+  background: var(--gbx-teal);
+  transition: width 0.3s var(--ease);
+}
+.wizard__question {
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  line-height: 1.15;
+  margin: 0.5rem 0 clamp(1.25rem, 3vw, 2rem);
+}
+.wizard__help {
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  margin: -0.75rem 0 1.25rem;
+}
+.wizard__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.wizard__opt {
+  text-align: left;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s var(--ease), background-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.wizard__opt:hover {
+  border-color: var(--gbx-teal);
+}
+.wizard__opt--on {
+  background: var(--gbx-teal);
+  border-color: var(--gbx-teal);
+  color: #fff;
+}
+.wizard__field input {
+  width: 100%;
+  font: inherit;
+  font-size: 1.1rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  padding: 0.9rem 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.wizard__field input:focus {
+  outline: none;
+  border-color: var(--gbx-teal);
+  box-shadow: 0 0 0 1px var(--gbx-teal);
+}
+.wizard__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 4vw, 2.25rem);
+  min-height: 2.6rem;
+}
+
+/* Results shown after the wizard completes */
+.sc-result--wide,
+.calc-result--wide {
+  position: static;
+  top: auto;
+  max-width: 760px;
+  margin: 0 auto;
+}
