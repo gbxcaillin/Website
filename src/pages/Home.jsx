@@ -6,6 +6,7 @@ import Services from '../components/Services.jsx'
 import Divider from '../components/Divider.jsx'
 import ApproachSummary from '../components/ApproachSummary.jsx'
 import ReachSummary from '../components/ReachSummary.jsx'
+import HomeTools from '../components/HomeTools.jsx'
 import CTA from '../components/CTA.jsx'
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Divider />
       <ApproachSummary />
       <ReachSummary />
+      <HomeTools />
       <CTA />
     </>
   )

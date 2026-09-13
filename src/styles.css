@@ -2649,3 +2649,107 @@ button {
   line-height: 1.6;
   color: var(--ink);
 }
+
+/* Footer newsletter */
+.footer__newsletter {
+  border-top: 1px solid var(--line-on-dark);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  max-width: 520px;
+}
+.newsletter__body {
+  color: var(--paper-on-dark);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0.5rem 0 1rem;
+}
+.newsletter__form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.newsletter__form input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--gbx-paper);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line-on-dark);
+  padding: 0.7rem 0.85rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.newsletter__form input::placeholder {
+  color: rgba(255, 253, 248, 0.4);
+}
+.newsletter__form input:focus {
+  outline: none;
+  border-color: var(--gbx-teal);
+  box-shadow: 0 0 0 1px var(--gbx-teal);
+}
+.newsletter__done {
+  color: var(--gbx-teal);
+  font-size: 0.95rem;
+}
+.newsletter__err {
+  color: #e0b4a6;
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+}
+
+/* Home tools feature */
+.home-tools__grid {
+  list-style: none;
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+}
+.home-tool {
+  background: var(--gbx-paper);
+  border: 1px solid var(--line);
+}
+.home-tool__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  height: 100%;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  transition: background-color 0.2s var(--ease);
+}
+.home-tool__link:hover {
+  background: #fff;
+}
+.home-tool__name {
+  font-size: 1.2rem;
+}
+.home-tool__tagline {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex: 1;
+}
+.home-tools__more {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Contact booking callout */
+.contact__book {
+  border: 1px solid var(--line);
+  background: var(--gbx-paper);
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.contact__book-heading {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+.contact__book-body {
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}

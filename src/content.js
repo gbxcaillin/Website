@@ -26,6 +26,18 @@ export const site = {
   // Tool and contact submissions POST here (Cloudflare Pages Function).
   // See docs/lead-capture-setup.md.
   leadEndpoint: '/api/tool-lead',
+  // Optional direct booking link (e.g. a Microsoft Bookings or Calendly URL).
+  // Leave empty to route "Book a call" to the contact page instead.
+  bookingUrl: '',
+}
+
+export const newsletter = {
+  heading: 'Ideas worth your inbox',
+  body:
+    'Occasional, practical insights on performance, AI, sales and marketing. No spam, and you can unsubscribe any time.',
+  placeholder: 'you@company.com',
+  cta: 'Subscribe',
+  done: 'Thanks. You are on the list. Look out for the next one.',
 }
 
 // Primary navigation. Each item routes to a page.
@@ -268,8 +280,8 @@ export const reach = {
   eyebrow: 'Global reach',
   heading: 'Melbourne-based, delivering globally.',
   intro:
-    'We are based in Melbourne and work with clients wherever they operate. Through a network of trusted partners and associates across Australia, Asia, the Middle East and North America, we bring local presence to global engagements, in person, remotely, or as a blend that suits the work.',
-  // These are hubs across the GBX partner network, not GBX Professional Services offices.
+    'We are based in Melbourne and have worked with companies across Australia, Asia, the Middle East and North America. The modern world is connected by the internet and by good ideas, so no project is too far or too hard when we are the right fit. If the problem is worth solving, distance is rarely the reason not to.',
+  // Cities where GBX Professional Services has worked with client companies.
   cities: [
     { name: 'Melbourne', region: 'Australia', hq: true },
     { name: 'Sydney', region: 'Australia' },
@@ -291,9 +303,9 @@ export const reach = {
           'Every engagement is led and owned from our Melbourne base. You have one accountable point of contact and one standard of work, wherever the engagement happens to run.',
       },
       {
-        title: 'A trusted partner network',
+        title: 'A track record across markets',
         body:
-          'When work benefits from people on the ground, we draw on a network of trusted partners and associates across Australia, Asia, the Middle East and North America. They extend our reach without diluting our accountability.',
+          'We have worked with client companies across Australia, Asia, the Middle East and North America, and draw on trusted partners and associates when a project benefits from people on the ground. That reach extends what we can do without diluting our accountability.',
       },
       {
         title: 'In person, remote or blended',
@@ -314,6 +326,11 @@ export const contact = {
   heading: 'Tell us what you are working on.',
   intro:
     'A short note is enough. We will reply within two business days with a view on whether we can help and what a first conversation might look like.',
+  bookingHeading: 'Prefer to talk it through?',
+  bookingBody:
+    'Book a call and we will find a time. A phone call or a Microsoft Teams meeting, whichever suits you.',
+  bookingCta: 'Book a call',
+  contactMethods: ['Phone call', 'Microsoft Teams', 'Email is fine'],
   interestsLabel: 'Which services are you interested in?',
   interestsHint: 'Select any that apply.',
   interests: [
@@ -418,7 +435,7 @@ export const homeSummaries = {
     eyebrow: 'Global reach',
     heading: 'Melbourne-based, delivering globally.',
     line:
-      'A network of trusted partners and associates across Australia, Asia, the Middle East and North America brings local presence to global work.',
+      'We have worked with companies across Australia, Asia, the Middle East and North America. The world is connected by the internet and by good ideas, so no project is too far when we are the right fit.',
     stat: 'AU · Asia · Middle East · North America',
     link: { label: 'Explore our reach', to: '/reach' },
   },

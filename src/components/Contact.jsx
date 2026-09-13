@@ -26,6 +26,7 @@ export default function Contact() {
           name: data.get('name') || '',
           fields: {
             organisation: data.get('organisation') || '',
+            'preferred contact': data.get('contactMethod') || '',
             interests: data.getAll('interest'),
           },
           summary: data.get('message') || '',
@@ -52,6 +53,18 @@ export default function Contact() {
             {contact.heading}
           </h2>
           <p className="section__intro">{contact.intro}</p>
+
+          <div className="contact__book">
+            <p className="contact__book-heading">{contact.bookingHeading}</p>
+            <p className="contact__book-body">{contact.bookingBody}</p>
+            <a
+              href={site.bookingUrl || '#enquiry-form'}
+              {...(site.bookingUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              className="btn btn--outline-dark btn--sm"
+            >
+              {contact.bookingCta}
+            </a>
+          </div>
 
           <dl className="contact__details">
             <div>
@@ -81,6 +94,7 @@ export default function Contact() {
         </div>
 
         <form
+          id="enquiry-form"
           className="form"
           action={site.leadEndpoint}
           method="POST"
@@ -98,10 +112,23 @@ export default function Contact() {
             </label>
           </div>
 
-          <label className="field">
-            <span className="field__label">Organisation</span>
-            <input name="organisation" type="text" autoComplete="organization" />
-          </label>
+          <div className="form__row">
+            <label className="field">
+              <span className="field__label">Organisation</span>
+              <input name="organisation" type="text" autoComplete="organization" />
+            </label>
+            <label className="field">
+              <span className="field__label">Preferred way to talk</span>
+              <select name="contactMethod" defaultValue="">
+                <option value="">No preference</option>
+                {contact.contactMethods.map((m) => (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
 
           <fieldset className="field field--fieldset">
             <legend className="field__label">
