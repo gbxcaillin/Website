@@ -196,7 +196,6 @@ export const leadership = {
         'Bachelor of Commerce (Finance and Financial Planning)',
         'Bachelor of Education',
         'Bachelor of Arts (Linguistics)',
-        'Certificate IV in Workplace Training and Assessment',
       ],
     },
     {
