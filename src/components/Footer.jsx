@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { footer, site } from '../content.js'
+import Newsletter from './Newsletter.jsx'
 
 export default function Footer() {
   return (
@@ -53,6 +54,10 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="footer__newsletter">
+          <Newsletter />
         </div>
 
         <div className="footer__bottom">

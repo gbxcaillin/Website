@@ -85,18 +85,23 @@ export async function onRequestPost(context) {
     }).catch((e) => console.error('owner email failed:', e))
 
     const greeting = `Hi${record.name ? ' ' + record.name : ''},`
-    const visitorText =
-      record.kind === 'contact'
-        ? `${greeting}\n\nThanks for getting in touch with GBX Professional Services. We have received your message and will reply within two business days.\n\nGBX Professional Services\nhttps://gbxps.com`
-        : `${greeting}\n\nThanks for using our ${record.source}. Here are your results.\n\n${record.summary}\n\nA quick note: a tool like this is a starting point, not the full picture. If anything here rings true, we would be glad to take a proper look with you.\n\nGBX Professional Services\nhttps://gbxps.com`
+    let visitorText
+    let visitorSubject
+    if (record.kind === 'contact') {
+      visitorSubject = 'We received your enquiry — GBX Professional Services'
+      visitorText = `${greeting}\n\nThanks for getting in touch with GBX Professional Services. We have received your message and will reply within two business days.\n\nGBX Professional Services\nhttps://gbxps.com`
+    } else if (record.kind === 'newsletter') {
+      visitorSubject = 'You are subscribed — GBX Professional Services'
+      visitorText = `${greeting}\n\nThanks for subscribing to insights from GBX Professional Services. You will hear from us occasionally with practical ideas on performance, AI, sales and marketing, and you can unsubscribe any time.\n\nGBX Professional Services\nhttps://gbxps.com`
+    } else {
+      visitorSubject = `Your ${record.source} results — GBX Professional Services`
+      visitorText = `${greeting}\n\nThanks for using our ${record.source}. Here are your results.\n\n${record.summary}\n\nA quick note: a tool like this is a starting point, not the full picture. If anything here rings true, we would be glad to take a proper look with you.\n\nGBX Professional Services\nhttps://gbxps.com`
+    }
 
     await sendEmail(env, {
       from,
       to: email,
-      subject:
-        record.kind === 'contact'
-          ? 'We received your enquiry — GBX Professional Services'
-          : `Your ${record.source} results — GBX Professional Services`,
+      subject: visitorSubject,
       text: visitorText,
     }).catch((e) => console.error('visitor email failed:', e))
   }
