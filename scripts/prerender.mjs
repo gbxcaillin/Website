@@ -131,6 +131,34 @@ function contactBody() {
     <p>Email: <a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
     <p>Office: ${esc(site.address)}</p></main>`
 }
+function caseIndexBody() {
+  const cp = C.caseStudiesPage
+  const shown = C.caseStudies.filter((c) => c.published)
+  return `<main><p>${esc(cp.eyebrow)}</p><h1>${esc(cp.heading)}</h1><p>${esc(cp.intro)}</p>
+    <ul>${shown
+      .map(
+        (c) =>
+          `<li><a href="/case-studies/${c.slug}"><h2>${esc(c.client)}</h2></a><p>${esc(c.sector)}</p><p>${esc(c.summary)}</p></li>`
+      )
+      .join('')}</ul></main>`
+}
+
+function caseBody(c) {
+  const blocks = (h, arr) =>
+    arr && arr.length ? `<h2>${esc(h)}</h2>${arr.map((x) => `<p>${esc(x)}</p>`).join('')}` : ''
+  return `<main><article>
+    <p>${c.clientType === 'in-house' ? 'In-house project' : 'Case study'}</p>
+    <h1>${esc(c.client)}</h1>
+    <p>${esc(c.summary)}</p>
+    <p>${esc(c.sector)}${c.services && c.services.length ? ' · ' + esc(c.services.join(', ')) : ''}${c.timeframe ? ' · ' + esc(c.timeframe) : ''}</p>
+    ${c.metrics && c.metrics.length ? `<ul>${c.metrics.map((m) => `<li>${esc(m.value)} ${esc(m.label)}</li>`).join('')}</ul>` : ''}
+    ${blocks('The situation', c.situation)}
+    ${blocks('What we did', c.approach)}
+    ${blocks('The outcome', c.outcome)}
+    ${c.quote ? `<blockquote><p>${esc(c.quote.text)}</p><cite>${esc(c.quote.attribution || '')}</cite></blockquote>` : ''}
+  </article></main>`
+}
+
 function privacyBody() {
   const p = C.legal.privacy
   return `<main><p>Legal</p><h1>${esc(p.title)}</h1><p>${esc(p.intro)}</p>
@@ -182,6 +210,7 @@ const routes = [
   { path: '/tools/ai-readiness', meta: C.pageMeta.aiReadiness, body: toolPageBody('ai-readiness', C.pageMeta.aiReadiness) },
   { path: '/tools/positioning', meta: C.pageMeta.positioning, body: toolPageBody('positioning', C.pageMeta.positioning) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
+  { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },
   { path: '/privacy-policy', meta: C.pageMeta.privacy, body: privacyBody() },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
 ]
@@ -217,6 +246,17 @@ for (const a of articles) {
         ],
       },
     ],
+  })
+}
+
+for (const c of C.caseStudies.filter((x) => x.published)) {
+  routes.push({
+    path: `/case-studies/${c.slug}`,
+    meta: {
+      title: `${c.client} | Case study | GBX Professional Services`,
+      description: c.summary,
+    },
+    body: caseBody(c),
   })
 }
 

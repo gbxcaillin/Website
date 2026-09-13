@@ -480,6 +480,7 @@ export const footer = {
       links: [
         { label: 'Leadership', to: '/leadership' },
         { label: 'Approach', to: '/approach' },
+        { label: 'Case studies', to: '/case-studies' },
         { label: 'Global reach', to: '/reach' },
         { label: 'Tools & Insights', to: '/tools' },
         { label: 'Contact', to: '/contact' },
@@ -490,6 +491,92 @@ export const footer = {
   disclaimer:
     'GBX PS Pty Ltd provides business consulting, analytics, education and training services. GBX Professional Services does not hold an Australian Financial Services Licence (AFSL) and does not provide financial product advice, dealing or any other financial service. Information on this site is general in nature, does not take account of your objectives, financial situation or needs, and is not personal financial advice. Where a financial service is required, it is provided by an appropriately licensed party.',
 }
+
+// Case studies. Add real engagements here as they are ready.
+//
+// To add one, copy an entry and fill it in. Fields:
+//   slug        unique url segment
+//   published   true to show it; false keeps it as a draft in this file only
+//   featured    true to surface it in the home "Selected work" teaser
+//   clientType  'client' or 'in-house' (labels it honestly on the page)
+//   client      real name (with permission) or an anonymised descriptor,
+//               e.g. 'A Melbourne financial advice practice'
+//   sector, services, timeframe   context
+//   summary     one or two sentences for the card and meta description
+//   metrics     up to 3 { value, label } tiles, e.g. { value: '5 days to 1', label: 'Month-end close' }
+//   situation / approach / outcome   arrays of plain-text paragraphs
+//   quote       optional { text, attribution }
+//   link        optional { label, href, external } related link
+//
+// COMPLIANCE: for advice-firm or regulated clients, keep outcomes about
+// operations, marketing and process. Never imply financial-product advice or
+// investment results. Only name a client or show a logo with their permission.
+export const caseStudiesPage = {
+  eyebrow: 'Selected work',
+  heading: 'Work, and what it changed.',
+  intro:
+    'A look at the problems we have worked on and the difference the work made. We add engagements here as clients are happy for us to share them. Where a client prefers to stay private, we describe the work without naming them.',
+  empty: 'Case studies are on the way. In the meantime, we are glad to talk through relevant examples in a conversation.',
+  homeHeading: 'Selected work',
+  homeIntro: 'A sample of what we have worked on and the difference it made.',
+}
+
+export const caseStudies = [
+  {
+    slug: 'prompt-optimizer',
+    published: true,
+    featured: false,
+    clientType: 'in-house',
+    client: 'GBX Professional Services',
+    sector: 'AI tooling',
+    services: ['Business AI Readiness'],
+    timeframe: 'In-house project',
+    summary:
+      'We built and shipped a free, model-aware Prompt Optimizer that turns a rough idea into a clear, structured AI prompt, entirely in the browser.',
+    metrics: [
+      { value: '4', label: 'AI model families covered' },
+      { value: '100%', label: 'Runs in the browser' },
+      { value: 'Free', label: 'To use, no sign-up' },
+    ],
+    situation: [
+      'People get poor results from AI far more often because of the prompt than the model. Most prompts give the model too little to work with, and the advice on how to fix that is scattered and technical.',
+      'We wanted a practical, free way to help anyone write a better prompt, tailored to the kind of model they are actually using, without asking them to learn prompt engineering first.',
+    ],
+    approach: [
+      'We distilled prompt-engineering practice into a simple, repeatable structure: role, context, task, constraints and output format.',
+      'We built a tool that assembles that structure from a few plain-language answers, with guidance specific to text, image, video and audio models. It runs entirely in the browser, so nothing anyone types is sent anywhere.',
+    ],
+    outcome: [
+      'The Prompt Optimizer is live and free on this site, and the thinking behind it now informs how we help clients adopt AI deliberately through our Business AI Readiness work.',
+      'It is a small example of how we prefer to work: turn a fuzzy problem into a clear system, and make it genuinely useful.',
+    ],
+    quote: null,
+    link: { label: 'Try the Prompt Optimizer', href: '/tools/prompt-optimizer/', external: true },
+  },
+  // Example template (kept unpublished). Copy this, fill it in, set published: true.
+  {
+    slug: 'example-advice-practice',
+    published: false,
+    featured: false,
+    clientType: 'client',
+    client: 'A Melbourne financial advice practice',
+    sector: 'Financial advice',
+    services: ['Business Analytics & Performance', 'Business Success Consulting'],
+    timeframe: '3 months',
+    summary:
+      'Example only. Replace with a real engagement: the one-line story and its headline outcome.',
+    metrics: [
+      { value: '5 days to 1', label: 'Month-end reporting' },
+      { value: '+18%', label: 'Adviser capacity' },
+      { value: '1', label: 'Source of truth' },
+    ],
+    situation: ['Example only. Describe the situation and the problem the client faced.'],
+    approach: ['Example only. Describe what GBX Professional Services did and how.'],
+    outcome: ['Example only. Describe the measurable result and what changed for the client.'],
+    quote: { text: 'Example only. A short client quote goes here.', attribution: 'Name, Role, Company' },
+    link: null,
+  },
+]
 
 // Legal pages. Plain-language, and specific to how this site actually handles data.
 // Recommend a legal review before relying on it. Edit `updated` when it changes.
@@ -654,6 +741,11 @@ export const pageMeta = {
     title: 'Privacy Policy | GBX Professional Services',
     description:
       'How GBX Professional Services collects, uses, stores and protects your personal information, consistent with the Australian Privacy Principles.',
+  },
+  caseStudies: {
+    title: 'Case Studies | GBX Professional Services',
+    description:
+      'Selected work from GBX Professional Services: the problems we have worked on and the difference the work made.',
   },
   contact: {
     title: 'Contact | GBX Professional Services',
