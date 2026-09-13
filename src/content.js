@@ -191,6 +191,13 @@ export const leadership = {
       body:
         'Leads strategy, analytics and commercial capability, bringing portfolio-level thinking, commercial judgement and operating discipline to how client businesses are structured and run.',
       initials: 'CC',
+      photo: 'caillin',
+      quals: [
+        'Bachelor of Commerce (Finance and Financial Planning)',
+        'Bachelor of Education',
+        'Bachelor of Arts (Linguistics)',
+        'Certificate IV in Workplace Training and Assessment',
+      ],
     },
     {
       number: '2',
@@ -200,6 +207,12 @@ export const leadership = {
       body:
         'Leads creative and marketing capability, translating strategy into client-facing material, digital campaigns, brand assets and growth content.',
       initials: 'RS',
+      photo: 'rose',
+      quals: [
+        'Bachelor of Criminology',
+        'Lifelong creative',
+        'Years of marketing seminars and workshops, learning the craft',
+      ],
     },
     {
       number: '3',
@@ -209,6 +222,12 @@ export const leadership = {
       body:
         'Leads financial education and technical training capability, supported by an extensive education background and experience translating investment, portfolio and compliance concepts into practical, general learning.',
       initials: 'PG',
+      photo: 'patrick',
+      quals: [
+        'Graduate Diploma of Financial Planning',
+        'Master of Education',
+        'Bachelor of Music',
+      ],
     },
   ],
 }
