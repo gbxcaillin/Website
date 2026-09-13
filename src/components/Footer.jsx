@@ -56,7 +56,12 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p className="footer__copy">{site.copyright}. All rights reserved.</p>
+          <p className="footer__copy">
+            {site.copyright}. All rights reserved.{' '}
+            <Link to="/privacy-policy" className="footer__link">
+              Privacy Policy
+            </Link>
+          </p>
           <p className="footer__disclaimer">{footer.disclaimer}</p>
         </div>
       </div>

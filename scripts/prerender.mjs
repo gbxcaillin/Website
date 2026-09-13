@@ -127,6 +127,19 @@ function contactBody() {
     <p>Email: <a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
     <p>Office: ${esc(site.address)}</p></main>`
 }
+function privacyBody() {
+  const p = C.legal.privacy
+  return `<main><p>Legal</p><h1>${esc(p.title)}</h1><p>${esc(p.intro)}</p>
+    ${p.sections
+      .map(
+        (s) =>
+          `<section><h2>${esc(s.heading)}</h2>${s.paragraphs.map((x) => `<p>${esc(x)}</p>`).join('')}${
+            s.list ? `<ul>${s.list.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : ''
+          }</section>`
+      )
+      .join('')}</main>`
+}
+
 function articleBody(a) {
   return `<main><article>
     <p>${esc(catLabel[a.category] || 'Insights')}</p>
@@ -165,6 +178,7 @@ const routes = [
   { path: '/tools/ai-readiness', meta: C.pageMeta.aiReadiness, body: toolPageBody('ai-readiness', C.pageMeta.aiReadiness) },
   { path: '/tools/positioning', meta: C.pageMeta.positioning, body: toolPageBody('positioning', C.pageMeta.positioning) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
+  { path: '/privacy-policy', meta: C.pageMeta.privacy, body: privacyBody() },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
 ]
 
