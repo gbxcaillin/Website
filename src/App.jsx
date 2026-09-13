@@ -13,6 +13,7 @@ import AiReadinessPage from './pages/AiReadinessPage.jsx'
 import PositioningPage from './pages/PositioningPage.jsx'
 import InsightsPage from './pages/InsightsPage.jsx'
 import ArticlePage from './pages/ArticlePage.jsx'
+import PrivacyPage from './pages/PrivacyPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="tools/positioning" element={<PositioningPage />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
+          <Route path="privacy-policy" element={<PrivacyPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
