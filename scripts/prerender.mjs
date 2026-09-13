@@ -84,7 +84,11 @@ function leadershipBody() {
     <ul>${leadership.people
       .map(
         (p) =>
-          `<li><h2>${esc(p.name)}</h2><p>${esc(p.lead)}. ${esc(p.role)}.</p><p>${esc(p.body)}</p></li>`
+          `<li><h2>${esc(p.name)}</h2><p>${esc(p.lead)}. ${esc(p.role)}.</p><p>${esc(p.body)}</p>${
+            p.quals && p.quals.length
+              ? `<ul>${p.quals.map((q) => `<li>${esc(q)}</li>`).join('')}</ul>`
+              : ''
+          }</li>`
       )
       .join('')}</ul></main>`
 }
