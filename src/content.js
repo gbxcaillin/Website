@@ -691,9 +691,9 @@ export const legal = {
 // fixed-scope, fixed-fee engagement so a prospect can say yes to something small,
 // well defined and low risk before committing to a larger program.
 //
-// PRICING: `price.value` is deliberately "quoted up front" until a figure is
-// decided. To publish a price, set it to e.g. 'From $4,900 + GST' and adjust
-// `price.note`. See docs/go-to-market.md for the decisions still open.
+// PRICING: the published "from" price and the 60-day fee credit are set in
+// `price`. Lift the figure as case studies and demand build. No refund
+// guarantee for now. See docs/go-to-market.md.
 export const diagnostic = {
   eyebrow: 'Start here',
   name: 'The Performance Diagnostic',
@@ -731,7 +731,7 @@ export const diagnostic = {
         body:
           'Two weeks of structured work with your numbers, systems, processes and people, finishing with a readout and a written plan you keep whether or not you continue with us.',
         link: { label: 'What is included', to: '#included' },
-        cost: 'Fixed fee',
+        cost: 'From $4,500 + GST',
       },
     ],
   },
@@ -766,9 +766,9 @@ export const diagnostic = {
   },
   price: {
     label: 'Fixed fee',
-    value: 'Quoted up front',
+    value: 'From $4,500 + GST',
     note:
-      'The fee is agreed before we start and does not change. If the diagnostic call shows the Diagnostic is not the right next step for you, we will say so.',
+      'The fee is confirmed before we start and does not change. If you go on to a delivery engagement with us within 60 days, the full Diagnostic fee is credited against it. And if the diagnostic call shows the Diagnostic is not the right next step for you, we will say so.',
   },
   outcomes: {
     heading: 'What you walk away with',
@@ -790,7 +790,7 @@ export const diagnostic = {
         title: 'You will get',
         items: [
           'Senior people doing the work, not a junior team behind a senior pitch',
-          'A fixed scope and a fixed fee, agreed before we start',
+          'A fixed scope and a fixed fee, confirmed before we start and credited against any delivery work that follows',
           'Findings grounded in your numbers, not in a template',
           'A plan written so your team can run it without us',
           'A straight answer if we are not the right fit',
@@ -821,7 +821,7 @@ export const diagnostic = {
       },
       {
         q: 'What happens after the readout?',
-        a: 'You have the plan and you own it. Some clients run it themselves. Some ask us to scope the delivery of specific parts. Either is a good outcome.',
+        a: 'You have the plan and you own it. Some clients run it themselves. Some ask us to scope the delivery of specific parts, in which case the full Diagnostic fee is credited against that work if it starts within 60 days. Either is a good outcome.',
       },
       {
         q: 'We are not in Melbourne. Does that matter?',
@@ -844,7 +844,7 @@ export const diagnostic = {
     eyebrow: 'Start here',
     heading: 'Not sure where to begin? Start with the Diagnostic.',
     body:
-      'Two weeks, fixed fee, one clear picture of the business and a 90-day plan you own. Or start smaller with the free two-minute Health Check.',
+      'Two weeks, from $4,500 + GST, one clear picture of the business and a 90-day plan you own. Or start smaller with the free two-minute Health Check.',
     primary: { label: 'See the Diagnostic', to: '/diagnostic' },
     secondary: { label: 'Take the free Health Check', to: '/tools/health-check' },
   },
@@ -902,7 +902,7 @@ export const pageMeta = {
   diagnostic: {
     title: 'The Performance Diagnostic | GBX Professional Services',
     description:
-      'A fixed-scope, fixed-fee two-week diagnostic from GBX Professional Services: interviews, a review of your numbers, systems and processes, a prioritised opportunity map and a 90-day plan you own.',
+      'A fixed-scope two-week diagnostic from GBX Professional Services, from $4,500 + GST: interviews, a review of your numbers, systems and processes, a prioritised opportunity map and a 90-day plan you own. Fee credited against delivery work that follows.',
   },
   services: {
     title: 'Services | GBX Professional Services',
