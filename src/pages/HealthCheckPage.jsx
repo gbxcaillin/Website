@@ -132,7 +132,7 @@ function results(answers, restart) {
     ...Object.fromEntries(scores.map((s) => [s.label, `${s.score}/100`])),
   }
   const findingsText = [
-    'GBX Professional Services — Business Health Check',
+    'GBX Professional Services: Business Health Check',
     new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
     '',
     `Overall score: ${overall}/100 (${tier})`,

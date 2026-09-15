@@ -76,7 +76,7 @@ function results(answers, restart) {
     ...Object.fromEntries(DIMENSIONS.map((d) => [d.label, optLabel[answers[d.key]] || 'Not answered'])),
   }
   const findingsText = [
-    'GBX Professional Services — AI Readiness Assessment',
+    'GBX Professional Services: AI Readiness Assessment',
     new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
     '',
     `Readiness: ${tier} (${score}/100)`,

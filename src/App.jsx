@@ -12,6 +12,10 @@ import HealthCheckPage from './pages/HealthCheckPage.jsx'
 import UnitEconomicsPage from './pages/UnitEconomicsPage.jsx'
 import AiReadinessPage from './pages/AiReadinessPage.jsx'
 import PositioningPage from './pages/PositioningPage.jsx'
+import PipelineGapPage from './pages/PipelineGapPage.jsx'
+import CapacityPage from './pages/CapacityPage.jsx'
+import AutomationPage from './pages/AutomationPage.jsx'
+import CapabilityPage from './pages/CapabilityPage.jsx'
 import InsightsPage from './pages/InsightsPage.jsx'
 import ArticlePage from './pages/ArticlePage.jsx'
 import CaseStudiesPage from './pages/CaseStudiesPage.jsx'
@@ -37,6 +41,10 @@ export default function App() {
           <Route path="tools/unit-economics" element={<UnitEconomicsPage />} />
           <Route path="tools/ai-readiness" element={<AiReadinessPage />} />
           <Route path="tools/positioning" element={<PositioningPage />} />
+          <Route path="tools/pipeline-gap" element={<PipelineGapPage />} />
+          <Route path="tools/capacity" element={<CapacityPage />} />
+          <Route path="tools/automation" element={<AutomationPage />} />
+          <Route path="tools/capability" element={<CapabilityPage />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
           <Route path="case-studies" element={<CaseStudiesPage />} />

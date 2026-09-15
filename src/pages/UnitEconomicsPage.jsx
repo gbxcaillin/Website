@@ -74,7 +74,7 @@ function results(answers, restart) {
     'Payback (months)': r.payback.toFixed(1),
   }
   const findingsText = [
-    'GBX Professional Services — Unit Economics Calculator',
+    'GBX Professional Services: Unit Economics Calculator',
     new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
     '',
     'Your inputs:',
