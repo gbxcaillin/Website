@@ -2964,7 +2964,8 @@ button {
 }
 .diag__price-value {
   font-family: var(--font-serif);
-  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+  white-space: nowrap;
   line-height: 1.1;
   color: var(--gbx-paper);
 }
@@ -2973,6 +2974,26 @@ button {
   font-size: 0.9rem;
   line-height: 1.55;
   margin-bottom: 0.75rem;
+}
+
+/* Pace callout */
+.diag__pace {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gbx-teal);
+  background: var(--gbx-soft);
+  max-width: 560px;
+}
+.diag__pace-heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin: 0.5rem 0 0.45rem;
+}
+.diag__pace-body {
+  color: var(--ink-2);
+  font-size: 0.93rem;
+  line-height: 1.6;
 }
 
 /* Ladder */

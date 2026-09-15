@@ -136,7 +136,7 @@ function diagnosticBody() {
   const d = C.diagnostic
   const w = C.whyUs
   return `<main><p>${esc(d.eyebrow)}</p><h1>${esc(d.heading)}</h1><p>${esc(d.intro)}</p>
-    <section><h2>${esc(d.forWhom.heading)}</h2><p>${esc(d.forWhom.body)}</p><p>${esc(d.price.label)}: ${esc(d.price.value)}. ${esc(d.price.note)}</p></section>
+    <section><h2>${esc(d.forWhom.heading)}</h2><p>${esc(d.forWhom.body)}</p><h3>${esc(d.pace.heading)}</h3><p>${esc(d.pace.body)}</p><p>${esc(d.price.label)}: ${esc(d.price.value)}. ${esc(d.price.note)}</p></section>
     <section><h2>${esc(d.ladder.heading)}</h2><ol>${d.ladder.steps
       .map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.cost)}. ${esc(s.body)}</p></li>`)
       .join('')}</ol></section>

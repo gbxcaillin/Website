@@ -33,6 +33,11 @@ export default function DiagnosticPage() {
             <p className="eyebrow">{d.name}</p>
             <h2 className="diag__h">{d.forWhom.heading}</h2>
             <p className="diag__p">{d.forWhom.body}</p>
+            <div className="diag__pace">
+              <p className="eyebrow">{d.pace.eyebrow}</p>
+              <h3 className="diag__pace-heading">{d.pace.heading}</h3>
+              <p className="diag__pace-body">{d.pace.body}</p>
+            </div>
           </div>
           <aside className="diag__price" aria-label="Fee">
             <p className="mono diag__price-label">{d.price.label}</p>

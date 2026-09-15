@@ -21,7 +21,7 @@ The ladder is deliberate. Each step is small enough to say yes to on its own:
    exchange for the results, and feeds the benchmark data below.
 2. Free 30-minute diagnostic call, phone or Microsoft Teams. Qualifies the
    prospect and sets up the Diagnostic.
-3. The Performance Diagnostic: two weeks, fixed fee, fixed scope, written
+3. The Performance Diagnostic: ten days at the client's pace, fixed fee, fixed scope, written
    report and 90-day plan the client owns.
 
 ### Decisions made (September 2026)
@@ -44,6 +44,9 @@ The ladder is deliberate. Each step is small enough to say yes to on its own:
   (gain, effort, sequence), 90-day plan with owners and measures.
 - A mutual confidentiality agreement.
 - A readout agenda (60 to 90 minutes, all three leaders present).
+- A scheduling note: the ten days flex around the client's calendar. "Work at
+  your pace, no interruption to your business" is part of the offer, so the
+  plan should never demand more than four to six client hours.
 
 ## 2. Positioning
 
