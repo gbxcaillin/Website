@@ -52,6 +52,7 @@ function homeBody() {
       <ul>${services.items.map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.body)}</p></li>`).join('')}</ul></section>
     <section><h2>${esc(approach.heading)}</h2><p>${esc(approach.intro)}</p>
       <ol>${approach.steps.map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.body)}</p></li>`).join('')}</ol></section>
+    <section><h2>${esc(C.diagnostic.home.heading)}</h2><p>${esc(C.diagnostic.home.body)}</p><a href="/diagnostic">${esc(C.diagnostic.home.primary.label)}</a></section>
     <section><h2>${esc(reach.heading)}</h2><p>${esc(reach.intro)}</p></section>
     <section><h2>${esc(cta.heading)}</h2><p>${esc(cta.body)}</p><a href="/contact">${esc(cta.primary.label)}</a></section>
   </main>`
@@ -131,6 +132,52 @@ function contactBody() {
     <p>Email: <a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
     <p>Office: ${esc(site.address)}</p></main>`
 }
+function diagnosticBody() {
+  const d = C.diagnostic
+  const w = C.whyUs
+  return `<main><p>${esc(d.eyebrow)}</p><h1>${esc(d.heading)}</h1><p>${esc(d.intro)}</p>
+    <section><h2>${esc(d.forWhom.heading)}</h2><p>${esc(d.forWhom.body)}</p><p>${esc(d.price.label)}: ${esc(d.price.value)}. ${esc(d.price.note)}</p></section>
+    <section><h2>${esc(d.ladder.heading)}</h2><ol>${d.ladder.steps
+      .map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.cost)}. ${esc(s.body)}</p></li>`)
+      .join('')}</ol></section>
+    <section><h2>${esc(d.included.heading)}</h2><ul>${d.included.items
+      .map((i) => `<li><h3>${esc(i.title)}</h3><p>${esc(i.body)}</p></li>`)
+      .join('')}</ul></section>
+    <section><h2>${esc(d.outcomes.heading)}</h2><ul>${d.outcomes.items.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></section>
+    <section><h2>${esc(d.compare.heading)}</h2><p>${esc(d.compare.intro)}</p>${d.compare.columns
+      .map((c) => `<h3>${esc(c.title)}</h3><ul>${c.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`)
+      .join('')}</section>
+    <section><h2>${esc(w.heading)}</h2><ul>${w.items
+      .map((i) => `<li><h3>${esc(i.title)}</h3><p>${esc(i.body)}</p></li>`)
+      .join('')}</ul></section>
+    <section><h2>${esc(d.faq.heading)}</h2>${d.faq.items
+      .map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`)
+      .join('')}</section></main>`
+}
+function diagnosticJsonLd() {
+  const d = C.diagnostic
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: d.name,
+      provider: { '@type': 'ProfessionalService', name: C.site.name, url: SITE_URL },
+      serviceType: 'Business performance diagnostic',
+      areaServed: 'Worldwide',
+      description: C.pageMeta.diagnostic.description,
+      url: `${SITE_URL}/diagnostic`,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faq.items.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ]
+}
 function caseIndexBody() {
   const cp = C.caseStudiesPage
   const shown = C.caseStudies.filter((c) => c.published)
@@ -201,6 +248,7 @@ function toolPageBody(slug, meta) {
 const routes = [
   { path: '/', meta: C.pageMeta.home, body: homeBody() },
   { path: '/services', meta: C.pageMeta.services, body: servicesBody() },
+  { path: '/diagnostic', meta: C.pageMeta.diagnostic, body: diagnosticBody(), jsonld: diagnosticJsonLd() },
   { path: '/leadership', meta: C.pageMeta.leadership, body: leadershipBody() },
   { path: '/approach', meta: C.pageMeta.approach, body: approachBody() },
   { path: '/reach', meta: C.pageMeta.reach, body: reachBody() },

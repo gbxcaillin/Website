@@ -4,6 +4,7 @@ import { pageMeta, services } from '../content.js'
 import { serviceMedia } from '../serviceMedia.js'
 import PageHero from '../components/PageHero.jsx'
 import CTA from '../components/CTA.jsx'
+import WhyUs from '../components/WhyUs.jsx'
 
 export default function ServicesPage() {
   usePageMeta(pageMeta.services)
@@ -77,6 +78,8 @@ export default function ServicesPage() {
           </ol>
         </div>
       </section>
+
+      <WhyUs />
 
       <CTA />
     </>

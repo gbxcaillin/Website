@@ -5,6 +5,7 @@ import Hero from '../components/Hero.jsx'
 import Services from '../components/Services.jsx'
 import Divider from '../components/Divider.jsx'
 import ApproachSummary from '../components/ApproachSummary.jsx'
+import DiagnosticStrip from '../components/DiagnosticStrip.jsx'
 import ReachSummary from '../components/ReachSummary.jsx'
 import CaseStudiesTeaser from '../components/CaseStudiesTeaser.jsx'
 import HomeTools from '../components/HomeTools.jsx'
@@ -21,6 +22,8 @@ export default function Home() {
       <Services />
       <Divider />
       <ApproachSummary />
+      {/* The packaged entry offer, with the free Health Check as the smaller first step. */}
+      <DiagnosticStrip />
       <ReachSummary />
       <CaseStudiesTeaser />
       <HomeTools />

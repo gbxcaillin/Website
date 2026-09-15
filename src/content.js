@@ -58,8 +58,8 @@ export const hero = {
   heading: 'We help your business ',
   subheading: 'run sharper and grow with discipline.',
   body:
-    'GBX Professional Services is a boutique consultancy in Melbourne. We work with professional-services firms, advice practices and other regulated businesses to sharpen how they operate, sell and grow, one clear step at a time.',
-  primary: { label: 'Start a conversation', to: '/contact' },
+    'GBX Professional Services is a boutique consultancy in Melbourne. We work with professional-services firms, advice practices and other regulated businesses to sharpen how they operate, sell and grow. Three leaders, one operating view, and free tools you can use before you ever hire us.',
+  primary: { label: 'Start with the Diagnostic', to: '/diagnostic' },
   secondary: { label: 'Our services', to: '/services' },
 }
 
@@ -67,7 +67,7 @@ export const services = {
   eyebrow: 'What we do',
   heading: 'Seven disciplines, one operating view.',
   intro:
-    'Each engagement draws on the capability it needs. Most clients start with one service and extend into the others as the operating picture becomes clearer.',
+    'Each engagement draws on the capability it needs. Most clients start with the Diagnostic or one service and extend into the others as the operating picture becomes clearer.',
   items: [
     {
       number: '01',
@@ -352,6 +352,7 @@ export const contact = {
   interestsLabel: 'Which services are you interested in?',
   interestsHint: 'Select any that apply.',
   interests: [
+    'The Performance Diagnostic',
     'Business analytics and performance',
     'Business success consulting',
     'Sales enablement and lead generation',
@@ -368,7 +369,7 @@ export const cta = {
   body:
     'Start with a conversation. We will listen, ask the useful questions and tell you plainly where we think the opportunity is.',
   primary: { label: 'Start the conversation', to: '/contact' },
-  secondary: { label: 'View services', to: '/services' },
+  secondary: { label: 'See the Diagnostic', to: '/diagnostic' },
 }
 
 export const brand = {
@@ -445,7 +446,7 @@ export const homeSummaries = {
     eyebrow: 'How we work',
     heading: 'A four-stage method.',
     line:
-      'The same disciplined path underpins every engagement, from a two-week diagnostic to a multi-year partnership.',
+      'The same disciplined path underpins every engagement, from the two-week Performance Diagnostic to a multi-year partnership.',
     stages: ['Health Check', 'Scope', 'Deliver', 'Sustain'],
     link: { label: 'See how we work', to: '/approach' },
   },
@@ -478,6 +479,7 @@ export const footer = {
     {
       title: 'Firm',
       links: [
+        { label: 'The Diagnostic', to: '/diagnostic' },
         { label: 'Leadership', to: '/leadership' },
         { label: 'Approach', to: '/approach' },
         { label: 'Case studies', to: '/case-studies' },
@@ -683,11 +685,224 @@ export const legal = {
 }
 
 // Per-page document titles and meta descriptions.
+
+// ---------------------------------------------------------------------------
+// The packaged entry offer. Stage one of the method (the Health Check) sold as a
+// fixed-scope, fixed-fee engagement so a prospect can say yes to something small,
+// well defined and low risk before committing to a larger program.
+//
+// PRICING: `price.value` is deliberately "quoted up front" until a figure is
+// decided. To publish a price, set it to e.g. 'From $4,900 + GST' and adjust
+// `price.note`. See docs/go-to-market.md for the decisions still open.
+export const diagnostic = {
+  eyebrow: 'Start here',
+  name: 'The Performance Diagnostic',
+  heading: 'Two weeks. One clear picture. A plan you own.',
+  intro:
+    'The Performance Diagnostic is the first stage of our method packaged as a fixed-scope engagement. In two weeks we review how your business actually runs, show you where the fastest and most durable gains sit, and hand you a prioritised plan. Whether you then run it yourself or with us is entirely your call.',
+  forWhom: {
+    heading: 'Who it is for',
+    body:
+      'Owners and leaders of professional-services firms, advice practices and other regulated businesses, typically with five to fifty people, who sense the business could run better but want evidence before they act.',
+  },
+  // The three-step ladder: free tool, free call, paid diagnostic.
+  ladder: {
+    heading: 'Three steps, each one optional.',
+    steps: [
+      {
+        number: '01',
+        title: 'Take the free Health Check',
+        body:
+          'Two minutes, twelve questions, no sign-up. You get a score across six areas and the two places to look first. It is the same lens we use in the full Diagnostic.',
+        link: { label: 'Take the Health Check', to: '/tools/health-check' },
+        cost: 'Free',
+      },
+      {
+        number: '02',
+        title: 'Book a diagnostic call',
+        body:
+          'Thirty minutes with one of our leaders on the phone or Microsoft Teams. Bring your results, or just the problem. We will tell you plainly whether the Diagnostic is worth your money.',
+        link: { label: 'Book a call', to: '/contact' },
+        cost: 'Free',
+      },
+      {
+        number: '03',
+        title: 'Run the Performance Diagnostic',
+        body:
+          'Two weeks of structured work with your numbers, systems, processes and people, finishing with a readout and a written plan you keep whether or not you continue with us.',
+        link: { label: 'What is included', to: '#included' },
+        cost: 'Fixed fee',
+      },
+    ],
+  },
+  included: {
+    heading: 'What the Diagnostic includes',
+    items: [
+      {
+        title: 'Leadership and team interviews',
+        body: 'Structured conversations with the people who run the business and the people who do the work, so the picture is real rather than reported.',
+      },
+      {
+        title: 'Numbers review',
+        body: 'Profitability by client, service or product, pipeline and conversion, capacity and utilisation, and the unit economics of growth.',
+      },
+      {
+        title: 'Systems and process walkthrough',
+        body: 'How work actually moves through the business: the tools, the handoffs, the workarounds and the places time and margin leak.',
+      },
+      {
+        title: 'Marketing and positioning read',
+        body: 'How clearly the business says what it does, whether the market hears it, and how consistently new work arrives.',
+      },
+      {
+        title: 'AI and automation scan',
+        body: 'Where repetitive work could be automated safely, where AI adds real value, and where it does not belong.',
+      },
+      {
+        title: 'Opportunity map and 90-day plan',
+        body: 'Every finding prioritised, sized and sequenced, with owners and measures, in a written report and a readout session with the three leaders.',
+      },
+    ],
+  },
+  price: {
+    label: 'Fixed fee',
+    value: 'Quoted up front',
+    note:
+      'The fee is agreed before we start and does not change. If the diagnostic call shows the Diagnostic is not the right next step for you, we will say so.',
+  },
+  outcomes: {
+    heading: 'What you walk away with',
+    items: [
+      'A scored view of the business across finance, sales, operations, marketing, systems and AI',
+      'The three to five opportunities that matter most, each with the expected gain and the effort to get it',
+      'A 90-day plan with owners, sequence and success measures',
+      'A written report and readout that you own outright',
+      'A clear recommendation on whether further help is worth it, and from whom',
+    ],
+  },
+  // A tasteful "how we compare" without naming anyone.
+  compare: {
+    heading: 'What to expect, and what not to.',
+    intro:
+      'Consulting has a reputation for long reports, vague promises and a quiet dependency that never ends. The Diagnostic is built to be the opposite.',
+    columns: [
+      {
+        title: 'You will get',
+        items: [
+          'Senior people doing the work, not a junior team behind a senior pitch',
+          'A fixed scope and a fixed fee, agreed before we start',
+          'Findings grounded in your numbers, not in a template',
+          'A plan written so your team can run it without us',
+          'A straight answer if we are not the right fit',
+        ],
+      },
+      {
+        title: 'You will not get',
+        items: [
+          'A 90-page report that no one reads',
+          'A pitch for a product, a platform or a licence',
+          'Advice about financial products. We do not hold an AFSL and never will pretend to',
+          'A plan that only works if you keep paying us',
+          'Growth targets that ignore your compliance obligations',
+        ],
+      },
+    ],
+  },
+  faq: {
+    heading: 'Common questions',
+    items: [
+      {
+        q: 'How much of my time does it take?',
+        a: 'Plan on four to six hours across the two weeks: a kick-off, interviews, a short data request and the readout. We do the rest.',
+      },
+      {
+        q: 'What do you need from us?',
+        a: 'Access to your management numbers, a walkthrough of your main systems, and time with the people you nominate. Everything is covered by a confidentiality agreement.',
+      },
+      {
+        q: 'What happens after the readout?',
+        a: 'You have the plan and you own it. Some clients run it themselves. Some ask us to scope the delivery of specific parts. Either is a good outcome.',
+      },
+      {
+        q: 'We are not in Melbourne. Does that matter?',
+        a: 'No. We have worked with businesses across Australia, Asia, the Middle East and North America. Interviews and readouts run well over Microsoft Teams.',
+      },
+      {
+        q: 'Is this financial advice?',
+        a: 'No. GBX Professional Services does not hold an Australian Financial Services Licence and does not provide financial product advice. The Diagnostic is about how your business operates, sells and grows.',
+      },
+    ],
+  },
+  cta: {
+    heading: 'Start with a conversation.',
+    body: 'Tell us what is going on and we will tell you plainly whether the Diagnostic is the right next step.',
+    primary: { label: 'Book a diagnostic call', to: '/contact' },
+    secondary: { label: 'Take the free Health Check', to: '/tools/health-check' },
+  },
+  // Compact strip for the home page.
+  home: {
+    eyebrow: 'Start here',
+    heading: 'Not sure where to begin? Start with the Diagnostic.',
+    body:
+      'Two weeks, fixed fee, one clear picture of the business and a 90-day plan you own. Or start smaller with the free two-minute Health Check.',
+    primary: { label: 'See the Diagnostic', to: '/diagnostic' },
+    secondary: { label: 'Take the free Health Check', to: '/tools/health-check' },
+  },
+}
+
+// Why GBX Professional Services. The positioning we press site-wide, drawn from
+// what sets the firm apart from other boutique consultancies: three leaders with
+// three disciplines, regulated-sector depth, tools before talk, practical AI, and
+// engagements built to end.
+export const whyUs = {
+  eyebrow: 'Why GBX Professional Services',
+  heading: 'What sets the work apart.',
+  intro:
+    'Plenty of consultancies promise sharper operations. These are the things we think you should compare us on.',
+  items: [
+    {
+      title: 'Three leaders, three disciplines',
+      body:
+        'Most boutiques bring one lens. Every engagement here draws on a systems leader, a brand and communication leader and an education leader, so the plan covers how the business runs, how it is heard and how its people keep the gains.',
+    },
+    {
+      title: 'Built for regulated businesses',
+      body:
+        'Our clients carry real obligations. We design around them from the start, and because we do not hold an AFSL and do not sell financial products, our recommendations about your business are not tied to anything we are trying to sell you.',
+    },
+    {
+      title: 'Tools before talk',
+      body:
+        'Our free tools, articles and published method let you test our thinking before you pay for it. The Health Check on this site uses the same lens as the full Diagnostic.',
+    },
+    {
+      title: 'AI that is practical, not theatrical',
+      body:
+        'We build with AI every week and publish what we learn. We will show you where it saves real time and tell you plainly where it does not belong.',
+    },
+    {
+      title: 'Engagements built to end',
+      body:
+        'Fixed scopes, clear endpoints and a documented handover. We measure success by how little you need us afterwards.',
+    },
+    {
+      title: 'Melbourne-based, delivering globally',
+      body:
+        'We have worked with companies across Australia, Asia, the Middle East and North America. If we are the right fit, distance is not the obstacle.',
+    },
+  ],
+}
+
 export const pageMeta = {
   home: {
     title: 'GBX Professional Services | Business Performance Consulting, Melbourne',
     description:
-      'Boutique business-performance and process-improvement consultancy in Melbourne, working with professional-services and financial-services businesses. Sharper operations. Stronger commercial outcomes.',
+      'Boutique business-performance and process-improvement consultancy in Melbourne for professional-services and financial-services businesses. Three leaders, one operating view, free tools, and a fixed-scope Performance Diagnostic to start.',
+  },
+  diagnostic: {
+    title: 'The Performance Diagnostic | GBX Professional Services',
+    description:
+      'A fixed-scope, fixed-fee two-week diagnostic from GBX Professional Services: interviews, a review of your numbers, systems and processes, a prioritised opportunity map and a 90-day plan you own.',
   },
   services: {
     title: 'Services | GBX Professional Services',

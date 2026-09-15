@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.jsx'
 import ToolCTA from '../components/ToolCTA.jsx'
 import ToolWizard from '../components/ToolWizard.jsx'
 import ToolLeadCapture from '../components/ToolLeadCapture.jsx'
+import HealthBenchmark from '../components/HealthBenchmark.jsx'
 
 const DIMENSIONS = [
   {
@@ -142,7 +143,7 @@ function results(answers, restart) {
     'Where to look first:',
     ...weakest.map((d) => `- ${d.label}: ${d.observation}`),
     '',
-    'This is a quick self-assessment. The full GBX Professional Services Health Check goes much deeper. https://gbxps.com/services',
+    'This is a quick self-assessment. The GBX Professional Services Performance Diagnostic goes much deeper. https://gbxps.com/diagnostic',
   ].join('\n')
 
   return (
@@ -155,6 +156,8 @@ function results(answers, restart) {
             <p className="sc-result__tier">{tier}</p>
           </div>
         </div>
+
+        <HealthBenchmark overall={overall} />
 
         <ul className="dim-bars">
           {scores.map((s) => (
@@ -189,9 +192,10 @@ function results(answers, restart) {
       </div>
 
       <ToolCTA
-        heading="Your Health Check in two minutes. Ours goes much deeper."
-        body="This is a quick self-assessment. The full GBX Professional Services Health Check reviews your numbers, systems and processes in depth, then turns the gaps into a prioritised plan you can act on."
-        secondary={{ label: 'See our services', to: '/services' }}
+        heading="Your Health Check in two minutes. The Diagnostic goes much deeper."
+        body="This is a quick self-assessment using the same lens as our Performance Diagnostic: two weeks, fixed fee, a review of your numbers, systems and processes, and a 90-day plan you own."
+        primary={{ label: 'See the Diagnostic', to: '/diagnostic' }}
+        secondary={{ label: 'Start a conversation', to: '/contact' }}
       />
     </div>
   )
