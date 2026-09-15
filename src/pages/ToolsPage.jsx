@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, toolsPage, articles, insightCategories } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
+import InsightCover from '../components/InsightCover.jsx'
 import CTA from '../components/CTA.jsx'
 
 const catLabel = Object.fromEntries(insightCategories.map((c) => [c.slug, c.label]))
@@ -59,6 +60,8 @@ export default function ToolsPage() {
               {articles.slice(0, 4).map((a) => (
                 <li key={a.slug} className="article-card">
                   <Link to={`/insights/${a.slug}`} className="article-card__link">
+                    <InsightCover article={a} className="article-card__cover" />
+                    <div className="article-card__text">
                     <div className="article-card__meta mono">
                       <span className="article-card__cat">{catLabel[a.category]}</span>
                       <span>{formatDate(a.date)}</span>
@@ -67,6 +70,7 @@ export default function ToolsPage() {
                     <h3 className="article-card__title">{a.title}</h3>
                     <p className="article-card__summary">{a.summary}</p>
                     <span className="text-link">Read article</span>
+                  </div>
                   </Link>
                 </li>
               ))}

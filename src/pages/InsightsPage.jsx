@@ -3,6 +3,7 @@ import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, articles, insightCategories } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
 import CTA from '../components/CTA.jsx'
+import InsightCover from '../components/InsightCover.jsx'
 
 const catLabel = Object.fromEntries(insightCategories.map((c) => [c.slug, c.label]))
 
@@ -58,6 +59,8 @@ export default function InsightsPage() {
             {shown.map((a) => (
               <li key={a.slug} className="article-card">
                 <Link to={`/insights/${a.slug}`} className="article-card__link">
+                  <InsightCover article={a} className="article-card__cover" />
+                  <div className="article-card__text">
                   <div className="article-card__meta mono">
                     <span className="article-card__cat">{catLabel[a.category]}</span>
                     <span>{formatDate(a.date)}</span>
@@ -66,6 +69,7 @@ export default function InsightsPage() {
                   <h2 className="article-card__title">{a.title}</h2>
                   <p className="article-card__summary">{a.summary}</p>
                   <span className="text-link">Read article</span>
+                  </div>
                 </Link>
               </li>
             ))}

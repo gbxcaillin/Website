@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
 import { articles, insightCategories } from '../content.js'
 import NotFound from './NotFound.jsx'
+import InsightCover from '../components/InsightCover.jsx'
 
 const catLabel = Object.fromEntries(insightCategories.map((c) => [c.slug, c.label]))
 
@@ -41,6 +42,7 @@ export default function ArticlePage() {
           {formatDate(article.date)}
           {article.readingTime && ` · ${article.readingTime}`}
         </p>
+        <InsightCover article={article} className="article__cover" priority />
 
         <div className="article__body">
           {article.body.map((block, i) =>

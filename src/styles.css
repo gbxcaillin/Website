@@ -3374,3 +3374,42 @@ button {
   font-size: 0.75rem;
   white-space: nowrap;
 }
+
+/* Insight covers */
+.insight-cover {
+  display: block;
+  overflow: hidden;
+  background: var(--gbx-charcoal);
+}
+.insight-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+.article-card__link {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: start;
+}
+.article-card__cover {
+  aspect-ratio: 16 / 9;
+  transition: opacity 0.25s var(--ease);
+}
+.article-card__link:hover .article-card__cover {
+  opacity: 0.88;
+}
+.article-card__text {
+  min-width: 0;
+}
+.article__cover {
+  margin: 1.75rem 0 2.25rem;
+}
+@media (max-width: 720px) {
+  .article-card__link {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}
