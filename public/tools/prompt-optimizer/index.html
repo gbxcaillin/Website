@@ -599,6 +599,7 @@ const MODELS = [
   {id:"fish-audio-s2",name:"Fish Audio S2 Pro",type:"audio",family:"Fish Audio",desc:"Fast-cloning TTS with open lineage",provider:"Fish Audio",spec:{voice:8,control:8,speed:8}},
   {id:"openai-gpt-realtime",name:"OpenAI gpt-realtime",type:"audio",family:"OpenAI",desc:"Steerable realtime speech-to-speech & TTS",provider:"OpenAI",spec:{voice:8,control:7,speed:9}},
   {id:"cartesia-sonic-3",name:"Cartesia Sonic 3",type:"audio",family:"Cartesia",desc:"Ultra-low-latency streaming voice for agents",provider:"Cartesia",spec:{voice:7,control:7,speed:10}},
+  {id:"inworld-tts-2",name:"Inworld Realtime TTS-2",type:"audio",family:"Inworld",desc:"Budget realtime voice; topped the realtime & controlled-voice arenas",provider:"Inworld AI",spec:{voice:8,control:7,speed:9}},
   {id:"chatterbox",name:"Chatterbox v3",type:"audio",family:"Chatterbox",desc:"MIT open TTS with cloning and emotion knob",provider:"Resemble AI",spec:{voice:7,control:8,speed:8}},
   {id:"kokoro-82m",name:"Kokoro-82M",type:"audio",family:"Kokoro",desc:"Tiny Apache-licensed local TTS",provider:"hexgrad (community)",spec:{voice:6,control:3,speed:9}},
   {id:"breeze-tts-2",name:"Breeze TTS 2",type:"audio",family:"Breeze",desc:"Open-weight TTS claiming the arena top slot",provider:"BreezeBlue",spec:{voice:8,control:6,speed:9}},
@@ -618,6 +619,8 @@ const MODELS = [
   {id:"gemini-3-1-pro",name:"Gemini 3.1 Pro",type:"text",family:"Gemini",desc:"Google's flagship; top-ranked at one-shot web games",provider:"Google",spec:{game:10,write:8,world:8,brain:8,follow:9,long:10}},
   {id:"gemini-3-8-flash",name:"Gemini 3.8 Flash",type:"text",family:"Gemini",desc:"Google's newest fast tier (Sep 2026); intro pricing doubles Jan 2027",provider:"Google",spec:{game:9,write:7,world:7,brain:8,follow:8,long:9}},
   {id:"gemini-3-7-flash",name:"Gemini 3.7 Flash",type:"text",family:"Gemini",desc:"Fast Gemini for cheap iteration; current WebDev Arena leader",provider:"Google",spec:{game:8,write:7,world:7,brain:7,follow:8,long:9}},
+  {id:"deepseek-v4-pro",name:"DeepSeek V4-Pro",type:"text",family:"DeepSeek",desc:"Open-weights; best single-shot spec-to-patch code generation",provider:"DeepSeek",spec:{game:9,write:6,world:6,brain:8,follow:7,long:7}},
+  {id:"glm-5-3",name:"GLM-5.3",type:"text",family:"GLM",desc:"Open-weights; long agentic coding loops & security auditing",provider:"Zhipu / Z.ai",spec:{game:8,write:6,world:6,brain:7,follow:8,long:9}},
   {id:"grok-4-6",name:"Grok 4.6",type:"text",family:"Grok",desc:"xAI's model; unconventional ideation and worldbuilding",provider:"xAI",spec:{game:7,write:9,world:9,brain:9,follow:7,long:6}},
 ];
 
@@ -682,7 +685,10 @@ const SENTIMENT = {
   "gemini-3-1-pro": {mood:"gap", note:"Big reasoning and long-document gains, but users report reduced warmth/creativity and in-session drift — it drops constraints and contradicts itself over long sessions.", adj:{write:-1, follow:-1, long:1}},
   "gemini-3-7-flash": {mood:"sleeper", note:"A genuine value pick for low-cost coding and agents — and the current WebDev Arena leader for one-shot web builds; reviewers caution before accepting its edits unattended in production.", adj:{game:1, follow:1}},
   "gemini-3-8-flash": {mood:"hype", note:"Days old (Sep 2): Google claims it beats Opus 5 on three benchmarks, but there is no community track record yet and the intro pricing doubles Jan 1, 2027 — treat the ratings as vendor-derived for now.", adj:{}},
-  "grok-4-6": {mood:"gap", note:"Best-in-class real-time research and price, but 'robotic' creative writing and weaker real-world coding than benchmarks imply.", adj:{write:-1, game:-1, brain:1}},
+  "grok-4-6": {mood:"gap", note:"Best-in-class real-time research and price, but 'robotic' creative writing and weaker real-world coding than benchmarks imply. (Grok 4.7 has missed two ship dates and still isn't out as of Sep 15; 4.8/4.9 are roadmap talk only.)", adj:{write:-1, game:-1, brain:1}},
+  "deepseek-v4-pro": {mood:"loved", note:"Open-weights and the community's spec-to-patch codegen pick — highest open-weight SWE-bench Verified; its planned Sep 14 retirement was cancelled so it stays current. Weak at prose; reach for it on well-specified coding tasks.", adj:{}},
+  "glm-5-3": {mood:"sleeper", note:"The open-weights momentum pick: ~50% coding gain over 5.2 and emergent security-audit strength on long agentic loops; lags DeepSeek on one-shot codegen and is weak at prose.", adj:{}},
+  "inworld-tts-2": {mood:"sleeper", note:"Topped the realtime and controlled-voice arenas at launch and is priced for scale — the value pick for interactive voice agents, though not a premium-VO acting model.", adj:{}},
   // — Image —
   "juggernaut-flux-pro": {mood:"sleeper", note:"Credited with fixing Flux's 'wax skin' — best-in-class believable portraits from simple prompts.", adj:{port:2, photo:1}},
   "juggernaut-xl": {mood:"mixed", note:"Still loved for local, uncensored photoreal work; SDXL-era weak prompt adherence and in-image text.", adj:{adh:-1}},
@@ -856,6 +862,9 @@ const FREE_ACCESS = {
   "fish-audio-s2": {url:"https://github.com/fishaudio/fish-speech", how:"Open-weights fish-speech to run locally; hosted trial at fish.audio"},
   "openai-gpt-realtime": {url:"https://openai.fm", how:"Free no-signup browser demo of gpt-4o-mini-tts (13 voices)"},
   "cartesia-sonic-3": {url:"https://cartesia.ai", how:"Free plan with monthly playground + API credits"},
+  "inworld-tts-2": {url:"https://inworld.ai/tts", how:"Free monthly TTS minutes; cheap on-demand beyond that"},
+  "deepseek-v4-pro": {url:"https://huggingface.co/deepseek-ai", how:"Open weights on Hugging Face — free to self-host"},
+  "glm-5-3": {url:"https://huggingface.co/zai-org", how:"Open weights on Hugging Face — free to self-host"},
   "chatterbox": {url:"https://github.com/resemble-ai/chatterbox", how:"MIT open weights — free to self-host"},
   "kokoro-82m": {url:"https://huggingface.co/hexgrad/Kokoro-82M", how:"Apache 2.0 open weights — free to self-host commercially"},
   "breeze-tts-2": {url:"https://huggingface.co/BreezeBlue/Breeze-TTS-2", how:"Open weights on Hugging Face — free to self-host"},
@@ -1829,6 +1838,7 @@ const TEXT_STRATEGIES = {
       "In long prompts, state critical instructions at the beginning AND repeat them at the end",
       "Current lineup (Sep 2026): GPT-6 Astra is the new flagship (single model, no tiers); GPT-5.6 (Sol = reasoning, Terra = balanced, Luna = fast free default) stays below it. Match the job: Astra for reasoning/agents/one-shot games, Sol for creative writing (Sol still writes better) and spec-to-code",
       "Astra's guide: structure as GOAL / CONTEXT / PRIORITY / AUTONOMY / TOOLS / OUTPUT / VERIFICATION / STOP-CONDITION; it has NO default reasoning-effort level, so set one ('reasoning effort: medium'), and ban slop words by name ('avoid: bottom line, leverage, delve, game-changer, seamlessly, testament to')",
+      "GPT-6 Pro is a higher-reasoning Astra tier inside ChatGPT ($100/$200 Pro, Business, Enterprise — not Plus), not a separate model; prompt it exactly like Astra",
       "Reasoning tier (GPT-5.6 Sol) wants a high-level goal like briefing a senior colleague; skip 'think step by step'",
       "Fast tiers (GPT-5.6 Luna/Terra) want explicit steps spelled out: 'First plan..., then build..., then verify'",
       "Control verbosity explicitly: 'no preamble, no recap, at most 3 sentences after the code'",
@@ -1926,6 +1936,36 @@ const TEXT_STRATEGIES = {
         + "Constraints:\n- Be concrete and specific; no generic filler.\n- Commit to distinctive choices and name them.\n\n"
         + "Output: the complete result, then any assumptions you made listed separately from what was specified.\n\n"
         + "We will refine in short follow-ups, so structure the result so parts can be revised independently.";
+    }
+  },
+
+  // ── DEEPSEEK (V4-Pro, open weights) ──
+  DeepSeek: {
+    negativePrompt: null,
+    tips: [
+      "Open-weights and strong at code, weak at prose — use it for the coding/app-building lane, not creative writing",
+      "V4-Pro is the single-shot spec-to-patch specialist: hand it a COMPLETE spec and ask for the diff/patch directly",
+      "Give full function/file context up front rather than iterating back-and-forth; it excels at well-specified one-shot generation",
+      "Strong on classic codegen benchmarks (highest open-weight SWE-bench Verified) — lean on it for well-defined tasks",
+      "For open-ended, multi-hour autonomous agent loops, GLM-5.3 is the better fit"
+    ],
+    transform(p) {
+      return "# Task\n" + p + "\n\n# Instructions\nWrite the complete spec above as one clear, self-contained brief, then produce the full implementation as a single diff/patch. Assume no follow-up questions; make and state any reasonable assumptions. Include only the code and a short changelog.";
+    }
+  },
+
+  // ── GLM (5.3, open weights) ──
+  GLM: {
+    negativePrompt: null,
+    tips: [
+      "Open-weights and tuned for long agentic coding loops, weak at prose — reach for it on autonomous multi-step repo work",
+      "Decompose the task into an explicit multi-step plan; it plans better than it single-shots",
+      "Give repo/file context and a clear, testable success criterion, then let it run the loop",
+      "Good for scoped security/audit passes and high-iteration work thanks to low flat open pricing",
+      "For 'here's the spec, produce the patch' one-shots, DeepSeek V4-Pro is the better fit"
+    ],
+    transform(p) {
+      return "# Goal\n" + p + "\n\n# Approach\nFirst decompose this into an explicit ordered plan of steps. State the success criterion. Then work the steps in order, and finish with a summary of what changed and how to verify it.";
     }
   },
 };
@@ -2173,6 +2213,16 @@ const AUDIO_STRATEGIES = {
       "Use the ONNX/MLX community builds for the smallest footprint and easy edge deployment",
       "Pair with an OpenAI-compatible local server wrapper to drop into existing TTS pipelines",
       "Great for narration and UI readouts; do not expect emotional range or singing"
+    ]
+  },
+  "inworld-tts-2": {
+    negativePrompt: null,
+    tips: [
+      "A low-latency streaming voice model built for interactive agents and games; it topped the realtime and controlled-voice arenas at launch",
+      "Stream text in and chunk at clause boundaries to keep latency low",
+      "Steer delivery with plain-language style/emotion direction; punctuation drives pacing",
+      "Priced for scale ($5/1M chars) with a free monthly allowance — a genuine budget realtime pick",
+      "Validate expressiveness against ElevenLabs/Hume for premium VO; its edge is latency and cost, not top-end acting"
     ]
   },
   "breeze-tts-2": {
