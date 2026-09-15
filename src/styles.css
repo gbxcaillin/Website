@@ -2658,6 +2658,22 @@ button {
   border-color: var(--gbx-teal);
   box-shadow: 0 0 0 1px var(--gbx-teal);
 }
+/* Keep typed text clear of the $ and % affixes (more specific than the
+   generic wizard input rule above, which otherwise resets the padding). */
+.wizard__field .calc__input--pre input {
+  padding-left: 2.4rem;
+}
+.wizard__field .calc__input--suf input {
+  padding-right: 2.6rem;
+}
+.wizard__field .calc__affix {
+  font-size: 1.05rem;
+  left: 1rem;
+}
+.wizard__field .calc__affix--suffix {
+  left: auto;
+  right: 1rem;
+}
 .wizard__nav {
   display: flex;
   align-items: center;
