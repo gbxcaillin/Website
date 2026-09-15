@@ -456,6 +456,24 @@ export const toolsPage = {
       cta: 'Check capability',
     },
     {
+      slug: 'kpi-starter',
+      to: '/tools/kpi-starter',
+      name: 'KPI Starter Kit',
+      tagline: 'The six numbers your business should actually watch.',
+      body:
+        'Five one-tap questions about your business, your goal and how you win work return six KPIs, each with a plain definition, a target and how often to look.',
+      cta: 'Get your KPIs',
+    },
+    {
+      slug: 'marketing-rhythm',
+      to: '/tools/marketing-rhythm',
+      name: 'Marketing Rhythm Planner',
+      tagline: 'A marketing plan sized to the hours you really have.',
+      body:
+        'Five one-tap questions on your time, strengths, audience and goal return a weekly, monthly and quarterly rhythm you can keep, plus the one thing to fix first.',
+      cta: 'Plan your rhythm',
+    },
+    {
       slug: 'positioning',
       to: '/tools/positioning',
       name: 'Positioning Statement Builder',
@@ -977,7 +995,7 @@ export const pageMeta = {
   tools: {
     title: 'Tools & Insights | GBX Professional Services',
     description:
-      'Nine free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, positioning builder and the Prompt Optimizer.',
+      'Eleven free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, KPI starter kit, marketing rhythm planner, positioning builder and the Prompt Optimizer.',
   },
   insights: {
     title: 'Insights | GBX Professional Services',
@@ -1018,6 +1036,16 @@ export const pageMeta = {
     title: 'Team Capability Check | GBX Professional Services',
     description:
       'A free eight-question check of how an advice or professional-services practice builds and evidences capability: onboarding, CPD, compliance training, regulatory change, conduct and knowledge capture.',
+  },
+  kpiStarter: {
+    title: 'KPI Starter Kit | GBX Professional Services',
+    description:
+      'A free tool that turns five answers about your business and goal into the six KPIs worth watching, each with a plain definition, a target and a reporting cadence.',
+  },
+  marketingRhythm: {
+    title: 'Marketing Rhythm Planner | GBX Professional Services',
+    description:
+      'A free tool that builds a weekly, monthly and quarterly marketing rhythm sized to the hours you really have, with the one thing to fix first.',
   },
   positioning: {
     title: 'Positioning Statement Builder | GBX Professional Services',

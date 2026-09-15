@@ -16,6 +16,8 @@ import PipelineGapPage from './pages/PipelineGapPage.jsx'
 import CapacityPage from './pages/CapacityPage.jsx'
 import AutomationPage from './pages/AutomationPage.jsx'
 import CapabilityPage from './pages/CapabilityPage.jsx'
+import KpiStarterPage from './pages/KpiStarterPage.jsx'
+import MarketingRhythmPage from './pages/MarketingRhythmPage.jsx'
 import InsightsPage from './pages/InsightsPage.jsx'
 import ArticlePage from './pages/ArticlePage.jsx'
 import CaseStudiesPage from './pages/CaseStudiesPage.jsx'
@@ -45,6 +47,8 @@ export default function App() {
           <Route path="tools/capacity" element={<CapacityPage />} />
           <Route path="tools/automation" element={<AutomationPage />} />
           <Route path="tools/capability" element={<CapabilityPage />} />
+          <Route path="tools/kpi-starter" element={<KpiStarterPage />} />
+          <Route path="tools/marketing-rhythm" element={<MarketingRhythmPage />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
           <Route path="case-studies" element={<CaseStudiesPage />} />
