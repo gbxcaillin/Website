@@ -47,21 +47,21 @@ export const nav = [
   { label: 'Diagnostic', to: '/diagnostic' },
   { label: 'Leadership', to: '/leadership' },
   { label: 'Approach', to: '/approach' },
-  { label: 'Reach', to: '/reach' },
+  { label: 'Education', to: '/education' },
   { label: 'Tools & Insights', to: '/tools' },
   { label: 'Contact', to: '/contact' },
 ]
 
 export const hero = {
-  eyebrow: 'Business performance and process improvement',
+  eyebrow: 'Business performance. Financial education.',
   // One clear statement rather than a stacked title/subtitle. The accent phrase
   // is the second half of the same sentence, in teal, not a separate line.
-  heading: 'We help your business ',
-  subheading: 'run sharper and grow with discipline.',
+  heading: 'Sharper businesses. ',
+  subheading: 'Financially fluent people.',
   body:
-    'GBX Professional Services is a boutique consultancy in Melbourne. We work with professional-services firms, advice practices and other regulated businesses to sharpen how they operate, sell and grow. Three leaders, one operating view, and free tools you can use before you ever hire us.',
-  primary: { label: 'Start with the Diagnostic', to: '/diagnostic' },
-  secondary: { label: 'Our services', to: '/services' },
+    'GBX Professional Services is a Melbourne consultancy with two practices. We help professional-services firms and advice practices run sharper, sell better and adopt AI with discipline. And we teach people about money, in plain language, through financial education programs for workplaces and advice practices. Three leaders, one operating view, and free tools you can use before you ever hire us.',
+  primary: { label: 'For your business', to: '/diagnostic' },
+  secondary: { label: 'For your people', to: '/education' },
 }
 
 export const services = {
@@ -151,14 +151,15 @@ export const services = {
       body:
         'General financial and compliance education, training resources, documentation support and process discipline. Education only, not personal financial advice.',
       detail:
-        'We make technical material usable. Investment, portfolio and compliance concepts become training, documentation and process your team can apply day to day. This is general education for professionals and businesses, not personal financial advice.',
+        'We make money make sense. The Financial Fluency Program brings plain-language financial education to workplaces as a staff benefit, and the Client Education Series gives advice and accounting practices an independent educator for their client events. For advice firms we also turn technical and compliance material into training the team can use. All of it is general education, not personal financial advice.',
       includes: [
-        'General financial and compliance education',
-        'Training resources and materials',
-        'Documentation support',
-        'Compliance-aware processes',
+        'The Financial Fluency Program for workplaces',
+        'Client Education Series for advice and accounting practices',
+        'Compliance and technical training for advice teams',
+        'Training resources and documentation',
         'Practical concept translation',
       ],
+      link: { label: 'See the education programs', to: '/education' },
     },
     {
       number: '07',
@@ -354,6 +355,8 @@ export const contact = {
   interestsHint: 'Select any that apply.',
   interests: [
     'The Performance Diagnostic',
+    'Financial education for my workplace',
+    'Client education seminars for my practice',
     'Business analytics and performance',
     'Business success consulting',
     'Sales enablement and lead generation',
@@ -418,9 +421,18 @@ export const toolsPage = {
       cta: 'Size the gap',
     },
     {
+      slug: 'wellbeing-check',
+      to: '/tools/wellbeing-check',
+      home: true,
+      name: 'Workplace Financial Wellbeing Check',
+      tagline: 'How well does your workplace support people with money?',
+      body:
+        'Eight one-tap questions for HR and people leaders about the financial education and support your organisation offers today, with a tier and the gaps to close first.',
+      cta: 'Check your workplace',
+    },
+    {
       slug: 'automation',
       to: '/tools/automation',
-      home: true,
       name: 'Automation Opportunity Finder',
       tagline: 'Which hours could your team stop doing by hand?',
       body:
@@ -524,7 +536,7 @@ export const homeSummaries = {
 
 export const footer = {
   blurb:
-    'Boutique business-performance and process-improvement consultancy in Melbourne, working with professional-services and financial-services businesses.',
+    'Melbourne consultancy with two practices: business performance and AI readiness for professional-services firms, and plain-language financial education for workplaces and advice practices.',
   columns: [
     {
       title: 'Services',
@@ -534,7 +546,7 @@ export const footer = {
         { label: 'Sales Enablement', to: '/services' },
         { label: 'Brand & Marketing', to: '/services' },
         { label: 'Investment Frameworks', to: '/services' },
-        { label: 'Education & Compliance', to: '/services' },
+        { label: 'Education & Compliance', to: '/education' },
         { label: 'AI Readiness', to: '/services' },
       ],
     },
@@ -542,6 +554,7 @@ export const footer = {
       title: 'Firm',
       links: [
         { label: 'The Diagnostic', to: '/diagnostic' },
+        { label: 'Financial education', to: '/education' },
         { label: 'Leadership', to: '/leadership' },
         { label: 'Approach', to: '/approach' },
         { label: 'Case studies', to: '/case-studies' },
@@ -963,11 +976,123 @@ export const whyUs = {
   ],
 }
 
+
+// ---------------------------------------------------------------------------
+// Financial education practice. First-priority offer alongside business
+// performance and AI readiness. Everything here is general education, never
+// financial product advice: see docs/content-protocol.md and
+// docs/education-campaign.md. Pricing is quoted per program until decided.
+export const education = {
+  eyebrow: 'Financial education',
+  heading: 'Financial education your people will actually thank you for.',
+  intro:
+    'Plain-language workshops on money, super, investing concepts and the big moments in life, delivered by educators with financial planning qualifications, not by product sellers. For workplaces as a staff benefit, and for advice and accounting practices that want an independent educator for their clients.',
+  programs: [
+    {
+      name: 'The Financial Fluency Program',
+      audience: 'For workplaces',
+      body:
+        'Six plain-language modules delivered to your staff as a wellbeing benefit, on site in Melbourne or live on Microsoft Teams anywhere. Start with one lunch-and-learn and grow from there. Your people get confidence with money; your HR and payroll team stop fielding super questions they cannot answer.',
+      points: ['50 to 500 staff', 'Lunch-and-learn, workshop or six-session program', 'On site or Microsoft Teams'],
+      cta: { label: 'Check your workplace', to: '/tools/wellbeing-check' },
+    },
+    {
+      name: 'Client Education Series',
+      audience: 'For advice and accounting practices',
+      body:
+        'Seminars and webinars for your clients and prospects, delivered by an independent educator. You host and invite. We teach. You, as the licensed practice, handle any advice that follows. A proven way to fill a room, deepen relationships and warm the next conversation.',
+      points: ['60 to 75 minute sessions', 'One event or a quarterly series', 'Your brand, our delivery'],
+      cta: { label: 'Talk about a series', to: '/contact' },
+    },
+  ],
+  modulesHeading: 'Six modules, all in plain language.',
+  modulesIntro:
+    'Every module is factual and conceptual. We explain how things work and the questions worth asking. We never tell anyone what to buy, sell or switch.',
+  modules: [
+    { title: 'Money foundations', body: 'Cash flow, budgeting that survives real life, and the habits that matter more than the spreadsheet.' },
+    { title: 'Super, explained', body: 'How it works, what the statement says, contribution types and caps in general terms, and where to look for more.' },
+    { title: 'Investing concepts', body: 'Risk versus volatility, diversification, fees and compounding, and the questions to take to a licensed adviser.' },
+    { title: 'Tax basics for employees', body: 'How pay is taxed, what salary packaging is in principle, and records and deductions in general terms.' },
+    { title: 'Protecting yourself', body: 'Insurance concepts, scams and fraud, and what to do when something goes wrong.' },
+    { title: 'Life moments', body: 'The financial mechanics of buying a home, starting a family, career breaks and later life, explained in principle.' },
+  ],
+  formats: {
+    heading: 'Start small. Grow when it works.',
+    items: [
+      { name: 'Taster', detail: '30 minutes on Microsoft Teams. "Super in 30 minutes". Free, and the best way to see how we teach.' },
+      { name: 'Lunch and learn', detail: '45 minutes, one team, on site or online. The usual pilot.' },
+      { name: 'Workshop', detail: '90 minutes on one module in depth, with time for questions in principle.' },
+      { name: 'Program', detail: 'All six modules over six to twelve weeks, with new-starter sessions and an annual refresh available.' },
+    ],
+  },
+  why: {
+    heading: 'Why employers bring us in',
+    items: [
+      'Financial stress shows up at work as absence, distraction and turnover. Education is the cheapest lever an employer has.',
+      'Super and pay questions land on HR and payroll, who are neither equipped nor licensed to answer them. We take those questions off their desk.',
+      'It is a visible benefit staff actually use and thank you for, at a fraction of the cost of most wellbeing spend.',
+      'Delivered by educators with financial planning and education qualifications, under a written content protocol, with no products to sell.',
+    ],
+  },
+  pricing: {
+    label: 'Fees',
+    value: 'Quoted per program',
+    note: 'A fixed fee per session or program, agreed up front. The taster is free.',
+  },
+  compliance:
+    'GBX Professional Services does not hold an Australian Financial Services Licence and does not provide financial product advice. Our sessions are general information and education only. Where personal advice is needed, we point people to a licensed adviser, and in the Client Education Series that adviser is you.',
+  cta: {
+    heading: 'Book a free taster for your team.',
+    body: 'Thirty minutes on Microsoft Teams, no cost, no obligation. See how we teach before you decide anything.',
+    primary: { label: 'Book a taster', to: '/contact' },
+    secondary: { label: 'Check your workplace first', to: '/tools/wellbeing-check' },
+  },
+  // Compact home-page band.
+  home: {
+    eyebrow: 'Financial education',
+    heading: 'Financially fluent people make better decisions, at work and at home.',
+    body:
+      'The Financial Fluency Program brings plain-language money education to your workplace as a staff benefit. For advice and accounting practices, the Client Education Series gives your clients an independent educator.',
+    primary: { label: 'Explore the programs', to: '/education' },
+    secondary: { label: 'Book a free taster', to: '/contact' },
+  },
+  // Two-path section directly under the hero.
+  paths: {
+    heading: 'Two practices. One firm.',
+    items: [
+      {
+        eyebrow: 'For your business',
+        title: 'Business performance and AI readiness',
+        body: 'Analytics, process, sales, marketing and practical AI for professional-services firms and advice practices. Start with the ten-day Performance Diagnostic.',
+        link: { label: 'Start with the Diagnostic', to: '/diagnostic' },
+        alt: { label: 'All services', to: '/services' },
+      },
+      {
+        eyebrow: 'For your people',
+        title: 'Financial education programs',
+        body: 'Plain-language money education for workplaces as a staff benefit, and client education seminars for advice and accounting practices. Education, not advice.',
+        link: { label: 'Explore the programs', to: '/education' },
+        alt: { label: 'Free workplace check', to: '/tools/wellbeing-check' },
+      },
+    ],
+  },
+}
+
 export const pageMeta = {
   home: {
-    title: 'GBX Professional Services | Business Performance Consulting, Melbourne',
+    title: 'GBX Professional Services | Business Performance and Financial Education, Melbourne',
     description:
-      'Boutique business-performance and process-improvement consultancy in Melbourne for professional-services and financial-services businesses. Three leaders, one operating view, free tools, and a fixed-scope Performance Diagnostic to start.',
+      'Melbourne consultancy with two practices: business performance and AI readiness for professional-services firms, and plain-language financial education programs for workplaces and advice practices. Free tools and a fixed-scope Diagnostic to start.',
+  },
+  education: {
+    title: 'Financial Education Programs | GBX Professional Services',
+    description:
+      'The Financial Fluency Program: plain-language financial education workshops for workplaces as a staff benefit, and a Client Education Series for advice and accounting practices. Education, not advice. Delivered by educators with financial planning qualifications.',
+  },
+  wellbeingCheck: {
+    title: 'Workplace Financial Wellbeing Check | GBX Professional Services',
+    description:
+      'A free eight-question check for HR and people leaders on how well the organisation supports staff with financial education, with a tier and the gaps to close first.',
   },
   diagnostic: {
     title: 'The Performance Diagnostic | GBX Professional Services',
@@ -995,7 +1120,7 @@ export const pageMeta = {
   tools: {
     title: 'Tools & Insights | GBX Professional Services',
     description:
-      'Eleven free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, KPI starter kit, marketing rhythm planner, positioning builder and the Prompt Optimizer.',
+      'Twelve free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, KPI starter kit, marketing rhythm planner, positioning builder and the Prompt Optimizer.',
   },
   insights: {
     title: 'Insights | GBX Professional Services',

@@ -52,6 +52,7 @@ function homeBody() {
       <ul>${services.items.map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.body)}</p></li>`).join('')}</ul></section>
     <section><h2>${esc(approach.heading)}</h2><p>${esc(approach.intro)}</p>
       <ol>${approach.steps.map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.body)}</p></li>`).join('')}</ol></section>
+    <section><h2>${esc(C.education.home.heading)}</h2><p>${esc(C.education.home.body)}</p><a href="/education">${esc(C.education.home.primary.label)}</a></section>
     <section><h2>${esc(C.diagnostic.home.heading)}</h2><p>${esc(C.diagnostic.home.body)}</p><a href="/diagnostic">${esc(C.diagnostic.home.primary.label)}</a></section>
     <section><h2>${esc(reach.heading)}</h2><p>${esc(reach.intro)}</p></section>
     <section><h2>${esc(cta.heading)}</h2><p>${esc(cta.body)}</p><a href="/contact">${esc(cta.primary.label)}</a></section>
@@ -178,6 +179,32 @@ function diagnosticJsonLd() {
     },
   ]
 }
+function educationBody() {
+  const e = C.education
+  return `<main><p>${esc(e.eyebrow)}</p><h1>${esc(e.heading)}</h1><p>${esc(e.intro)}</p>
+    ${e.programs.map((pr) => `<section><h2>${esc(pr.name)}</h2><p>${esc(pr.audience)}</p><p>${esc(pr.body)}</p><ul>${pr.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>`).join('')}
+    <section><h2>${esc(e.modulesHeading)}</h2><p>${esc(e.modulesIntro)}</p><ol>${e.modules.map((m) => `<li><h3>${esc(m.title)}</h3><p>${esc(m.body)}</p></li>`).join('')}</ol></section>
+    <section><h2>${esc(e.formats.heading)}</h2><ul>${e.formats.items.map((f) => `<li><h3>${esc(f.name)}</h3><p>${esc(f.detail)}</p></li>`).join('')}</ul></section>
+    <section><h2>${esc(e.why.heading)}</h2><ul>${e.why.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+    <p>${esc(e.pricing.label)}: ${esc(e.pricing.value)}. ${esc(e.pricing.note)}</p>
+    <p>${esc(e.compliance)}</p>
+    <section><h2>${esc(e.cta.heading)}</h2><p>${esc(e.cta.body)}</p><a href="/contact">${esc(e.cta.primary.label)}</a></section></main>`
+}
+function educationJsonLd() {
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'The Financial Fluency Program',
+      provider: { '@type': 'ProfessionalService', name: C.site.name, url: SITE_URL },
+      serviceType: 'Financial education workshops',
+      audience: { '@type': 'Audience', audienceType: 'Employers and advice practices' },
+      areaServed: 'Australia',
+      description: C.pageMeta.education.description,
+      url: `${SITE_URL}/education`,
+    },
+  ]
+}
 function caseIndexBody() {
   const cp = C.caseStudiesPage
   const shown = C.caseStudies.filter((c) => c.published)
@@ -249,6 +276,7 @@ const routes = [
   { path: '/', meta: C.pageMeta.home, body: homeBody() },
   { path: '/services', meta: C.pageMeta.services, body: servicesBody() },
   { path: '/diagnostic', meta: C.pageMeta.diagnostic, body: diagnosticBody(), jsonld: diagnosticJsonLd() },
+  { path: '/education', meta: C.pageMeta.education, body: educationBody(), jsonld: educationJsonLd() },
   { path: '/leadership', meta: C.pageMeta.leadership, body: leadershipBody() },
   { path: '/approach', meta: C.pageMeta.approach, body: approachBody() },
   { path: '/reach', meta: C.pageMeta.reach, body: reachBody() },
@@ -262,6 +290,7 @@ const routes = [
   { path: '/tools/automation', meta: C.pageMeta.automation, body: toolPageBody('automation', C.pageMeta.automation) },
   { path: '/tools/capability', meta: C.pageMeta.capability, body: toolPageBody('capability', C.pageMeta.capability) },
   { path: '/tools/kpi-starter', meta: C.pageMeta.kpiStarter, body: toolPageBody('kpi-starter', C.pageMeta.kpiStarter) },
+  { path: '/tools/wellbeing-check', meta: C.pageMeta.wellbeingCheck, body: toolPageBody('wellbeing-check', C.pageMeta.wellbeingCheck) },
   { path: '/tools/marketing-rhythm', meta: C.pageMeta.marketingRhythm, body: toolPageBody('marketing-rhythm', C.pageMeta.marketingRhythm) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
   { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },

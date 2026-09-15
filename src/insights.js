@@ -20,7 +20,7 @@ export const insightCategories = [
 ]
 
 const GENERAL_INFO =
-  'This article is general information and education only. It is not personal financial advice and does not take account of your objectives, financial situation or needs. Where a financial service is required, seek an appropriately licensed professional.'
+  'This is general information and education only. It does not take account of your objectives, financial situation or needs and is not personal financial advice. GBX Professional Services does not hold an Australian Financial Services Licence. Consider speaking with a licensed adviser before acting on anything here.'
 
 export const articles = [
   {
@@ -359,7 +359,7 @@ export const articles = [
       { type: 'h', text: 'What breaks it' },
       { type: 'p', text: 'Compounding depends on leaving the base intact and letting it grow. Dipping in and out, reacting to every scare, and paying high ongoing costs all interrupt the process and reset the clock. The most common way people lose the benefit is not a market crash, it is their own understandable urge to do something during one.' },
       { type: 'h', text: 'It works both ways' },
-      { type: 'p', text: 'The same mechanism applies to costs and to debt. Fees compound against you over the years, and high-interest debt compounds relentlessly, which is why clearing expensive debt is often the highest-certainty return available. Understanding compounding is as much about respecting its downside as admiring its upside.' },
+      { type: 'p', text: 'The same mechanism applies to costs and to debt. Fees compound against you over the years, and high-interest debt compounds against you just as relentlessly as returns compound for you. Understanding compounding is as much about respecting its downside as admiring its upside.' },
       { type: 'p', text: GENERAL_INFO },
     ],
   },
@@ -372,9 +372,9 @@ export const articles = [
     summary:
       'The move toward low-cost index investing is one of the defining shifts of modern markets. Here is what changed and why it matters, as general commentary.',
     body: [
-      { type: 'p', text: 'For most of investing history, the default was active management: a professional choosing holdings in the hope of beating the market. Over the last two decades, a quieter idea has reshaped the landscape, the notion that simply owning the whole market at low cost is, for many people, hard to beat over the long run.' },
+      { type: 'p', text: 'For most of investing history, the default was active management: a professional choosing holdings in the hope of beating the market. Over the last two decades, a quieter idea has reshaped the landscape: the notion that simply owning the whole market at low cost is hard to beat over the long run has moved from the fringe to the mainstream.' },
       { type: 'h', text: 'What the shift is really about' },
-      { type: 'p', text: 'Index investing grew not because active management stopped trying, but because cost and consistency turned out to matter enormously over long periods. Lower fees and broad diversification are dependable and repeatable, whereas outperformance is difficult to sustain and hard to identify in advance. That trade-off, rather than any single product, is the heart of the change.' },
+      { type: 'p', text: 'Index investing grew not because active management stopped trying, but because cost and consistency turned out to matter enormously over long periods. Fees and the breadth of holdings are known in advance, whereas future outperformance is not, and the published research on how often active funds beat their index over long periods is what drove the shift. That trade-off, rather than any single product, is the heart of the change.' },
       { type: 'h', text: 'The catch in the label' },
       { type: 'p', text: 'Passive does not mean safe, and index does not mean simple. An index fund still rises and falls with its market, and there are now thousands of indexes, some broad and cheap, others narrow, exotic and expensive dressed up in passive clothing. The word on the label tells you far less than what the fund actually holds and what it costs.' },
       { type: 'h', text: 'Not a religion' },
@@ -511,7 +511,7 @@ export const articles = [
       { type: 'h', text: 'New tools, same principles' },
       { type: 'p', text: 'What ETFs did not change is the fundamentals. Diversification, cost, time horizon and temperament still decide outcomes. The wrapper is new; the rules of patient investing are not. It is easy to mistake a modern tool for a modern strategy, but the two are different things.' },
       { type: 'h', text: 'The label is not the product' },
-      { type: 'p', text: 'The success of the ETF has also produced thousands of them, and they are not all alike. Some are broad, cheap and boring in the best way; others are narrow, leveraged, thematic or expensive, and behave nothing like the simple index funds that built the reputation. As always, what sits inside the product, and what it costs, matters far more than the three letters on the label.' },
+      { type: 'p', text: 'The success of the ETF has also produced thousands of them, and they are not all alike. Some are broad and low-cost; others are narrow, leveraged, thematic or expensive, and behave nothing like the simple index funds that built the reputation. As always, what sits inside the product, and what it costs, matters far more than the three letters on the label.' },
       { type: 'p', text: GENERAL_INFO },
     ],
   },

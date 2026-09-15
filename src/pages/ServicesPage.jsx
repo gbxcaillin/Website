@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, services } from '../content.js'
 import { serviceMedia } from '../serviceMedia.js'
@@ -71,6 +72,13 @@ export default function ServicesPage() {
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
+                    {s.link && (
+                      <p className="service-detail__link">
+                        <Link to={s.link.to} className="text-link">
+                          {s.link.label}
+                        </Link>
+                      </p>
+                    )}
                   </div>
                 </li>
               )

@@ -160,3 +160,20 @@ after that. Track monthly:
 Once case studies exist, add them to `src/content.js` under `caseStudies`
 and set `featured: true` on the two best. The home page teaser appears
 automatically once two are published.
+
+## 6. Financial education track
+
+Financial education is a first-priority practice alongside business
+performance and AI readiness. The audience decision, offer, message, funnel,
+channels, ninety-day calendar and measures live in
+`docs/education-campaign.md`, and every asset is produced under
+`docs/content-protocol.md` with a row in `docs/content-review-log.md`.
+
+Site support already in place: the Education page at `/education`, the
+Workplace Financial Wellbeing Check at `/tools/wellbeing-check`, the
+two-practice hero and home sections, the Education nav item, contact form
+interests for workplace and practice education, and the education service
+line pointing at the programs.
+
+Pricing for sessions and programs is still to be set. Record it here and in
+`src/content.js` under `education.pricing` when decided.
