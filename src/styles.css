@@ -2975,6 +2975,26 @@ button {
   margin-bottom: 0.75rem;
 }
 
+/* Pace callout */
+.diag__pace {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gbx-teal);
+  background: var(--gbx-soft);
+  max-width: 560px;
+}
+.diag__pace-heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin: 0.5rem 0 0.45rem;
+}
+.diag__pace-body {
+  color: var(--ink-2);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
 /* Ladder */
 .diag-ladder__list {
   list-style: none;

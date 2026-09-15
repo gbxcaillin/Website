@@ -193,7 +193,7 @@ function results(answers, restart) {
 
       <ToolCTA
         heading="Your Health Check in two minutes. The Diagnostic goes much deeper."
-        body="This is a quick self-assessment using the same lens as our Performance Diagnostic: two weeks, fixed fee, a review of your numbers, systems and processes, and a 90-day plan you own."
+        body="This is a quick self-assessment using the same lens as our Performance Diagnostic: ten days at your pace, fixed fee, a review of your numbers, systems and processes, and a 90-day plan you own."
         primary={{ label: 'See the Diagnostic', to: '/diagnostic' }}
         secondary={{ label: 'Start a conversation', to: '/contact' }}
       />

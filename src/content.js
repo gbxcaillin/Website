@@ -235,7 +235,7 @@ export const approach = {
   eyebrow: 'How we work',
   heading: 'A four-stage method, applied with discipline.',
   intro:
-    'The same structure underpins every engagement, from a two-week diagnostic to a multi-year operating partnership. It keeps the work honest, the priorities clear and the outcomes measurable, so you always know what we are doing, why, and what it is worth.',
+    'The same structure underpins every engagement, from a ten-day diagnostic to a multi-year operating partnership. It keeps the work honest, the priorities clear and the outcomes measurable, so you always know what we are doing, why, and what it is worth.',
   steps: [
     {
       number: '01',
@@ -446,7 +446,7 @@ export const homeSummaries = {
     eyebrow: 'How we work',
     heading: 'A four-stage method.',
     line:
-      'The same disciplined path underpins every engagement, from the two-week Performance Diagnostic to a multi-year partnership.',
+      'The same disciplined path underpins every engagement, from the ten-day Performance Diagnostic to a multi-year partnership.',
     stages: ['Health Check', 'Scope', 'Deliver', 'Sustain'],
     link: { label: 'See how we work', to: '/approach' },
   },
@@ -697,13 +697,20 @@ export const legal = {
 export const diagnostic = {
   eyebrow: 'Start here',
   name: 'The Performance Diagnostic',
-  heading: 'Two weeks. One clear picture. A plan you own.',
+  heading: 'Ten days. One clear picture. A plan you own.',
   intro:
-    'The Performance Diagnostic is the first stage of our method packaged as a fixed-scope engagement. In two weeks we review how your business actually runs, show you where the fastest and most durable gains sit, and hand you a prioritised plan. Whether you then run it yourself or with us is entirely your call.',
+    'The Performance Diagnostic is the first stage of our method packaged as a fixed-scope engagement. Over ten days we review how your business actually runs, show you where the fastest and most durable gains sit, and hand you a prioritised plan. The work runs at your pace and around your calendar, with no interruption to the business. Whether you then run the plan yourself or with us is entirely your call.',
   forWhom: {
     heading: 'Who it is for',
     body:
       'Owners and leaders of professional-services firms, advice practices and other regulated businesses, typically with five to fifty people, who sense the business could run better but want evidence before they act.',
+  },
+  // Callout beside the fee card.
+  pace: {
+    eyebrow: 'Work at your pace',
+    heading: 'No interruption to your business.',
+    body:
+      'Interviews, data requests and the readout are scheduled around your calendar, not ours. Most of the ten days is our work, not yours. If you need it to run slower, it can.',
   },
   // The three-step ladder: free tool, free call, paid diagnostic.
   ladder: {
@@ -729,7 +736,7 @@ export const diagnostic = {
         number: '03',
         title: 'Run the Performance Diagnostic',
         body:
-          'Two weeks of structured work with your numbers, systems, processes and people, finishing with a readout and a written plan you keep whether or not you continue with us.',
+          'Ten days of structured work with your numbers, systems, processes and people, scheduled at your pace, finishing with a readout and a written plan you keep whether or not you continue with us.',
         link: { label: 'What is included', to: '#included' },
         cost: 'From $4,500 + GST',
       },
@@ -790,6 +797,7 @@ export const diagnostic = {
         title: 'You will get',
         items: [
           'Senior people doing the work, not a junior team behind a senior pitch',
+          'Work scheduled at your pace, around your calendar, with no interruption to the business',
           'A fixed scope and a fixed fee, confirmed before we start and credited against any delivery work that follows',
           'Findings grounded in your numbers, not in a template',
           'A plan written so your team can run it without us',
@@ -813,7 +821,7 @@ export const diagnostic = {
     items: [
       {
         q: 'How much of my time does it take?',
-        a: 'Plan on four to six hours across the two weeks: a kick-off, interviews, a short data request and the readout. We do the rest.',
+        a: 'Plan on four to six hours across the ten days: a kick-off, interviews, a short data request and the readout. We do the rest, and we schedule everything around your calendar so the business keeps running as normal.',
       },
       {
         q: 'What do you need from us?',
@@ -844,7 +852,7 @@ export const diagnostic = {
     eyebrow: 'Start here',
     heading: 'Not sure where to begin? Start with the Diagnostic.',
     body:
-      'Two weeks, from $4,500 + GST, one clear picture of the business and a 90-day plan you own. Or start smaller with the free two-minute Health Check.',
+      'Ten days at your pace, from $4,500 + GST, one clear picture of the business and a 90-day plan you own. Or start smaller with the free two-minute Health Check.',
     primary: { label: 'See the Diagnostic', to: '/diagnostic' },
     secondary: { label: 'Take the free Health Check', to: '/tools/health-check' },
   },
@@ -902,7 +910,7 @@ export const pageMeta = {
   diagnostic: {
     title: 'The Performance Diagnostic | GBX Professional Services',
     description:
-      'A fixed-scope two-week diagnostic from GBX Professional Services, from $4,500 + GST: interviews, a review of your numbers, systems and processes, a prioritised opportunity map and a 90-day plan you own. Fee credited against delivery work that follows.',
+      'A fixed-scope ten-day diagnostic from GBX Professional Services, run at your pace with no interruption to the business, from $4,500 + GST: interviews, a review of your numbers, systems and processes, a prioritised opportunity map and a 90-day plan you own. Fee credited against delivery work that follows.',
   },
   services: {
     title: 'Services | GBX Professional Services',
