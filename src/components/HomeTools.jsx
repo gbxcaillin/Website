@@ -21,7 +21,7 @@ export default function HomeTools() {
         </div>
 
         <ul className="home-tools__grid">
-          {toolsPage.tools.map((t) => {
+          {toolsPage.tools.filter((t) => t.home).map((t) => {
             const Card = t.href ? 'a' : Link
             const linkProps = t.href ? { href: t.href } : { to: t.to }
             return (

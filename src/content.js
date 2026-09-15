@@ -44,6 +44,7 @@ export const newsletter = {
 export const nav = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
+  { label: 'Diagnostic', to: '/diagnostic' },
   { label: 'Leadership', to: '/leadership' },
   { label: 'Approach', to: '/approach' },
   { label: 'Reach', to: '/reach' },
@@ -384,15 +385,47 @@ export const toolsPage = {
   intro:
     'A growing collection of free tools we have built and articles from our work. No sign-up, no sales pitch, just things we think are genuinely useful.',
   toolsHeading: 'Tools',
+  // `home: true` puts a tool on the home page feature (keep that to six).
   tools: [
     {
       slug: 'health-check',
       to: '/tools/health-check',
+      home: true,
       name: 'Business Health Check',
       tagline: 'A two-minute scorecard across the six areas that decide performance.',
       body:
-        'Rate your business on finance, sales, operations, marketing, systems and AI, and see where the biggest gains are hiding. It shows you where to look. The full Health Check is where we dig in.',
+        'Rate your business on finance, sales, operations, marketing, systems and AI, and see where the biggest gains are hiding. It shows you where to look. The Performance Diagnostic is where we dig in.',
       cta: 'Start the check',
+    },
+    {
+      slug: 'capacity',
+      to: '/tools/capacity',
+      home: true,
+      name: 'Capacity & Profit Calculator',
+      tagline: 'How much revenue is already sitting in the building?',
+      body:
+        'Four numbers show what your team could deliver, what it delivers today, what is left on the table each year and what every point of utilisation is worth.',
+      cta: 'Find the revenue',
+    },
+    {
+      slug: 'pipeline-gap',
+      to: '/tools/pipeline-gap',
+      home: true,
+      name: 'Pipeline Gap Calculator',
+      tagline: 'How many leads does your revenue target actually need?',
+      body:
+        'Turn a revenue target into the clients, qualified leads and win rate it requires, and see how far your current lead flow falls short.',
+      cta: 'Size the gap',
+    },
+    {
+      slug: 'automation',
+      to: '/tools/automation',
+      home: true,
+      name: 'Automation Opportunity Finder',
+      tagline: 'Which hours could your team stop doing by hand?',
+      body:
+        'Six one-tap questions about where the week goes show how many hours could be automated, what that is worth a year, and the three places to start.',
+      cta: 'Find the hours',
     },
     {
       slug: 'unit-economics',
@@ -406,11 +439,21 @@ export const toolsPage = {
     {
       slug: 'ai-readiness',
       to: '/tools/ai-readiness',
+      home: true,
       name: 'AI Readiness Assessment',
       tagline: 'See how ready your business really is to adopt AI.',
       body:
         'Five quick questions across use cases, data, process, governance and capability return a readiness tier and the gaps to close first. A clear starting point before you invest.',
       cta: 'Assess readiness',
+    },
+    {
+      slug: 'capability',
+      to: '/tools/capability',
+      name: 'Team Capability Check',
+      tagline: 'Is your training evidenced, or just scheduled?',
+      body:
+        'Eight one-tap questions on onboarding, CPD, technical and compliance training, regulatory change, conduct and knowledge capture, then the gaps to fix first. Built for advice and professional-services teams.',
+      cta: 'Check capability',
     },
     {
       slug: 'positioning',
@@ -424,6 +467,7 @@ export const toolsPage = {
     {
       slug: 'prompt-optimizer',
       href: '/tools/prompt-optimizer/',
+      home: true,
       name: 'Prompt Optimizer',
       tagline: 'Research-backed prompts, tailored to each AI model.',
       body:
@@ -933,7 +977,7 @@ export const pageMeta = {
   tools: {
     title: 'Tools & Insights | GBX Professional Services',
     description:
-      'Free tools and articles from GBX Professional Services, starting with the Prompt Optimizer: turn a rough idea into a clear, well-structured AI prompt in your browser.',
+      'Nine free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, positioning builder and the Prompt Optimizer.',
   },
   insights: {
     title: 'Insights | GBX Professional Services',
@@ -954,6 +998,26 @@ export const pageMeta = {
     title: 'AI Readiness Assessment | GBX Professional Services',
     description:
       'A free five-question assessment of how ready your business is to adopt AI, across use cases, data, process, governance and capability, with the gaps to close first.',
+  },
+  pipelineGap: {
+    title: 'Pipeline Gap Calculator | GBX Professional Services',
+    description:
+      'A free calculator that turns a revenue target into the clients, qualified leads and win rate it needs, and shows how far your current lead flow falls short.',
+  },
+  capacity: {
+    title: 'Capacity & Profit Calculator | GBX Professional Services',
+    description:
+      'A free calculator for professional-services firms: what your team could deliver, what it delivers today, the revenue left on the table and what each point of utilisation is worth.',
+  },
+  automation: {
+    title: 'Automation Opportunity Finder | GBX Professional Services',
+    description:
+      'A free two-minute tool that estimates how many hours a week your team could stop doing by hand, what that is worth a year, and the three places to start.',
+  },
+  capability: {
+    title: 'Team Capability Check | GBX Professional Services',
+    description:
+      'A free eight-question check of how an advice or professional-services practice builds and evidences capability: onboarding, CPD, compliance training, regulatory change, conduct and knowledge capture.',
   },
   positioning: {
     title: 'Positioning Statement Builder | GBX Professional Services',

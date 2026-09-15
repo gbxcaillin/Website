@@ -74,7 +74,7 @@ function Outputs({ out }) {
 function results(answers, restart) {
   const out = build(answers)
   const findingsText = [
-    'GBX Professional Services — Positioning Statement Builder',
+    'GBX Professional Services: Positioning Statement Builder',
     new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
     '',
     'Positioning statement:',
