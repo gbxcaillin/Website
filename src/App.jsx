@@ -4,6 +4,8 @@ import ScrollToTop from './components/ScrollToTop.jsx'
 import Home from './pages/Home.jsx'
 import ServicesPage from './pages/ServicesPage.jsx'
 import DiagnosticPage from './pages/DiagnosticPage.jsx'
+import EducationPage from './pages/EducationPage.jsx'
+import WellbeingCheckPage from './pages/WellbeingCheckPage.jsx'
 import LeadershipPage from './pages/LeadershipPage.jsx'
 import ApproachPage from './pages/ApproachPage.jsx'
 import ReachPage from './pages/ReachPage.jsx'
@@ -35,6 +37,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="diagnostic" element={<DiagnosticPage />} />
+          <Route path="education" element={<EducationPage />} />
           <Route path="leadership" element={<LeadershipPage />} />
           <Route path="approach" element={<ApproachPage />} />
           <Route path="reach" element={<ReachPage />} />
@@ -48,6 +51,7 @@ export default function App() {
           <Route path="tools/automation" element={<AutomationPage />} />
           <Route path="tools/capability" element={<CapabilityPage />} />
           <Route path="tools/kpi-starter" element={<KpiStarterPage />} />
+          <Route path="tools/wellbeing-check" element={<WellbeingCheckPage />} />
           <Route path="tools/marketing-rhythm" element={<MarketingRhythmPage />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
