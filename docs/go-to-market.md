@@ -24,15 +24,14 @@ The ladder is deliberate. Each step is small enough to say yes to on its own:
 3. The Performance Diagnostic: two weeks, fixed fee, fixed scope, written
    report and 90-day plan the client owns.
 
-### Decisions still open (yours)
+### Decisions made (September 2026)
 
-| Decision | Options | Recommendation |
-| --- | --- | --- |
-| Publish a price? | Publish "From $X + GST", or keep "Quoted up front" | Publish once you have run two or three. A visible price is a strong qualifier and matches the "fixed fee, no surprises" positioning. Set `diagnostic.price.value` in `src/content.js`. |
-| Price level | Value-based; two weeks of senior time plus a readout with three leaders | For a 5 to 50 person firm, somewhere between $4,500 and $9,500 + GST is typical for a fixed-scope diagnostic in this market. Start at the lower end and lift once case studies exist. |
-| Credit against delivery? | Credit the fee against a Deliver engagement signed within 60 days, or no credit | Offer the credit. It makes the Diagnostic feel risk-free and nudges the next step. Add a line to `diagnostic.price.note` when decided. |
-| Tiering | One Diagnostic, or a "Lite" (one week, numbers only) and "Full" version | One offer for now. Tiers add friction before you have volume. |
-| Guarantee | "If you do not find at least one opportunity worth more than the fee, we refund it" | Worth considering after a few runs. Strong differentiator, low real risk. |
+| Decision | Outcome |
+| --- | --- |
+| Published price | "From $4,500 + GST", shown on `/diagnostic`, the home strip and the page meta. The working range is $4,500 to $9,500 + GST for a 5 to 50 person firm. Lift the "from" figure as case studies and demand build. Set in `diagnostic.price.value` in `src/content.js`. |
+| Credit against delivery | Yes. The full Diagnostic fee is credited against a delivery engagement that starts within 60 days of the readout. Stated in the price note, the comparison list and the FAQ. |
+| Refund guarantee | Not for now. Revisit after several Diagnostics have been delivered. |
+| Tiering | One offer. Tiers add friction before there is volume. |
 
 ### Delivery checklist (so the offer is real on day one)
 
