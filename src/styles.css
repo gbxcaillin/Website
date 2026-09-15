@@ -3275,3 +3275,102 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* KPI Starter Kit */
+.kpi-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.kpi {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.kpi__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.kpi__name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+.kpi__cadence {
+  color: var(--gbx-teal);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.kpi__def {
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0.3rem 0 0.35rem;
+}
+.kpi__target {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.kpi__target .mono {
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+}
+
+/* Marketing Rhythm Planner */
+.rhythm {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.rhythm__block {
+  border: 1px solid var(--line);
+  background: var(--gbx-paper);
+  padding: 1rem 1.25rem;
+}
+.rhythm__title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.rhythm__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.rhythm__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.rhythm__what {
+  position: relative;
+  padding-left: 1.2rem;
+}
+.rhythm__what::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--gbx-teal);
+}
+.rhythm__time {
+  color: var(--ink-3);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}

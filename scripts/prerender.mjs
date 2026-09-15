@@ -261,6 +261,8 @@ const routes = [
   { path: '/tools/capacity', meta: C.pageMeta.capacity, body: toolPageBody('capacity', C.pageMeta.capacity) },
   { path: '/tools/automation', meta: C.pageMeta.automation, body: toolPageBody('automation', C.pageMeta.automation) },
   { path: '/tools/capability', meta: C.pageMeta.capability, body: toolPageBody('capability', C.pageMeta.capability) },
+  { path: '/tools/kpi-starter', meta: C.pageMeta.kpiStarter, body: toolPageBody('kpi-starter', C.pageMeta.kpiStarter) },
+  { path: '/tools/marketing-rhythm', meta: C.pageMeta.marketingRhythm, body: toolPageBody('marketing-rhythm', C.pageMeta.marketingRhythm) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
   { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },
   { path: '/privacy-policy', meta: C.pageMeta.privacy, body: privacyBody() },

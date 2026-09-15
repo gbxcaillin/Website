@@ -21,6 +21,8 @@ GBX Professional Services does not hold an Australian Financial Services Licence
 - [Automation Opportunity Finder](https://gbxps.com/tools/automation): Hours a week that could be automated, and where to start.
 - [AI Readiness Assessment](https://gbxps.com/tools/ai-readiness): Readiness tier across use cases, data, process, governance and capability.
 - [Team Capability Check](https://gbxps.com/tools/capability): How a practice builds and evidences capability, from onboarding to compliance training.
+- [KPI Starter Kit](https://gbxps.com/tools/kpi-starter): The six KPIs worth watching for a business and its goal, with definitions, targets and cadence.
+- [Marketing Rhythm Planner](https://gbxps.com/tools/marketing-rhythm): A weekly, monthly and quarterly marketing rhythm sized to the hours available.
 - [Unit Economics Calculator](https://gbxps.com/tools/unit-economics): Lifetime value, acquisition cost, ratio and payback.
 - [Positioning Statement Builder](https://gbxps.com/tools/positioning): A positioning statement, one-line pitch and elevator version.
 - [Prompt Optimizer](https://gbxps.com/tools/prompt-optimizer/): A browser-based tool that turns a rough idea into a clear, model-tailored AI prompt.
