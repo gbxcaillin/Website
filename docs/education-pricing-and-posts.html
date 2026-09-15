@@ -1,0 +1,249 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Education pricing and launch posts</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+:root { --teal:#2E8B6E; --deep:#1A5C4A; --char:#1A1A1A; --paper:#FFFDF8; --soft:#F6F3EC; --ink:#0A0A0A; --ink2:#3D3D3A; --ink3:#6B6B66; --line:rgba(10,10,10,.14); }
+* { box-sizing:border-box; }
+body { font-family:'Liberation Sans', Arial, sans-serif; color:var(--ink); font-size:10.5pt; line-height:1.5; margin:0; background:var(--soft); }
+.doc { max-width:210mm; margin:0 auto; background:#fff; padding:0 0 12mm; box-shadow:0 0 0 1px var(--line); }
+.doc > div { padding:0 16mm; }
+.doc > .cover { padding:22mm 18mm; }
+h1,h2,h3,.serif { font-family:'Liberation Serif', 'Times New Roman', serif; font-weight:normal; margin:0; }
+h1 { font-size:30pt; line-height:1.1; }
+h2 { font-size:20pt; margin:0 0 6pt; }
+h3 { font-size:14pt; margin:14pt 0 4pt; }
+p { margin:0 0 8pt; }
+.eyebrow { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--teal); margin-bottom:8pt; }
+.eyebrow::before { content:''; display:inline-block; width:18pt; height:1px; background:var(--teal); vertical-align:middle; margin-right:8pt; }
+.cover { background:var(--char); color:var(--paper); min-height:240mm; display:flex; flex-direction:column; justify-content:space-between; page-break-after:always; margin:0 0 14mm; }
+.cover h1 { font-size:40pt; color:var(--paper); max-width:150mm; }
+.cover .accent { color:var(--teal); font-style:italic; }
+.cover .mark { font-family:'Liberation Serif',serif; font-size:22pt; letter-spacing:.18em; }
+.cover .mark span { font-family:'Liberation Sans'; font-size:7pt; letter-spacing:.22em; margin-left:10pt; vertical-align:middle; }
+.cover .sub { color:rgba(255,253,248,.72); max-width:130mm; font-size:11pt; }
+.cover .foot { font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,253,248,.6); }
+.section { page-break-before:always; margin-top:18mm; }
+.lead { font-size:12pt; color:var(--ink2); max-width:150mm; }
+table { width:100%; border-collapse:collapse; margin:8pt 0 12pt; font-size:9.5pt; }
+th { text-align:left; font-family:'Liberation Sans'; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); border-bottom:1px solid var(--ink); padding:6pt 8pt 5pt; font-weight:normal; }
+td { padding:7pt 8pt; border-bottom:1px solid var(--line); vertical-align:top; }
+td.num, th.num { text-align:right; white-space:nowrap; font-family:'Liberation Mono', monospace; font-size:9pt; }
+tr.hi td { background:var(--soft); }
+.callout { border-left:3px solid var(--teal); background:var(--soft); padding:9pt 12pt; margin:10pt 0; color:var(--ink2); font-size:9.5pt; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10pt; margin:8pt 0; }
+.card { border:1px solid var(--line); padding:10pt 12pt; background:var(--paper); }
+.card h3 { margin-top:0; }
+.card ul { margin:4pt 0 0 14pt; padding:0; }
+.card li { margin-bottom:3pt; font-size:9.5pt; }
+.pill { display:inline-block; font-size:7pt; letter-spacing:.14em; text-transform:uppercase; border:1px solid var(--teal); color:var(--teal); padding:2pt 6pt; margin-left:6pt; vertical-align:middle; }
+ol.dec { padding-left:16pt; } ol.dec li { margin-bottom:5pt; }
+.small { font-size:8.5pt; color:var(--ink3); }
+/* posts */
+.post { border:1px solid var(--line); background:#fff; padding:12pt 14pt 10pt; margin:0 0 12pt; page-break-inside:avoid; border-radius:2pt; }
+.post__head { display:flex; align-items:center; gap:9pt; margin-bottom:9pt; }
+.avatar { width:30pt; height:30pt; border-radius:50%; background:var(--char); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Liberation Serif',serif; font-size:12pt; letter-spacing:.05em; }
+.post__name { font-weight:bold; font-size:10pt; }
+.post__role { font-size:8.5pt; color:var(--ink3); }
+.post__kind { margin-left:auto; font-size:7pt; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); border:1px solid var(--teal); padding:2pt 6pt; }
+.post__body p { margin:0 0 7pt; font-size:10pt; white-space:pre-line; }
+.post__tags { color:var(--deep); font-size:9pt; margin:2pt 0 8pt; }
+.post__meta { border-top:1px solid var(--line); padding-top:7pt; display:grid; gap:3pt; font-size:8pt; color:var(--ink3); }
+.post__meta b { color:var(--ink2); font-weight:normal; text-transform:uppercase; letter-spacing:.12em; font-size:7pt; margin-right:4pt; }
+.pagefoot { margin-top:18mm; font-size:7.5pt; color:var(--ink3); letter-spacing:.1em; text-transform:uppercase; }
+</style></head><body>
+<div class="doc">
+<div class="cover">
+  <div class="mark">GBX <span>PROFESSIONAL SERVICES</span></div>
+  <div>
+    <div class="eyebrow" style="color:var(--teal)">Financial education practice</div>
+    <h1>Pricing structures <span class="accent">and the first ten posts.</span></h1>
+    <p class="sub" style="margin-top:14pt">Options and a recommended fee menu for The Financial Fluency Program and the Client Education Series, followed by launch-ready LinkedIn posts laid out as they will read. Internal working document, September 2026.</p>
+  </div>
+  <div class="foot">Confidential. GBX PS Pty Ltd. ABN 45 674 252 905. Figures ex GST, AUD.</div>
+</div>
+
+<div>
+<div class="eyebrow">Part one</div>
+<h2>Pricing the education practice</h2>
+<p class="lead">Three ways to structure the fees, what they cost to deliver, what the market charges, and a recommended menu you can put in front of the first ten prospects. Every figure is a proposal for you to set; nothing is published on the site until you say so.</p>
+
+<h3>1. What we are pricing against</h3>
+<p><b>Your cost to deliver.</b> The build is a one-off: roughly eight hours per module to write and review to the content protocol, so about 48 hours for the six. After that, each session is 1 to 1.5 hours of delivery, about an hour of scheduling and travel, and half an hour of follow-up. Call it three hours of senior time per delivered session once the build is done.</p>
+<p><b>The market.</b> Indicative ranges from general knowledge of the Australian workplace wellbeing market; verify with two quotes before finalising. Standalone financial wellbeing sessions from specialist providers commonly sit between $1,500 and $4,000 per session. Multi-session programs run $8,000 to $30,000 depending on headcount and customisation. Subscription platforms with recorded webinars charge $30 to $120 per employee per year. Keynote speakers on money topics charge $3,000 to $8,000 for a single hour.</p>
+<p><b>The value anchor.</b> Employers already buy wellbeing. The comparison that lands is per head: a program for 60 staff at $12,500 is about $208 a person, less than the average cost of a single day of absence once wages and lost output are counted. Say that number in every sales conversation.</p>
+
+<h3>2. Three structures compared</h3>
+<table>
+<tr><th>Structure</th><th>How it works</th><th>For</th><th>Against</th></tr>
+<tr><td><b>Per session menu</b></td><td>A fixed fee for each format: lunch-and-learn, workshop, seminar. Buy one, buy again.</td><td>Lowest commitment, easy first yes, simple to quote. Right for pilots.</td><td>Revenue is lumpy. Every session is a new sale. No reason to stay.</td></tr>
+<tr class="hi"><td><b>Program package</b></td><td>Six modules for a fixed fee up to a headcount, with a per-head add-on above it.</td><td>Predictable for both sides. Sells the outcome, not the hour. Anchors the per-head number. The natural core offer.</td><td>Bigger first decision; needs the taster and pilot rungs beneath it.</td></tr>
+<tr><td><b>Annual partnership</b></td><td>The program plus new-starter sessions, quarterly Q&amp;A webinars, the manager guide and an employer newsletter, for an annual fee tied to headcount.</td><td>Recurring revenue, deeper relationship, renewal is the default. Where the practice should end up.</td><td>Hard to sell before there is proof. Offer it as the upgrade at the end of a program, not on day one.</td></tr>
+</table>
+<div class="callout"><b>For advice and accounting practices:</b> flat fees only, per event or per series. Do not accept a share of advice revenue or a payment per client who takes up advice. That is conflicted remuneration territory for the licensee and referral-disclosure territory for you. A fixed fee keeps the "we teach, you advise" line clean.</div>
+
+<h3>3. Recommended menu <span class="pill">proposal</span></h3>
+<table>
+<tr><th>Item</th><th>What is included</th><th class="num">Fee (ex GST)</th></tr>
+<tr><td>Taster: "Super in 30 minutes"</td><td>30 minutes on Microsoft Teams, open session or private for one organisation. Monthly.</td><td class="num">Free</td></tr>
+<tr><td>Lunch and learn</td><td>45 minutes, one module, one team, on site in metro Melbourne or on Teams. Handout included.</td><td class="num">$1,800</td></tr>
+<tr><td>Workshop</td><td>90 minutes, one module in depth with Q&amp;A in principle. Handout and the manager guide included.</td><td class="num">$2,900</td></tr>
+<tr class="hi"><td><b>The Financial Fluency Program</b></td><td>All six modules over 6 to 12 weeks, up to 60 staff. Handouts, manager guide, post-program summary for HR. Sessions on site or on Teams.</td><td class="num">$12,500<br><span class="small">+ $45 per head above 60</span></td></tr>
+<tr><td>Annual partnership</td><td>The program, two new-starter sessions, two quarterly Q&amp;A webinars, the manager guide, a quarterly employer newsletter. Up to 100 staff.</td><td class="num">$19,500<br><span class="small">+ $25 per head above 100</span></td></tr>
+<tr><td>Recording licence</td><td>Twelve months of internal use of a recorded module on the employer's intranet.</td><td class="num">$1,500 per module<br><span class="small">$6,000 for the six</span></td></tr>
+<tr><td>Client Education Seminar</td><td>60 to 75 minutes for a practice's clients, co-branded handout, delivered in person in Melbourne or online.</td><td class="num">$2,400</td></tr>
+<tr><td>Client Education Series</td><td>Four seminars across the year, topics agreed up front, invitation copy supplied.</td><td class="num">$8,400</td></tr>
+<tr><td>Travel</td><td>Outside metro Melbourne, at cost. Interstate sessions default to Teams unless the client asks.</td><td class="num">At cost</td></tr>
+</table>
+<p class="small">Launch pricing for the first ninety days: the first five employer lunch-and-learns at $1,250 and the first three practice seminars at $1,800, in exchange for written feedback and permission to describe the engagement anonymously. State the full fee on the invoice with the launch discount shown, so the anchor is set for the next purchase.</p>
+
+<h3>4. Worked economics</h3>
+<table>
+<tr><th>Item</th><th class="num">Fee</th><th class="num">Senior hours</th><th class="num">Effective rate</th><th>Note</th></tr>
+<tr><td>Lunch and learn</td><td class="num">$1,800</td><td class="num">3</td><td class="num">$600 / hr</td><td>Once the module exists.</td></tr>
+<tr><td>Workshop</td><td class="num">$2,900</td><td class="num">4</td><td class="num">$725 / hr</td><td>Longer delivery, same prep.</td></tr>
+<tr class="hi"><td>Program, first four sold</td><td class="num">$12,500</td><td class="num">33</td><td class="num">$380 / hr</td><td>Includes a quarter of the 48-hour build each.</td></tr>
+<tr class="hi"><td>Program, from the fifth</td><td class="num">$12,500</td><td class="num">21</td><td class="num">$595 / hr</td><td>Build fully amortised.</td></tr>
+<tr><td>Annual partnership</td><td class="num">$19,500</td><td class="num">36</td><td class="num">$540 / hr</td><td>Renewal is where the margin is.</td></tr>
+<tr><td>Client seminar</td><td class="num">$2,400</td><td class="num">4</td><td class="num">$600 / hr</td><td>Includes tailoring to the practice.</td></tr>
+</table>
+<p>The per-head figures that matter in the room: the program is $208 a person at 60 staff and $145 a person at 100. The annual partnership is $195 a person at 100 staff, or about $16 a month, which is less than most employers spend on coffee.</p>
+
+<h3>5. Terms to set alongside the fees</h3>
+<div class="grid2">
+  <div class="card"><h3>Commercial terms</h3><ul><li>50% on booking, balance on completion for programs; sessions invoiced on delivery.</li><li>Rescheduling free with 10 business days' notice; 50% inside that; 100% inside 2 days.</li><li>Headcount confirmed at booking; per-head add-on reconciled at the end.</li><li>Fees reviewed annually, not mid-program.</li></ul></div>
+  <div class="card"><h3>Compliance terms</h3><ul><li>Every session opens with the education-not-advice statement.</li><li>No personal financial information collected from participants; surveys ask about the session only.</li><li>Practice seminars name the practice as the party for personal advice.</li><li>Materials reviewed to the content protocol and logged before delivery.</li></ul></div>
+</div>
+
+<h3>6. Decisions for you</h3>
+<ol class="dec">
+<li>Accept, adjust or replace the menu figures. My recommendation is to start exactly here and lift the program fee by $1,500 once two case studies exist.</li>
+<li>Publish the fees on the Education page, or keep "Quoted per program". Publishing the lunch-and-learn and program fees is the stronger move: it qualifies enquiries and matches the "fixed fee, agreed up front" positioning across the site.</li>
+<li>Run the launch pricing for ninety days, or not at all.</li>
+<li>Offer the recording licence from day one, or hold it until the modules have been delivered live a few times.</li>
+<li>Confirm the payment and cancellation terms above.</li>
+</ol>
+<p class="small">When decided: set <span style="font-family:'Liberation Mono'">education.pricing</span> in src/content.js and record the figures in docs/go-to-market.md. The Education page is already built to show them.</p>
+</div>
+
+<div class="section">
+<div class="eyebrow">Part two</div>
+<h2>The first ten LinkedIn posts</h2>
+<p class="lead">Drafted for the leaders' personal profiles, in the order they should run over the first five weeks. Each is written to the content protocol: explainers are factual and in principle, nothing names a product, and the education-not-advice line appears wherever the topic calls for it. Square brackets mark details to fill in. Three to four hashtags per post is the LinkedIn sweet spot; the set below is a starting point.</p>
+<table>
+<tr><th>Week</th><th>Posts</th><th>Purpose</th></tr>
+<tr><td>1</td><td>Launch. Why we teach.</td><td>Announce and set the tone.</td></tr>
+<tr><td>2</td><td>Taster invitation. HR pain point.</td><td>Fill the first taster, seed the wellbeing check.</td></tr>
+<tr><td>3</td><td>Explainer: volatility. For practices.</td><td>Show the teaching; open the second audience.</td></tr>
+<tr><td>4</td><td>Explainer: compounding. Manager guide.</td><td>Show the teaching; collect leads.</td></tr>
+<tr><td>5</td><td>Fluency. Post-taster recap.</td><td>Brand voice; social proof from the first session.</td></tr>
+</table>
+
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">CC</div>
+    <div><div class="post__name">Caillin Clyne</div><div class="post__role">Founder, GBX Professional Services</div></div>
+    <div class="post__kind">Launch</div>
+  </div>
+  <div class="post__body"><p>Today we are launching something we have wanted to build for a long time.</p><p>The Financial Fluency Program: plain-language financial education for workplaces, delivered by educators, not product sellers.</p><p>Six modules. Money foundations. Super, explained. Investing concepts. Tax basics for employees. Protecting yourself. Life moments.</p><p>No products. No commissions. No licence to sell anyone anything. Just people who hold financial planning and education qualifications, explaining how money works in language a whole team can follow.</p><p>We built it because the same thing kept happening in the businesses we work with. Super and pay questions land on HR and payroll. The people asking deserve an answer. The people being asked are neither equipped nor licensed to give one.</p><p>So we teach. Plainly, in principle, and with the questions worth taking to a licensed adviser at the end.</p><p>If you lead People and Culture somewhere with 50 to 500 staff, we would like to run a free 30-minute taster for your team. Details in the comments.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> The AI or Education category cover from the site, or a photo of the three leaders.</span><span><b>Call to action</b> Comment: link to gbxps.com/education and the taster registration.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">PG</div>
+    <div><div class="post__name">Patrick Gray</div><div class="post__role">Education Leader, GBX Professional Services</div></div>
+    <div class="post__kind">Why we teach</div>
+  </div>
+  <div class="post__body"><p>A confession from someone with an education degree and a financial planning qualification.</p><p>Most financial education is not designed to be understood. It is designed to be compliant, or to be sold from. Those are different goals, and the person in the room can tell.</p><p>Teaching money well is the same as teaching anything well. Start with what the learner already knows. Use one clear example, not six. Say what a thing is before you say why it matters. Leave time for the questions, because the questions are the lesson.</p><p>That is the whole method behind the Financial Fluency Program. Nothing clever. Just teaching, applied to a subject that badly needs it.</p><p>One rule we hold ourselves to: we explain how things work and the questions worth asking. We never tell anyone what to buy, sell or switch. That is a licensed adviser&#x27;s job, and we say so in every session.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> A single plain slide: the six module titles in a list.</span><span><b>Call to action</b> Comment: &#x27;If you want to see the method, our free taster is Super in 30 minutes. Link below.&#x27;</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">CC</div>
+    <div><div class="post__name">Caillin Clyne</div><div class="post__role">Founder, GBX Professional Services</div></div>
+    <div class="post__kind">Taster invitation</div>
+  </div>
+  <div class="post__body"><p>Super in 30 minutes. Free. On Teams. [DATE], [TIME] AEST.</p><p>What your super actually is. What the statement is telling you. The difference between the contribution types, in general terms. Where to look when you have a question, and what to ask a licensed adviser.</p><p>Thirty minutes, plain language, no products, no pitch.</p><p>It is open to any organisation. Bring your whole team or come along yourself and see whether it is worth putting in front of them.</p><p>This is general information and education only, not personal financial advice. Registration link in the comments.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> Event card: &#x27;Super in 30 minutes&#x27;, date, time, Microsoft Teams.</span><span><b>Call to action</b> Comment: registration link (contact form with &#x27;Financial education for my workplace&#x27; pre-selected until a booking tool is live).</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">CC</div>
+    <div><div class="post__name">Caillin Clyne</div><div class="post__role">Founder, GBX Professional Services</div></div>
+    <div class="post__kind">HR pain point</div>
+  </div>
+  <div class="post__body"><p>The questions landing on your payroll team this month:</p><p>&quot;Can I put more into super from my pay?&quot;
+&quot;What does salary sacrifice actually do?&quot;
+&quot;Why is my take-home different this fortnight?&quot;
+&quot;Which fund should I be in?&quot;</p><p>Three of those are education. One of them is advice. Your payroll team is not licensed to answer the fourth, and probably not confident answering the first three either.</p><p>That is not a payroll problem. It is a gap in what the organisation gives people.</p><p>A 45-minute plain-language session on super answers the first three for a whole team at once, and gives everyone a clear place to take the fourth. The questions stop landing on the wrong desk.</p><p>If that sounds familiar, our Workplace Financial Wellbeing Check takes two minutes and shows where the gaps are. Link in the comments.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> Text-only. Bold first line.</span><span><b>Call to action</b> Comment: link to gbxps.com/tools/wellbeing-check.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">PG</div>
+    <div><div class="post__name">Patrick Gray</div><div class="post__role">Education Leader, GBX Professional Services</div></div>
+    <div class="post__kind">Explainer</div>
+  </div>
+  <div class="post__body"><p>Volatility is not the same as loss. It is the single most useful distinction in financial literacy, and almost nobody is taught it.</p><p>Volatility is movement. A value goes up and down along the way. It feels like risk, especially when the news is loud, but a thing can move around a great deal and still be there at the end.</p><p>Permanent loss is capital you do not get back. A business that fails. A holding that never recovers. Or, most commonly, selling in a panic and turning a temporary dip into a real one.</p><p>Which risk matters most depends on when you need the money. Money for next year and money for thirty years from now face different risks, and treating them the same is where a lot of stress comes from.</p><p>That is the whole lesson. We teach it in about eight minutes, with one example.</p><p>General information and education only, not personal financial advice.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> The Financial Education category cover from the site.</span><span><b>Call to action</b> No link. Let it stand as an explainer; reply to comments in principle only.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">CC</div>
+    <div><div class="post__name">Caillin Clyne</div><div class="post__role">Founder, GBX Professional Services</div></div>
+    <div class="post__kind">For practices</div>
+  </div>
+  <div class="post__body"><p>To the advice and accounting practices in my network: a straightforward offer.</p><p>You know client events work. They deepen relationships, warm the next conversation, and bring the referrals you cannot get from a newsletter. You also know you never have time to build and run them well.</p><p>We teach. You advise.</p><p>The Client Education Series: we deliver a plain-language seminar or webinar to your clients and prospects, under your brand, on a topic they care about. Super, investing concepts, protecting yourself, the big life moments. You host and invite. Being the licensed practice, you handle everything personal that follows, and we point the room to you for exactly that.</p><p>An independent educator in front of your clients is more credible than a pitch, and a lot easier on your calendar.</p><p>One event, or a quarterly series. Message me and I will send the outline.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> Two-column graphic: &#x27;We teach&#x27; | &#x27;You advise&#x27;.</span><span><b>Call to action</b> Direct messages. No public link needed.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">PG</div>
+    <div><div class="post__name">Patrick Gray</div><div class="post__role">Education Leader, GBX Professional Services</div></div>
+    <div class="post__kind">Explainer</div>
+  </div>
+  <div class="post__body"><p>Compounding, without the hype.</p><p>When returns start earning returns, growth builds on growth. In the early years it looks unremarkable, which is why people give up on it. The impressive part comes later, because each period builds on a bigger base than the one before.</p><p>Two things people miss.</p><p>It rewards time more than timing. Starting earlier, with less, often beats starting later with more.</p><p>And it works in both directions. Fees compound against you over the years. High-interest debt compounds against you just as relentlessly as returns compound for you.</p><p>Understanding compounding is as much about respecting the downside as admiring the upside. That is the version we teach.</p><p>General information and education only, not personal financial advice.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> Text-only, or a simple line rising then a second line falling, unlabelled.</span><span><b>Call to action</b> Comment: link to the Compounding article on gbxps.com/insights.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">CC</div>
+    <div><div class="post__name">Caillin Clyne</div><div class="post__role">Founder, GBX Professional Services</div></div>
+    <div class="post__kind">Lead magnet</div>
+  </div>
+  <div class="post__body"><p>A one-page guide for managers: what to say when a team member is struggling with money.</p><p>Managers are not counsellors and they are not advisers. But they are usually the first to notice, and most have no idea what to say.</p><p>So we wrote it down. One page. What to say. What not to say. Where to send people, including the part of your EAP most staff do not know exists.</p><p>It is free, and it is the first thing we hand over in every Financial Fluency Program because it does more good per page than anything else we produce.</p><p>Comment &#x27;guide&#x27; and I will send it to you.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> Mock-up of a one-page guide with the title visible.</span><span><b>Call to action</b> Reply to each comment with the PDF by direct message; log the request as a lead.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">RS</div>
+    <div><div class="post__name">Rose Sunny</div><div class="post__role">Brand and Creative Leader, GBX Professional Services</div></div>
+    <div class="post__kind">Positioning</div>
+  </div>
+  <div class="post__body"><p>We did not call it financial literacy. We called it fluency. Here is why.</p><p>Literacy sounds like remediation. Something you lack. A box to tick.</p><p>Fluency is what you have when you can use a language without thinking about it. Ask a question in it. Follow a conversation. Notice when something does not add up.</p><p>That is what we want for the people in our programs. Not a certificate. Confidence. The ability to read a statement, sit in a meeting with an adviser and ask the right thing, and not feel like an outsider to their own money.</p><p>Two of our leaders came to this from teaching and languages. It shows in the name, and it shows in the room.</p><p>The Financial Fluency Program. For workplaces that want their people to be fluent.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> The word FLUENCY set large in the site&#x27;s serif on charcoal.</span><span><b>Call to action</b> Comment: link to gbxps.com/education.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<article class="post">
+  <div class="post__head">
+    <div class="avatar">CC</div>
+    <div><div class="post__name">Caillin Clyne</div><div class="post__role">Founder, GBX Professional Services</div></div>
+    <div class="post__kind">Post-taster recap (template)</div>
+  </div>
+  <div class="post__body"><p>[NUMBER] people from [NUMBER] organisations joined Super in 30 minutes this morning. Thank you.</p><p>The three questions that came up most:</p><p>1. [QUESTION]
+2. [QUESTION]
+3. [QUESTION]</p><p>None of them were silly. All of them were things that should have been explained to people years ago and never were. That gap is the whole reason the program exists.</p><p>Next taster is [DATE]. If your team would benefit, the link is in the comments. If you would rather bring it in-house, message me and we will talk about a lunch-and-learn.</p><p>General information and education only, not personal financial advice.</p></div>
+  <div class="post__tags">#FinancialWellbeing #FinancialEducation #PeopleAndCulture #Melbourne</div>
+  <div class="post__meta"><span><b>Visual</b> A photo of the Teams gallery view (with permission) or the question list as a graphic.</span><span><b>Call to action</b> Comment: next taster registration link. Fill the placeholders from the session notes; the question list must stay in principle, no personal details.</span><span><b>Protocol</b> Four-question test: pass. Log before posting.</span></div>
+</article>
+<div class="callout"><b>Before posting:</b> run the four-question test, add a row to docs/content-review-log.md, and answer comments in principle only. Anyone who asks about their own situation gets the section 5 script: "That is a question about your own situation, and answering it would be personal advice, which needs a licensed adviser."</div>
+</div>
+<div class="pagefoot">GBX Professional Services &nbsp;·&nbsp; Financial education practice &nbsp;·&nbsp; Internal working document</div>
+</div>
+</body></html>
