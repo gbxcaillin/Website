@@ -22,9 +22,9 @@ import educationJpg from './assets/svc-education.jpg'
 export const serviceMedia = {
   '01': { type: 'video', mp4: analyticsMp4, poster: analyticsPoster },
   '02': { type: 'image', webp: consultingWebp, jpg: consultingJpg },
-  '03': { type: 'video', mp4: salesMp4, poster: salesPoster },
+  '03': { type: 'video', mp4: aiMp4, poster: aiPoster },
   '04': { type: 'image', webp: brandWebp, jpg: brandJpg },
-  '05': { type: 'video', mp4: investmentMp4, poster: investmentPoster },
+  '05': { type: 'video', mp4: salesMp4, poster: salesPoster },
   '06': { type: 'image', webp: educationWebp, jpg: educationJpg },
-  '07': { type: 'video', mp4: aiMp4, poster: aiPoster },
+  '07': { type: 'video', mp4: investmentMp4, poster: investmentPoster },
 }

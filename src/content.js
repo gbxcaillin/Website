@@ -102,17 +102,17 @@ export const services = {
     },
     {
       number: '03',
-      title: 'Sales Enablement & Lead Generation',
+      title: 'Business AI Readiness',
       body:
-        'Compliance-aware sales processes, funnels, paid media, referral systems, nurture journeys and conversion frameworks.',
+        'Assessment and roadmap for adopting AI with discipline: where it adds value, what to prepare, and how to govern it. Data, process, risk and capability, made ready.',
       detail:
-        'We build repeatable, compliance-aware ways to win and keep clients. From first touch to referral, the sales system is documented, measurable and honest about what works.',
+        'We help businesses move from AI curiosity to practical, governed adoption. We assess where AI genuinely creates value, ready your data, processes and people, and put the guardrails, governance and skills in place so adoption is safe, useful and worth it. Vendor-neutral and outcome-led.',
       includes: [
-        'Compliance-aware sales processes',
-        'Funnels and nurture journeys',
-        'Paid media and lead campaigns',
-        'Referral and introducer systems',
-        'Conversion frameworks',
+        'AI opportunity and value assessment',
+        'Data and process readiness',
+        'Governance, risk and compliance guardrails',
+        'Tooling and vendor evaluation',
+        'Team capability and training',
       ],
     },
     {
@@ -132,17 +132,17 @@ export const services = {
     },
     {
       number: '05',
-      title: 'Investment Frameworks & Adviser Support',
+      title: 'Sales Enablement & Lead Generation',
       body:
-        'Frameworks, tools, education and support for advice firms and investment managers working to achieve specific investment outcomes for their clients. Support only, not financial product advice.',
+        'Compliance-aware sales processes, funnels, paid media, referral systems, nurture journeys and conversion frameworks.',
       detail:
-        'We give advice firms and investment managers the frameworks, tools, education and operational support to pursue specific investment outcomes for their clients. The regulated decisions, financial product advice, dealing and portfolio management, stay with those licensed businesses. GBX Professional Services does not hold an AFSL and does not provide financial product advice or any other financial service.',
+        'We build repeatable, compliance-aware ways to win and keep clients. From first touch to referral, the sales system is documented, measurable and honest about what works.',
       includes: [
-        'Investment frameworks and tools',
-        'Modelling and analysis support',
-        'Research collation and reporting',
-        'Education for advice and investment teams',
-        'Support for advice firms and investment managers',
+        'Compliance-aware sales processes',
+        'Funnels and nurture journeys',
+        'Paid media and lead campaigns',
+        'Referral and introducer systems',
+        'Conversion frameworks',
       ],
     },
     {
@@ -163,17 +163,17 @@ export const services = {
     },
     {
       number: '07',
-      title: 'Business AI Readiness',
+      title: 'Investment Frameworks & Adviser Support',
       body:
-        'Assessment and roadmap for adopting AI with discipline: where it adds value, what to prepare, and how to govern it. Data, process, risk and capability, made ready.',
+        'Frameworks, tools, education and support for advice firms and investment managers working to achieve specific investment outcomes for their clients. Support only, not financial product advice.',
       detail:
-        'We help businesses move from AI curiosity to practical, governed adoption. We assess where AI genuinely creates value, ready your data, processes and people, and put the guardrails, governance and skills in place so adoption is safe, useful and worth it. Vendor-neutral and outcome-led.',
+        'We give advice firms and investment managers the frameworks, tools, education and operational support to pursue specific investment outcomes for their clients. The regulated decisions, financial product advice, dealing and portfolio management, stay with those licensed businesses. GBX Professional Services does not hold an AFSL and does not provide financial product advice or any other financial service.',
       includes: [
-        'AI opportunity and value assessment',
-        'Data and process readiness',
-        'Governance, risk and compliance guardrails',
-        'Tooling and vendor evaluation',
-        'Team capability and training',
+        'Investment frameworks and tools',
+        'Modelling and analysis support',
+        'Research collation and reporting',
+        'Education for advice and investment teams',
+        'Support for advice firms and investment managers',
       ],
     },
   ],
@@ -543,11 +543,11 @@ export const footer = {
       links: [
         { label: 'Analytics & Performance', to: '/services' },
         { label: 'Success Consulting', to: '/services' },
-        { label: 'Sales Enablement', to: '/services' },
-        { label: 'Brand & Marketing', to: '/services' },
-        { label: 'Investment Frameworks', to: '/services' },
-        { label: 'Education & Compliance', to: '/education' },
         { label: 'AI Readiness', to: '/services' },
+        { label: 'Brand & Marketing', to: '/services' },
+        { label: 'Sales Enablement', to: '/services' },
+        { label: 'Education & Compliance', to: '/education' },
+        { label: 'Investment Frameworks', to: '/services' },
       ],
     },
     {
@@ -1102,7 +1102,7 @@ export const pageMeta = {
   services: {
     title: 'Services | GBX Professional Services',
     description:
-      'Five service lines: business analytics and performance, success consulting, sales enablement, brand and marketing, investment frameworks and adviser support, financial and compliance education, and business AI readiness.',
+      'Seven service lines: business analytics and performance, success consulting, business AI readiness, brand and marketing, sales enablement, financial and compliance education, and investment frameworks and adviser support.',
   },
   leadership: {
     title: 'Leadership | GBX Professional Services',
