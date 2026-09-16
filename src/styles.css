@@ -777,6 +777,20 @@ button {
   background: var(--gbx-soft);
 }
 
+/* Seven services plus the note is eight cells; in three columns the note
+   spans two so the grid ends on a full row instead of an empty cell. In two
+   columns eight cells already fill evenly, so the span is dropped. */
+@media (min-width: 1001px) {
+  .service-card--note {
+    grid-column: span 2;
+    justify-content: center;
+  }
+  .service-card--note .service-card__body {
+    max-width: 62ch;
+    flex: 0 0 auto;
+  }
+}
+
 @media (max-width: 1000px) {
   .service-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
