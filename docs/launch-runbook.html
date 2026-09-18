@@ -1,0 +1,216 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Launch runbook: gbxps.com</title>
+<style>
+:root{--teal:#2E8B6E;--deep:#1A5C4A;--char:#1A1A1A;--paper:#FFFDF8;--soft:#F6F3EC;--ink:#0A0A0A;--ink2:#3D3D3A;--ink3:#6B6B66;--line:rgba(10,10,10,.14);--warn:#B4532A}
+*{box-sizing:border-box}body{margin:0;background:var(--soft);font-family:'Liberation Sans',Arial,sans-serif;color:var(--ink);font-size:15px;line-height:1.55}
+.doc{max-width:860px;margin:0 auto;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.cover{background:var(--char);color:var(--paper);padding:56px 48px}
+.cover h1{font-family:'Liberation Serif',serif;font-weight:normal;font-size:40px;line-height:1.1;margin:12px 0 16px;max-width:600px}
+.cover .accent{color:var(--teal);font-style:italic}.cover p{color:rgba(255,253,248,.75);max-width:600px;margin:0}
+.mark{font-family:'Liberation Serif',serif;font-size:22px;letter-spacing:.18em}.mark span{font-family:'Liberation Sans';font-size:9px;letter-spacing:.22em;margin-left:10px;vertical-align:middle}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin:0 0 6px}
+.eyebrow::before{content:'';display:inline-block;width:22px;height:1px;background:var(--teal);vertical-align:middle;margin-right:10px}
+main{padding:40px 48px 64px}
+h2{font-family:'Liberation Serif',serif;font-weight:normal;font-size:28px;margin:48px 0 6px}h2:first-of-type{margin-top:0}
+h3{font-family:'Liberation Serif',serif;font-weight:normal;font-size:19px;margin:22px 0 6px}
+p{margin:0 0 10px}.lead{font-size:17px;color:var(--ink2);max-width:640px}
+.where{display:inline-block;background:var(--soft);border:1px solid var(--line);padding:2px 8px;font-size:12.5px;color:var(--ink2);margin:0 0 10px}
+ol.steps{list-style:none;padding:0;margin:8px 0 0;counter-reset:s}
+ol.steps>li{position:relative;padding:10px 12px 10px 44px;border-top:1px solid var(--line);counter-increment:s}
+ol.steps>li:last-child{border-bottom:1px solid var(--line)}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;border:1px solid var(--teal);color:var(--teal);font-size:12px;display:flex;align-items:center;justify-content:center;font-family:'Liberation Mono',monospace}
+ol.steps input[type=checkbox]{position:absolute;right:12px;top:14px;width:16px;height:16px;accent-color:var(--teal)}
+ol.steps li.done{color:var(--ink3)}
+kbd,.ui{font-family:'Liberation Sans';font-weight:bold;color:var(--ink);background:#f1eee6;border:1px solid var(--line);border-radius:3px;padding:0 5px;font-size:13px;white-space:nowrap}
+code{font-family:'Liberation Mono',monospace;font-size:12.5px;background:#f1eee6;padding:1px 5px}
+pre{background:var(--char);color:var(--paper);padding:12px 14px;font-size:12.5px;overflow:auto;margin:8px 0 12px;border-left:3px solid var(--teal)}
+.note{border-left:3px solid var(--teal);background:var(--soft);padding:10px 14px;margin:12px 0;color:var(--ink2);font-size:14px}
+.warn{border-left-color:var(--warn)}.warn b{color:var(--warn)}
+table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:13.5px}th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--ink);padding:6px 8px;font-weight:normal}td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.expect{font-size:13.5px;color:var(--ink2);margin-top:4px}.expect b{color:var(--teal);font-weight:normal;letter-spacing:.12em;text-transform:uppercase;font-size:11px;margin-right:6px}
+.stage{border:1px solid var(--line);padding:6px 14px 4px;margin:10px 0 0;display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2)}.stage b{color:var(--ink);font-weight:normal;text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+@media(max-width:640px){.cover,main{padding-left:22px;padding-right:22px}}
+</style></head><body><div class="doc">
+<div class="cover"><div class="mark">GBX <span>PROFESSIONAL SERVICES</span></div>
+<p class="eyebrow" style="margin-top:36px">Launch runbook</p>
+<h1>Taking gbxps.com live <span class="accent">without touching your email.</span></h1>
+<p>Every click, in order, across VentraIP, Cloudflare, Microsoft 365 and Resend. Tick each box as you go. Nothing in stages 1 to 8 changes what visitors or email see; the only moment of change is stage 9, and it is reversible.</p></div>
+<main>
+<p class="lead">Set aside about two hours across two days: an hour of setup on day one, a short switch and checks on day two. Do the switch on a weekday morning so you have the day to watch it.</p>
+
+<h2>Before you start</h2>
+<p>Have these open in separate browser tabs and make sure you can log in to each.</p>
+<table><tr><th>Tab</th><th>Address</th><th>What it is</th></tr>
+<tr><td>VentraIP</td><td>ventraip.com.au, then <span class="ui">Log in</span> to VIPcontrol</td><td>Where the domain name gbxps.com is registered and where its DNS records live today.</td></tr>
+<tr><td>Cloudflare</td><td>dash.cloudflare.com</td><td>Where the new site is hosted (the project called <b>gbx</b>). DNS moves here in stage 5.</td></tr>
+<tr><td>Microsoft 365 admin</td><td>admin.microsoft.com</td><td>Your email. You only read from here; nothing changes.</td></tr>
+<tr><td>Resend</td><td>resend.com</td><td>New account. Sends the emails from the site's tools and contact form.</td></tr>
+<tr><td>A notes file</td><td>Anywhere</td><td>You will copy nameserver names, a token and some DNS values. Paste them here as you go.</td></tr></table>
+<div class="note">A few words you will see. <b>DNS</b> is the phone book that turns gbxps.com into an address. A <b>record</b> is one line in that phone book. <b>Nameservers</b> are the company that holds the phone book; today that is VentraIP, and in stage 9 it becomes Cloudflare. <b>TTL</b> is how long the internet is allowed to remember a record before checking again.</div>
+
+<h2>Stage 1. Make DNS changes propagate quickly</h2>
+<div class="stage"><span><b>Where</b> VentraIP</span><span><b>Time</b> 5 minutes, then wait at least an hour</span><span><b>Risk</b> none</span></div>
+<ol class="steps">
+<li><input type="checkbox">In VIPcontrol click <span class="ui">My Services</span>, then <span class="ui">Domain Names</span>, then <span class="ui">gbxps.com</span>.</li>
+<li><input type="checkbox">Open the DNS section. It is labelled <span class="ui">DNS Hosting</span> or <span class="ui">Manage DNS</span> depending on the layout. You should see the list you pasted to me, starting with the three A records for play, crm and office.</li>
+<li><input type="checkbox">Find the four <b>A</b> records whose hostname is exactly <code>gbxps.com</code> (values starting 198.). Edit each one and change <b>TTL</b> from 3600 to <code>300</code>. Save each.<div class="expect"><b>Expect</b> the list now shows 300 next to those four records.</div></li>
+<li><input type="checkbox">Find the <b>CNAME</b> for <code>www.gbxps.com</code> (value ext-cust.squarespace.com). Edit it, TTL to <code>300</code>, save.</li>
+<li><input type="checkbox">Do not edit anything else. The MX, TXT and autodiscover records are your email; leave them exactly as they are.</li>
+<li><input type="checkbox">Wait at least one hour before stage 9. Stages 2 to 8 can be done straight away.</li></ol>
+
+<h2>Stage 2. Create the leads database</h2>
+<div class="stage"><span><b>Where</b> Cloudflare</span><span><b>Time</b> 10 minutes</span><span><b>Risk</b> none</span></div>
+<p>The tools and contact form on the site store every submission in a small database called D1. Without it, submissions still email you (after stage 3) but nothing is kept.</p>
+<ol class="steps">
+<li><input type="checkbox">In the Cloudflare dashboard, left menu, click <span class="ui">Storage &amp; Databases</span> then <span class="ui">D1 SQL Database</span>. (Older layouts: <span class="ui">Workers &amp; Pages</span> then the <span class="ui">D1</span> tab.)</li>
+<li><input type="checkbox">Click <span class="ui">Create Database</span>. Name: <code>gbx-leads</code>. Location: leave on automatic, or choose Asia-Pacific if offered. Click <span class="ui">Create</span>.<div class="expect"><b>Expect</b> a page for gbx-leads with tabs including Console.</div></li>
+<li><input type="checkbox">Open the <span class="ui">Console</span> tab. Paste the whole of the block below into the query box and click <span class="ui">Execute</span>.
+<pre>CREATE TABLE IF NOT EXISTS leads (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created_at TEXT NOT NULL,
+  kind TEXT,
+  source TEXT,
+  email TEXT,
+  name TEXT,
+  fields TEXT,
+  summary TEXT,
+  page TEXT,
+  ip TEXT,
+  user_agent TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_leads_created_at ON leads (created_at);
+CREATE INDEX IF NOT EXISTS idx_leads_email ON leads (email);</pre>
+<div class="expect"><b>Expect</b> a success message. The <span class="ui">Tables</span> tab now lists a table called leads.</div></li>
+<li><input type="checkbox">Now connect it to the site. Left menu <span class="ui">Workers &amp; Pages</span>, click the project <span class="ui">gbx</span>, then <span class="ui">Settings</span>.</li>
+<li><input type="checkbox">Find <span class="ui">Bindings</span> (older layouts: <span class="ui">Functions</span>, then <span class="ui">D1 database bindings</span>). Click <span class="ui">Add</span>, choose <span class="ui">D1 database</span>. Variable name: <code>DB</code> (capitals, exactly). Database: gbx-leads. Save.</li>
+<li><input type="checkbox">Bindings only apply to new deployments. Click the <span class="ui">Deployments</span> tab, open the menu (three dots) on the top deployment and choose <span class="ui">Retry deployment</span>. Wait for it to finish (about a minute).</li></ol>
+<div class="note">If you would rather I create the database and run that block for you, say so. Only steps 4 to 6, the binding, have to be done by you in the dashboard.</div>
+
+<h2>Stage 3. Set up email sending from the site</h2>
+<div class="stage"><span><b>Where</b> Resend, then Cloudflare</span><span><b>Time</b> 15 minutes</span><span><b>Risk</b> none</span></div>
+<p>When someone uses a tool or the contact form, the site emails you the details and emails them their results. Resend is the service that sends those. It is free for the first few thousand emails a month.</p>
+<ol class="steps">
+<li><input type="checkbox">Go to resend.com and click <span class="ui">Get Started</span>. Sign up with admin@gbxps.com.</li>
+<li><input type="checkbox">Left menu <span class="ui">Domains</span>, click <span class="ui">Add Domain</span>. Enter <code>gbxps.com</code>. Region: choose the closest offered (Sydney if listed, otherwise any). Click <span class="ui">Add</span>.<div class="expect"><b>Expect</b> a page listing three or four DNS records (types MX and TXT, with names like <code>send</code>, <code>resend._domainkey</code> and <code>_dmarc</code>). Leave this tab open. You will copy these into Cloudflare in stage 6. Do not add them at VentraIP.</div></li>
+<li><input type="checkbox">Left menu <span class="ui">API Keys</span>, click <span class="ui">Create API Key</span>. Name: <code>gbx website</code>. Permission: <span class="ui">Sending access</span>. Domain: gbxps.com. Click <span class="ui">Add</span>.</li>
+<li><input type="checkbox">Copy the key (it starts with <code>re_</code>) into your notes file now. It is shown only once.</li>
+<li><input type="checkbox">Back in Cloudflare: <span class="ui">Workers &amp; Pages</span>, project <span class="ui">gbx</span>, <span class="ui">Settings</span>, <span class="ui">Environment variables</span> (sometimes under <span class="ui">Variables and Secrets</span>). Make sure you are on <b>Production</b>, not Preview.</li>
+<li><input type="checkbox">Add three variables, one at a time, with <span class="ui">Add variable</span>:
+<table><tr><th>Name</th><th>Value</th><th>Type</th></tr>
+<tr><td><code>RESEND_API_KEY</code></td><td>the re_ key from your notes</td><td>Secret (tick Encrypt)</td></tr>
+<tr><td><code>MAIL_FROM</code></td><td><code>GBX Professional Services &lt;noreply@gbxps.com&gt;</code></td><td>Plain text</td></tr>
+<tr><td><code>MAIL_TO</code></td><td><code>admin@gbxps.com</code></td><td>Plain text</td></tr></table>
+Click <span class="ui">Save</span>.</li>
+<li><input type="checkbox">Retry the latest deployment again, as in stage 2 step 6, so the site picks up the new variables.</li></ol>
+<div class="note">Emails will not actually send until the Resend DNS records are live, which happens in stage 6 and 9. That is expected. Submissions are stored in the database in the meantime.</div>
+
+<h2>Stage 4. Turn on visitor analytics</h2>
+<div class="stage"><span><b>Where</b> Cloudflare</span><span><b>Time</b> 3 minutes</span><span><b>Risk</b> none</span></div>
+<ol class="steps">
+<li><input type="checkbox">Cloudflare dashboard, left menu <span class="ui">Analytics &amp; Logs</span>, then <span class="ui">Web Analytics</span>.</li>
+<li><input type="checkbox">Click <span class="ui">Add a site</span>. Enter <code>gbxps.com</code>. Continue.</li>
+<li><input type="checkbox">A box shows a snippet of code. Inside it is <code>"token": "</code> followed by a long string of letters and numbers. Copy that string only into your notes.</li>
+<li><input type="checkbox">Send me the token. I will put it into the site and redeploy. Until then the site carries a placeholder and simply records nothing.</li></ol>
+
+<h2>Stage 5. Bring the domain into Cloudflare (no switch yet)</h2>
+<div class="stage"><span><b>Where</b> Cloudflare</span><span><b>Time</b> 15 minutes</span><span><b>Risk</b> none, nothing changes until stage 9</span></div>
+<p>This copies your DNS phone book into Cloudflare so it is ready. Visitors and email keep using VentraIP's copy until you switch nameservers in stage 9.</p>
+<ol class="steps">
+<li><input type="checkbox">Cloudflare dashboard home. Click <span class="ui">Add a domain</span> (may read <span class="ui">Onboard a domain</span> or <span class="ui">+ Add</span> then <span class="ui">Connect a domain</span>).</li>
+<li><input type="checkbox">Enter <code>gbxps.com</code>. Leave <span class="ui">Quick scan for DNS records</span> selected. Continue.</li>
+<li><input type="checkbox">Choose the <span class="ui">Free</span> plan. Continue.</li>
+<li><input type="checkbox">You now see the records Cloudflare found. Check them against the table below. Add anything missing with <span class="ui">Add record</span>. Fix the <b>Proxy status</b> column to match: a grey cloud means "DNS only", an orange cloud means "Proxied".
+<table><tr><th>Type</th><th>Name</th><th>Content</th><th>Proxy</th></tr>
+<tr><td>MX</td><td>gbxps.com</td><td>gbxps-com.mail.protection.outlook.com, priority 0</td><td>DNS only</td></tr>
+<tr><td>TXT</td><td>gbxps.com</td><td>v=spf1 include:spf.protection.outlook.com -all</td><td>n/a</td></tr>
+<tr><td>TXT</td><td>gbxps.com</td><td>MS=ms39364796</td><td>n/a</td></tr>
+<tr><td>TXT</td><td>gbxps.com</td><td>google-site-verification=lmThSMp3WW1sc1SmTcSCij70oNBzCu8YOGEEwxBN6EM</td><td>n/a</td></tr>
+<tr><td>CNAME</td><td>autodiscover</td><td>autodiscover.outlook.com</td><td>DNS only (grey)</td></tr>
+<tr><td>A</td><td>play</td><td>103.249.237.175</td><td>DNS only (grey)</td></tr>
+<tr><td>A</td><td>crm</td><td>103.249.237.175</td><td>DNS only (grey)</td></tr>
+<tr><td>A</td><td>office</td><td>103.249.237.175</td><td>DNS only (grey)</td></tr></table>
+<div class="expect"><b>Expect</b> the scan usually finds the MX, TXT, www and apex records but often misses play, crm, office and autodiscover. Add those by hand if they are not there.</div></li>
+<li><input type="checkbox">Still on this list, <b>delete</b> these if present: the four A records for gbxps.com with values starting 198., the CNAME for www pointing at ext-cust.squarespace.com, and the CNAME whose name is a long random string pointing at verify.squarespace.com.</li>
+<li><input type="checkbox">Click <span class="ui">Continue</span>. Cloudflare shows two nameserver names ending in <code>.ns.cloudflare.com</code>. Copy both into your notes. <b>Do not change them at VentraIP yet.</b> Click <span class="ui">Continue</span> or <span class="ui">Done, check nameservers</span> to leave this screen; the site will sit at "Pending" in Cloudflare until stage 9.</li>
+<li><input type="checkbox">One setting while you are here: in the gbxps.com site, left menu <span class="ui">SSL/TLS</span>, <span class="ui">Overview</span>. Set the encryption mode to <span class="ui">Full</span>. This prevents a "too many redirects" loop later.</li></ol>
+<div class="note warn"><b>The email rule.</b> The MX record and the autodiscover CNAME must stay on DNS only (grey cloud). If either shows an orange cloud, click it to turn it grey. Everything else about your email is protected by keeping the values identical, which the table above does.</div>
+
+<h2>Stage 6. Strengthen email and add the sending records</h2>
+<div class="stage"><span><b>Where</b> Microsoft 365, Resend, Cloudflare</span><span><b>Time</b> 15 minutes</span><span><b>Risk</b> none</span></div>
+<p>Two email improvements that Squarespace-era DNS never had, plus the Resend records. All added in the Cloudflare copy of the zone, so nothing is live until stage 9.</p>
+<ol class="steps">
+<li><input type="checkbox">In Microsoft 365 admin (admin.microsoft.com), left menu <span class="ui">Settings</span>, <span class="ui">Domains</span>, click <span class="ui">gbxps.com</span>, then the <span class="ui">DNS records</span> tab.</li>
+<li><input type="checkbox">Look for two CNAME records named <code>selector1._domainkey</code> and <code>selector2._domainkey</code>. If they are listed, copy their values (they end in <code>onmicrosoft.com</code>) into your notes and skip to step 5.</li>
+<li><input type="checkbox">If they are not listed, go to security.microsoft.com. Left menu <span class="ui">Email &amp; collaboration</span>, <span class="ui">Policies &amp; rules</span>, <span class="ui">Threat policies</span>, <span class="ui">Email authentication settings</span>, tab <span class="ui">DKIM</span>. Click <span class="ui">gbxps.com</span>, then <span class="ui">Create DKIM keys</span>.<div class="expect"><b>Expect</b> a box showing the two CNAME records. Copy both names and values into your notes. Leave "Sign messages" off for now.</div></li>
+<li><input type="checkbox">In Cloudflare, gbxps.com site, left menu <span class="ui">DNS</span>, <span class="ui">Records</span>, <span class="ui">Add record</span>. Add both DKIM records: type CNAME, name <code>selector1._domainkey</code>, target the value from your notes, proxy <b>DNS only</b>. Repeat for selector2.</li>
+<li><input type="checkbox">Add a DMARC record: type TXT, name <code>_dmarc</code>, content exactly:<pre>v=DMARC1; p=none; rua=mailto:admin@gbxps.com</pre>This is a reporting-only setting; it does not block anything.</li>
+<li><input type="checkbox">Back to the Resend tab from stage 3. Add each record it lists into Cloudflare the same way, matching type, name and content exactly. Set every one to DNS only. Resend will show them as "Pending" until stage 9 finishes; that is fine.</li>
+<li><input type="checkbox">Optional, but do it after stage 9 is confirmed working: return to the DKIM screen in step 3 and switch <span class="ui">Sign messages for this domain with DKIM signatures</span> on.</li></ol>
+
+<h2>Stage 7. Point the website project at your domain</h2>
+<div class="stage"><span><b>Where</b> Cloudflare</span><span><b>Time</b> 5 minutes</span><span><b>Risk</b> none</span></div>
+<ol class="steps">
+<li><input type="checkbox"><span class="ui">Workers &amp; Pages</span>, project <span class="ui">gbx</span>, tab <span class="ui">Custom domains</span>, click <span class="ui">Set up a custom domain</span>.</li>
+<li><input type="checkbox">Enter <code>gbxps.com</code>. Continue. Cloudflare shows the DNS record it will create. Click <span class="ui">Activate domain</span>.<div class="expect"><b>Expect</b> gbxps.com listed with status "Pending" or "Initializing". It goes "Active" after stage 9.</div></li>
+<li><input type="checkbox">Click <span class="ui">Set up a custom domain</span> again. Enter <code>www.gbxps.com</code>. Activate.</li>
+<li><input type="checkbox">Check: gbxps.com site, <span class="ui">DNS</span>, <span class="ui">Records</span> now contains two CNAME records, one for <code>gbxps.com</code> and one for <code>www</code>, both pointing at <code>gbx-2ov.pages.dev</code>, both with an orange cloud. Those are correct as they are.</li></ol>
+
+<h2>Stage 8. Send www visitors to the main address</h2>
+<div class="stage"><span><b>Where</b> Cloudflare</span><span><b>Time</b> 5 minutes</span><span><b>Risk</b> none</span></div>
+<ol class="steps">
+<li><input type="checkbox">gbxps.com site, left menu <span class="ui">Rules</span>, then <span class="ui">Redirect Rules</span> (may be under <span class="ui">Overview</span> then <span class="ui">Create rule</span>, choose Redirect).</li>
+<li><input type="checkbox">Click <span class="ui">Create rule</span>. Rule name: <code>www to apex</code>.</li>
+<li><input type="checkbox">Under <b>When incoming requests match</b>, choose <span class="ui">Custom filter expression</span>. Field: <span class="ui">Hostname</span>. Operator: <span class="ui">equals</span>. Value: <code>www.gbxps.com</code>.</li>
+<li><input type="checkbox">Under <b>Then</b>: Type <span class="ui">Dynamic</span>. Expression:<pre>concat("https://gbxps.com", http.request.uri.path)</pre>Status code <code>301</code>. Tick <span class="ui">Preserve query string</span>.</li>
+<li><input type="checkbox">Click <span class="ui">Deploy</span>.</li></ol>
+
+<h2>Stage 9. The switch</h2>
+<div class="stage"><span><b>Where</b> VentraIP</span><span><b>Time</b> 5 minutes, then 10 minutes to a few hours to take effect</span><span><b>Risk</b> low and reversible: put the old nameservers back and everything returns</span></div>
+<div class="note warn"><b>Before you do this</b>, confirm stage 1 was at least an hour ago, and re-open Cloudflare DNS Records for gbxps.com and check the MX and autodiscover records are present and grey. That is the whole email safety check.</div>
+<ol class="steps">
+<li><input type="checkbox">VIPcontrol, <span class="ui">My Services</span>, <span class="ui">Domain Names</span>, <span class="ui">gbxps.com</span>, then <span class="ui">Nameservers</span> (sometimes <span class="ui">Manage Nameservers</span>).</li>
+<li><input type="checkbox">Choose <span class="ui">Custom nameservers</span>. Replace ns1.nameserver.net.au with the first Cloudflare nameserver from your notes, ns2 with the second, and clear ns3 so only two remain. Save.<div class="expect"><b>Expect</b> a confirmation. The old DNS records stay at VentraIP as a backup; they are simply no longer consulted.</div></li>
+<li><input type="checkbox">In Cloudflare, gbxps.com site, <span class="ui">Overview</span>, click <span class="ui">Check nameservers</span>. Cloudflare also emails you when the site becomes Active. This usually takes under an hour, occasionally longer.</li></ol>
+<p><b>If you ever need to undo it:</b> repeat steps 1 and 2 with ns1, ns2 and ns3.nameserver.net.au. Within the hour everything is back to Squarespace and the old records.</p>
+
+<h2>Stage 10. Verify everything</h2>
+<div class="stage"><span><b>Where</b> your browser and phone</span><span><b>Time</b> 15 minutes, once Cloudflare says Active</span></div>
+<ol class="steps">
+<li><input type="checkbox">Open <code>https://gbxps.com</code>. You should see the new site with a padlock in the address bar. If you still see Squarespace, wait ten minutes and try a private window.</li>
+<li><input type="checkbox">Open <code>https://www.gbxps.com</code>. It should land on gbxps.com without www.</li>
+<li><input type="checkbox">Open <code>https://gbxps.com/sitemap.xml</code> and <code>https://gbxps.com/tools/prompt-optimizer/</code>. Both should load.</li>
+<li><input type="checkbox">From a personal email address (Gmail or similar), send a message to admin@gbxps.com. Confirm it arrives. Reply to it from Outlook and confirm the reply arrives back.</li>
+<li><input type="checkbox">On your phone, remove and re-add the admin@gbxps.com account in Outlook, or add it to a second device. If it sets itself up automatically, autodiscover is working.</li>
+<li><input type="checkbox">Open <code>https://play.gbxps.com</code>, <code>https://crm.gbxps.com</code> and <code>https://office.gbxps.com</code>. Each should behave exactly as before.</li>
+<li><input type="checkbox">Run a tool on the site (the Health Check is quickest) through to the email step, using your own email. Two emails should arrive within a minute: one to you as the visitor, one to admin@gbxps.com. If Resend still shows the domain as Pending, wait an hour and try again.</li>
+<li><input type="checkbox">In Cloudflare, <span class="ui">Storage &amp; Databases</span>, <span class="ui">D1</span>, <span class="ui">gbx-leads</span>, <span class="ui">Console</span>, run:<pre>SELECT id, created_at, kind, source, email FROM leads ORDER BY id DESC LIMIT 5;</pre>Your test submission should be the top row.</li>
+<li><input type="checkbox">In Resend, <span class="ui">Domains</span>, gbxps.com should now show Verified. In Cloudflare Web Analytics, visits start appearing within a few minutes once the token is in the site.</li></ol>
+
+<h2>Stage 11. Retire Squarespace</h2>
+<div class="stage"><span><b>Where</b> Squarespace</span><span><b>Time</b> 5 minutes, two days after stage 10</span></div>
+<ol class="steps">
+<li><input type="checkbox">Wait 48 hours after everything in stage 10 passed. There is no cost to waiting and it rules out anyone still seeing a cached old address.</li>
+<li><input type="checkbox">Log in to Squarespace. Site settings, <span class="ui">Domains</span>. If gbxps.com is listed as connected, click it and choose <span class="ui">Disconnect</span>. The domain itself stays at VentraIP; this only tells Squarespace to stop expecting it.</li>
+<li><input type="checkbox">Settings, <span class="ui">Billing</span>, the site subscription, <span class="ui">Cancel subscription</span>. Let it run to the end of the paid period rather than requesting a refund, in case you want to check something old.</li>
+<li><input type="checkbox">Back in VentraIP DNS (still there as a backup record set), nothing needs deleting. Leave it.</li></ol>
+
+<h2>After launch, in the first week</h2>
+<ol class="steps">
+<li><input type="checkbox">Google Search Console: search.google.com/search-console, <span class="ui">Add property</span>, type <b>Domain</b>, enter gbxps.com. It should verify automatically through the existing TXT record. Then left menu <span class="ui">Sitemaps</span>, enter <code>sitemap.xml</code>, Submit.</li>
+<li><input type="checkbox">Google Business Profile: business.google.com, add GBX Professional Services at 260 Spencer Street, category Business management consultant, website gbxps.com. Use the one-line positioning from docs/go-to-market.md in the description.</li>
+<li><input type="checkbox">Send me the Web Analytics token from stage 4 if you have not already.</li>
+<li><input type="checkbox">When you set up a Microsoft Bookings page for the free taster and diagnostic call, send me the link and I will wire the Book a call buttons to it.</li>
+<li><input type="checkbox">Switch DKIM signing on in Microsoft 365 (stage 6, step 7).</li></ol>
+
+<h2>If something goes wrong</h2>
+<table><tr><th>You see</th><th>Likely cause</th><th>Fix</th></tr>
+<tr><td>Still the old Squarespace site an hour after stage 9</td><td>Your device cached the old address</td><td>Try a private window or your phone on mobile data. If everyone still sees the old site after two hours, check Cloudflare Overview says Active; if it says Pending, re-check the nameservers saved at VentraIP.</td></tr>
+<tr><td>"Too many redirects"</td><td>SSL mode not set to Full</td><td>Stage 5, step 7.</td></tr>
+<tr><td>Email stops arriving</td><td>MX record missing or proxied in Cloudflare</td><td>Cloudflare DNS Records: confirm MX exists with the Outlook value and a grey cloud. Mail sent while it was wrong is retried by the sender for hours, so nothing is lost once fixed.</td></tr>
+<tr><td>Outlook on a new device cannot set itself up</td><td>autodiscover CNAME proxied or missing</td><td>Set it to DNS only, or add it: CNAME autodiscover to autodiscover.outlook.com.</td></tr>
+<tr><td>play, crm or office stops working</td><td>Record missing or proxied</td><td>Add the A record to 103.249.237.175 with a grey cloud.</td></tr>
+<tr><td>Pages custom domain stuck on Pending for more than a day</td><td>Nameservers not yet switched, or the CNAME was deleted</td><td>Finish stage 9; or re-add the custom domain in stage 7.</td></tr>
+<tr><td>Tool emails never arrive</td><td>Resend domain not verified, or variables set on Preview instead of Production</td><td>Check Resend Domains for Verified; check the three variables are under Production; retry the deployment.</td></tr>
+<tr><td>Anything else</td><td></td><td>Put the old nameservers back (stage 9 note) and message me with what you saw.</td></tr></table>
+</main></div>
+<script>document.querySelectorAll('ol.steps input[type=checkbox]').forEach(c=>c.addEventListener('change',e=>e.target.closest('li').classList.toggle('done',e.target.checked)))</script>
+</body></html>
