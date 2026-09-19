@@ -3,7 +3,7 @@
   "how_to_use": "Six clips, one per beat, each 5 seconds. Clips 1 to 5 are text to video on Seedance 2.5. Clip 6 is NOT generated: it is the site's own animated mark, public/media/logo-animation.mp4 (5.04 seconds, 624 square, H.264), placed as the final clip in the edit with the voiceover over it and the closing line and URL added as a text overlay from docs/gbx-endcard-1920.png. On-screen text inside the AI clips has been removed on purpose: the 'Super, explained.' slide title and the 'Education, not advice.' lower third are added in the edit, which removes the spelling risk entirely. Generate clips 1 to 5 at 480p to check, then 1080p for the final, and assemble with a 0.3 second cross-fade between clips.",
   "voice": {
     "direction": "One male voiceover across all six clips: mature, in his sixties, warm and unhurried, friendly with a wry edge, the wisdom of someone who has seen a few cycles and is still curious about new technology. Measured baritone, precise diction, neutral accent with a light Australian and New Zealand lean. Sounds like a trusted mentor explaining something over a coffee, not a presenter. No sales energy, no echo, natural pauses.",
-    "consistency_note": "Each clip generates its own voice, so the six reads will differ slightly. For a broadcast-quality result, generate the voiceover once as a single track (an AI voice service or a session with a real voice actor using the direction above) and lay it over the clips in the edit, generating every clip as picture only or with ambience only. The drafts keep the voice in each clip so you can judge the direction.",
+    "consistency_note": "The finished cut uses one narration take: all six lines read in one 30 second generation on a silent-studio carrier (no music, no ambience), which gives a single consistent voice. scripts/narration-lines.py transcribes it with word timestamps and cuts it into lines at the pauses; scripts/stitch-commercial.py places line i on clip i. Generate every picture clip with generateAudio false, or ignore its audio: the stitch mutes the clips.",
     "avoid": "Do not name a real actor or public figure in the prompt. OpenArt models do not reproduce a specific person's voice or likeness, and a request to imitate one can be refused. The description above gets the same feel."
   },
   "shared_style": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music.",
@@ -92,10 +92,10 @@
         "5.85s to 6.65s: www.gbxps.com fades in as the narrator says the address.",
         "6.7s to 8.0s: hold, music resolves."
       ],
-      "audio": "Carrier prompt: a plain, very slow drifting gradient of dark charcoal and deep teal light, soft film grain, no people, no objects, no text; low ambient pad with a soft piano motif resolving on a single warm swell; VOICE_DIRECTION; NARRATOR, off screen, with the line above. Then: ffmpeg -i picture.mp4 -i carrier.mp4 -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -shortest clip6.mp4.",
+      "audio": "No audio in the picture file. Line 6 of docs/commercial/narration-all-lines.m4a is placed on it by scripts/stitch-commercial.py; the on-screen text is timed to that line (T6 in the regenerate note).",
       "voiceover": "GBX Professional Services. Combining insight with impact, for sustainable business growth. G B X P S dot com.",
-      "regenerate": "T6='{\"up\":1.8,\"phil\":2.3,\"url\":5.85}' node scripts/record-endcard-clip.mjs, then mux the carrier audio. Re-measure the onsets if the narration is re-generated.",
-      "source": "docs/commercial/clip6-endcard-screencap.mp4"
+      "regenerate": "T6='{\"up\":2.0,\"phil\":2.5,\"url\":5.9}' node scripts/record-endcard-clip.mjs. Re-measure the onsets with scripts/narration-lines.py if the narration is re-generated.",
+      "source": "docs/commercial/clip6-endcard-picture.mp4 (picture only; the narration line is laid on by the stitch)"
     }
   ],
   "placeholders": {
@@ -103,8 +103,8 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6. Hold each clip's last frame for about 0.8 seconds after the line, then dissolve through black over a full second with the audio cross-fading underneath, so the narrator has about two seconds of breath between clips. The six clips run to about 43 seconds this way. For a strict 30-second slot, shorten the holds first, then trim tails after the last word; never speed the reads up.",
-    "scripts/stitch-commercial.py assembles the six clips this way into one 720p preview cut. Use it to check pacing after any clip is re-run; the final grade and mix still happen in the editor.",
+    "Order the clips 1 to 6, muted. Hold each clip's last frame for about a second, then a plain 1.2 second dissolve into the next (no dip to black). One narration take split into lines, each starting 0.6 seconds into its clip. One instrumental bed under the whole cut, levelled about 11 dB under the narration, fading over the last 2.5 seconds. The cut runs about 43.5 seconds. For a strict 30-second slot, shorten the holds first, then trim tails after the last word; never speed the reads up.",
+    "scripts/stitch-commercial.py builds exactly this into a 720p preview from a clips folder. It expects the six clip files, narration-all-lines.m4a (or .mp4), narration-lines.txt (from scripts/narration-lines.py) and music-bed.m4a (or BED=<file>).",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
     "Music: lay one continuous ambient track under all six clips rather than using each clip's own music, so the bed does not jump at the cuts.",
@@ -113,7 +113,10 @@
   "assets": {
     "end_card_reference": "docs/gbx-endcard-1920.png (1920 by 1080, the real mark from public/media/logo-poster.jpg with the closing line and URL in the site's fonts)",
     "animated_mark": "public/media/logo-animation.mp4, with public/media/logo-loop.gif and public/media/logo-poster.jpg as fallbacks",
-    "note": "No generated logo is used anywhere in the spot. Clips 1 to 5 contain no logos or text by instruction."
+    "note": "No generated logo is used anywhere in the spot. Clips 1 to 5 contain no logos or text by instruction.",
+    "narration": "One take of all six lines on a silent-studio carrier: Seedance 2.5, 30 s, 480p, generateAudio true. Prompt: plain drifting charcoal and teal gradient, no people, no text; audio: no music, no sound effects, no ambience, a silent studio, the only sound is one narrator; VOICE_DIRECTION; he reads the six lines in order with a clear pause between each; NARRATOR: the six lines separated by ellipses.",
+    "music_bed": "Instrumental carrier: Seedance 2.5, 30 s, 480p. The first attempt (ambient pad, piano motif, strings) was rejected by the output audio moderation filter as possibly copyrighted. What passed: an original, simple, quiet synthesiser drone, a single warm sustained pad tone that breathes slowly with an occasional soft single piano note, no melody, no rhythm, no drums, no voices, fading at the end. Loop with a 3 second cross-fade if the cut is longer than the bed.",
+    "files": "docs/commercial/: narration-all-lines.m4a (the one-take read), narration-lines.txt (line boundaries), music-bed.m4a (the instrumental drone), clip5-tools-screencap.mp4 and clip6-endcard-picture.mp4 (the two screen captures). The generated clips 1 to 4 live in OpenArt and in the editor's project, not in the repo."
   },
   "lessons_from_the_drafts": [
     "Any visible screen, slide or paper invites made-up lettering. Turn screens away, blur them, or keep them as a plain gradient.",
@@ -128,6 +131,9 @@
     "If someone on screen is meant to be talking, the model lip-syncs the narration to them no matter what the prompt says. Generate that clip as picture only (generateAudio false) and mux the narration on afterwards with ffmpeg.",
     "Abstract props (cards in slots) read as nonsense. Show the outcome people recognise instead: for AI, the work done and someone leaving on time.",
     "For an end card, generate the narration on a plain carrier clip with no people or text, find the sentence onsets with ffmpeg silencedetect, and time the on-screen text to them.",
-    "Hard 0.3 second cross-fades between narrated clips feel rushed: the next line starts before the last has landed. A short hold plus a one-second dissolve through black reads as the narrator pausing for breath."
+    "Hard 0.3 second cross-fades between narrated clips feel rushed: the next line starts before the last has landed. A short hold plus a one-second dissolve through black reads as the narrator pausing for breath.",
+    "Music prompts that sound like a genre or a score get rejected by the audio moderation filter as possible copyright. Ask for an original, simple synthesiser drone and it passes.",
+    "Word timestamps from a transcript end early. Cut narration lines in the middle of the detected pauses, not at the word boundaries, or the last syllable is clipped.",
+    "Mute the clips and run one bed under the whole ad, or the music jumps at every join and the ad reads as six separate clips."
   ]
 }
