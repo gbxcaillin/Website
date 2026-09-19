@@ -1,5 +1,9 @@
 """Assemble the six commercial clips into one cut with a continuous soundtrack.
 
+Line boundaries come from LINES when present (write it from a word-level transcript,
+for example faster-whisper with word_timestamps=True); otherwise the pauses in the
+narration are used, which only works when the reader leaves a clear gap between lines.
+
 Usage (from the repo root, with the clips in one folder):
     python3 scripts/stitch-commercial.py <clips-dir> <output.mp4>
 
@@ -29,6 +33,7 @@ CLIPS = [
     'clip6-endcard-picture.mp4',
 ]
 NARRATION = 'narration-all-lines.mp4'   # silent-studio carrier reading the six lines in order
+LINES = 'narration-lines.txt'           # optional: one 'start<TAB>end' per line, in seconds, from a word-level transcript
 BED = 'music-bed.mp4'                   # instrumental carrier, no voice
 XFADE = 1.2        # seconds each dissolve takes
 PAD = 1.0          # seconds each clip holds its last frame so the picture outlives the line
@@ -91,7 +96,12 @@ def main(clips_dir, out):
     for i in range(1, len(vids)):
         starts.append(starts[-1] + durs[i - 1] - XFADE)
     total = starts[-1] + durs[-1]
-    lines = speech_segments(ff, d / NARRATION, len(vids))
+    if (d / LINES).exists():
+        lines = [tuple(float(x) for x in l.split()[:2]) for l in (d / LINES).read_text().splitlines() if l.strip()]
+        if len(lines) != len(vids):
+            sys.exit(f'{LINES} has {len(lines)} lines, expected {len(vids)}')
+    else:
+        lines = speech_segments(ff, d / NARRATION, len(vids))
     for i, (a, b) in enumerate(lines):
         print(f'line {i + 1}: {a:.2f}s to {b:.2f}s ({b - a:.1f}s), placed at {starts[i] + LEAD:.2f}s in the cut')
     bed_len = duration(ff, d / BED)
