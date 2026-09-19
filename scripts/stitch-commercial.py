@@ -18,6 +18,7 @@ The clips' own audio is not used, so nothing jumps at the joins.
 
 Requires ffmpeg on PATH or the imageio-ffmpeg package (pip install imageio-ffmpeg).
 """
+import os
 import re
 import shutil
 import subprocess
@@ -34,7 +35,7 @@ CLIPS = [
 ]
 NARRATION = 'narration-all-lines.mp4'   # silent-studio carrier reading the six lines in order
 LINES = 'narration-lines.txt'           # optional: one 'start<TAB>end' per line, in seconds, from a word-level transcript
-BED = 'music-bed.mp4'                   # instrumental carrier, no voice
+BED = os.environ.get('BED', 'music-bed.mp4')   # instrumental carrier (or any audio file), no voice
 XFADE = 1.2        # seconds each dissolve takes
 PAD = 1.0          # seconds each clip holds its last frame so the picture outlives the line
 LEAD = 0.6         # seconds after a clip starts before its line begins
