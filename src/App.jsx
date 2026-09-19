@@ -6,6 +6,7 @@ import ServicesPage from './pages/ServicesPage.jsx'
 import DiagnosticPage from './pages/DiagnosticPage.jsx'
 import EducationPage from './pages/EducationPage.jsx'
 import WellbeingCheckPage from './pages/WellbeingCheckPage.jsx'
+import WillAiHelpPage from './pages/WillAiHelpPage.jsx'
 import LeadershipPage from './pages/LeadershipPage.jsx'
 import ApproachPage from './pages/ApproachPage.jsx'
 import ReachPage from './pages/ReachPage.jsx'
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="tools/capability" element={<CapabilityPage />} />
           <Route path="tools/kpi-starter" element={<KpiStarterPage />} />
           <Route path="tools/wellbeing-check" element={<WellbeingCheckPage />} />
+          <Route path="tools/will-ai-help" element={<WillAiHelpPage />} />
           <Route path="tools/marketing-rhythm" element={<MarketingRhythmPage />} />
           <Route path="insights" element={<InsightsPage />} />
           <Route path="insights/:slug" element={<ArticlePage />} />
