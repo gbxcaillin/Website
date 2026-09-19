@@ -23,7 +23,7 @@ CLIPS = [
     'clip6-endcard-screencap.mp4',
 ]
 # clip index -> (audio source file, delay in ms before it starts)
-AUDIO = {4: ('clip5-tools-v2.mp4', 1000), 5: ('clip6-gbx-mark.mp4', 0)}
+AUDIO = {4: ('clip5-tools-v2.mp4', 1000)}
 XFADE = 0.3
 SIZE = (1280, 720)
 
