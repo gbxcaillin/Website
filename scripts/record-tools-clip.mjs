@@ -7,7 +7,7 @@
 //      scripts/fonts/site-embedded.css (Google Fonts is intercepted and served
 //      from that file so headless Chromium renders the real typefaces).
 //   3. mkdir -p frames && node scripts/record-tools-clip.mjs
-//   4. ffmpeg -framerate 24 -i frames/f%04d.png -c:v libx264 -pix_fmt yuv420p \
+//   4. ffmpeg -framerate 24 -i frames/f%04d.png -t 7.25 -c:v libx264 -pix_fmt yuv420p \
 //        -crf 18 docs/commercial/clip5-tools-screencap.mp4
 //
 // Playwright needs a Chromium binary; set CHROMIUM_PATH if it is not at the
@@ -43,29 +43,29 @@ await p.waitForTimeout(300)
 await addCursor()
 let cx = 1500, cy = 300
 await p.mouse.move(cx, cy); await p.evaluate(([x, y]) => window.__cur(x, y), [cx, cy])
-await hold(400)
-await smoothScroll(560, 1300)
-await hold(200)
-await smoothScroll(1150, 1100)
-await hold(250)
+await hold(600)
+await smoothScroll(560, 1500)
+await hold(380)
+await smoothScroll(1150, 1300)
+await hold(380)
 const card = p.locator('a:has-text("Start the check")').first()
 const bb = await card.boundingBox()
 const tx = bb.x + bb.width / 2, ty = bb.y + bb.height / 2
-await moveTo(cx, cy, tx, ty, 420); cx = tx; cy = ty
+await moveTo(cx, cy, tx, ty, 480); cx = tx; cy = ty
 await hold(120)
 await card.click()
 await p.waitForLoadState('networkidle'); await p.evaluate(async () => { await document.fonts.ready }); await addCursor()
 await p.evaluate(([x, y]) => window.__cur(x, y), [cx, cy])
-await hold(350)
+await hold(450)
 for (let k = 0; k < 2; k++) {
   const opt = p.locator('.wizard__options button').nth(1)
   const ob = await opt.boundingBox(); const ox = ob.x + ob.width / 2, oy = ob.y + ob.height / 2
-  await moveTo(cx, cy, ox, oy, 380); cx = ox; cy = oy
+  await moveTo(cx, cy, ox, oy, 420); cx = ox; cy = oy
   await hold(100)
   await opt.click(); await hold(60)
   await p.waitForTimeout(160)
-  await hold(300)
+  await hold(380)
 }
-await hold(400)
+await hold(600)
 await b.close()
 console.log('frames', n)
