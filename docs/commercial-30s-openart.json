@@ -1,48 +1,106 @@
 {
-  "title": "GBX Professional Services, 30-second brand commercial",
-  "how_to_use": "Paste `params` into OpenArt for the model and mode below (Seedance 2.5, text to video). The prompt is a full script: shot list with timings, voiceover lines, on-screen text, music and voice direction. Generate at 480p first to check pacing and the read, then re-run at 1080p. If the model shortens the read, cut the lines marked optional. Do not name a real actor in the prompt: describe the voice instead, as done here. The `alternate` block is the same spot set up for Wan 3.0.",
+  "title": "GBX Professional Services, 30-second brand commercial, six 5-second clips",
+  "how_to_use": "Six separate clips, one per beat, each 5 seconds. Clips 1 to 5 are text to video on Seedance 2.5. Clip 6 is image to video from the designed end card (docs/gbx-endcard-1920.png), so the wordmark and closing line are pixel-exact rather than generated. On-screen text inside the AI clips has been removed on purpose: the 'Super, explained.' slide title and the 'Education, not advice.' lower third are added in the edit, which removes the spelling risk entirely. Generate at 480p to check, then 1080p for the final, and assemble in a video editor with a 0.3 second cross-fade between clips.",
+  "voice": {
+    "direction": "One male voiceover across all six clips: mature, in his sixties, warm and unhurried, friendly with a wry edge, the wisdom of someone who has seen a few cycles and is still curious about new technology. Measured baritone, precise diction, neutral accent with a light Australian and New Zealand lean. Sounds like a trusted mentor explaining something over a coffee, not a presenter. No sales energy, no echo, natural pauses.",
+    "consistency_note": "Each clip generates its own voice, so the six reads will differ slightly. For a broadcast-quality result, generate the voiceover once as a single 30-second track (an AI voice service or a session with a real voice actor using the direction above) and lay it over the clips in the edit, setting generateAudio to true only for ambience. The drafts keep the voice in each clip so you can judge the direction.",
+    "avoid": "Do not name a real actor or public figure in the prompt. OpenArt models do not reproduce a specific person's voice or likeness, and a request to imitate one can be refused. The description above gets the same feel."
+  },
+  "shared_style": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music.",
   "model": "byte-plus-seedance-2-5",
-  "mode": "text2video",
-  "params": {
-    "duration": 30,
-    "aspectRatio": "16:9",
-    "resolution": "1080p",
-    "generateAudio": true,
-    "videoCount": 1,
-    "prompt": "A 30-second cinematic brand commercial for GBX Professional Services, a Melbourne business consultancy. Single continuous piece, five beats, calm and premium, no rush.\n\nVISUAL STYLE: editorial, understated, expensive. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera moves (slow push-ins, gentle lateral tracking, one slow tilt). Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through the glass. No stock-photo smiles, no pointing at screens, no logos other than the GBX wordmark on the end card, no text on screen except the lines listed below.\n\nVOICEOVER: one male voice throughout. Warm, unhurried, relaxed baritone, easy confidence, friendly and dry, a neutral accent that leans Australian, the kind of voice that sounds like a capable mate rather than an announcer. Conversational pacing with natural pauses. No shouting, no sales energy, no echo.\n\nMUSIC AND SOUND: minimal. A low, slow ambient pad with a soft piano motif, a single warm swell under the final line, quiet room tone and subtle office ambience. Voice always clear above the music.\n\nBEAT 1, 0 to 5 seconds. Dawn over the Melbourne skyline from a high office window, the city still quiet, light just arriving on the glass. Slow push in toward an empty desk with a closed notebook and a cup of coffee.\nVOICEOVER: \"Most businesses don't need more advice. They need a clearer picture.\"\n\nBEAT 2, 5 to 12 seconds. Inside the office: a woman in her forties studies a clean dashboard on a monitor, teal charts, calm; cut to two colleagues walking a whiteboard process map; cut to a hand moving a single card along a pipeline board. Everything ordered, nothing frantic.\nVOICEOVER: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline, and AI that actually earns its keep.\"\n\nBEAT 3, 12 to 19 seconds. A bright workplace training room. A relaxed presenter at the front, twenty staff of all ages listening, a slide behind them that reads only: Super, explained. A young employee nods as something clicks; an older colleague writes a note.\nON-SCREEN TEXT, small, lower third, off-white: Education, not advice.\nVOICEOVER: \"And we teach people about money. Plainly. At work, in language a whole team can follow.\"\n\nBEAT 4, 19 to 25 seconds. A laptop on a kitchen bench at night, someone tapping through a simple one-question-per-screen tool on a website in the same charcoal and teal palette; a progress bar filling; a result card appearing. Cut to a handshake across a table in the office, easy and unhurried.\nVOICEOVER: \"Free tools before you ever hire us. A ten-day Diagnostic when you're ready.\"\n\nBEAT 5, 25 to 30 seconds. Three leaders standing together at the office window, city behind them, not looking at the camera, talking easily. Slow tilt up to the skyline, then cut to a clean end card: charcoal background, the wordmark GBX in a light serif with PROFESSIONAL SERVICES in small spaced capitals beside it, a thin teal rule, and beneath it the line: Sharper businesses. Financially fluent people. Then, smaller: gbxps.com\nVOICEOVER: \"Three leaders. One operating view. Melbourne-based, working anywhere.\" (short pause) \"GBX Professional Services.\"\n\nAll on-screen text must be spelled exactly as written. Hold the end card for the final two seconds with the music resolving."
-  },
-  "voice_direction": {
-    "summary": "Neutral accent leaning Australian, warm relaxed baritone, easy confidence, friendly and a little dry, conversational pacing. Think capable mate, not announcer.",
-    "avoid": "Do not name a real actor or public figure in the prompt. OpenArt models do not reproduce a specific person's voice or likeness, and a request to imitate one can be refused. Describing the qualities of the voice, as above, gets the same feel."
-  },
-  "script_only": [
-    "Most businesses don't need more advice. They need a clearer picture.",
-    "GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline, and AI that actually earns its keep.",
-    "And we teach people about money. Plainly. At work, in language a whole team can follow.",
-    "Free tools before you ever hire us. A ten-day Diagnostic when you're ready.",
-    "Three leaders. One operating view. Melbourne-based, working anywhere.",
-    "GBX Professional Services."
-  ],
-  "optional_cuts_if_the_read_runs_long": [
-    "Drop 'and AI that actually earns its keep.' from beat 2.",
-    "Drop 'Melbourne-based, working anywhere.' from beat 5."
-  ],
-  "compliance": {
-    "rule": "No claim of financial advice. The education beat carries 'Education, not advice.' on screen and the voiceover says 'teach', never 'advise'.",
-    "review": "Log the finished cut in docs/content-review-log.md before it is published anywhere."
-  },
-  "alternate": {
-    "model": "wan3-0",
-    "mode": "text2video",
-    "note": "Same script. Wan 3.0 renders 30 seconds in one pass at up to 1080p with an audio track; set mode to prime for the higher-fidelity tier. Prompt limit is 4500 characters, so use the condensed prompt below.",
-    "params": {
-      "duration": 30,
-      "aspectRatio": "16:9",
-      "resolution": "1080p",
-      "audio": true,
-      "promptExtend": false,
-      "mode": "prime",
-      "prompt": "30-second cinematic brand commercial for GBX Professional Services, a Melbourne business consultancy. Editorial and premium: charcoal and deep teal palette, warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow camera moves. Diverse Australian professionals in their thirties to fifties in a modern Melbourne office with the skyline through glass. No logos except the GBX wordmark on the end card. One male voiceover throughout: warm, unhurried, relaxed baritone, friendly and dry, neutral accent leaning Australian, conversational pacing. Music: minimal ambient pad with a soft piano motif, one warm swell under the last line.\n0 to 5s: dawn over the Melbourne skyline from a high office window, slow push in to an empty desk with a notebook and coffee. VO: \"Most businesses don't need more advice. They need a clearer picture.\"\n5 to 12s: a woman studies a calm teal dashboard; two colleagues walk a whiteboard process map; a hand moves one card along a pipeline board. VO: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline, and AI that actually earns its keep.\"\n12 to 19s: a bright training room, a relaxed presenter, twenty staff of all ages, a slide reading only: Super, explained. Small lower-third text: Education, not advice. VO: \"And we teach people about money. Plainly. At work, in language a whole team can follow.\"\n19 to 25s: a laptop on a kitchen bench at night, someone tapping through a one-question-per-screen tool in the same palette, a result card appearing; then an easy handshake across an office table. VO: \"Free tools before you ever hire us. A ten-day Diagnostic when you're ready.\"\n25 to 30s: three leaders at the office window talking easily, slow tilt to the skyline, then a clean end card: charcoal, the wordmark GBX in a light serif with PROFESSIONAL SERVICES in small spaced capitals, a thin teal rule, the line: Sharper businesses. Financially fluent people. and smaller: gbxps.com. VO: \"Three leaders. One operating view. Melbourne-based, working anywhere.\" pause \"GBX Professional Services.\" Hold the end card two seconds. All on-screen text spelled exactly as written."
+  "clips": [
+    {
+      "n": 1,
+      "name": "A clearer picture",
+      "mode": "text2video",
+      "params": {
+        "duration": 5,
+        "aspectRatio": "16:9",
+        "resolution": "480p",
+        "generateAudio": true,
+        "videoCount": 1,
+        "prompt": "SHARED_STYLE. Dawn over the Melbourne skyline seen from a high office window, the city still quiet, first light arriving on the glass. One slow push-in toward an empty desk by the window with a closed notebook and a cup of coffee. No people, no text. VOICE_DIRECTION. VOICEOVER, spoken calmly across the whole clip: \"Most businesses don't need more advice. They need a clearer picture.\""
+      }
+    },
+    {
+      "n": 2,
+      "name": "Run sharper",
+      "mode": "text2video",
+      "params": {
+        "duration": 5,
+        "aspectRatio": "16:9",
+        "resolution": "480p",
+        "generateAudio": true,
+        "videoCount": 1,
+        "prompt": "SHARED_STYLE. Inside the office in soft morning light. A woman in her forties studies a calm dashboard of teal charts on a monitor, then a gentle lateral track reveals two colleagues at a whiteboard walking through a process map with a marker. Ordered, unhurried, no text legible on any screen or board. VOICE_DIRECTION. VOICEOVER: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline.\""
+      }
+    },
+    {
+      "n": 3,
+      "name": "AI that earns its keep",
+      "mode": "text2video",
+      "params": {
+        "duration": 5,
+        "aspectRatio": "16:9",
+        "resolution": "480p",
+        "generateAudio": true,
+        "videoCount": 1,
+        "prompt": "SHARED_STYLE. Close on a hand moving a single card along a pipeline board, then a man in his fifties at a laptop nods slightly as an automated report finishes on screen, the screen a soft teal glow with no legible text. A colleague passes behind with a coffee. Calm and precise. VOICE_DIRECTION. VOICEOVER: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
+      }
+    },
+    {
+      "n": 4,
+      "name": "Teaching money plainly",
+      "mode": "text2video",
+      "params": {
+        "duration": 5,
+        "aspectRatio": "16:9",
+        "resolution": "480p",
+        "generateAudio": true,
+        "videoCount": 1,
+        "prompt": "SHARED_STYLE. A bright workplace training room. A relaxed presenter in his sixties stands at the front beside a blank teal slide with no text, twenty staff of all ages listening at tables. A young employee nods as something clicks, an older colleague writes a note. Warm, attentive, no text anywhere. VOICE_DIRECTION. VOICEOVER: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
+      }
+    },
+    {
+      "n": 5,
+      "name": "Free tools, then the Diagnostic",
+      "mode": "text2video",
+      "params": {
+        "duration": 5,
+        "aspectRatio": "16:9",
+        "resolution": "480p",
+        "generateAudio": true,
+        "videoCount": 1,
+        "prompt": "SHARED_STYLE. Night. A laptop on a kitchen bench, someone tapping through a simple one-question-per-screen tool on a website in the same charcoal and teal palette, a progress bar filling, a result card appearing, the screen soft-focus with no legible text. Cut to an easy handshake across an office table in daylight. VOICE_DIRECTION. VOICEOVER: \"Free tools before you ever hire us. A ten-day Diagnostic when you're ready.\""
+      }
+    },
+    {
+      "n": 6,
+      "name": "End card",
+      "mode": "image2video",
+      "startFrame": "docs/gbx-endcard-1920.png, uploaded to OpenArt as the start frame",
+      "params": {
+        "duration": 5,
+        "resolution": "480p",
+        "generateAudio": true,
+        "videoCount": 1,
+        "prompt": "Hold this end card exactly as it is for the full clip. The text, wordmark and layout must not change, move, or be redrawn. The only motion is a very slow, subtle drift of soft teal light across the charcoal background and a faint film grain. Minimal music resolving on a single warm swell, then silence. VOICE_DIRECTION. VOICEOVER, spoken once, unhurried: \"Three leaders. One operating view. GBX Professional Services.\""
+      }
     }
+  ],
+  "placeholders": {
+    "SHARED_STYLE": "Replace with the shared_style paragraph above.",
+    "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
+  },
+  "edit_notes": [
+    "Order the clips 1 to 6 with a 0.3 second cross-fade; total runs about 29 seconds with the fades.",
+    "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
+    "Optionally add 'Super, explained.' to the blank slide in clip 4 with a simple corner pin, or leave the slide blank.",
+    "Music: lay one continuous ambient track under all six clips rather than using each clip's own music, so the bed does not jump at the cuts.",
+    "Log the finished cut in docs/content-review-log.md before publishing."
+  ],
+  "assets": {
+    "end_card": "docs/gbx-endcard-1920.png (1920 by 1080, site fonts, exact wordmark)",
+    "logo": "docs/gbx-logo-1200.png (framed wordmark on void black, for any clip that needs a reference)"
   }
 }
