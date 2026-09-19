@@ -4112,36 +4112,57 @@ button {
   }
 }
 @media (max-width: 760px) {
+  /* Phones: a grid of small panels. The tapped one grows to full width and
+     the others dim, so the stage being read is unmistakable. */
   .edu-flow__row {
-    flex-direction: column;
-    max-width: 380px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 0.6rem;
+    align-items: start;
+    max-width: 420px;
     margin-inline: auto;
   }
-  .edu-flow__row::before {
-    left: 50%;
-    right: auto;
-    top: 0;
-    bottom: 0;
-    height: auto;
-    width: 1px;
-  }
-  .edu-flow__item {
-    width: 100%;
-    margin-top: -0.75rem;
-  }
-  .edu-flow__item--big {
-    width: 100%;
-  }
+  .edu-flow__row::before,
   .edu-flow__arrow {
-    right: auto;
-    left: 50%;
-    top: auto;
-    bottom: 10px;
-    margin-left: -6px;
-    transform: rotate(135deg);
+    display: none;
   }
-  .edu-flow__item.is-active .edu-flow__panel,
+  .edu-flow__item,
+  .edu-flow__item--big {
+    width: auto;
+    margin: 0;
+    transition: opacity 0.3s var(--ease), filter 0.3s var(--ease);
+  }
+  .edu-flow__item:last-child:nth-child(odd):not(.is-active) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+  .edu-flow__row.has-active .edu-flow__item:not(.is-active) {
+    opacity: 0.45;
+    filter: saturate(0.6);
+  }
+  .edu-flow__item.is-active {
+    grid-column: 1 / -1;
+    max-width: none;
+    justify-self: stretch;
+    opacity: 1;
+    filter: none;
+  }
+  .edu-flow__item.is-active .edu-flow__panel {
+    transform: none;
+    filter: drop-shadow(0 14px 28px rgba(46, 139, 110, 0.4));
+    animation: edu-grow 0.4s var(--ease);
+  }
   .edu-flow__panel:hover {
-    transform: scale(1.04);
+    transform: none;
+  }
+  @keyframes edu-grow {
+    from { transform: scale(0.6); opacity: 0.6; }
+    to { transform: none; opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .edu-flow__item.is-active .edu-flow__panel {
+      animation: none;
+    }
   }
 }
