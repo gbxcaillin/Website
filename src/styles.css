@@ -4132,7 +4132,7 @@ button {
     margin: 0;
     transition: opacity 0.3s var(--ease), filter 0.3s var(--ease);
   }
-  .edu-flow__item:nth-child(5) {
+  .edu-flow__item:last-child:nth-child(odd):not(.is-active) {
     grid-column: 1 / -1;
     max-width: 50%;
     justify-self: center;
