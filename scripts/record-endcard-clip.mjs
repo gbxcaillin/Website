@@ -9,9 +9,9 @@
 //   4. ffmpeg -framerate 24 -i frames6/f%04d.png -c:v libx264 -pix_fmt yuv420p \
 //        -crf 18 docs/commercial/clip6-endcard-screencap.mp4
 //
+// A slow push-in runs across the whole card so it never sits as a frozen frame.
 // Timeline (8s, default T): logo alone, then at T.up it eases upward, at T.phil the
 // philosophy fades in, at T.url the address. Set T6 env (JSON) to match the narration onsets found with ffmpeg silencedetect, e.g. T6='{"up":1.8,"phil":2.3,"url":5.85}'.
-import { chromium } from 'playwright-core'
 import { chromium } from 'playwright-core'
 import { readFileSync, mkdirSync, rmSync } from 'node:fs'
 const S = process.cwd()
