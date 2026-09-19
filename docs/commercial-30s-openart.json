@@ -37,17 +37,18 @@
     },
     {
       "n": 3,
-      "name": "The hours given back",
-      "mode": "text2video",
+      "name": "The room wakes up",
+      "mode": "text2video, picture only (narration comes from the one-take read)",
       "params": {
         "duration": 7,
         "aspectRatio": "16:9",
         "resolution": "480p",
-        "generateAudio": true,
+        "generateAudio": false,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. Dusk, the city lights just coming on through the glass. A man in his fifties at his desk slides a thick folder of paperwork to one side, closes his laptop with one hand, a plain matte charcoal lid with no logo and no display on it, the soft teal glow of its screen fading as it shuts. He stands, lifts his coat from the back of the chair, and walks out of frame past two colleagues still working at their desks, unhurried, a small satisfied breath, nobody looking at the camera. The camera holds on the tidy desk and the skyline as he goes. VOICE_DIRECTION. Nobody on screen speaks. The narration is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. NARRATOR, off screen: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
+        "prompt": "SHARED_STYLE. Silent film, no dialogue, no narration. One continuous shot, one scene, no cuts. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Dawn, a modern Melbourne office still dark, the city skyline through glass. A man in his fifties walks in from the left carrying a coffee. As he passes, the room quietly comes alive around him: the ceiling lights lift softly, and a long wall of glass behind the desks glows and composes itself into an abstract arrangement of soft teal blocks, thin lines and bars, sliding gently into place like a calm mood board, purely abstract, nothing legible. A slim printer on the desk slides out a single sheet. He picks up the page, uncaps a pen, and reads it with a small nod, unhurried, nobody looking at the camera. Camera drifts slowly with him. Near-future, grounded, elegant, no robots, no holograms."
       },
-      "idea": "AI earning its keep is shown as the payoff, not the tool: the work is done and he leaves on time while others are still at it."
+      "idea": "AI as ambient infrastructure: the office responds to him as he arrives, and the printed page he checks with a pen is the human in the loop (governed).",
+      "voiceover": "And AI that actually earns its keep. Practical, governed, and only where it helps."
     },
     {
       "n": 4,
