@@ -14,9 +14,13 @@ silent tails. The final clip keeps its full length so the end card can resolve.
 
 Sound: one narration take (NARRATION, a silent-studio carrier that reads all six
 lines in order) is split into lines at the pauses, and line i is placed LEAD
-seconds after clip i starts. One instrumental bed (BED) runs under the whole cut,
-looped with a cross-fade if it is shorter than the picture, and fades at the end.
-The clips' own audio is not used, so nothing jumps at the joins.
+seconds after clip i starts (a J-cut: the line begins while the previous picture is
+still dissolving out). One instrumental bed (BED) runs under the whole cut at
+BED_UNDER_DB below the narration (broadcast convention 18 to 20), stretched
+slightly to fill the length rather than looped, and fades at the end. The clips'
+own audio is not used, so nothing jumps at the joins. The finished file is then
+loudness-normalised in two passes to LOUDNESS=web (-14 LUFS, -1 dBTP) or
+broadcast (-24 LKFS, -2 dBTP).
 
 Requires ffmpeg on PATH or the imageio-ffmpeg package (pip install imageio-ffmpeg).
 """
@@ -44,9 +48,9 @@ CLIP_TAIL = 0.55   # seconds of picture after the line finishes, before the diss
 MIN_CLIP = 3.0     # never trim a clip shorter than this
 CLIP_EXTRA = {2: 0.5}   # extra seconds of screen time for specific clips (0-based index); clip 3 gets +0.5s
 WHITE_FADES = {5}  # 1-based clip numbers whose dissolve INTO them fades through white instead of a plain crossfade
-BED_HEAD = 0.5     # seconds skipped at the start of the bed when looping (avoid any intro fade)
-BED_TAIL = 2.5     # seconds skipped at the end of the bed when looping (avoid its built-in fade-out)
-BED_TARGET_DB = -31.0   # mean level the bed is brought to under the narration (narration reads about -20 dB mean)
+BED_UNDER_DB = float(os.environ.get('BED_UNDER_DB', '18'))   # bed sits this far under the narration; 18 to 20 is the broadcast convention, under 15 masks speech on phones
+LOUDNESS = os.environ.get('LOUDNESS', 'web')   # 'web' (-14 LUFS, -1 dBTP: YouTube and most platforms), 'broadcast' (-24 LKFS, -2 dBTP: CALM, OP-59) or 'none'
+LOUDNESS_TARGETS = {'web': (-14.0, -1.5), 'broadcast': (-24.0, -2.5)}   # half a dB of true-peak headroom below the platform ceiling, because the AAC encode overshoots slightly
 VO_GAIN = 1.0
 SIZE = (1280, 720)
 LINE_GAP = 0.9     # pauses shorter than this are inside a line, not between lines
@@ -148,8 +152,9 @@ def main(clips_dir, out):
     for i, (a, b) in enumerate(lines):
         print(f'line {i + 1}: {b - a:.1f}s speech, clip shown {shown[i]:.1f}s, line at {starts[i] + LEAD:.2f}s')
     bed_len = duration(ff, d / BED)
-    bed_gain = 10 ** ((BED_TARGET_DB - mean_db(ff, d / BED)) / 20)
-    print(f'bed gain x{bed_gain:.2f}; total {total:.1f}s')
+    vo_db = mean_db(ff, d / NARRATION)
+    bed_gain = 10 ** ((vo_db - BED_UNDER_DB - mean_db(ff, d / BED)) / 20)
+    print(f'narration {vo_db:.1f} dB mean; bed set {BED_UNDER_DB:.0f} dB under (gain x{bed_gain:.2f}); total {total:.1f}s')
 
     inputs = []
     for s in seg:
@@ -201,7 +206,27 @@ def main(clips_dir, out):
     for s in seg:
         s.unlink(missing_ok=True)
     tmp.rmdir()
+    if LOUDNESS in LOUDNESS_TARGETS:
+        normalise_loudness(ff, Path(out), *LOUDNESS_TARGETS[LOUDNESS])
     print('wrote', out, 'about', round(total, 1), 'seconds')
+
+
+def normalise_loudness(ff, path, target_i, target_tp):
+    """Two-pass EBU R128 loudnorm on the finished file: measure, then apply with the
+    measured values so the correction is a linear gain (no pumping). Video is copied."""
+    import json
+    err = subprocess.run([ff, '-hide_banner', '-i', str(path), '-af',
+                          f'loudnorm=I={target_i}:TP={target_tp}:LRA=11:print_format=json', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    m = json.loads(err[err.rfind('{'):err.rfind('}') + 1])
+    af = (f"loudnorm=I={target_i}:TP={target_tp}:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+          f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:"
+          f"linear=true:print_format=summary")
+    tmp = path.with_suffix('.loud.mp4')
+    subprocess.run([ff, '-y', '-loglevel', 'error', '-i', str(path), '-af', af, '-c:v', 'copy',
+                    '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', str(tmp)], check=True)
+    tmp.replace(path)
+    print(f'loudness: measured {float(m["input_i"]):.1f} LUFS, {float(m["input_tp"]):.1f} dBTP; normalised to {target_i} LUFS, {target_tp} dBTP')
 
 
 if __name__ == '__main__':
