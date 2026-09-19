@@ -42,7 +42,6 @@ XFADE = 0.7        # seconds each dissolve takes
 LEAD = 0.35        # seconds after a clip starts before its line begins
 CLIP_TAIL = 0.55   # seconds of picture after the line finishes, before the dissolve starts
 MIN_CLIP = 3.0     # never trim a clip shorter than this
-PAD = 0.5          # fallback: extra held frames only if a clip is shorter than its line needs
 BED_TARGET_DB = -31.0   # mean level the bed is brought to under the narration (narration reads about -20 dB mean)
 VO_GAIN = 1.0
 SIZE = (1280, 720)
@@ -109,44 +108,53 @@ def main(clips_dir, out):
             sys.exit(f'{LINES} has {len(lines)} lines, expected {len(vids)}')
     else:
         lines = speech_segments(ff, d / NARRATION, len(vids))
-    # each clip runs LEAD + its line + CLIP_TAIL, but never longer than the clip
-    # itself and never below MIN_CLIP; the last clip keeps its full length so the
-    # end card can resolve.
     line_len = [b - a for a, b in lines]
     last = len(vids) - 1
-    # `used` is the real footage each clip shows before the dissolve; the last
-    # clip keeps its full length so the end card can resolve.
-    used = []
+    w, h = SIZE
+    # `used` is the unique screen time each clip gets (LEAD before the line,
+    # CLIP_TAIL after). `shown` adds XFADE of real footage that plays during the
+    # dissolve into the next clip. The last clip keeps its full length so the end
+    # card can resolve. Every clip is pre-rendered to a clean, constant-frame-rate
+    # file of an exact known length: doing the trim inside the big xfade graph
+    # produced variable frame rate and a broken chain, so we stage it instead.
+    tmp = Path(clips_dir) / '_stitch_tmp'
+    tmp.mkdir(exist_ok=True)
+    used, shown, seg = [], [], []
     for i in range(len(vids)):
-        want = LEAD + line_len[i] + CLIP_TAIL
-        used.append(actual[i] if i == last else max(MIN_CLIP, min(want, actual[i])))
-    # a short frozen tail per non-last clip provides frames for the dissolve only
-    tail = [0.0 if i == last else XFADE + 0.2 for i in range(len(vids))]
-    durs = [used[i] + tail[i] for i in range(len(vids))]
+        u = actual[i] if i == last else max(MIN_CLIP, min(LEAD + line_len[i] + CLIP_TAIL, actual[i]))
+        s = actual[i] if i == last else min(actual[i], u + XFADE)
+        used.append(u)
+        shown.append(s)
+        out_i = tmp / f'seg{i}.mp4'
+        seg.append(out_i)
+        vf = (f'scale={w}:{h}:force_original_aspect_ratio=decrease,'
+              f'pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,format=yuv420p,'
+              f'trim=0:{s:.3f},setpts=PTS-STARTPTS')
+        subprocess.run([ff, '-y', '-loglevel', 'error', '-i', str(vids[i]), '-vf', vf,
+                        '-an', '-c:v', 'libx264', '-crf', '18', '-preset', 'medium',
+                        '-pix_fmt', 'yuv420p', str(out_i)], check=True)
+    # timeline: each clip advances the running length by (shown - XFADE)
     starts = [0.0]
+    out_len = shown[0]
     for i in range(1, len(vids)):
-        starts.append(starts[-1] + durs[i - 1] - XFADE)
-    total = starts[-1] + durs[-1]
+        starts.append(out_len - XFADE)
+        out_len = starts[i] + shown[i]
+    total = out_len
     for i, (a, b) in enumerate(lines):
-        print(f'line {i + 1}: {b - a:.1f}s speech, clip shown {used[i]:.1f}s, line at {starts[i] + LEAD:.2f}s')
+        print(f'line {i + 1}: {b - a:.1f}s speech, clip shown {shown[i]:.1f}s, line at {starts[i] + LEAD:.2f}s')
     bed_len = duration(ff, d / BED)
     bed_gain = 10 ** ((BED_TARGET_DB - mean_db(ff, d / BED)) / 20)
-    print(f'bed gain x{bed_gain:.2f}')
+    print(f'bed gain x{bed_gain:.2f}; total {total:.1f}s')
 
     inputs = []
-    for v in vids:
-        inputs += ['-i', str(v)]
+    for s in seg:
+        inputs += ['-i', str(s)]
     inputs += ['-i', str(d / NARRATION), '-i', str(d / BED)]
     n_idx, b_idx = len(vids), len(vids) + 1
-    w, h = SIZE
     fc = []
-    # picture
+    # picture: the segments are already clean and CFR, so just settb then dissolve
     for i in range(len(vids)):
-        trim = f'trim=0:{used[i]:.3f},setpts=PTS-STARTPTS,' if used[i] < actual[i] - 0.02 else ''
-        pad = f'tpad=stop_mode=clone:stop_duration={tail[i]:.3f},' if tail[i] > 0 else ''
-        fc.append(f'[{i}:v]scale={w}:{h}:force_original_aspect_ratio=decrease,'
-                  f'pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,format=yuv420p,'
-                  f'{trim}{pad}fps=24,settb=AVTB[v{i}]')
+        fc.append(f'[{i}:v]settb=AVTB[v{i}]')
     pv = 'v0'
     for i in range(1, len(vids)):
         fc.append(f'[{pv}][v{i}]xfade=transition=fade:duration={XFADE}:offset={starts[i]:.3f}[xv{i}]')
@@ -160,7 +168,7 @@ def main(clips_dir, out):
         fc.append(f'[n{i}]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.05,afade=t=out:st={b - a - 0.12:.3f}:d=0.12,'
                   f'volume={VO_GAIN},adelay={at}|{at}[l{i}]')
         mix_in.append(f'[l{i}]')
-    # bed: loop with a cross-fade if needed, trim to the cut, fade at the end
+    # bed: loop with a cross-fade if it is shorter than the cut, trim, fade at the end
     loops = 1
     while bed_len * loops - 3.0 * (loops - 1) < total:
         loops += 1
@@ -171,14 +179,17 @@ def main(clips_dir, out):
         fc.append(f'[{prev}][b{i}]acrossfade=d=3.0:c1=tri:c2=tri[bx{i}]')
         prev = f'bx{i}'
     fc.append(f'[{prev}]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={bed_gain:.3f},'
-              f'afade=t=in:d=1.0,afade=t=out:st={total - 2.5:.3f}:d=2.5[bed]')
+              f'afade=t=in:d=1.0,afade=t=out:st={max(0.0, total - 2.5):.3f}:d=2.5[bed]')
     fc.append(''.join(mix_in) + f'[bed]amix=inputs={len(mix_in) + 1}:normalize=0:dropout_transition=0[aout]')
 
     cmd = [ff, '-y', '-loglevel', 'error', *inputs, '-filter_complex', ';'.join(fc),
            '-map', f'[{pv}]', '-map', '[aout]', '-t', f'{total:.3f}',
-           '-c:v', 'libx264', '-crf', '19', '-preset', 'medium',
+           '-c:v', 'libx264', '-crf', '19', '-preset', 'medium', '-pix_fmt', 'yuv420p',
            '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', str(out)]
     subprocess.run(cmd, check=True)
+    for s in seg:
+        s.unlink(missing_ok=True)
+    tmp.rmdir()
     print('wrote', out, 'about', round(total, 1), 'seconds')
 
 
