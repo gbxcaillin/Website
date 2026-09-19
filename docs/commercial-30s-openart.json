@@ -1,6 +1,6 @@
 {
   "title": "GBX Professional Services, 30-second brand commercial, six 5-second clips",
-  "how_to_use": "Six separate clips, one per beat, each 5 seconds. Clips 1 to 5 are text to video on Seedance 2.5. Clip 6 is image to video from the designed end card (docs/gbx-endcard-1920.png), so the wordmark and closing line are pixel-exact rather than generated. On-screen text inside the AI clips has been removed on purpose: the 'Super, explained.' slide title and the 'Education, not advice.' lower third are added in the edit, which removes the spelling risk entirely. Generate at 480p to check, then 1080p for the final, and assemble in a video editor with a 0.3 second cross-fade between clips.",
+  "how_to_use": "Six clips, one per beat, each 5 seconds. Clips 1 to 5 are text to video on Seedance 2.5. Clip 6 is NOT generated: it is the site's own animated mark, public/media/logo-animation.mp4 (5.04 seconds, 624 square, H.264), placed as the final clip in the edit with the voiceover over it and the closing line and URL added as a text overlay from docs/gbx-endcard-1920.png. On-screen text inside the AI clips has been removed on purpose: the 'Super, explained.' slide title and the 'Education, not advice.' lower third are added in the edit, which removes the spelling risk entirely. Generate clips 1 to 5 at 480p to check, then 1080p for the final, and assemble with a 0.3 second cross-fade between clips.",
   "voice": {
     "direction": "One male voiceover across all six clips: mature, in his sixties, warm and unhurried, friendly with a wry edge, the wisdom of someone who has seen a few cycles and is still curious about new technology. Measured baritone, precise diction, neutral accent with a light Australian and New Zealand lean. Sounds like a trusted mentor explaining something over a coffee, not a presenter. No sales energy, no echo, natural pauses.",
     "consistency_note": "Each clip generates its own voice, so the six reads will differ slightly. For a broadcast-quality result, generate the voiceover once as a single 30-second track (an AI voice service or a session with a real voice actor using the direction above) and lay it over the clips in the edit, setting generateAudio to true only for ambience. The drafts keep the voice in each clip so you can judge the direction.",
@@ -76,16 +76,15 @@
     },
     {
       "n": 6,
-      "name": "End card",
-      "mode": "image2video",
-      "startFrame": "docs/gbx-endcard-1920.png, uploaded to OpenArt as the start frame",
-      "params": {
-        "duration": 5,
-        "resolution": "480p",
-        "generateAudio": true,
-        "videoCount": 1,
-        "prompt": "Hold this end card exactly as it is for the full clip. The text, wordmark and layout must not change, move, or be redrawn. The only motion is a very slow, subtle drift of soft teal light across the charcoal background and a faint film grain. Minimal music resolving on a single warm swell, then silence. VOICE_DIRECTION. VOICEOVER, spoken once, unhurried: \"Three leaders. One operating view. GBX Professional Services.\""
-      }
+      "name": "End card: the animated GBX mark",
+      "mode": "edit, not generated",
+      "asset": "public/media/logo-animation.mp4 (5.04 seconds). Fallbacks: public/media/logo-loop.gif, public/media/logo-poster.jpg.",
+      "edit": [
+        "Place logo-animation.mp4 as clip 6 on a black (#0A0A0A) background, scaled to about 52% of frame height and centred, matching docs/gbx-endcard-1920.png.",
+        "At about 2.5 seconds, fade in the closing line beneath the mark: 'Sharper businesses. Financially fluent people.' in Cormorant Garamond, with 'Financially fluent people.' in teal #2E8B6E, then 'GBXPS.COM' in DM Mono, spaced capitals, and 'EDUCATION, NOT ADVICE' small at the foot. Layout and sizes are in docs/gbx-endcard-1920.png; use it as the reference or as a static overlay.",
+        "Voiceover over the clip, unhurried: 'Three leaders. One operating view. GBX Professional Services.'",
+        "Music resolves on a single warm swell, then silence for the last half second."
+      ]
     }
   ],
   "placeholders": {
@@ -100,7 +99,8 @@
     "Log the finished cut in docs/content-review-log.md before publishing."
   ],
   "assets": {
-    "end_card": "docs/gbx-endcard-1920.png (1920 by 1080, site fonts, exact wordmark)",
-    "logo": "docs/gbx-logo-1200.png (framed wordmark on void black, for any clip that needs a reference)"
+    "end_card_reference": "docs/gbx-endcard-1920.png (1920 by 1080, the real mark from public/media/logo-poster.jpg with the closing line and URL in the site's fonts)",
+    "animated_mark": "public/media/logo-animation.mp4, with public/media/logo-loop.gif and public/media/logo-poster.jpg as fallbacks",
+    "note": "No generated logo is used anywhere in the spot. Clips 1 to 5 contain no logos or text by instruction."
   }
 }
