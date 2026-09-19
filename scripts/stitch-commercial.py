@@ -1,4 +1,4 @@
-"""Assemble the six commercial clips into one cut with 0.3 second cross-fades.
+"""Assemble the six commercial clips into one cut, dissolving through black between clips.
 
 Usage (from the repo root, with the clips in one folder):
     python3 scripts/stitch-commercial.py <clips-dir> <output.mp4>
@@ -24,7 +24,9 @@ CLIPS = [
 ]
 # clip index -> (audio source file, delay in ms before it starts)
 AUDIO = {4: ('clip5-tools-v2.mp4', 1000)}
-XFADE = 0.3
+XFADE = 1.0        # seconds each dissolve takes
+PAD = 0.8          # seconds each clip holds its last frame before the dissolve, so the narration can breathe
+TRANSITION = 'fadeblack'
 SIZE = (1280, 720)
 
 
@@ -57,25 +59,26 @@ def main(clips_dir, out):
     fc = []
     for i in range(len(vids)):
         fc.append(f'[{i}:v]scale={w}:{h}:force_original_aspect_ratio=decrease,'
-                  f'pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,format=yuv420p,settb=AVTB[v{i}]')
+                  f'pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,format=yuv420p,'
+                  f'tpad=stop_mode=clone:stop_duration={PAD},settb=AVTB[v{i}]')
         if i in AUDIO:
             _, delay = AUDIO[i]
             fc.append(f'[{extra[i]}:a]aresample=48000,aformat=channel_layouts=stereo,'
-                      f'adelay={delay}|{delay},apad,atrim=0:{durs[i]:.3f},asetpts=PTS-STARTPTS[a{i}]')
+                      f'adelay={delay}|{delay},apad,atrim=0:{durs[i] + PAD:.3f},asetpts=PTS-STARTPTS[a{i}]')
         else:
             fc.append(f'[{i}:a]aresample=48000,aformat=channel_layouts=stereo,'
-                      f'apad,atrim=0:{durs[i]:.3f},asetpts=PTS-STARTPTS[a{i}]')
+                      f'apad,atrim=0:{durs[i] + PAD:.3f},asetpts=PTS-STARTPTS[a{i}]')
     off, pv, pa = 0.0, 'v0', 'a0'
     for i in range(1, len(vids)):
-        off += durs[i - 1] - XFADE
-        fc.append(f'[{pv}][v{i}]xfade=transition=fade:duration={XFADE}:offset={off:.3f}[xv{i}]')
-        fc.append(f'[{pa}][a{i}]acrossfade=d={XFADE}[xa{i}]')
+        off += durs[i - 1] + PAD - XFADE
+        fc.append(f'[{pv}][v{i}]xfade=transition={TRANSITION}:duration={XFADE}:offset={off:.3f}[xv{i}]')
+        fc.append(f'[{pa}][a{i}]acrossfade=d={XFADE}:c1=tri:c2=tri[xa{i}]')
         pv, pa = f'xv{i}', f'xa{i}'
     cmd = [ff, '-y', '-loglevel', 'error', *inputs, '-filter_complex', ';'.join(fc),
            '-map', f'[{pv}]', '-map', f'[{pa}]', '-c:v', 'libx264', '-crf', '19', '-preset', 'medium',
            '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', str(out)]
     subprocess.run(cmd, check=True)
-    print('wrote', out, 'about', round(sum(durs) - XFADE * (len(vids) - 1), 1), 'seconds')
+    print('wrote', out, 'about', round(sum(durs) + PAD * len(vids) - XFADE * (len(vids) - 1), 1), 'seconds')
 
 
 if __name__ == '__main__':

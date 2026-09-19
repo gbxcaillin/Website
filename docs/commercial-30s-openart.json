@@ -103,8 +103,8 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6 with a 0.3 second cross-fade; the six clips run to about 42 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
-    "scripts/stitch-commercial.py assembles the six clips with the cross-fades into one 720p preview cut (about 41.5 seconds). Use it to check pacing after any clip is re-run; the final grade and mix still happen in the editor.",
+    "Order the clips 1 to 6. Hold each clip's last frame for about 0.8 seconds after the line, then dissolve through black over a full second with the audio cross-fading underneath, so the narrator has about two seconds of breath between clips. The six clips run to about 43 seconds this way. For a strict 30-second slot, shorten the holds first, then trim tails after the last word; never speed the reads up.",
+    "scripts/stitch-commercial.py assembles the six clips this way into one 720p preview cut. Use it to check pacing after any clip is re-run; the final grade and mix still happen in the editor.",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
     "Music: lay one continuous ambient track under all six clips rather than using each clip's own music, so the bed does not jump at the cuts.",
@@ -127,6 +127,7 @@
     "A single short line of on-screen text (Tax basics for employees) rendered correctly at 7 seconds when asked for exactly that text, large, centred, and nothing else on the slide.",
     "If someone on screen is meant to be talking, the model lip-syncs the narration to them no matter what the prompt says. Generate that clip as picture only (generateAudio false) and mux the narration on afterwards with ffmpeg.",
     "Abstract props (cards in slots) read as nonsense. Show the outcome people recognise instead: for AI, the work done and someone leaving on time.",
-    "For an end card, generate the narration on a plain carrier clip with no people or text, find the sentence onsets with ffmpeg silencedetect, and time the on-screen text to them."
+    "For an end card, generate the narration on a plain carrier clip with no people or text, find the sentence onsets with ffmpeg silencedetect, and time the on-screen text to them.",
+    "Hard 0.3 second cross-fades between narrated clips feel rushed: the next line starts before the last has landed. A short hold plus a one-second dissolve through black reads as the narrator pausing for breath."
   ]
 }
