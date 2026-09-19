@@ -3,7 +3,7 @@
   "how_to_use": "Six clips, one per beat, each 5 seconds. Clips 1 to 5 are text to video on Seedance 2.5. Clip 6 is NOT generated: it is the site's own animated mark, public/media/logo-animation.mp4 (5.04 seconds, 624 square, H.264), placed as the final clip in the edit with the voiceover over it and the closing line and URL added as a text overlay from docs/gbx-endcard-1920.png. On-screen text inside the AI clips has been removed on purpose: the 'Super, explained.' slide title and the 'Education, not advice.' lower third are added in the edit, which removes the spelling risk entirely. Generate clips 1 to 5 at 480p to check, then 1080p for the final, and assemble with a 0.3 second cross-fade between clips.",
   "voice": {
     "direction": "One male voiceover across all six clips: mature, in his sixties, warm and unhurried, friendly with a wry edge, the wisdom of someone who has seen a few cycles and is still curious about new technology. Measured baritone, precise diction, neutral accent with a light Australian and New Zealand lean. Sounds like a trusted mentor explaining something over a coffee, not a presenter. No sales energy, no echo, natural pauses.",
-    "consistency_note": "Each clip generates its own voice, so the six reads will differ slightly. For a broadcast-quality result, generate the voiceover once as a single 30-second track (an AI voice service or a session with a real voice actor using the direction above) and lay it over the clips in the edit, setting generateAudio to true only for ambience. The drafts keep the voice in each clip so you can judge the direction.",
+    "consistency_note": "Each clip generates its own voice, so the six reads will differ slightly. For a broadcast-quality result, generate the voiceover once as a single track (an AI voice service or a session with a real voice actor using the direction above) and lay it over the clips in the edit, generating every clip as picture only or with ambience only. The drafts keep the voice in each clip so you can judge the direction.",
     "avoid": "Do not name a real actor or public figure in the prompt. OpenArt models do not reproduce a specific person's voice or likeness, and a request to imitate one can be refused. The description above gets the same feel."
   },
   "shared_style": "Cinematic brand film, editorial and premium. Dark charcoal and deep teal palette with warm off-white highlights, fine film grain, soft directional light, shallow depth of field, slow deliberate camera movement. Real-feeling Australian professionals in their thirties to fifties, diverse, natural and unposed, in a modern Melbourne office with the city skyline through glass. No stock-photo smiles, no pointing at screens, no logos, no text of any kind on screen. Minimal music: a low ambient pad with a soft piano motif, quiet room tone. Voice always clear above the music.",
@@ -37,7 +37,7 @@
     },
     {
       "n": 3,
-      "name": "AI that earns its keep",
+      "name": "The hours given back",
       "mode": "text2video",
       "params": {
         "duration": 7,
@@ -45,21 +45,24 @@
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Close on a hand moving a single card along a pipeline board, then a man in his fifties sits at a desk behind an open laptop. The laptop's closed back, a plain matte charcoal lid with no logo and no display on it, faces the camera; the screen faces him and is never visible, only a soft teal glow lighting his face and hands. He nods slightly as something finishes. A colleague passes behind with a coffee. Calm and precise. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
-      }
+        "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. Dusk, the city lights just coming on through the glass. A man in his fifties at his desk slides a thick folder of paperwork to one side, closes his laptop with one hand, a plain matte charcoal lid with no logo and no display on it, the soft teal glow of its screen fading as it shuts. He stands, lifts his coat from the back of the chair, and walks out of frame past two colleagues still working at their desks, unhurried, a small satisfied breath, nobody looking at the camera. The camera holds on the tidy desk and the skyline as he goes. VOICE_DIRECTION. Nobody on screen speaks. The narration is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. NARRATOR, off screen: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
+      },
+      "idea": "AI earning its keep is shown as the payoff, not the tool: the work is done and he leaves on time while others are still at it."
     },
     {
       "n": 4,
-      "name": "Teaching money plainly (boardroom, slide reads Tax basics for employees)",
-      "mode": "text2video",
+      "name": "Teaching money plainly (boardroom, silent picture plus narration)",
+      "mode": "text2video, picture only, then narration muxed in",
       "params": {
         "duration": 7,
         "aspectRatio": "16:9",
         "resolution": "480p",
-        "generateAudio": true,
+        "generateAudio": false,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE (but the one slide below may carry text). Documentary feel, nobody looks at the camera. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen. The wall screen shows a plain soft teal slide with only one line of clean white sans-serif text, large and centred, reading exactly: Tax basics for employees. No other text, numbers or logos anywhere. The presenter is quietly talking to the room: his lips move naturally, he gestures with one open hand, but his voice is never heard. He is not the narrator. The only voice in the clip is an off-screen narrator. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm. VOICE_DIRECTION. The narration is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. NARRATOR, off screen: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
-      }
+        "prompt": "SHARED_STYLE (but the one slide below may carry text). Silent film, no dialogue, no narration. Documentary feel, nobody looks at the camera. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen. The wall screen shows a plain soft teal slide with only one line of clean white sans-serif text, large and centred, reading exactly: Tax basics for employees. No other text, numbers or logos anywhere. The presenter is quietly talking to the room in the background, his lips moving naturally as he explains something, gesturing with one open hand, easy and unhurried. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm."
+      },
+      "voiceover": "We also teach people about money. Plainly, at work, in language a whole team can follow.",
+      "audio": "Generate the picture with generateAudio false. Take the narration from a separate take (any clip carrying this line, or the single 30-second voice track) and mux it on: ffmpeg -i picture.mp4 -i narration.mp4 -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -shortest clip4.mp4. Seedance lip-syncs any voice it generates to whoever is visible speaking, so a talking presenter and a narrator cannot share one generation."
     },
     {
       "n": 5,
@@ -121,6 +124,8 @@
     "When a person on screen is meant to be talking, say so and say their voice is never heard, and label the read NARRATOR, off screen. Otherwise the model lip-syncs the voice-over to whoever is visible.",
     "Two half-scenes in one prompt come out disjointed. Ask for one continuous shot, one scene, no cuts, and describe the people as in conversation with each other.",
     "A laptop facing the camera grows a screen on its lid. Say the lid is plain, matte, with no display on it, and the screen faces the person.",
-    "A single short line of on-screen text (Tax basics for employees) rendered correctly at 7 seconds when asked for exactly that text, large, centred, and nothing else on the slide."
+    "A single short line of on-screen text (Tax basics for employees) rendered correctly at 7 seconds when asked for exactly that text, large, centred, and nothing else on the slide.",
+    "If someone on screen is meant to be talking, the model lip-syncs the narration to them no matter what the prompt says. Generate that clip as picture only (generateAudio false) and mux the narration on afterwards with ffmpeg.",
+    "Abstract props (cards in slots) read as nonsense. Show the outcome people recognise instead: for AI, the work done and someone leaving on time."
   ]
 }
