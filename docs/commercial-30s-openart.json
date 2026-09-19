@@ -104,7 +104,7 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6, muted. Each clip is trimmed to fit its narration line (LEAD 0.35s before the line, CLIP_TAIL 0.55s after) rather than played in full, so the ad stays tight; the last clip keeps its full length for the end card. Dissolves are 0.7s (no dip to black), with a short frozen tail per clip that only exists under the dissolve. One narration take split into lines, one instrumental bed under the whole cut. This runs about 36 seconds; loosen CLIP_TAIL and XFADE for a longer, calmer cut.",
+    "Order the clips 1 to 6, muted. Each clip is trimmed to fit its narration line (LEAD 0.35s before, CLIP_TAIL 0.55s after) plus one dissolve's worth of real footage, rather than played in full; the last clip keeps its full length for the end card. Dissolves are 0.7s (no dip to black). One narration take split into lines, one instrumental bed under the whole cut. Runs about 35.5 seconds; loosen CLIP_TAIL and XFADE for a longer, calmer cut.",
     "scripts/stitch-commercial.py builds exactly this into a 720p preview from a clips folder. It expects the six clip files, narration-all-lines.m4a (or .mp4), narration-lines.txt (from scripts/narration-lines.py) and music-bed.m4a (or BED=<file>).",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
@@ -137,6 +137,6 @@
     "Word timestamps from a transcript end early. Cut narration lines in the middle of the detected pauses, not at the word boundaries, or the last syllable is clipped.",
     "Mute the clips and run one bed under the whole ad, or the music jumps at every join and the ad reads as six separate clips.",
     "Playing full 7s clips under 4-5s lines left long silent tails that felt slow for an ad. Trim each clip to LEAD + line + a short tail; keep the bed continuous so the gaps are never dead silence.",
-    "ffmpeg xfade needs constant frame rate; a tpad clone tail after a trim makes it variable, so re-apply fps=24 after the pad or xfade fails with 'inputs needs to be a constant frame rate'."
+    "Trimming clips inside one big xfade filtergraph (with tpad and re-applied fps) produced a broken chain: the end card jumped in at 6 seconds and the rest went black. The fix is to pre-render each clip to a clean, constant-frame-rate file of an exact length first, then dissolve those staged files."
   ]
 }
