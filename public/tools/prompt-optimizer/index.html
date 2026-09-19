@@ -410,7 +410,7 @@ body{background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6;f
       <span class="legend-item"><span class="spec-chip"><span class="light-only">Black tag</span><span class="dark-only">Cream tag</span></span> other areas where the model also performs well</span>
       <span class="legend-item"><span class="dual-score"><span class="ds ds-adv">8.4<span class="ds-cap">adv</span></span><span class="ds ds-sent up">&#9650;8.7<span class="ds-cap">sent</span></span></span> two scores per model &mdash; <strong>adv</strong> is our research-based capability rating, <strong>sent</strong> is that same rating shifted by community reception (&#9650; above / &#9660; below). Pick a specialty to score that one dimension.</span>
       <span class="legend-item"><span class="reception rc-sleeper"><span class="dot"></span>Sleeper</span> a computed tag: the sentiment score lands <em>above</em> the advertised score &mdash; a possible best or near-best-in-class pick. Community-sourced, dated, and volatile.</span>
-      <span class="legend-item"><span class="free-badge"><span class="star">&#9733;</span>Free</span> official free access (provider's own app/site or open weights); links out to it. Checked Aug 2026 &mdash; availability may change.</span>
+      <span class="legend-item"><span class="free-badge"><span class="star">&#9733;</span>Free</span> official free access (provider's own app/site or open weights); links out to it. Checked Sep 2026 &mdash; availability may change.</span>
     </div>
     <div class="model-grid" id="modelGrid"></div>
   </div>
@@ -671,7 +671,7 @@ const SPECIALTIES = {
 //       loved | mixed | hype (unproven). adj: high-confidence
 // per-dimension nudges applied only in the community-adjusted view.
 // ═══════════════════════════════════════════════════════
-const SENTIMENT_DATE = "Aug 2026";
+const SENTIMENT_DATE = "Sep 2026";
 const SENTIMENT = {
   // — Text / LLM —
   "claude-opus-5": {mood:"gap", note:"Top-tier capability but users report over-confidence and hallucination on long factual/agentic tasks (a calibration tradeoff) plus verbose output. No fix shipped — Anthropic leapfrogged it with Fable 5.1 and now frames Opus 5 as the everyday default.", adj:{follow:-2, brain:-1}},
@@ -769,7 +769,7 @@ const SENTIMENT = {
 // never a third-party "free key" aggregator. Free tiers change,
 // so this is dated and links out for the user to verify.
 // ═══════════════════════════════════════════════════════
-const FREE_CHECKED = "Aug 2026";
+const FREE_CHECKED = "Sep 2026";
 const FREE_ACCESS = {
   // — Text / LLM (only the model the free tier actually serves) —
   "claude-sonnet-5": {url:"https://claude.ai", how:"Free tier on claude.ai (usage-limited)"},
