@@ -14,12 +14,12 @@
       "name": "A clearer picture",
       "mode": "text2video",
       "params": {
-        "duration": 5,
+        "duration": 7,
         "aspectRatio": "16:9",
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Dawn over the Melbourne skyline seen from a high office window, the city still quiet, first light arriving on the glass. One slow push-in toward an empty desk by the window with a closed notebook and a cup of coffee. No people, no text. VOICE_DIRECTION. VOICEOVER, spoken calmly across the whole clip: \"Most businesses don't need more advice. They need a clearer picture.\""
+        "prompt": "SHARED_STYLE. Dawn over the Melbourne skyline seen from a high office window, the city still quiet, first light arriving on the glass. One slow push-in toward an empty desk by the window with a closed notebook and a cup of coffee. No people, no text. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"Most businesses don't need more advice. They need a clearer picture.\""
       }
     },
     {
@@ -27,12 +27,12 @@
       "name": "Run sharper",
       "mode": "text2video",
       "params": {
-        "duration": 5,
+        "duration": 7,
         "aspectRatio": "16:9",
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Inside the office in soft morning light. A woman in her forties studies a calm dashboard of teal charts on a monitor, then a gentle lateral track reveals two colleagues at a whiteboard walking through a process map with a marker. Ordered, unhurried, no text legible on any screen or board. VOICE_DIRECTION. VOICEOVER: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline.\""
+        "prompt": "SHARED_STYLE. Inside the office in soft morning light. A woman in her forties studies a calm dashboard of teal charts on a monitor, then a gentle lateral track reveals two colleagues at a whiteboard walking through a process map with a marker. Ordered, unhurried, no text legible on any screen or board. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline.\""
       }
     },
     {
@@ -40,12 +40,12 @@
       "name": "AI that earns its keep",
       "mode": "text2video",
       "params": {
-        "duration": 5,
+        "duration": 7,
         "aspectRatio": "16:9",
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Close on a hand moving a single card along a pipeline board, then a man in his fifties at a laptop nods slightly as an automated report finishes on screen, the screen a soft teal glow with no legible text. A colleague passes behind with a coffee. Calm and precise. VOICE_DIRECTION. VOICEOVER: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
+        "prompt": "SHARED_STYLE. Close on a hand moving a single card along a pipeline board, then a man in his fifties at a laptop nods slightly as an automated report finishes on screen, the screen a soft teal glow with no legible text. A colleague passes behind with a coffee. Calm and precise. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
       }
     },
     {
@@ -53,12 +53,12 @@
       "name": "Teaching money plainly (boardroom)",
       "mode": "text2video",
       "params": {
-        "duration": 5,
+        "duration": 7,
         "aspectRatio": "16:9",
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Documentary feel, nobody looks at the camera. Absolutely no text, letters, words or numbers anywhere in the frame, including on the screen or any paper. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen showing a plain, soft teal gradient with nothing on it. He is mid-sentence, one hand resting on the back of a chair, easy and unhurried. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm. VOICE_DIRECTION. VOICEOVER: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
+        "prompt": "SHARED_STYLE. Documentary feel, nobody looks at the camera. Absolutely no text, letters, words or numbers anywhere in the frame, including on the screen or any paper. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen showing a plain, soft teal gradient with nothing on it. He is mid-sentence, one hand resting on the back of a chair, easy and unhurried. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
       }
     },
     {
@@ -66,12 +66,12 @@
       "name": "Free tools, then the Diagnostic",
       "mode": "screen capture of the live site, not generated",
       "source": "docs/commercial/clip5-tools-screencap.mp4",
-      "how_it_was_made": "scripts/record-tools-clip.mjs drives headless Chromium over the built site at 1920x1080, takes one screenshot per frame at 24fps, then ffmpeg assembles the frames into H.264. Re-run it after any Tools & Insights redesign so the clip matches the live site.",
+      "how_it_was_made": "scripts/record-tools-clip.mjs drives headless Chromium over the built site at 1920x1080, takes one screenshot per frame at 24fps (7.25 seconds, paced so nothing rushes), then ffmpeg assembles the frames into H.264. Re-run it after any Tools & Insights redesign so the clip matches the live site.",
       "shot_list": [
-        "0.0s to 0.4s: Tools & Insights hero, cursor resting top right.",
-        "0.4s to 1.7s: smooth scroll down to the tool card grid.",
-        "1.9s to 3.0s: second scroll to the next row of cards, cursor glides to Business Health Check and clicks Start the check.",
-        "3.4s to 5.2s: Business Health Check opens, cursor answers the first two questions."
+        "0.0s to 0.6s: Tools & Insights hero, cursor resting top right.",
+        "0.6s to 2.1s: smooth scroll down to the tool card grid, short hold.",
+        "2.5s to 4.3s: second scroll to the next row of cards, cursor glides to Business Health Check and clicks Start the check.",
+        "4.8s to 7.25s: Business Health Check opens, cursor answers the first two questions, hold on step three."
       ],
       "audio": "The capture has no audio. Lay the voice-over and the shared music bed over it in the edit.",
       "voiceover": "Free tools before you ever hire us. A ten-day Diagnostic when you're ready.",
@@ -79,15 +79,19 @@
     },
     {
       "n": 6,
-      "name": "End card: the animated GBX mark",
-      "mode": "edit, not generated",
-      "asset": "public/media/logo-animation.mp4 (5.04 seconds). Fallbacks: public/media/logo-loop.gif, public/media/logo-poster.jpg.",
-      "edit": [
-        "Place logo-animation.mp4 as clip 6 on a black (#0A0A0A) background, scaled to about 52% of frame height and centred, matching docs/gbx-endcard-1920.png.",
-        "At about 2.5 seconds, fade in the closing line beneath the mark: 'Sharper businesses. Financially fluent people.' in Cormorant Garamond, with 'Financially fluent people.' in teal #2E8B6E, then 'GBXPS.COM' in DM Mono, spaced capitals, and 'EDUCATION, NOT ADVICE' small at the foot. Layout and sizes are in docs/gbx-endcard-1920.png; use it as the reference or as a static overlay.",
-        "Voiceover over the clip, unhurried: 'Three leaders. One operating view. GBX Professional Services.'",
-        "Music resolves on a single warm swell, then silence for the last half second."
-      ]
+      "name": "End card: the mark, then the site",
+      "mode": "screen capture of the live site, not generated",
+      "source": "docs/commercial/clip6-endcard-screencap.mp4",
+      "how_it_was_made": "scripts/record-endcard-clip.mjs plays the real logo animation (public/media/logo-animation.mp4, frame by frame at 24fps) alone on black for four seconds, then eases it upward while a capture of the live home page (header and hero) fades up into the bottom of the frame, followed by GBXPS.COM in DM Mono. 7 seconds, 1920x1080, no audio.",
+      "shot_list": [
+        "0.0s to 4.0s: the animated GBX mark alone, centred on black, building to the full mark.",
+        "4.0s to 5.4s: the mark eases up and shrinks a little while the home page rises and fades in along the bottom edge, showing the header and the line Sharper businesses. Financially fluent people.",
+        "5.0s to 5.8s: GBXPS.COM fades in between the mark and the site.",
+        "5.8s to 7.0s: hold."
+      ],
+      "audio": "The capture has no audio. Lay the voice-over over it and let the music resolve on a single warm swell, then silence for the last half second.",
+      "voiceover": "Three leaders. One operating view. GBX Professional Services.",
+      "regenerate": "node scripts/record-endcard-clip.mjs (see the header comment in that file). Re-run after any home hero change."
     }
   ],
   "placeholders": {
@@ -95,7 +99,7 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6 with a 0.3 second cross-fade; total runs about 29 seconds with the fades.",
+    "Order the clips 1 to 6 with a 0.3 second cross-fade; six clips of about seven seconds run to roughly 41 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
     "Optionally add 'Super, explained.' to the blank slide in clip 4 with a simple corner pin, or leave the slide blank.",
@@ -110,7 +114,8 @@
   "lessons_from_the_drafts": [
     "Any visible screen, slide or paper invites made-up lettering. Turn screens away, blur them, or keep them as a plain gradient.",
     "Rooms of people facing the camera read as a group photo. Ask for profiles and backs, a tracking move, and 'nobody looks at the camera'.",
-    "Five-second clips keep the read to one line and the model stays on script.",
-    "Generated laptop and phone screens always render gibberish text. Anything that must show the product is a real screen capture, not a generation."
+    "Five-second clips cut words off. Seven seconds with 'a beat of quiet before the first word and after the last' gives the read room without the model drifting off script.",
+    "Generated laptop and phone screens always render gibberish text. Anything that must show the product is a real screen capture, not a generation.",
+    "Even with 'no text' in the prompt, dashboards and whiteboards still grow tiny labels. At 480p they are unreadable; check them again at 1080p before the final render."
   ]
 }
