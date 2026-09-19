@@ -104,7 +104,7 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6, muted. Hold each clip's last frame for about a second, then a plain 1.2 second dissolve into the next (no dip to black). One narration take split into lines, each starting 0.6 seconds into its clip. One instrumental bed under the whole cut, levelled about 11 dB under the narration, fading over the last 2.5 seconds. The cut runs about 43.5 seconds. For a strict 30-second slot, shorten the holds first, then trim tails after the last word; never speed the reads up.",
+    "Order the clips 1 to 6, muted. Each clip is trimmed to fit its narration line (LEAD 0.35s before the line, CLIP_TAIL 0.55s after) rather than played in full, so the ad stays tight; the last clip keeps its full length for the end card. Dissolves are 0.7s (no dip to black), with a short frozen tail per clip that only exists under the dissolve. One narration take split into lines, one instrumental bed under the whole cut. This runs about 36 seconds; loosen CLIP_TAIL and XFADE for a longer, calmer cut.",
     "scripts/stitch-commercial.py builds exactly this into a 720p preview from a clips folder. It expects the six clip files, narration-all-lines.m4a (or .mp4), narration-lines.txt (from scripts/narration-lines.py) and music-bed.m4a (or BED=<file>).",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
@@ -135,6 +135,8 @@
     "Hard 0.3 second cross-fades between narrated clips feel rushed: the next line starts before the last has landed. A short hold plus a one-second dissolve through black reads as the narrator pausing for breath.",
     "Music prompts that sound like a genre or a score get rejected by the audio moderation filter as possible copyright. Ask for an original, simple synthesiser drone and it passes.",
     "Word timestamps from a transcript end early. Cut narration lines in the middle of the detected pauses, not at the word boundaries, or the last syllable is clipped.",
-    "Mute the clips and run one bed under the whole ad, or the music jumps at every join and the ad reads as six separate clips."
+    "Mute the clips and run one bed under the whole ad, or the music jumps at every join and the ad reads as six separate clips.",
+    "Playing full 7s clips under 4-5s lines left long silent tails that felt slow for an ad. Trim each clip to LEAD + line + a short tail; keep the bed continuous so the gaps are never dead silence.",
+    "ffmpeg xfade needs constant frame rate; a tpad clone tail after a trim makes it variable, so re-apply fps=24 after the pad or xfade fails with 'inputs needs to be a constant frame rate'."
   ]
 }

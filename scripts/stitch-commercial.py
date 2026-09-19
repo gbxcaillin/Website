@@ -7,8 +7,10 @@ narration are used, which only works when the reader leaves a clear gap between 
 Usage (from the repo root, with the clips in one folder):
     python3 scripts/stitch-commercial.py <clips-dir> <output.mp4>
 
-Picture: each clip is muted, holds its last frame for PAD seconds, and dissolves
-into the next over XFADE seconds (no dip to black).
+Picture: each clip is muted and trimmed to fit its narration line snugly
+(LEAD before the line, CLIP_TAIL after it), then dissolves into the next over
+XFADE seconds (no dip to black). This keeps the ad tight instead of holding long
+silent tails. The final clip keeps its full length so the end card can resolve.
 
 Sound: one narration take (NARRATION, a silent-studio carrier that reads all six
 lines in order) is split into lines at the pauses, and line i is placed LEAD
@@ -36,9 +38,11 @@ CLIPS = [
 NARRATION = os.environ.get('NARRATION', 'narration-all-lines.m4a')   # one-take read of the six lines (audio or video file)
 LINES = 'narration-lines.txt'           # optional: one 'start<TAB>end' per line, in seconds, from a word-level transcript
 BED = os.environ.get('BED', 'music-bed.m4a')   # instrumental bed (any audio or video file), no voice
-XFADE = 1.2        # seconds each dissolve takes
-PAD = 1.0          # seconds each clip holds its last frame so the picture outlives the line
-LEAD = 0.6         # seconds after a clip starts before its line begins
+XFADE = 0.7        # seconds each dissolve takes
+LEAD = 0.35        # seconds after a clip starts before its line begins
+CLIP_TAIL = 0.55   # seconds of picture after the line finishes, before the dissolve starts
+MIN_CLIP = 3.0     # never trim a clip shorter than this
+PAD = 0.5          # fallback: extra held frames only if a clip is shorter than its line needs
 BED_TARGET_DB = -31.0   # mean level the bed is brought to under the narration (narration reads about -20 dB mean)
 VO_GAIN = 1.0
 SIZE = (1280, 720)
@@ -98,19 +102,33 @@ def main(clips_dir, out):
     ff = ffmpeg()
     d = Path(clips_dir)
     vids = [d / c for c in CLIPS]
-    durs = [duration(ff, v) + PAD for v in vids]
-    starts = [0.0]
-    for i in range(1, len(vids)):
-        starts.append(starts[-1] + durs[i - 1] - XFADE)
-    total = starts[-1] + durs[-1]
+    actual = [duration(ff, v) for v in vids]
     if (d / LINES).exists():
         lines = [tuple(float(x) for x in l.split()[:2]) for l in (d / LINES).read_text().splitlines() if l.strip()]
         if len(lines) != len(vids):
             sys.exit(f'{LINES} has {len(lines)} lines, expected {len(vids)}')
     else:
         lines = speech_segments(ff, d / NARRATION, len(vids))
+    # each clip runs LEAD + its line + CLIP_TAIL, but never longer than the clip
+    # itself and never below MIN_CLIP; the last clip keeps its full length so the
+    # end card can resolve.
+    line_len = [b - a for a, b in lines]
+    last = len(vids) - 1
+    # `used` is the real footage each clip shows before the dissolve; the last
+    # clip keeps its full length so the end card can resolve.
+    used = []
+    for i in range(len(vids)):
+        want = LEAD + line_len[i] + CLIP_TAIL
+        used.append(actual[i] if i == last else max(MIN_CLIP, min(want, actual[i])))
+    # a short frozen tail per non-last clip provides frames for the dissolve only
+    tail = [0.0 if i == last else XFADE + 0.2 for i in range(len(vids))]
+    durs = [used[i] + tail[i] for i in range(len(vids))]
+    starts = [0.0]
+    for i in range(1, len(vids)):
+        starts.append(starts[-1] + durs[i - 1] - XFADE)
+    total = starts[-1] + durs[-1]
     for i, (a, b) in enumerate(lines):
-        print(f'line {i + 1}: {a:.2f}s to {b:.2f}s ({b - a:.1f}s), placed at {starts[i] + LEAD:.2f}s in the cut')
+        print(f'line {i + 1}: {b - a:.1f}s speech, clip shown {used[i]:.1f}s, line at {starts[i] + LEAD:.2f}s')
     bed_len = duration(ff, d / BED)
     bed_gain = 10 ** ((BED_TARGET_DB - mean_db(ff, d / BED)) / 20)
     print(f'bed gain x{bed_gain:.2f}')
@@ -124,9 +142,11 @@ def main(clips_dir, out):
     fc = []
     # picture
     for i in range(len(vids)):
+        trim = f'trim=0:{used[i]:.3f},setpts=PTS-STARTPTS,' if used[i] < actual[i] - 0.02 else ''
+        pad = f'tpad=stop_mode=clone:stop_duration={tail[i]:.3f},' if tail[i] > 0 else ''
         fc.append(f'[{i}:v]scale={w}:{h}:force_original_aspect_ratio=decrease,'
                   f'pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,format=yuv420p,'
-                  f'tpad=stop_mode=clone:stop_duration={PAD},settb=AVTB[v{i}]')
+                  f'{trim}{pad}fps=24,settb=AVTB[v{i}]')
     pv = 'v0'
     for i in range(1, len(vids)):
         fc.append(f'[{pv}][v{i}]xfade=transition=fade:duration={XFADE}:offset={starts[i]:.3f}[xv{i}]')
