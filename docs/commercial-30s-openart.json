@@ -32,7 +32,7 @@
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Inside the office in soft morning light. A woman in her forties studies a calm dashboard of teal charts on a monitor, then a gentle lateral track reveals two colleagues at a whiteboard walking through a process map with a marker. Ordered, unhurried, no text legible on any screen or board. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline.\""
+        "prompt": "SHARED_STYLE. One continuous shot, one scene, no cuts. Soft morning light. A woman in her forties and a man in his fifties stand together at a whiteboard in an open office, working through a simple process flow of boxes and arrows drawn in black marker, no readable words. He draws one more arrow while she talks it through with him; they are clearly in conversation with each other, glancing between the board and one another, nodding. A third colleague sits at a nearby desk, half out of focus, listening in. The camera drifts slowly sideways around them. Nobody looks at the camera; nobody speaks aloud, only the narrator is heard. VOICE_DIRECTION. The narration is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. NARRATOR, off screen: \"GBX Professional Services helps firms run sharper. The numbers, the process, the pipeline.\""
       }
     },
     {
@@ -45,12 +45,12 @@
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Close on a hand moving a single card along a pipeline board, then a man in his fifties at a laptop nods slightly as an automated report finishes on screen, the screen a soft teal glow with no legible text. A colleague passes behind with a coffee. Calm and precise. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
+        "prompt": "SHARED_STYLE. Close on a hand moving a single card along a pipeline board, then a man in his fifties sits at a desk behind an open laptop. The laptop's closed back, a plain matte charcoal lid with no logo and no display on it, faces the camera; the screen faces him and is never visible, only a soft teal glow lighting his face and hands. He nods slightly as something finishes. A colleague passes behind with a coffee. Calm and precise. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"And AI that actually earns its keep. Practical, governed, and only where it helps.\""
       }
     },
     {
       "n": 4,
-      "name": "Teaching money plainly (boardroom)",
+      "name": "Teaching money plainly (boardroom, slide reads Tax basics for employees)",
       "mode": "text2video",
       "params": {
         "duration": 7,
@@ -58,7 +58,7 @@
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Documentary feel, nobody looks at the camera. Absolutely no text, letters, words or numbers anywhere in the frame, including on the screen or any paper. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen showing a plain, soft teal gradient with nothing on it. He is mid-sentence, one hand resting on the back of a chair, easy and unhurried. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm. VOICE_DIRECTION. The voiceover is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. VOICEOVER: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
+        "prompt": "SHARED_STYLE (but the one slide below may carry text). Documentary feel, nobody looks at the camera. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen. The wall screen shows a plain soft teal slide with only one line of clean white sans-serif text, large and centred, reading exactly: Tax basics for employees. No other text, numbers or logos anywhere. The presenter is quietly talking to the room: his lips move naturally, he gestures with one open hand, but his voice is never heard. He is not the narrator. The only voice in the clip is an off-screen narrator. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm. VOICE_DIRECTION. The narration is spoken slowly and evenly across the full seven seconds, with a beat of quiet before the first word and a beat after the last, every word completed, never rushed or cut off. NARRATOR, off screen: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
       }
     },
     {
@@ -79,15 +79,17 @@
     },
     {
       "n": 6,
-      "name": "End card: the mark, then the site",
+      "name": "End card: the mark, the philosophy, the address, then the site",
       "mode": "screen capture of the live site, not generated",
       "source": "docs/commercial/clip6-endcard-screencap.mp4",
-      "how_it_was_made": "scripts/record-endcard-clip.mjs plays the real logo animation (public/media/logo-animation.mp4, frame by frame at 24fps) alone on black for four seconds, then eases it upward while a capture of the live home page (header and hero) fades up into the bottom of the frame, followed by GBXPS.COM in DM Mono. 7 seconds, 1920x1080, no audio.",
+      "how_it_was_made": "scripts/record-endcard-clip.mjs plays the real logo animation (public/media/logo-animation.mp4, frame by frame at 24fps) alone on black, then eases it upward while the philosophy line from the home page fades in beneath it, then www.gbxps.com, then a capture of the live home page (header and hero) fades up into the bottom of the frame. 7.5 seconds, 1920x1080, no audio.",
       "shot_list": [
-        "0.0s to 4.0s: the animated GBX mark alone, centred on black, building to the full mark.",
-        "4.0s to 5.4s: the mark eases up and shrinks a little while the home page rises and fades in along the bottom edge, showing the header and the line Sharper businesses. Financially fluent people.",
-        "5.0s to 5.8s: GBXPS.COM fades in between the mark and the site.",
-        "5.8s to 7.0s: hold."
+        "0.0s to 3.4s: the animated GBX mark alone, centred on black, building to the full mark.",
+        "3.4s to 4.6s: the mark eases up and shrinks a little.",
+        "3.9s to 4.9s: OUR PHILOSOPHY and the line Combining insight with impact for sustainable business growth fade in beneath the mark, in the site's serif italic.",
+        "5.1s to 5.9s: www.gbxps.com fades in below the line.",
+        "5.4s to 6.8s: the home page rises and fades in along the bottom edge, showing the header and the top of the hero.",
+        "6.8s to 7.5s: hold."
       ],
       "audio": "The capture has no audio. Lay the voice-over over it and let the music resolve on a single warm swell, then silence for the last half second.",
       "voiceover": "Three leaders. One operating view. GBX Professional Services.",
@@ -99,10 +101,9 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6 with a 0.3 second cross-fade; six clips of about seven seconds run to roughly 41 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
+    "Order the clips 1 to 6 with a 0.3 second cross-fade; six clips of about seven seconds run to roughly 42 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
-    "Optionally add 'Super, explained.' to the blank slide in clip 4 with a simple corner pin, or leave the slide blank.",
     "Music: lay one continuous ambient track under all six clips rather than using each clip's own music, so the bed does not jump at the cuts.",
     "Log the finished cut in docs/content-review-log.md before publishing."
   ],
@@ -116,6 +117,10 @@
     "Rooms of people facing the camera read as a group photo. Ask for profiles and backs, a tracking move, and 'nobody looks at the camera'.",
     "Five-second clips cut words off. Seven seconds with 'a beat of quiet before the first word and after the last' gives the read room without the model drifting off script.",
     "Generated laptop and phone screens always render gibberish text. Anything that must show the product is a real screen capture, not a generation.",
-    "Even with 'no text' in the prompt, dashboards and whiteboards still grow tiny labels. At 480p they are unreadable; check them again at 1080p before the final render."
+    "Even with 'no text' in the prompt, dashboards and whiteboards still grow tiny labels. At 480p they are unreadable; check them again at 1080p before the final render.",
+    "When a person on screen is meant to be talking, say so and say their voice is never heard, and label the read NARRATOR, off screen. Otherwise the model lip-syncs the voice-over to whoever is visible.",
+    "Two half-scenes in one prompt come out disjointed. Ask for one continuous shot, one scene, no cuts, and describe the people as in conversation with each other.",
+    "A laptop facing the camera grows a screen on its lid. Say the lid is plain, matte, with no display on it, and the screen faces the person.",
+    "A single short line of on-screen text (Tax basics for employees) rendered correctly at 7 seconds when asked for exactly that text, large, centred, and nothing else on the slide."
   ]
 }
