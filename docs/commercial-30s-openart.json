@@ -37,7 +37,7 @@
     },
     {
       "n": 3,
-      "name": "The room wakes up",
+      "name": "The office connects",
       "mode": "text2video, picture only (narration comes from the one-take read)",
       "params": {
         "duration": 7,
@@ -45,9 +45,9 @@
         "resolution": "480p",
         "generateAudio": false,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Silent film, no dialogue, no narration. One continuous shot, one scene, no cuts. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Dawn, a modern Melbourne office still dark, the city skyline through glass. A man in his fifties walks in from the left carrying a coffee. As he passes, the room quietly comes alive around him: the ceiling lights lift softly, and a long wall of glass behind the desks glows and composes itself into an abstract arrangement of soft teal blocks, thin lines and bars, sliding gently into place like a calm mood board, purely abstract, nothing legible. A slim printer on the desk slides out a single sheet. He picks up the page, uncaps a pen, and reads it with a small nod, unhurried, nobody looking at the camera. Camera drifts slowly with him. Near-future, grounded, elegant, no robots, no holograms."
+        "prompt": "SHARED_STYLE. Silent film, no dialogue, no narration. One continuous shot, one scene, no cuts. Absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper. Dawn, a modern Melbourne office still dark, several desks, the city skyline through glass. A man in his fifties walks in from the left carrying a coffee. As he passes, the room quietly comes alive around him: the ceiling lights lift softly, and thin glowing teal pathways begin to trace across the long glass wall behind the desks, like a circuit or a map of light, spreading node to node, branching and linking, until every desk, screen and doorway in the office is joined into one connected network of soft teal lines with small bright nodes pulsing gently where they meet. Purely abstract lines and dots, nothing legible. Once the network is complete, a slim printer on his desk slides out a single sheet. He picks up the page, uncaps a pen, and reads it with a small nod, unhurried, nobody looking at the camera. Camera drifts slowly with him. Near-future, grounded, elegant, no robots, no holograms."
       },
-      "idea": "AI as ambient infrastructure: the office responds to him as he arrives, and the printed page he checks with a pen is the human in the loop (governed).",
+      "idea": "AI as the connective layer of the office: as he arrives, a network of teal pathways lights up and links every desk, screen and doorway; the printed page he checks with a pen is the output of that connected, AI-driven environment and the human in the loop (governed).",
       "voiceover": "And AI that actually earns its keep. Practical, governed, and only where it helps."
     },
     {
