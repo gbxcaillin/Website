@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import * as C from '../src/content.js'
 import { articles, insightCategories } from '../src/insights.js'
+import { sectors, doors, win, toolTypes, levels } from '../src/aiGuide.js'
 
 const SITE_URL = (process.env.SITE_URL || 'https://gbxps.com').replace(/\/$/, '')
 const DIST = 'dist'
@@ -205,6 +206,15 @@ function educationJsonLd() {
     },
   ]
 }
+function willAiHelpBody() {
+  const meta = C.pageMeta.willAiHelp
+  return `<main><p>Tools</p><h1>Will AI actually help your business?</h1><p>${esc(meta.description)}</p>
+    <section><h2>The six doors</h2><ol>${doors.map((d) => `<li><h3>${esc(d.q)}</h3><p>${esc(d.why)}</p><p>If no: ${esc(d.no.h)} ${esc(d.no.t)}</p></li>`).join('')}</ol><p>Yes to all six: ${esc(win.h)} ${esc(win.t)}</p></section>
+    <section><h2>What AI tools actually means</h2><ul>${toolTypes.map((t) => `<li><h3>${esc(t.name)}</h3><p>${esc(t.fit)}</p></li>`).join('')}</ul></section>
+    <section><h2>Three sensible levels</h2><ol>${levels.map((l) => `<li><h3>${esc(l.name)}</h3><ul>${l.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><p>${esc(l.warn)}</p></li>`).join('')}</ol></section>
+    <section><h2>Compliance changes the answer</h2>${sectors.map((s) => `<h3>${esc(s.label)}</h3><ul>${s.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><p>${esc(s.verdict)}</p>`).join('')}</section>
+    <a href="/contact">Start a conversation</a></main>`
+}
 function caseIndexBody() {
   const cp = C.caseStudiesPage
   const shown = C.caseStudies.filter((c) => c.published)
@@ -291,6 +301,7 @@ const routes = [
   { path: '/tools/capability', meta: C.pageMeta.capability, body: toolPageBody('capability', C.pageMeta.capability) },
   { path: '/tools/kpi-starter', meta: C.pageMeta.kpiStarter, body: toolPageBody('kpi-starter', C.pageMeta.kpiStarter) },
   { path: '/tools/wellbeing-check', meta: C.pageMeta.wellbeingCheck, body: toolPageBody('wellbeing-check', C.pageMeta.wellbeingCheck) },
+  { path: '/tools/will-ai-help', meta: C.pageMeta.willAiHelp, body: willAiHelpBody() },
   { path: '/tools/marketing-rhythm', meta: C.pageMeta.marketingRhythm, body: toolPageBody('marketing-rhythm', C.pageMeta.marketingRhythm) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
   { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },

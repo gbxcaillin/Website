@@ -411,9 +411,18 @@ export const toolsPage = {
       cta: 'Find the revenue',
     },
     {
+      slug: 'will-ai-help',
+      to: '/tools/will-ai-help',
+      home: true,
+      name: 'Will AI Actually Help?',
+      tagline: 'Six doors between you and an honest answer.',
+      body:
+        'A choose-your-own-adventure for owners tired of being told everything needs AI. Pick your sector, try to pass six doors, and get a straight answer, including the one thing to do first if the answer is not yet.',
+      cta: 'Play the game',
+    },
+    {
       slug: 'pipeline-gap',
       to: '/tools/pipeline-gap',
-      home: true,
       name: 'Pipeline Gap Calculator',
       tagline: 'How many leads does your revenue target actually need?',
       body:
@@ -1089,6 +1098,11 @@ export const pageMeta = {
     description:
       'The Financial Fluency Program: plain-language financial education workshops for workplaces as a staff benefit, and a Client Education Series for advice and accounting practices. Education, not advice. Delivered by educators with financial planning qualifications.',
   },
+  willAiHelp: {
+    title: 'Will AI Actually Help Your Business? | GBX Professional Services',
+    description:
+      'A free, honest decision game: choose your sector, pass six doors about pattern, documentation, review, hours, data and ownership, and get a straight answer on whether AI will help your business yet.',
+  },
   wellbeingCheck: {
     title: 'Workplace Financial Wellbeing Check | GBX Professional Services',
     description:
@@ -1120,7 +1134,7 @@ export const pageMeta = {
   tools: {
     title: 'Tools & Insights | GBX Professional Services',
     description:
-      'Twelve free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, KPI starter kit, marketing rhythm planner, positioning builder and the Prompt Optimizer.',
+      'Thirteen free tools and thirty articles from GBX Professional Services: health check, capacity and pipeline calculators, automation finder, AI readiness, team capability, KPI starter kit, marketing rhythm planner, positioning builder and the Prompt Optimizer.',
   },
   insights: {
     title: 'Insights | GBX Professional Services',

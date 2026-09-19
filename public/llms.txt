@@ -23,6 +23,7 @@ GBX Professional Services does not hold an Australian Financial Services Licence
 - [Capacity & Profit Calculator](https://gbxps.com/tools/capacity): What a team could deliver, what it delivers today, and the revenue left on the table.
 - [Pipeline Gap Calculator](https://gbxps.com/tools/pipeline-gap): The clients, leads and win rate a revenue target needs.
 - [Automation Opportunity Finder](https://gbxps.com/tools/automation): Hours a week that could be automated, and where to start.
+- [Will AI Actually Help?](https://gbxps.com/tools/will-ai-help): A decision game: choose a sector, pass six doors (a repeating task, written-down information, a review step, enough hours, data that can move, an owner) and get an honest answer on whether AI will help yet, with the one thing to do first.
 - [AI Readiness Assessment](https://gbxps.com/tools/ai-readiness): Readiness tier across use cases, data, process, governance and capability.
 - [Team Capability Check](https://gbxps.com/tools/capability): How a practice builds and evidences capability, from onboarding to compliance training.
 - [KPI Starter Kit](https://gbxps.com/tools/kpi-starter): The six KPIs worth watching for a business and its goal, with definitions, targets and cadence.
