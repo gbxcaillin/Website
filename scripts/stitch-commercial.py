@@ -28,7 +28,7 @@ from pathlib import Path
 CLIPS = [
     'clip1-clearer-picture-7s.mp4',
     'clip2-run-sharper-7s-v2.mp4',
-    'clip3-ai-7s-v5.mp4',
+    'clip3-ai-7s-v6.mp4',
     'clip4-teaching-7s-v3.mp4',
     'clip5-tools-screencap-7s.mp4',
     'clip6-endcard-picture.mp4',
