@@ -50,7 +50,7 @@
     },
     {
       "n": 4,
-      "name": "Teaching money plainly",
+      "name": "Teaching money plainly (boardroom)",
       "mode": "text2video",
       "params": {
         "duration": 5,
@@ -58,7 +58,7 @@
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. A bright workplace training room. A relaxed presenter in his sixties stands at the front beside a blank teal slide with no text, twenty staff of all ages listening at tables. A young employee nods as something clicks, an older colleague writes a note. Warm, attentive, no text anywhere. VOICE_DIRECTION. VOICEOVER: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
+        "prompt": "SHARED_STYLE. Documentary feel, nobody looks at the camera. Absolutely no text, letters, words or numbers anywhere in the frame, including on the screen or any paper. A modern corporate boardroom in a Melbourne office, long timber table, twelve staff of all ages seated along it in relaxed working clothes, seen in profile and from behind, all facing a relaxed presenter in his sixties who stands at the far end beside a wall screen showing a plain, soft teal gradient with nothing on it. He is mid-sentence, one hand resting on the back of a chair, easy and unhurried. Camera tracks slowly along the side of the table past the backs and profiles of listeners: one takes a note, one leans back and nods slightly, one turns to a colleague with a small smile. Natural, attentive, warm. VOICE_DIRECTION. VOICEOVER: \"We also teach people about money. Plainly, at work, in language a whole team can follow.\""
       }
     },
     {
@@ -71,7 +71,7 @@
         "resolution": "480p",
         "generateAudio": true,
         "videoCount": 1,
-        "prompt": "SHARED_STYLE. Night. A laptop on a kitchen bench, someone tapping through a simple one-question-per-screen tool on a website in the same charcoal and teal palette, a progress bar filling, a result card appearing, the screen soft-focus with no legible text. Cut to an easy handshake across an office table in daylight. VOICE_DIRECTION. VOICEOVER: \"Free tools before you ever hire us. A ten-day Diagnostic when you're ready.\""
+        "prompt": "SHARED_STYLE. Absolutely no text, letters, words or numbers anywhere in the frame, including on screens. Night. A kitchen bench. Seen from behind and over the shoulder, a person taps a laptop whose screen is turned mostly away from camera and rendered as a soft out-of-focus wash of charcoal and teal light with a single glowing teal progress bar filling, nothing readable. Their face is relaxed. Then cut to an easy, unhurried handshake across an office table in daylight, close on the hands. VOICE_DIRECTION. VOICEOVER: \"Free tools before you ever hire us. A ten-day Diagnostic when you're ready.\""
       }
     },
     {
@@ -102,5 +102,10 @@
     "end_card_reference": "docs/gbx-endcard-1920.png (1920 by 1080, the real mark from public/media/logo-poster.jpg with the closing line and URL in the site's fonts)",
     "animated_mark": "public/media/logo-animation.mp4, with public/media/logo-loop.gif and public/media/logo-poster.jpg as fallbacks",
     "note": "No generated logo is used anywhere in the spot. Clips 1 to 5 contain no logos or text by instruction."
-  }
+  },
+  "lessons_from_the_drafts": [
+    "Any visible screen, slide or paper invites made-up lettering. Turn screens away, blur them, or keep them as a plain gradient.",
+    "Rooms of people facing the camera read as a group photo. Ask for profiles and backs, a tracking move, and 'nobody looks at the camera'.",
+    "Five-second clips keep the read to one line and the model stays on script."
+  ]
 }
