@@ -105,6 +105,7 @@
   },
   "edit_notes": [
     "Order the clips 1 to 6 with a 0.3 second cross-fade; six clips of about seven seconds run to roughly 42 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
+    "scripts/stitch-commercial.py assembles the six clips with the cross-fades into one 720p preview cut (about 41.5 seconds). Use it to check pacing after any clip is re-run; the final grade and mix still happen in the editor.",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
     "Music: lay one continuous ambient track under all six clips rather than using each clip's own music, so the bed does not jump at the cuts.",
