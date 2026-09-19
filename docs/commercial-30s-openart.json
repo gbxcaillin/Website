@@ -104,7 +104,7 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6, muted. Each clip is trimmed to fit its narration line (LEAD 0.35s before, CLIP_TAIL 0.55s after) plus one dissolve's worth of real footage, rather than played in full; the last clip keeps its full length for the end card. Dissolves are 0.7s (no dip to black). One narration take split into lines, one instrumental bed under the whole cut. Runs about 35.5 seconds; loosen CLIP_TAIL and XFADE for a longer, calmer cut.",
+    "Order the clips 1 to 6, muted. Each clip is trimmed to fit its narration line (LEAD 0.35s before, CLIP_TAIL 0.55s after) plus one dissolve's worth of real footage, rather than played in full; the last clip keeps its full length for the end card. Dissolves are 0.7s (no dip to black). One narration take split into lines, one instrumental bed under the whole cut, set 18 dB under the narration (the broadcast convention; under 15 masks speech on phones), and the finished file loudness-normalised in two passes to -14 LUFS with true peak under -1 dBTP for the web (use LOUDNESS=broadcast for -24 LKFS, -2 dBTP). Runs about 35.5 seconds; loosen CLIP_TAIL and XFADE for a longer, calmer cut.",
     "scripts/stitch-commercial.py builds exactly this into a 720p preview from a clips folder. It expects the six clip files, narration-all-lines.m4a (or .mp4), narration-lines.txt (from scripts/narration-lines.py) and music-bed.m4a (or BED=<file>).",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
@@ -137,6 +137,7 @@
     "Word timestamps from a transcript end early. Cut narration lines in the middle of the detected pauses, not at the word boundaries, or the last syllable is clipped.",
     "Mute the clips and run one bed under the whole ad, or the music jumps at every join and the ad reads as six separate clips.",
     "Playing full 7s clips under 4-5s lines left long silent tails that felt slow for an ad. Trim each clip to LEAD + line + a short tail; keep the bed continuous so the gaps are never dead silence.",
-    "Trimming clips inside one big xfade filtergraph (with tpad and re-applied fps) produced a broken chain: the end card jumped in at 6 seconds and the rest went black. The fix is to pre-render each clip to a clean, constant-frame-rate file of an exact length first, then dissolve those staged files."
+    "Trimming clips inside one big xfade filtergraph (with tpad and re-applied fps) produced a broken chain: the end card jumped in at 6 seconds and the rest went black. The fix is to pre-render each clip to a clean, constant-frame-rate file of an exact length first, then dissolve those staged files.",
+    "Professional defaults that removed rounds of feedback: no logo in the first 3 seconds, 60 to 75 words for a 30, shots of 2 to 5 seconds, cuts by default and short dissolves between unrelated generations, the voice leading each join (J-cut), the bed 18 to 20 dB under the voice, and a two-pass loudness normalisation to the platform target. Sources are in .claude/skills/ai-commercial/references/conventions.md."
   ]
 }

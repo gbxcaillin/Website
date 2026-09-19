@@ -18,6 +18,19 @@ The shape of the deliverable never changed, only the parts inside it:
 
 Keep a single JSON file as the source of truth for the spot (script, voice direction, shared style, every clip's prompt and mode, edit notes, lessons). Update it every round. It is what a future session reads to pick the work up.
 
+## Professional defaults (apply without being asked)
+
+These are the conventions broadcast and agency editors work to; the reasons and sources are in `references/conventions.md`. Defaulting to them removes most of the "it feels rushed / slow / messy" rounds.
+
+- **Hook first, logo last.** No mark, name or product card in the first 3 seconds; about half an ad's value is decided there. The mark closes the spot on a 3 to 5 second end card, held at least 3 seconds.
+- **Word budget.** A 30-second spot is 60 to 75 words at 2 to 2.5 words per second; a third of the runtime has no words at all. Time a read aloud, with the pauses, before trusting a count. For a 40-second web film the same script simply breathes more.
+- **Shot rhythm.** Ads cut every 2 to 5 seconds and a shot needs 1.5 seconds to register. A 7-second clip that changes beat halfway (wide, then detail) sits closer to the convention than one held shot; ask for it in the prompt when the scene allows.
+- **Cuts by default, dissolves as ellipsis.** Straight cuts when two shots share light and palette; a short dissolve (0.5 to 0.8 seconds) between generations that do not, which is most AI joins. Dip to black only around the end card; dip through white to leave a bright scene for a dark card.
+- **Let the voice lead the picture.** A J-cut: each line starts while the previous picture is still dissolving out, so joins feel intended. Editors cut picture to the track, not the other way round.
+- **Bed 18 to 20 dB under the voice.** Under 15 the music masks speech on phones; over 25 it disappears. Measure against the narration, not the mix.
+- **Deliver to a loudness target.** Web: -14 LUFS, -1 dBTP. Broadcast: -24 LKFS, -2 dBTP (Australia OP-59 also wants 12 frames of silence head and tail and exactly 30.00 seconds). The stitch normalises in two passes; say which target you used in the caption.
+- **Finish AI footage to match.** Lock palette and light in the prompt, then in the edit: upscale, 0.3 to 0.6 px blur, 8 to 15 percent grain, a film LUT at 60 to 80 percent, and match every clip to one hero frame. The stitch does not grade; note it as the editor's pass.
+
 ## Tools you need
 
 - A text-to-video model with audio. The spot used OpenArt's `byte-plus-seedance-2-5` (text2video, 4 to 30 seconds, 480p drafts, 1080p finals). Check `openart_model_form_get` for the exact params before the first call, and `openart_model_cost` so you can tell the user what a round costs.
@@ -29,7 +42,7 @@ Bundled in `scripts/`: `stitch-commercial.py`, `narration-lines.py`, `record-too
 
 ## Phase 1: script and direction first
 
-Write the lines before any picture. Each line is one thought, 10 to 16 words, spoken in about 4 to 6 seconds. Read them aloud in order; the ad is the narration, the pictures illustrate it.
+Write the lines before any picture. Each line is one thought, 10 to 16 words, spoken in about 4 to 6 seconds; six lines is 60 to 75 words, the budget for a 30 that breathes at 36 to 40 on the web. Read them aloud in order with the pauses; the ad is the narration, the pictures illustrate it. Open on an image or a tension, never the mark; close on the mark, one line and one action.
 
 Write two paragraphs that every prompt will reuse verbatim:
 
@@ -50,6 +63,7 @@ Prompt rules that came out of the drafts (full list with reasons in `references/
 - Say "absolutely no readable text, letters, words or numbers anywhere, on any wall, screen or paper". Screens still grow tiny labels; keep them turned away, blurred, or a plain gradient. A laptop facing the camera grows a screen on its lid unless you say "plain matte lid, no display on it, the screen faces the person".
 - Rooms of people facing the lens read as a group photo. Ask for profiles and backs, a slow tracking move, "nobody looks at the camera".
 - If someone on screen is meant to be talking, say their lips move and their voice is never heard, and generate picture only. The model lip-syncs any generated voice to whoever is visible.
+- Where the scene allows, ask for two beats inside the one continuous shot (a wide that settles into a detail, or an arrival then an action) so the clip has the 2 to 5 second rhythm ads are cut to, without a second generation.
 - Show outcomes people recognise, not abstract props. "Cards in slots" read as nonsense; "the office lights up as a network and the printer hands him the page" read instantly.
 - One short line of on-screen text (a slide title) renders correctly if you ask for exactly that text, large, centred, and nothing else on the slide.
 
@@ -103,9 +117,10 @@ If moderation blocks every attempt, `ffmpeg -f lavfi -i aevalsrc=...` can synthe
 | `CLIP_EXTRA` | per-clip extra screen time, 0-based index | `{2: 0.5}` |
 | `XFADE` | dissolve length | 0.7 |
 | `WHITE_FADES` | 1-based clips whose dissolve into them goes through white | `{5}` (bright page into a black end card) |
-| `BED_TARGET_DB` | bed mean level under the narration | -31 (narration reads about -20) |
+| `BED_UNDER_DB` | bed level below the narration, measured against it | 18 (env; 18 to 20 is convention) |
+| `LOUDNESS` | final two-pass normalisation target | `web` (-14 LUFS, true peak -1.5 so the codec lands under -1), `broadcast` (-24, -2.5) or `none` (env) |
 
-Each clip is trimmed to `LEAD + line + CLIP_TAIL` plus one dissolve of real footage; the last clip keeps its full length so the end card can resolve. Clips are pre-rendered to clean constant-frame-rate files first and only then dissolved. Trimming inside one big xfade graph (with `tpad` and a re-applied `fps`) produced variable frame rate and a broken chain that jumped to the end card at 6 seconds and went black; do not go back to that.
+Each clip is trimmed to `LEAD + line + CLIP_TAIL` plus one dissolve of real footage; the last clip keeps its full length so the end card can resolve. `LEAD` is smaller than `XFADE`, so every line starts while the previous picture is still dissolving out (a J-cut). After the mix, the file is loudness-normalised to the `LOUDNESS` target, video copied, so the level is right on the platform without touching the balance. Clips are pre-rendered to clean constant-frame-rate files first and only then dissolved. Trimming inside one big xfade graph (with `tpad` and a re-applied `fps`) produced variable frame rate and a broken chain that jumped to the end card at 6 seconds and went black; do not go back to that.
 
 ## Phase 7: verify, then send
 
@@ -120,7 +135,7 @@ ffmpeg -i cut.mp4 -af "silencedetect=n=-45dB:d=0.8" -f null - 2>&1 | grep silenc
 ffmpeg -ss 28.0 -i cut.mp4 -frames:v 1 -vf "scale=8:8,format=gray" -f rawvideo - | od -An -tu1
 ```
 
-Also confirm the container is `yuv420p` (some players choke on 4:4:4). Then `SendUserFile` the cut with a caption that says the running time and what changed since last round. Never describe a fix you have not rendered and checked.
+Also confirm the container is `yuv420p` (some players choke on 4:4:4), and read the loudness line the stitch prints (measured and normalised LUFS and true peak) so the caption can state the delivery target. Then `SendUserFile` the cut with a caption that says the running time and what changed since last round. Never describe a fix you have not rendered and checked.
 
 ## Reading feedback
 
@@ -151,4 +166,4 @@ Quote costs before a batch. At 480p, a 7-second picture-only draft is the cheape
 - Commit the narration and bed as `.m4a` (extract with `-vn -c:a copy`), the captures as MP4, and the recorder and stitch scripts. Do not commit the preview cut or the generated clips; they live in OpenArt and the editor's project.
 - Log the finished cut in the content review log before publishing, and apply the house rules of the site to every caption and prompt (for this site: write the firm's name in full, no em dashes, no financial advice claims).
 
-See `references/prompts.md` for the exact prompts and `references/lessons.md` for the full list of what went wrong and why.
+See `references/prompts.md` for the exact prompts, `references/lessons.md` for the full list of what went wrong and why, and `references/conventions.md` for the professional conventions with sources.
