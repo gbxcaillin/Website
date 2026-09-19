@@ -64,15 +64,18 @@
     {
       "n": 5,
       "name": "Free tools, then the Diagnostic",
-      "mode": "text2video",
-      "params": {
-        "duration": 5,
-        "aspectRatio": "16:9",
-        "resolution": "480p",
-        "generateAudio": true,
-        "videoCount": 1,
-        "prompt": "SHARED_STYLE. Absolutely no text, letters, words or numbers anywhere in the frame, including on screens. Night. A kitchen bench. Seen from behind and over the shoulder, a person taps a laptop whose screen is turned mostly away from camera and rendered as a soft out-of-focus wash of charcoal and teal light with a single glowing teal progress bar filling, nothing readable. Their face is relaxed. Then cut to an easy, unhurried handshake across an office table in daylight, close on the hands. VOICE_DIRECTION. VOICEOVER: \"Free tools before you ever hire us. A ten-day Diagnostic when you're ready.\""
-      }
+      "mode": "screen capture of the live site, not generated",
+      "source": "docs/commercial/clip5-tools-screencap.mp4",
+      "how_it_was_made": "scripts/record-tools-clip.mjs drives headless Chromium over the built site at 1920x1080, takes one screenshot per frame at 24fps, then ffmpeg assembles the frames into H.264. Re-run it after any Tools & Insights redesign so the clip matches the live site.",
+      "shot_list": [
+        "0.0s to 0.4s: Tools & Insights hero, cursor resting top right.",
+        "0.4s to 1.7s: smooth scroll down to the tool card grid.",
+        "1.9s to 3.0s: second scroll to the next row of cards, cursor glides to Business Health Check and clicks Start the check.",
+        "3.4s to 5.2s: Business Health Check opens, cursor answers the first two questions."
+      ],
+      "audio": "The capture has no audio. Lay the voice-over and the shared music bed over it in the edit.",
+      "voiceover": "Free tools before you ever hire us. A ten-day Diagnostic when you're ready.",
+      "regenerate": "node scripts/record-tools-clip.mjs (see the header comment in that file for the preview server, fonts and ffmpeg steps)."
     },
     {
       "n": 6,
@@ -93,6 +96,7 @@
   },
   "edit_notes": [
     "Order the clips 1 to 6 with a 0.3 second cross-fade; total runs about 29 seconds with the fades.",
+    "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
     "Optionally add 'Super, explained.' to the blank slide in clip 4 with a simple corner pin, or leave the slide blank.",
     "Music: lay one continuous ambient track under all six clips rather than using each clip's own music, so the bed does not jump at the cuts.",
@@ -106,6 +110,7 @@
   "lessons_from_the_drafts": [
     "Any visible screen, slide or paper invites made-up lettering. Turn screens away, blur them, or keep them as a plain gradient.",
     "Rooms of people facing the camera read as a group photo. Ask for profiles and backs, a tracking move, and 'nobody looks at the camera'.",
-    "Five-second clips keep the read to one line and the model stays on script."
+    "Five-second clips keep the read to one line and the model stays on script.",
+    "Generated laptop and phone screens always render gibberish text. Anything that must show the product is a real screen capture, not a generation."
   ]
 }
