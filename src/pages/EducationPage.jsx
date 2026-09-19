@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, education as e } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
+import EducationFlow from '../components/EducationFlow.jsx'
 
 export default function EducationPage() {
   usePageMeta(pageMeta.education)
@@ -31,6 +32,9 @@ export default function EducationPage() {
           </div>
         </div>
       </section>
+
+      {/* The five stages, as hover-lift panels */}
+      <EducationFlow />
 
       {/* Modules */}
       <section className="section section--dark" aria-labelledby="modules-heading">
