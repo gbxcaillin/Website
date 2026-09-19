@@ -33,9 +33,9 @@ CLIPS = [
     'clip5-tools-screencap-7s.mp4',
     'clip6-endcard-picture.mp4',
 ]
-NARRATION = 'narration-all-lines.mp4'   # silent-studio carrier reading the six lines in order
+NARRATION = os.environ.get('NARRATION', 'narration-all-lines.m4a')   # one-take read of the six lines (audio or video file)
 LINES = 'narration-lines.txt'           # optional: one 'start<TAB>end' per line, in seconds, from a word-level transcript
-BED = os.environ.get('BED', 'music-bed.mp4')   # instrumental carrier (or any audio file), no voice
+BED = os.environ.get('BED', 'music-bed.m4a')   # instrumental bed (any audio or video file), no voice
 XFADE = 1.2        # seconds each dissolve takes
 PAD = 1.0          # seconds each clip holds its last frame so the picture outlives the line
 LEAD = 0.6         # seconds after a clip starts before its line begins
