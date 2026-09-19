@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import taster from '../assets/edu-flow-taster.webp'
 import lunch from '../assets/edu-flow-lunch.webp'
 import workshop from '../assets/edu-flow-workshop.webp'
@@ -18,7 +18,34 @@ const STAGES = [
 
 export default function EducationFlow() {
   const [active, setActive] = useState(null)
+  const [canHover, setCanHover] = useState(true)
+  const rowRef = useRef(null)
   const shown = STAGES.find((s) => s.key === active)
+
+  // Touch screens fire a simulated hover before the tap, which would select
+  // and then immediately toggle the panel off. So hover is only honoured for
+  // a real mouse pointer, and a tap toggles the panel it lands on.
+  const lastPointer = useRef('mouse')
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const update = () => setCanHover(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  function enter(e, key) {
+    if (e.pointerType === 'mouse') setActive(key)
+  }
+  function click(key) {
+    if (lastPointer.current === 'mouse') {
+      setActive(key)
+      return
+    }
+    setActive((cur) => (cur === key ? null : key))
+    const el = rowRef.current && rowRef.current.querySelector(`[data-stage="${key}"]`)
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }))
+  }
 
   return (
     <section className="section edu-flow" aria-labelledby="edu-flow-heading">
@@ -28,18 +55,23 @@ export default function EducationFlow() {
           <h2 id="edu-flow-heading" className="section__heading edu-flow__heading">
             Start small. Grow when it works.
           </h2>
-          <p className="section__intro">Five stages, each one optional. Hover or tap a stage to see what it involves.</p>
+          <p className="section__intro">Five stages, each one optional. {canHover ? 'Hover over' : 'Tap'} a stage to see what it involves.</p>
         </div>
 
-        <ol className="edu-flow__row" onMouseLeave={() => setActive(null)}>
+        <ol
+          ref={rowRef}
+          className={`edu-flow__row ${active ? 'has-active' : ''}`}
+          onPointerLeave={(e) => e.pointerType === 'mouse' && setActive(null)}
+        >
           {STAGES.map((s, i) => (
-            <li key={s.key} className={`edu-flow__item ${s.big ? 'edu-flow__item--big' : ''} ${active === s.key ? 'is-active' : ''}`}>
+            <li key={s.key} data-stage={s.key} className={`edu-flow__item ${s.big ? 'edu-flow__item--big' : ''} ${active === s.key ? 'is-active' : ''}`}>
               <button
                 type="button"
                 className="edu-flow__panel"
-                onMouseEnter={() => setActive(s.key)}
-                onFocus={() => setActive(s.key)}
-                onClick={() => setActive(active === s.key ? null : s.key)}
+                onPointerEnter={(e) => enter(e, s.key)}
+                onPointerDown={(e) => { lastPointer.current = e.pointerType }}
+                onFocus={(e) => { if (e.target.matches(':focus-visible')) setActive(s.key) }}
+                onClick={() => click(s.key)}
                 aria-pressed={active === s.key}
                 aria-describedby="edu-flow-caption"
               >
@@ -56,7 +88,7 @@ export default function EducationFlow() {
               <span className="mono edu-flow__caption-tag">{shown.name}</span> {shown.detail}
             </>
           ) : (
-            <span className="edu-flow__caption-hint">Education, not advice. Every stage ends with the questions worth taking to a licensed adviser.</span>
+            <span className="edu-flow__caption-hint">{canHover ? 'Education, not advice. Every stage ends with the questions worth taking to a licensed adviser.' : 'Tap a stage to enlarge it. Education, not advice.'}</span>
           )}
         </p>
       </div>
