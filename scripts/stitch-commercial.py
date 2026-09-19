@@ -42,6 +42,10 @@ XFADE = 0.7        # seconds each dissolve takes
 LEAD = 0.35        # seconds after a clip starts before its line begins
 CLIP_TAIL = 0.55   # seconds of picture after the line finishes, before the dissolve starts
 MIN_CLIP = 3.0     # never trim a clip shorter than this
+CLIP_EXTRA = {2: 0.5}   # extra seconds of screen time for specific clips (0-based index); clip 3 gets +0.5s
+WHITE_FADES = {5}  # 1-based clip numbers whose dissolve INTO them fades through white instead of a plain crossfade
+BED_HEAD = 0.5     # seconds skipped at the start of the bed when looping (avoid any intro fade)
+BED_TAIL = 2.5     # seconds skipped at the end of the bed when looping (avoid its built-in fade-out)
 BED_TARGET_DB = -31.0   # mean level the bed is brought to under the narration (narration reads about -20 dB mean)
 VO_GAIN = 1.0
 SIZE = (1280, 720)
@@ -121,7 +125,8 @@ def main(clips_dir, out):
     tmp.mkdir(exist_ok=True)
     used, shown, seg = [], [], []
     for i in range(len(vids)):
-        u = actual[i] if i == last else max(MIN_CLIP, min(LEAD + line_len[i] + CLIP_TAIL, actual[i]))
+        extra = CLIP_EXTRA.get(i, 0.0)
+        u = actual[i] if i == last else max(MIN_CLIP, min(LEAD + line_len[i] + CLIP_TAIL + extra, actual[i]))
         s = actual[i] if i == last else min(actual[i], u + XFADE)
         used.append(u)
         shown.append(s)
@@ -157,7 +162,8 @@ def main(clips_dir, out):
         fc.append(f'[{i}:v]settb=AVTB[v{i}]')
     pv = 'v0'
     for i in range(1, len(vids)):
-        fc.append(f'[{pv}][v{i}]xfade=transition=fade:duration={XFADE}:offset={starts[i]:.3f}[xv{i}]')
+        kind = 'fadewhite' if (i + 1) in WHITE_FADES else 'fade'
+        fc.append(f'[{pv}][v{i}]xfade=transition={kind}:duration={XFADE}:offset={starts[i]:.3f}[xv{i}]')
         pv = f'xv{i}'
     # narration lines
     fc.append(f'[{n_idx}:a]aresample=48000,aformat=channel_layouts=stereo,asplit={len(vids)}'
@@ -168,17 +174,22 @@ def main(clips_dir, out):
         fc.append(f'[n{i}]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.05,afade=t=out:st={b - a - 0.12:.3f}:d=0.12,'
                   f'volume={VO_GAIN},adelay={at}|{at}[l{i}]')
         mix_in.append(f'[l{i}]')
-    # bed: loop with a cross-fade if it is shorter than the cut, trim, fade at the end
-    loops = 1
-    while bed_len * loops - 3.0 * (loops - 1) < total:
-        loops += 1
-    fc.append(f'[{b_idx}:a]aresample=48000,aformat=channel_layouts=stereo,asplit={loops}'
-              + ''.join(f'[b{i}]' for i in range(loops)))
-    prev = 'b0'
-    for i in range(1, loops):
-        fc.append(f'[{prev}][b{i}]acrossfade=d=3.0:c1=tri:c2=tri[bx{i}]')
-        prev = f'bx{i}'
-    fc.append(f'[{prev}]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={bed_gain:.3f},'
+    # bed: cover the whole cut from the single take. Looping a short bed leaves a
+    # crossfade seam that dips out (audible in a voice gap), so instead slow the
+    # bed very slightly to fill the length: a drone stretched a little is
+    # imperceptible and has no seam. atempo handles 0.5x-2.0x; chain it past that.
+    factor = bed_len / total if bed_len < total else 1.0
+    tempo = ''
+    if bed_len < total - 0.05:
+        f = factor
+        steps = []
+        while f < 0.5:
+            steps.append(0.5)
+            f /= 0.5
+        steps.append(f)
+        tempo = ''.join(f'atempo={x:.5f},' for x in steps)
+    fc.append(f'[{b_idx}:a]aresample=48000,aformat=channel_layouts=stereo,{tempo}'
+              f'atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={bed_gain:.3f},'
               f'afade=t=in:d=1.0,afade=t=out:st={max(0.0, total - 2.5):.3f}:d=2.5[bed]')
     fc.append(''.join(mix_in) + f'[bed]amix=inputs={len(mix_in) + 1}:normalize=0:dropout_transition=0[aout]')
 
