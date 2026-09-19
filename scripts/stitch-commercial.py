@@ -39,7 +39,7 @@ BED = os.environ.get('BED', 'music-bed.mp4')   # instrumental carrier (or any au
 XFADE = 1.2        # seconds each dissolve takes
 PAD = 1.0          # seconds each clip holds its last frame so the picture outlives the line
 LEAD = 0.6         # seconds after a clip starts before its line begins
-BED_GAIN = 0.55    # bed level under the narration
+BED_TARGET_DB = -31.0   # mean level the bed is brought to under the narration (narration reads about -20 dB mean)
 VO_GAIN = 1.0
 SIZE = (1280, 720)
 LINE_GAP = 0.9     # pauses shorter than this are inside a line, not between lines
@@ -51,6 +51,12 @@ def ffmpeg():
         return 'ffmpeg'
     import imageio_ffmpeg
     return imageio_ffmpeg.get_ffmpeg_exe()
+
+
+def mean_db(ff, path):
+    err = subprocess.run([ff, '-hide_banner', '-i', str(path), '-af', 'volumedetect', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    return float(re.search(r'mean_volume: (-?[\d.]+) dB', err)[1])
 
 
 def duration(ff, path):
@@ -106,6 +112,8 @@ def main(clips_dir, out):
     for i, (a, b) in enumerate(lines):
         print(f'line {i + 1}: {a:.2f}s to {b:.2f}s ({b - a:.1f}s), placed at {starts[i] + LEAD:.2f}s in the cut')
     bed_len = duration(ff, d / BED)
+    bed_gain = 10 ** ((BED_TARGET_DB - mean_db(ff, d / BED)) / 20)
+    print(f'bed gain x{bed_gain:.2f}')
 
     inputs = []
     for v in vids:
@@ -142,7 +150,7 @@ def main(clips_dir, out):
     for i in range(1, loops):
         fc.append(f'[{prev}][b{i}]acrossfade=d=3.0:c1=tri:c2=tri[bx{i}]')
         prev = f'bx{i}'
-    fc.append(f'[{prev}]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={BED_GAIN},'
+    fc.append(f'[{prev}]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={bed_gain:.3f},'
               f'afade=t=in:d=1.0,afade=t=out:st={total - 2.5:.3f}:d=2.5[bed]')
     fc.append(''.join(mix_in) + f'[bed]amix=inputs={len(mix_in) + 1}:normalize=0:dropout_transition=0[aout]')
 
