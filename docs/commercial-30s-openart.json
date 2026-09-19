@@ -82,21 +82,20 @@
     },
     {
       "n": 6,
-      "name": "End card: the mark, the philosophy, the address, then the site",
-      "mode": "screen capture of the live site, not generated",
-      "source": "docs/commercial/clip6-endcard-screencap.mp4",
-      "how_it_was_made": "scripts/record-endcard-clip.mjs plays the real logo animation (public/media/logo-animation.mp4, frame by frame at 24fps) alone on black, then eases it upward while the philosophy line from the home page fades in beneath it, then www.gbxps.com, then a capture of the live home page (header and hero) fades up into the bottom of the frame. 7.5 seconds, 1920x1080, no audio.",
+      "name": "End card: the mark, the philosophy, the address",
+      "mode": "screen capture, picture only, then narration muxed in",
+      "how_it_was_made": "scripts/record-endcard-clip.mjs plays the real logo animation (public/media/logo-animation.mp4, frame by frame at 24fps) alone on black, then eases it upward while OUR PHILOSOPHY and the line Combining insight with impact for sustainable business growth fade in beneath it in the site's serif italic at 74px, then www.gbxps.com in DM Mono at 40px. 8 seconds, 1920x1080. The narration is generated on a plain carrier clip (a drifting charcoal and teal gradient, no people, no text) and its audio track is muxed onto the picture with ffmpeg. The text fades are timed to the speech onsets found with ffmpeg silencedetect.",
       "shot_list": [
-        "0.0s to 3.4s: the animated GBX mark alone, centred on black, building to the full mark.",
-        "3.4s to 4.6s: the mark eases up and shrinks a little.",
-        "3.9s to 4.9s: OUR PHILOSOPHY and the line Combining insight with impact for sustainable business growth fade in beneath the mark, in the site's serif italic.",
-        "5.1s to 5.9s: www.gbxps.com fades in below the line.",
-        "5.4s to 6.8s: the home page rises and fades in along the bottom edge, showing the header and the top of the hero.",
-        "6.8s to 7.5s: hold."
+        "0.0s to 1.8s: the animated GBX mark alone, centred on black, while the narrator says GBX Professional Services.",
+        "1.8s to 3.0s: the mark eases up and shrinks a little.",
+        "2.3s to 3.3s: OUR PHILOSOPHY and the line fade in as the narrator reads it.",
+        "5.85s to 6.65s: www.gbxps.com fades in as the narrator says the address.",
+        "6.7s to 8.0s: hold, music resolves."
       ],
-      "audio": "The capture has no audio. Lay the voice-over over it and let the music resolve on a single warm swell, then silence for the last half second.",
-      "voiceover": "Three leaders. One operating view. GBX Professional Services.",
-      "regenerate": "node scripts/record-endcard-clip.mjs (see the header comment in that file). Re-run after any home hero change."
+      "audio": "Carrier prompt: a plain, very slow drifting gradient of dark charcoal and deep teal light, soft film grain, no people, no objects, no text; low ambient pad with a soft piano motif resolving on a single warm swell; VOICE_DIRECTION; NARRATOR, off screen, with the line above. Then: ffmpeg -i picture.mp4 -i carrier.mp4 -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -shortest clip6.mp4.",
+      "voiceover": "GBX Professional Services. Combining insight with impact, for sustainable business growth. G B X P S dot com.",
+      "regenerate": "T6='{\"up\":1.8,\"phil\":2.3,\"url\":5.85}' node scripts/record-endcard-clip.mjs, then mux the carrier audio. Re-measure the onsets if the narration is re-generated.",
+      "source": "docs/commercial/clip6-endcard-screencap.mp4"
     }
   ],
   "placeholders": {
@@ -104,7 +103,7 @@
     "VOICE_DIRECTION": "Replace with the voice.direction paragraph above."
   },
   "edit_notes": [
-    "Order the clips 1 to 6 with a 0.3 second cross-fade; six clips of about seven seconds run to roughly 42 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
+    "Order the clips 1 to 6 with a 0.3 second cross-fade; the six clips run to about 42 seconds with the fades. For a strict 30-second slot, trim the tail of clips 1 to 4 after the last word rather than speeding anything up.",
     "scripts/stitch-commercial.py assembles the six clips with the cross-fades into one 720p preview cut (about 41.5 seconds). Use it to check pacing after any clip is re-run; the final grade and mix still happen in the editor.",
     "Clip 5 is a real screen capture, so grade it lightly to sit with the generated clips (a touch of the same warm contrast) and keep the cursor visible; do not crop off the header.",
     "Add the lower third 'Education, not advice.' over clip 4 in the site's off-white sans-serif, small, bottom left.",
@@ -127,6 +126,7 @@
     "A laptop facing the camera grows a screen on its lid. Say the lid is plain, matte, with no display on it, and the screen faces the person.",
     "A single short line of on-screen text (Tax basics for employees) rendered correctly at 7 seconds when asked for exactly that text, large, centred, and nothing else on the slide.",
     "If someone on screen is meant to be talking, the model lip-syncs the narration to them no matter what the prompt says. Generate that clip as picture only (generateAudio false) and mux the narration on afterwards with ffmpeg.",
-    "Abstract props (cards in slots) read as nonsense. Show the outcome people recognise instead: for AI, the work done and someone leaving on time."
+    "Abstract props (cards in slots) read as nonsense. Show the outcome people recognise instead: for AI, the work done and someone leaving on time.",
+    "For an end card, generate the narration on a plain carrier clip with no people or text, find the sentence onsets with ffmpeg silencedetect, and time the on-screen text to them."
   ]
 }
