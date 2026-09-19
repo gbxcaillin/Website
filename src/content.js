@@ -1026,7 +1026,7 @@ export const education = {
     { title: 'Life moments', body: 'The financial mechanics of buying a home, starting a family, career breaks and later life, explained in principle.' },
   ],
   formats: {
-    heading: 'Start small. Grow when it works.',
+    heading: 'Formats and fees.',
     items: [
       { name: 'Taster', detail: '30 minutes on Microsoft Teams. "Super in 30 minutes". Free, and the best way to see how we teach.' },
       { name: 'Lunch and learn', detail: '45 minutes, one team, on site or online. The usual pilot.' },
