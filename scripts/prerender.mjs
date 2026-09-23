@@ -40,6 +40,96 @@ function blocks(body) {
     .join('')
 }
 
+// ---- Structured data helpers (SEO + answer-engine attribution) ----
+
+// A light reference to the firm, reused as provider/worksFor across nodes.
+const ORG_REF = { '@type': 'ProfessionalService', name: C.site.name, url: SITE_URL + '/' }
+
+function breadcrumbJsonLd(trail) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((t, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: t.name,
+      item: SITE_URL + t.path,
+    })),
+  }
+}
+
+// A Person node per leader, so search and answer engines can attribute people.
+function leadershipJsonLd() {
+  return C.leadership.people.map((p) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: p.name,
+    jobTitle: `${p.lead} (${p.role})`,
+    description: p.body,
+    worksFor: ORG_REF,
+    url: `${SITE_URL}/leadership`,
+  }))
+}
+
+// Each tool is a free, browser-based web application: very citable for AEO.
+function toolJsonLd(name, tagline, path) {
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name,
+      description: tagline,
+      url: SITE_URL + path,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web browser',
+      isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'AUD' },
+      provider: ORG_REF,
+    },
+    breadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Tools & Insights', path: '/tools' },
+      { name, path },
+    ]),
+  ]
+}
+
+// The services page lists the disciplines; expose them as an ItemList of Services.
+function servicesJsonLd() {
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Services',
+      itemListElement: C.services.items.map((s, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Service',
+          name: s.title,
+          description: s.detail || s.body,
+          provider: ORG_REF,
+          areaServed: 'Worldwide',
+        },
+      })),
+    },
+  ]
+}
+
+// Fill a breadcrumb for any page that does not already carry one.
+function autoBreadcrumb(route) {
+  if (route.path === '/') return null
+  const segs = route.path.split('/').filter(Boolean)
+  const section = { tools: 'Tools & Insights', insights: 'Insights', 'case-studies': 'Case studies' }
+  const trail = [{ name: 'Home', path: '/' }]
+  if (segs.length > 1 && section[segs[0]]) trail.push({ name: section[segs[0]], path: `/${segs[0]}` })
+  const leaf = (route.meta && route.meta.title ? route.meta.title : segs[segs.length - 1])
+    .replace(/\s*\|.*$/, '')
+    .trim()
+  if (trail[trail.length - 1].path !== route.path) trail.push({ name: leaf, path: route.path })
+  return breadcrumbJsonLd(trail)
+}
+
 // ---- Body snippets (crawlable text; React replaces this for real users) ----
 
 function homeBody() {
@@ -284,10 +374,10 @@ function toolPageBody(slug, meta) {
 
 const routes = [
   { path: '/', meta: C.pageMeta.home, body: homeBody() },
-  { path: '/services', meta: C.pageMeta.services, body: servicesBody() },
+  { path: '/services', meta: C.pageMeta.services, body: servicesBody(), jsonld: servicesJsonLd() },
   { path: '/diagnostic', meta: C.pageMeta.diagnostic, body: diagnosticBody(), jsonld: diagnosticJsonLd() },
   { path: '/education', meta: C.pageMeta.education, body: educationBody(), jsonld: educationJsonLd() },
-  { path: '/leadership', meta: C.pageMeta.leadership, body: leadershipBody() },
+  { path: '/leadership', meta: C.pageMeta.leadership, body: leadershipBody(), jsonld: leadershipJsonLd() },
   { path: '/approach', meta: C.pageMeta.approach, body: approachBody() },
   { path: '/reach', meta: C.pageMeta.reach, body: reachBody() },
   { path: '/tools', meta: C.pageMeta.tools, body: toolsBody() },
@@ -308,6 +398,14 @@ const routes = [
   { path: '/privacy-policy', meta: C.pageMeta.privacy, body: privacyBody() },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
 ]
+
+// Attach WebApplication + breadcrumb schema to every interactive tool page.
+for (const route of routes) {
+  if (/^\/tools\/.+/.test(route.path)) {
+    const t = C.toolsPage.tools.find((x) => (x.to || x.href) === route.path)
+    if (t) route.jsonld = [...(route.jsonld || []), ...toolJsonLd(t.name, t.tagline, route.path)]
+  }
+}
 
 for (const a of articles) {
   routes.push({
@@ -386,8 +484,14 @@ function render(route) {
     /(<meta name="twitter:description" content=")[^"]*(")/,
     `$1${esc(desc)}$2`
   )
-  if (route.jsonld && route.jsonld.length) {
-    html = html.replace('<!--HEAD-INJECT-->', route.jsonld.map(jsonld).join(''))
+  // Ensure every non-home page carries a breadcrumb trail.
+  const ld = route.jsonld ? [...route.jsonld] : []
+  if (!ld.some((n) => n && n['@type'] === 'BreadcrumbList')) {
+    const bc = autoBreadcrumb(route)
+    if (bc) ld.push(bc)
+  }
+  if (ld.length) {
+    html = html.replace('<!--HEAD-INJECT-->', ld.map(jsonld).join(''))
   }
   // Wrap the crawlable stub so the pre-hydration critical CSS can hold it out
   // of view; React clears #root on mount and paints the real styled app.
