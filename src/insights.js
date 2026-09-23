@@ -24,6 +24,33 @@ const GENERAL_INFO =
 
 export const articles = [
   {
+    slug: 'six-kpis-to-watch-first',
+    category: 'analytics',
+    title: 'The six KPIs a business should watch first',
+    date: '2026-09-23',
+    readingTime: '5 min read',
+    summary:
+      'You can measure a hundred things about a business, and watching a hundred things is the same as watching none. Six numbers that earn their place in most businesses, and how to choose the right six for yours.',
+    body: [
+      { type: 'p', text: 'You can measure a hundred things about a business. Watching a hundred things is the same as watching none, because attention does not scale. The businesses that stay in control tend to watch a short set of numbers, closely and often, and leave the rest in a report they open only when they need it. Here are six that earn their place in most businesses, and how to pick the right six for yours.' },
+      { type: 'p', text: 'Before the list, the rule that makes any KPI useful. A number worth watching has to be defined the same way every time, carry a target so you know whether it is good, and have a cadence so it is reviewed on a schedule rather than when someone panics. A metric without those three is trivia.' },
+      { type: 'h', text: 'One: cash position and runway' },
+      { type: 'p', text: 'Cash is survival, and it is the number owners feel but often do not track precisely. Watch your cash balance and, more usefully, your runway: how many months the business could operate at the current burn if income stopped. Profit on paper has never paid a wage. Runway tells you how much time you have to fix a problem, which is the most important thing to know in a tight month.' },
+      { type: 'h', text: 'Two: gross margin' },
+      { type: 'p', text: 'Gross margin is what is left after the direct cost of delivering what you sell. It tells you whether the core of the business actually works, before overheads and before growth. A business can grow revenue for years and still go backwards if each sale earns too little. Track it as a percentage, watch the trend, and be suspicious of any month where revenue rises but margin falls.' },
+      { type: 'h', text: 'Three: revenue against plan' },
+      { type: 'p', text: 'Revenue on its own is a vanity number. Revenue against the plan you set is a scorecard. The gap between what you expected and what happened is where the learning sits: a shortfall you can explain is fine, a shortfall that surprises you is a signal your assumptions are wrong. If you did not set a plan, that is the first thing to fix.' },
+      { type: 'h', text: 'Four: the cost and value of a customer' },
+      { type: 'p', text: 'Two numbers that only mean something together: what it costs you to win a customer, and what that customer is worth over their life with you. If acquisition costs more than the customer returns, growth makes the problem bigger, not smaller. Watch the ratio, and watch the payback period, the time it takes a new customer to earn back what you spent winning them. It is the difference between growth that funds itself and growth that drains the account.' },
+      { type: 'h', text: 'Five: retention' },
+      { type: 'p', text: 'It is cheaper to keep a customer than to win one, so retention quietly drives profit more than acquisition does. Depending on your business this is a repeat-purchase rate, a renewal rate, or the inverse of churn. A leaky bucket cannot be filled by pouring faster. If retention is slipping, fix that before you spend more on winning new customers.' },
+      { type: 'h', text: 'Six: utilisation or revenue per person' },
+      { type: 'p', text: 'For any business that sells time or capacity, the last number is how well that capacity is used. Utilisation, or more simply revenue per employee, tells you whether the team is productive and whether you have room to grow without hiring. It is often where the fastest margin gains hide, because a small lift in utilisation drops almost straight to the bottom line.' },
+      { type: 'h', text: 'Choose the six that fit your goal' },
+      { type: 'p', text: 'This is a sensible default, not a law. The right six depend on what you are trying to do this year. A business chasing growth watches pipeline and acquisition harder, one protecting margin watches cost and utilisation, one stabilising cash watches runway and collections. Pick the handful that map to your goal, define each one, give it a target and a cadence, and review the same set every month. Our free KPI Starter tool builds that shortlist for you, with definitions, targets and a review rhythm, in a couple of minutes.' },
+    ],
+  },
+  {
     slug: 'what-a-business-diagnostic-looks-at',
     category: 'analytics',
     title: 'What a ten-day business diagnostic actually looks at',
