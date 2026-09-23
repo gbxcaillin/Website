@@ -24,6 +24,7 @@ const FIRM = {
   url: 'https://gbxps.com',
   urlLabel: 'gbxps.com',
   abn: 'ABN 45 674 252 905',
+  philosophy: 'Combining insight with impact for sustainable business growth.',
 }
 
 export function escapeHtml(s) {
@@ -114,8 +115,16 @@ export function wrapEmail({ eyebrow, title, preheader, bodyHtml, cta }) {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${SOFT};padding:24px 12px;">
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:${PAPER};border:1px solid ${LINE};border-radius:8px;overflow:hidden;">
-        <tr><td style="background:${VOID};padding:24px 32px;" align="left">
-          <img src="${FIRM.url}/media/logo-poster.jpg" width="116" height="116" alt="${FIRM.name}" style="display:block;border:0;outline:none;text-decoration:none;width:116px;height:116px;" />
+        <tr><td style="background:${VOID};padding:24px 32px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+            <td valign="middle" width="104" style="width:104px;">
+              <img src="${FIRM.url}/media/logo-poster.jpg" width="104" height="104" alt="${FIRM.name}" style="display:block;border:0;outline:none;text-decoration:none;width:104px;height:104px;" />
+            </td>
+            <td valign="middle" style="padding-left:22px;">
+              <p style="margin:0 0 7px;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:${TEAL};">Our philosophy</p>
+              <p style="margin:0;font-family:Georgia,serif;font-size:16px;line-height:23px;color:${PAPER};font-style:italic;">${escapeHtml(FIRM.philosophy)}</p>
+            </td>
+          </tr></table>
         </td></tr>
         <tr><td style="height:3px;background:${TEAL};line-height:3px;font-size:0;">&nbsp;</td></tr>
         <tr><td style="padding:30px 32px 8px;">
