@@ -24,6 +24,33 @@ const GENERAL_INFO =
 
 export const articles = [
   {
+    slug: 'what-a-business-diagnostic-looks-at',
+    category: 'analytics',
+    title: 'What a ten-day business diagnostic actually looks at',
+    date: '2026-09-23',
+    readingTime: '5 min read',
+    summary:
+      'A diagnostic is a short, fixed-scope look at how a business actually runs, done before you commit to a big project. Here is what ten days covers, and what you walk away with.',
+    body: [
+      { type: 'p', text: 'Most businesses do not need another opinion. They need an accurate picture. A diagnostic is a short, fixed-scope look at how a business actually runs, done before anyone commits to a big project, so the work that follows is aimed at the right problem. Our version runs over ten days. Here is what those ten days actually cover, and what you walk away with.' },
+      { type: 'p', text: 'The point of a fixed scope is honesty. You know the cost and the finish date before you start, the work does not sprawl, and there is no incentive to find reasons to keep going. At the end you own a plan, whether or not you do anything else with us.' },
+      { type: 'h', text: 'Why ten days, and why it barely touches your calendar' },
+      { type: 'p', text: 'Ten days is long enough to look properly and short enough to stay disciplined. The elapsed time is ours, not yours. Across the whole engagement you spend around four to six hours: a kick-off, a few interviews, a short data request and the readout. Everything is scheduled around your calendar so the business keeps running as normal. Nobody downs tools for a fortnight.' },
+      { type: 'h', text: 'The numbers, read for what they are telling you' },
+      { type: 'p', text: 'The first strand is your numbers. Not an audit, and not a rebuild of your accounts, but a read of what your management figures actually say about the business. Where is the margin, and where is it leaking. Which customers, products or services make money and which quietly cost you. What the trend over the last year or two reveals that a single month hides. Most owners have the data. Fewer have had someone sit with it and ask the awkward questions.' },
+      { type: 'h', text: 'The systems and processes, where time and money leak' },
+      { type: 'p', text: 'The second strand is how work actually flows. We walk your main systems and the handful of processes that carry the most volume, looking for the friction that caps capacity and margin: the double-handling, the manual steps that could be automated, the handoffs where things stall or get dropped. This is usually where the fastest gains sit, because fixing a process pays back every time the process runs.' },
+      { type: 'h', text: 'The people, because the team already knows' },
+      { type: 'p', text: 'The third strand is the people. The team doing the work usually knows where the problems are long before the numbers show them. A few structured interviews surface what is obvious on the floor and invisible from the top: the workaround everyone relies on, the report nobody trusts, the bottleneck that has quietly become normal. We are listening for patterns, not collecting complaints.' },
+      { type: 'h', text: 'The output, a prioritised plan you own' },
+      { type: 'p', text: 'At the end you get two things. A prioritised opportunity map, so you can see where the fastest and most durable gains sit and what each is roughly worth, and a 90-day plan that says what to do first, next and after that. It is written to be used, not filed. You own it. Some clients run it themselves from there, some ask us to deliver specific parts, and either is a good outcome. There is no assumption you will do anything beyond the diagnostic itself.' },
+      { type: 'h', text: 'What it is not' },
+      { type: 'p', text: 'It is not a sales pitch dressed as a review. It is not a hundred-page report that says what you already knew in longer sentences. And it is not a generic template with your logo on it. The scope is fixed, the plan is specific to your business, and the recommendations are the ones we would act on if the business were ours.' },
+      { type: 'h', text: 'How to start' },
+      { type: 'p', text: 'If you want to test the water first, the free Business Health Check takes two minutes and gives you a rough read across the same areas, and a diagnostic call costs nothing and carries no obligation. The diagnostic itself is a fixed fee, and if you go on to delivery work with us soon after, that fee is credited in full against it. The aim is simple: an accurate picture, a plan you can act on, and the confidence to spend on the right thing rather than the loudest thing.' },
+    ],
+  },
+  {
     slug: 'compliance-questions-before-adopting-ai',
     category: 'ai',
     title: 'The compliance questions every business should ask before adopting AI',
