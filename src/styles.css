@@ -3170,6 +3170,30 @@ button {
   transform: rotate(-45deg);
 }
 
+/* FAQ (shared Faq component) */
+.faq__list {
+  margin: 0;
+  max-width: 820px;
+}
+.faq__item {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+.faq__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.faq__q {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+.faq__a {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
 /* FAQ */
 .diag-faq__list {
   margin: 0;

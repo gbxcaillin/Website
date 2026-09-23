@@ -177,6 +177,31 @@ export const services = {
       ],
     },
   ],
+  faq: {
+    heading: 'Common questions',
+    items: [
+      {
+        q: 'What does GBX Professional Services actually do?',
+        a: 'We help professional-services firms, advice practices and other businesses run more clearly, sell more confidently and adopt AI with discipline. The work spans seven disciplines, from analytics and process improvement to sales, marketing, AI readiness and financial and compliance education. Most engagements start with a diagnostic and extend into the areas that matter most.',
+      },
+      {
+        q: 'Do you only work with businesses in Melbourne?',
+        a: 'No. We are based in Melbourne and deliver globally through a partner network, with clients across Australia, Asia, the Middle East and North America. Interviews and workshops run well over Microsoft Teams.',
+      },
+      {
+        q: 'Does GBX Professional Services hold an Australian Financial Services Licence (AFSL)?',
+        a: 'No. GBX Professional Services does not hold an AFSL and does not provide financial product advice or any other financial service. Our investment-related work is operational, analytical and educational support for licensed professionals, who keep the regulated decisions.',
+      },
+      {
+        q: 'How does an engagement usually start?',
+        a: 'Most begin with the Performance Diagnostic, a fixed-scope ten-day review that maps the opportunities and gives you a 90-day plan you own. From there you can run the plan yourself or ask us to deliver specific parts.',
+      },
+      {
+        q: 'How is this different from a larger consulting firm?',
+        a: 'Every engagement is led by one of our three leaders, close to the work and accountable for the outcome. There are no hand-offs to junior teams and no distance between you and the people doing the thinking.',
+      },
+    ],
+  },
 }
 
 export const leadership = {
@@ -1050,6 +1075,31 @@ export const education = {
   },
   compliance:
     'GBX Professional Services does not hold an Australian Financial Services Licence and does not provide financial product advice. Our sessions are general information and education only. Where personal advice is needed, we point people to a licensed adviser, and in the Client Education Series that adviser is you.',
+  faq: {
+    heading: 'Common questions',
+    items: [
+      {
+        q: 'Is the Financial Fluency Program financial advice?',
+        a: 'No. It is general financial education only. GBX Professional Services does not hold an Australian Financial Services Licence and does not provide financial product advice. The program builds understanding and confidence, it does not recommend financial products or tell anyone what to buy, sell or switch.',
+      },
+      {
+        q: 'Who is the program for?',
+        a: 'The Financial Fluency Program is a staff benefit for workplaces, and the Client Education Series is for advice and accounting practices that want an independent educator for their clients. Both are written in plain language for people without a finance background.',
+      },
+      {
+        q: 'Can it be tailored to our workplace or practice?',
+        a: 'Yes. The six modules can be sequenced and adapted to your audience and delivered as a taster, a lunch-and-learn, a single workshop or a full program, sized to the time you have.',
+      },
+      {
+        q: 'How is it delivered?',
+        a: 'On site in Melbourne or live on Microsoft Teams anywhere, as single sessions or a run of modules. We schedule around your calendar so it fits alongside normal work.',
+      },
+      {
+        q: 'What topics does it cover?',
+        a: 'Six plain-language modules: money foundations, superannuation, investing concepts, tax basics for employees, protecting yourself, and life moments. Every module is factual and conceptual, delivered as general education rather than personal advice.',
+      },
+    ],
+  },
   cta: {
     heading: 'Book a free taster for your team.',
     body: 'Thirty minutes on Microsoft Teams, no cost, no obligation. See how we teach before you decide anything.',

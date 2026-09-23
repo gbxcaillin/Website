@@ -6,6 +6,7 @@ import { serviceMedia } from '../serviceMedia.js'
 import PageHero from '../components/PageHero.jsx'
 import CTA from '../components/CTA.jsx'
 import WhyUs from '../components/WhyUs.jsx'
+import Faq from '../components/Faq.jsx'
 
 export default function ServicesPage() {
   usePageMeta(pageMeta.services)
@@ -88,6 +89,8 @@ export default function ServicesPage() {
       </section>
 
       <WhyUs />
+
+      <Faq heading={services.faq.heading} items={services.faq.items} id="services-faq" />
 
       <CTA />
     </>
