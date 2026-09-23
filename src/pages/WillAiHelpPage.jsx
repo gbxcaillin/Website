@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta.js'
-import { pageMeta } from '../content.js'
+import { pageMeta, aiComplianceFaq } from '../content.js'
 import { sectors, doors, win, toolTypes, levels } from '../aiGuide.js'
 import PageHero from '../components/PageHero.jsx'
 import ToolLeadCapture from '../components/ToolLeadCapture.jsx'
 import ToolCTA from '../components/ToolCTA.jsx'
+import Faq from '../components/Faq.jsx'
 
 /**
  * "Will AI actually help?" A choose-your-own-adventure board: pick a sector,
@@ -286,6 +287,8 @@ export default function WillAiHelpPage() {
           <p className="edu-compliance">General information only. It does not take your circumstances into account and is not legal, financial or compliance advice. Regulatory references are current to September 2026 and should be checked with your licensee, professional body or adviser. <Link to="/contact" className="text-link">Talk to us</Link> if you want a second opinion before you spend anything.</p>
         </div>
       </section>
+
+      <Faq heading={aiComplianceFaq.heading} items={aiComplianceFaq.items} id="ai-compliance-faq" />
     </>
   )
 }

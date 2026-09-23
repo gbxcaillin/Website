@@ -100,9 +100,8 @@ on the page, so content and schema ship together.
 - [x] Education FAQ (five questions, including the advice boundary).
 - [ ] Home page FAQ (three or four broad questions: what GBX does, who it is
       for, where it works, the AFSL position).
-- [ ] A focused "AI and compliance" FAQ, likely on the AI readiness tool or a
-      short guide page, answering the question advice and accounting practices
-      actually ask.
+- [x] AI and compliance FAQ (seven questions) on the "Will AI actually help?"
+      guide, answering what advice and accounting practices actually ask.
 
 Titles and descriptions. Once Search Console has data, rewrite the weakest
 performing titles and descriptions in `src/content.js` `pageMeta` toward how
