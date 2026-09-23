@@ -69,6 +69,7 @@ export async function onRequestPost(context) {
   }
 
   // 2. Email owner + visitor (best effort)
+  let visitorEmailed = false
   if (env.RESEND_API_KEY) {
     const from = env.MAIL_FROM || FROM_DEFAULT
     const owner = env.MAIL_TO || OWNER_DEFAULT
@@ -98,15 +99,21 @@ export async function onRequestPost(context) {
       visitorText = `${greeting}\n\nThanks for using our ${record.source}. Here are your results.\n\n${record.summary}\n\nA quick note: a tool like this is a starting point, not the full picture. If anything here rings true, we would be glad to take a proper look with you.\n\nGBX Professional Services\nhttps://gbxps.com`
     }
 
-    await sendEmail(env, {
-      from,
-      to: email,
-      subject: visitorSubject,
-      text: visitorText,
-    }).catch((e) => console.error('visitor email failed:', e))
+    try {
+      await sendEmail(env, {
+        from,
+        to: email,
+        subject: visitorSubject,
+        text: visitorText,
+      })
+      visitorEmailed = true
+    } catch (e) {
+      console.error('visitor email failed:', e)
+    }
   }
 
-  return json({ ok: true })
+  // `emailed` lets the UI promise an email only when one was actually sent.
+  return json({ ok: true, emailed: visitorEmailed })
 }
 
 async function sendEmail(env, payload) {
