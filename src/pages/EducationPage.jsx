@@ -3,6 +3,7 @@ import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, education as e } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
 import EducationFlow from '../components/EducationFlow.jsx'
+import Faq from '../components/Faq.jsx'
 
 export default function EducationPage() {
   usePageMeta(pageMeta.education)
@@ -101,6 +102,8 @@ export default function EducationPage() {
           <p className="edu-compliance">{e.compliance}</p>
         </div>
       </section>
+
+      <Faq heading={e.faq.heading} items={e.faq.items} id="education-faq" />
 
       <section className="cta" aria-labelledby="edu-cta-heading">
         <div className="container cta__inner">

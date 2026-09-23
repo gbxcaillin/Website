@@ -116,6 +116,27 @@ function servicesJsonLd() {
   ]
 }
 
+// FAQPage schema from a { heading, items:[{q,a}] } block. The same items are
+// rendered visibly on the page, which is what Google's FAQ markup requires.
+function faqJsonLd(faq) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.items.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+}
+
+// Crawlable FAQ markup for the prerendered body (mirrors the on-page section).
+function faqSection(faq) {
+  return `<section><h2>${esc(faq.heading)}</h2><dl>${faq.items
+    .map((f) => `<dt>${esc(f.q)}</dt><dd>${esc(f.a)}</dd>`)
+    .join('')}</dl></section>`
+}
+
 // Fill a breadcrumb for any page that does not already carry one.
 function autoBreadcrumb(route) {
   if (route.path === '/') return null
@@ -158,7 +179,7 @@ function servicesBody() {
           `<section id="service-${s.number}"><h2>${esc(s.title)}</h2><p>${esc(s.detail)}</p>
         <ul>${s.includes.map((i) => `<li>${esc(i)}</li>`).join('')}</ul></section>`
       )
-      .join('')}</main>`
+      .join('')}${faqSection(services.faq)}</main>`
 }
 function approachBody() {
   const { approach } = C
@@ -279,7 +300,8 @@ function educationBody() {
     <section><h2>${esc(e.why.heading)}</h2><ul>${e.why.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
     <p>${esc(e.pricing.label)}: ${esc(e.pricing.value)}. ${esc(e.pricing.note)}</p>
     <p>${esc(e.compliance)}</p>
-    <section><h2>${esc(e.cta.heading)}</h2><p>${esc(e.cta.body)}</p><a href="/contact">${esc(e.cta.primary.label)}</a></section></main>`
+    <section><h2>${esc(e.cta.heading)}</h2><p>${esc(e.cta.body)}</p><a href="/contact">${esc(e.cta.primary.label)}</a></section>
+    ${faqSection(e.faq)}</main>`
 }
 function educationJsonLd() {
   return [
@@ -374,9 +396,9 @@ function toolPageBody(slug, meta) {
 
 const routes = [
   { path: '/', meta: C.pageMeta.home, body: homeBody() },
-  { path: '/services', meta: C.pageMeta.services, body: servicesBody(), jsonld: servicesJsonLd() },
+  { path: '/services', meta: C.pageMeta.services, body: servicesBody(), jsonld: [...servicesJsonLd(), faqJsonLd(C.services.faq)] },
   { path: '/diagnostic', meta: C.pageMeta.diagnostic, body: diagnosticBody(), jsonld: diagnosticJsonLd() },
-  { path: '/education', meta: C.pageMeta.education, body: educationBody(), jsonld: educationJsonLd() },
+  { path: '/education', meta: C.pageMeta.education, body: educationBody(), jsonld: [...educationJsonLd(), faqJsonLd(C.education.faq)] },
   { path: '/leadership', meta: C.pageMeta.leadership, body: leadershipBody(), jsonld: leadershipJsonLd() },
   { path: '/approach', meta: C.pageMeta.approach, body: approachBody() },
   { path: '/reach', meta: C.pageMeta.reach, body: reachBody() },
