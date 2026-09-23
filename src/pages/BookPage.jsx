@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, bookingPage, site } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
@@ -10,6 +11,14 @@ import PageHero from '../components/PageHero.jsx'
  */
 export default function BookPage() {
   usePageMeta(pageMeta.book)
+  // Cache-bust the embed so each visit loads the current schedule rather than a
+  // browser-cached copy of the Microsoft Bookings page. Computed once per mount,
+  // so the frame does not reload part way through a visit.
+  const embedSrc = useMemo(() => {
+    if (!site.bookingUrl) return ''
+    const sep = site.bookingUrl.includes('?') ? '&' : '?'
+    return `${site.bookingUrl}${sep}cb=${Date.now()}`
+  }, [])
   return (
     <>
       <PageHero eyebrow={bookingPage.eyebrow} title={bookingPage.heading} intro={bookingPage.intro} />
@@ -19,7 +28,7 @@ export default function BookPage() {
             <div className="book-embed">
               <iframe
                 className="book-embed__frame"
-                src={site.bookingUrl}
+                src={embedSrc}
                 title="Book a call with GBX Professional Services"
                 loading="lazy"
               />
