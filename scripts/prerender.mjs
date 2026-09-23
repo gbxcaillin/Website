@@ -389,7 +389,12 @@ function render(route) {
   if (route.jsonld && route.jsonld.length) {
     html = html.replace('<!--HEAD-INJECT-->', route.jsonld.map(jsonld).join(''))
   }
-  html = html.replace('<div id="root"></div>', `<div id="root">${route.body}</div>`)
+  // Wrap the crawlable stub so the pre-hydration critical CSS can hold it out
+  // of view; React clears #root on mount and paints the real styled app.
+  html = html.replace(
+    '<div id="root"></div>',
+    `<div id="root"><div data-prerender>${route.body}</div></div>`
+  )
   return html
 }
 
