@@ -407,39 +407,40 @@ export const brand = {
 }
 
 // AI and compliance FAQ, shown on the "Will AI actually help?" guide. Written
-// for advice and accounting practices. General information only: it must not
-// imply that GBX Professional Services holds an AFSL or gives legal, compliance
-// or financial advice.
+// for any business adopting AI. Regulated industries (including financial
+// services) are one example, not the focus. General information only: it must
+// not imply that GBX Professional Services holds an AFSL or gives legal,
+// compliance or financial advice.
 export const aiComplianceFaq = {
   heading: 'AI and compliance, common questions',
   items: [
     {
-      q: 'Does my advice practice need an AFSL to use AI?',
-      a: 'No. Using AI to take notes, draft, summarise or research is not itself a financial service and does not require an Australian Financial Services Licence. What needs a licence is providing financial product advice or dealing, and that is true whether a person or an AI helped prepare it. The licence attaches to the advice and the adviser, not to the software. GBX Professional Services does not hold an AFSL and helps you adopt AI operationally, with the regulated decisions staying inside your licensed practice.',
+      q: 'Is it safe to put company or customer information into an AI tool?',
+      a: 'Only with the right controls. Consumer chatbots may use what you type to improve their models and may store it offshore, which can put your privacy and confidentiality obligations at risk. Use business-grade tools with a data agreement, data handling you are comfortable with, and model training turned off. As a rule, do not paste customer-identifying or confidential information into any tool you have not checked first.',
     },
     {
-      q: 'Can AI give financial advice to my clients?',
-      a: 'No. Personal financial advice must be provided by a licensed practice through a person who is responsible for it. AI can draft, summarise and prepare, but a qualified person has to review, own and take responsibility for anything that reaches a client as advice. Treat AI output as a first draft, never as the advice itself.',
+      q: 'Who is responsible if AI gets something wrong?',
+      a: 'Your business is. AI can draft, summarise and suggest, but whoever sends the output to a customer, a regulator or a decision owns it. Treat AI output as a first draft and keep a person accountable for reviewing anything that leaves the building. Build that review step into the workflow rather than trusting the tool.',
     },
     {
-      q: 'Is it safe to put client information into an AI tool?',
-      a: 'Only with the right controls. Consumer chatbots may use what you type to improve their models and may store it offshore, which can put your privacy and confidentiality obligations at risk. Use business-grade tools with a data agreement, data handling you are comfortable with, and model training turned off. As a rule, do not paste client-identifying information into any tool you have not checked first.',
+      q: 'What are the main compliance risks of using AI in a business?',
+      a: 'The common ones are: confidential or customer data leaving your control; AI errors or invented facts reaching a customer unchecked; gaps in your records and audit trail; and AI output being used as a final answer without a person reviewing it. Each is manageable with a clear policy, tools you have vetted, and a human review step before anything goes out.',
     },
     {
-      q: 'What are the main compliance risks of using AI in a regulated practice?',
-      a: 'The common ones are: confidential client data leaving your control; AI errors or invented facts reaching a client unchecked; gaps in your records and audit trail; and AI output being used as advice without a qualified person reviewing it. Each is manageable with a clear policy, tools you have vetted, and a human review step before anything goes out.',
+      q: 'Do we need an AI policy?',
+      a: 'For most businesses, yes, even a short one. A single page that says which tools are approved, what may and may not go into them, who reviews AI output before it is used, and who to ask when unsure prevents most of the problems above. It also gives your team the confidence to use AI well, rather than quietly or not at all.',
     },
     {
-      q: 'Do we have to tell clients or regulators that we use AI?',
-      a: 'There is no blanket rule that you must, but your existing obligations still apply: accurate records, being clear with clients about how their data is handled, and any guidance from your licensee or professional body. Check the current position with your licensee and professional body, and keep your engagement terms and privacy policy consistent with how you actually use these tools.',
+      q: 'Do regulated industries have extra rules?',
+      a: 'Yes. If you work in a licensed or regulated field, such as financial services, health or law, your existing obligations still apply to AI-assisted work, and your regulator or professional body may have specific guidance to check before AI touches regulated decisions or advice. As one example, in financial services, providing financial product advice needs an Australian Financial Services Licence whether a person or an AI helped prepare it. GBX Professional Services does not hold an AFSL and does not provide financial advice; we help you adopt AI operationally, with the regulated decisions staying inside your licensed business.',
     },
     {
-      q: 'Where should a practice start with AI, safely?',
-      a: 'Start with low-risk, high-repetition tasks that do not touch client-identifying data or produce advice: internal drafting, meeting notes, summarising public research, first-draft marketing. Put a short AI policy and an approved-tools list in place, add a human review step, then expand from there. The guide above and our AI Readiness Assessment help you find a sensible first use case.',
+      q: 'Where should a business start with AI, safely?',
+      a: 'Start with low-risk, high-repetition tasks that do not touch confidential data or make final decisions: internal drafting, meeting notes, summarising public research, first-draft marketing. Put a short AI policy and an approved-tools list in place, add a human review step, then expand from there. The guide above and our AI Readiness Assessment help you find a sensible first use case.',
     },
     {
       q: 'Does GBX Professional Services give legal or compliance advice on this?',
-      a: 'No. We help you adopt AI with discipline: readiness, tooling, governance guardrails, process and training. This is general information, not legal, compliance or financial advice. Your licensee, your professional body and, where you need it, a lawyer remain the source of truth on your specific obligations.',
+      a: 'No. We help you adopt AI with discipline: readiness, tooling, governance guardrails, process and training. This is general information, not legal, compliance or financial advice. Your own advisers, and where relevant your licensee or professional body, remain the source of truth on your specific obligations.',
     },
   ],
 }

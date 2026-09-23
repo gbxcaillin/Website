@@ -7,10 +7,17 @@ each part. Update it as things ship.
 
 Guardrails that apply to everything below:
 
+- Positioning: GBX Professional Services offers professional services to any
+  business. Financial services is one vertical (the financial education
+  practice), not the identity. Write content for businesses in general, not
+  mainly for advice and accounting practices, and use financial firms only as
+  one example among several. Do not centre content on AFSL or financial-services
+  compliance.
 - Always write "GBX Professional Services" in full.
 - No em dashes anywhere.
-- GBX Professional Services does not hold an AFSL and must never imply
-  financial product advice. FAQ and article copy stays general and educational.
+- AFSL appears only as the single necessary disclaimer: GBX Professional
+  Services does not hold an AFSL and cannot provide financial product advice.
+  Keep it to that, do not dwell on it, and keep all copy general and educational.
 
 ---
 
@@ -101,7 +108,8 @@ on the page, so content and schema ship together.
 - [ ] Home page FAQ (three or four broad questions: what GBX does, who it is
       for, where it works, the AFSL position).
 - [x] AI and compliance FAQ (seven questions) on the "Will AI actually help?"
-      guide, answering what advice and accounting practices actually ask.
+      guide, written for any business adopting AI (regulated fields, including
+      financial services, are one example, not the focus).
 
 Titles and descriptions. Once Search Console has data, rewrite the weakest
 performing titles and descriptions in `src/content.js` `pageMeta` toward how
@@ -113,11 +121,12 @@ Articles. The `/insights` engine already exists. One or two genuinely useful
 articles a month compounds. Each should answer one real question completely, so
 it is quotable on its own. Draft topics:
 
-- Does my advice practice need an AFSL to use AI?
+- The compliance questions every business should ask before adopting AI.
 - What a ten day business diagnostic actually looks at.
-- The six KPIs a professional services firm should watch first.
-- Financial wellbeing at work: what employers can and cannot say.
+- The six KPIs a business should watch first.
 - When AI will not help your business yet, and what to fix first.
+- Financial wellbeing at work: what employers can and cannot say (education
+  practice).
 
 ### 4. Off site (you, ongoing)
 
