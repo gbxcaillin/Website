@@ -406,6 +406,18 @@ export const brand = {
   line: 'Combining insight with impact for sustainable business growth.',
 }
 
+// The /book page embeds the Microsoft Bookings scheduler (site.bookingUrl) so
+// booking happens on gbxps.com rather than sending visitors off to the raw
+// Bookings URL.
+export const bookingPage = {
+  eyebrow: 'Book a call',
+  heading: 'Book a call with GBX Professional Services.',
+  intro:
+    'Pick a time that suits you for a short call, on the phone or Microsoft Teams. Choose a slot below and you will get a confirmation and a calendar invite.',
+  fallback: 'If the scheduler does not load,',
+  fallbackCta: 'open the booking page in a new tab',
+}
+
 // Tools & Insights: a hub for practical tools we have built and articles worth sharing.
 export const toolsPage = {
   eyebrow: 'Tools & Insights',
@@ -1254,5 +1266,9 @@ export const pageMeta = {
   contact: {
     title: 'Contact | GBX Professional Services',
     description: 'Start a conversation with GBX Professional Services. Tell us what you are working on and we will reply within two business days.',
+  },
+  book: {
+    title: 'Book a call | GBX Professional Services',
+    description: 'Book a short call with GBX Professional Services, on the phone or Microsoft Teams. Choose a time that suits you.',
   },
 }

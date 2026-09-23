@@ -27,6 +27,7 @@ import CaseStudiesPage from './pages/CaseStudiesPage.jsx'
 import CaseStudyPage from './pages/CaseStudyPage.jsx'
 import PrivacyPage from './pages/PrivacyPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
+import BookPage from './pages/BookPage.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="case-studies/:slug" element={<CaseStudyPage />} />
           <Route path="privacy-policy" element={<PrivacyPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="book" element={<BookPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

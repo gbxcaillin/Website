@@ -245,6 +245,11 @@ function contactBody() {
     <p>Email: <a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
     <p>Office: ${esc(site.address)}</p></main>`
 }
+function bookBody() {
+  const { bookingPage, site } = C
+  return `<main><p>${esc(bookingPage.eyebrow)}</p><h1>${esc(bookingPage.heading)}</h1><p>${esc(bookingPage.intro)}</p>
+    ${site.bookingUrl ? `<p><a href="${esc(site.bookingUrl)}">Book a call with GBX Professional Services</a></p>` : ''}</main>`
+}
 function diagnosticBody() {
   const d = C.diagnostic
   const w = C.whyUs
@@ -419,6 +424,7 @@ const routes = [
   { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },
   { path: '/privacy-policy', meta: C.pageMeta.privacy, body: privacyBody() },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
+  { path: '/book', meta: C.pageMeta.book, body: bookBody() },
 ]
 
 // Attach WebApplication + breadcrumb schema to every interactive tool page.

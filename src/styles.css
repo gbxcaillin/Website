@@ -3170,6 +3170,26 @@ button {
   transform: rotate(-45deg);
 }
 
+/* Booking embed (/book) */
+.book-embed {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--gbx-paper);
+}
+.book-embed__frame {
+  display: block;
+  width: 100%;
+  min-height: 1150px;
+  border: 0;
+}
+.book-embed__fallback {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+
 /* FAQ (shared Faq component) */
 .faq__list {
   margin: 0;

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { contact, site } from '../content.js'
+import BookLink from './BookLink.jsx'
 import conversationWebp from '../assets/contact-conversation.webp'
 import conversationJpg from '../assets/contact-conversation.jpg'
 
@@ -57,13 +58,9 @@ export default function Contact() {
           <div className="contact__book">
             <p className="contact__book-heading">{contact.bookingHeading}</p>
             <p className="contact__book-body">{contact.bookingBody}</p>
-            <a
-              href={site.bookingUrl || '#enquiry-form'}
-              {...(site.bookingUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="btn btn--outline-dark btn--sm"
-            >
+            <BookLink to="#enquiry-form" className="btn btn--outline-dark btn--sm">
               {contact.bookingCta}
-            </a>
+            </BookLink>
           </div>
 
           <dl className="contact__details">
