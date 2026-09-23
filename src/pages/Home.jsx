@@ -1,5 +1,5 @@
 import usePageMeta from '../hooks/usePageMeta.js'
-import { pageMeta } from '../content.js'
+import { pageMeta, homeFaq } from '../content.js'
 import BrandFilm from '../components/BrandFilm.jsx'
 import Hero from '../components/Hero.jsx'
 import Services from '../components/Services.jsx'
@@ -11,6 +11,7 @@ import EducationBand from '../components/EducationBand.jsx'
 import ReachSummary from '../components/ReachSummary.jsx'
 import CaseStudiesTeaser from '../components/CaseStudiesTeaser.jsx'
 import HomeTools from '../components/HomeTools.jsx'
+import Faq from '../components/Faq.jsx'
 import CTA from '../components/CTA.jsx'
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
       <ReachSummary />
       <CaseStudiesTeaser />
       <HomeTools />
+      <Faq heading={homeFaq.heading} items={homeFaq.items} id="home-faq" />
       <CTA />
     </>
   )
