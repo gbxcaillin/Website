@@ -15,6 +15,7 @@ import { site } from '../content.js'
 export default function ToolLeadCapture({ toolName, data, findingsText }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const [emailed, setEmailed] = useState(false) // did a results email actually send?
 
   async function onSubmit(e) {
     e.preventDefault()
@@ -34,6 +35,8 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
           page: typeof window !== 'undefined' ? window.location.href : '',
         }),
       })
+      const payload = await res.json().catch(() => ({}))
+      setEmailed(Boolean(payload && payload.emailed))
       setStatus(res.ok ? 'sent' : 'error')
     } catch {
       setStatus('error')
@@ -69,10 +72,11 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
   if (status === 'sent') {
     return (
       <div className="lead-capture lead-capture--done">
-        <p className="eyebrow">On its way</p>
+        <p className="eyebrow">{emailed ? 'On its way' : 'Ready to download'}</p>
         <p className="lead-capture__msg">
-          Thanks. We have your results and will follow up with a short note on what they mean and
-          where to focus. Your copy is ready to download below.
+          {emailed
+            ? 'Thanks. Your results are on their way to your inbox, and we will follow up with a short note on what they mean and where to focus. Your copy is ready to download below too.'
+            : 'Thanks, we have your details. Your results are ready to download below.'}
         </p>
         <button type="button" className="btn btn--primary btn--sm" onClick={download}>
           Download your results
