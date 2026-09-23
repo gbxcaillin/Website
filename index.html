@@ -4,6 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#FFFDF8" />
+    <style>
+      /*
+        Pre-hydration paint. The prerendered body inside #root is a class-less
+        SEO stub for crawlers that do not run JavaScript; without this it would
+        flash as unstyled text before the app bundle loads and React mounts.
+        We keep that stub in the DOM (so those crawlers still read it) but hold
+        it out of view, and paint a clean branded surface until the app takes
+        over #root. React clears #root on mount, so this only affects the gap
+        before the bundle runs.
+      */
+      html { background: #fffdf8; }
+      #root > [data-prerender] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
     <title>GBX Professional Services | Business Performance Consulting, Melbourne</title>
     <meta name="description" content="Boutique business-performance and process-improvement consultancy in Melbourne, working with professional-services and financial-services businesses. We help your business run sharper and grow with discipline." />
     <link rel="canonical" href="https://gbxps.com/" />
