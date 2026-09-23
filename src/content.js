@@ -26,9 +26,9 @@ export const site = {
   // Tool and contact submissions POST here (Cloudflare Pages Function).
   // See docs/lead-capture-setup.md.
   leadEndpoint: '/api/tool-lead',
-  // Optional direct booking link (e.g. a Microsoft Bookings or Calendly URL).
-  // Leave empty to route "Book a call" to the contact page instead.
-  bookingUrl: '',
+  // Direct booking link (Microsoft Bookings). "Book a call" CTAs open this in
+  // a new tab. Leave empty to route them to the contact page instead.
+  bookingUrl: 'https://bookings.cloud.microsoft/book/GBXProfessionalServices2@openbookwealth.com.au/',
 }
 
 export const newsletter = {
