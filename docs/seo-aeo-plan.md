@@ -129,7 +129,8 @@ Articles. The `/insights` engine already exists. One or two genuinely useful
 articles a month compounds. Each should answer one real question completely, so
 it is quotable on its own. Draft topics:
 
-- The compliance questions every business should ask before adopting AI.
+- [published] The compliance questions every business should ask before
+  adopting AI.
 - What a ten day business diagnostic actually looks at.
 - The six KPIs a business should watch first.
 - When AI will not help your business yet, and what to fix first.
