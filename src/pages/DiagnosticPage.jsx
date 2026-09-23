@@ -3,19 +3,13 @@ import usePageMeta from '../hooks/usePageMeta.js'
 import { pageMeta, diagnostic as d } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
 import WhyUs from '../components/WhyUs.jsx'
+import BookLink from '../components/BookLink.jsx'
 
 function StepLink({ link }) {
-  if (link.to.startsWith('#')) {
-    return (
-      <a href={link.to} className="text-link">
-        {link.label}
-      </a>
-    )
-  }
   return (
-    <Link to={link.to} className="text-link">
+    <BookLink to={link.to} book={!!link.book} className="text-link">
       {link.label}
-    </Link>
+    </BookLink>
   )
 }
 
@@ -43,9 +37,9 @@ export default function DiagnosticPage() {
             <p className="mono diag__price-label">{d.price.label}</p>
             <p className="diag__price-value">{d.price.value}</p>
             <p className="diag__price-note">{d.price.note}</p>
-            <Link to={d.cta.primary.to} className="btn btn--primary btn--sm">
+            <BookLink to={d.cta.primary.to} book={!!d.cta.primary.book} className="btn btn--primary btn--sm">
               {d.cta.primary.label}
-            </Link>
+            </BookLink>
           </aside>
         </div>
       </section>
@@ -154,9 +148,9 @@ export default function DiagnosticPage() {
             <p className="cta__body">{d.cta.body}</p>
           </div>
           <div className="btn-row btn-row--end">
-            <Link to={d.cta.primary.to} className="btn btn--primary">
+            <BookLink to={d.cta.primary.to} book={!!d.cta.primary.book} className="btn btn--primary">
               {d.cta.primary.label}
-            </Link>
+            </BookLink>
             <Link to={d.cta.secondary.to} className="btn btn--outline-light">
               {d.cta.secondary.label}
             </Link>

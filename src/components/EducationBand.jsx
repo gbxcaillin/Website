@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { education } from '../content.js'
+import BookLink from './BookLink.jsx'
 
 /**
  * Dark home-page band for the financial education practice, the counterpart
@@ -27,9 +28,9 @@ export default function EducationBand() {
             <Link to={s.primary.to} className="btn btn--primary btn--sm">
               {s.primary.label}
             </Link>
-            <Link to={s.secondary.to} className="btn btn--outline-light btn--sm">
+            <BookLink to={s.secondary.to} book={!!s.secondary.book} className="btn btn--outline-light btn--sm">
               {s.secondary.label}
-            </Link>
+            </BookLink>
           </div>
         </div>
       </div>

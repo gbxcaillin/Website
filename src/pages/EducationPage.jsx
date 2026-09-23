@@ -4,6 +4,7 @@ import { pageMeta, education as e } from '../content.js'
 import PageHero from '../components/PageHero.jsx'
 import EducationFlow from '../components/EducationFlow.jsx'
 import Faq from '../components/Faq.jsx'
+import BookLink from '../components/BookLink.jsx'
 
 export default function EducationPage() {
   usePageMeta(pageMeta.education)
@@ -81,9 +82,9 @@ export default function EducationPage() {
             <p className="mono diag__price-label">{e.pricing.label}</p>
             <p className="diag__price-value">{e.pricing.value}</p>
             <p className="diag__price-note">{e.pricing.note}</p>
-            <Link to={e.cta.primary.to} className="btn btn--primary btn--sm">
+            <BookLink to={e.cta.primary.to} book={!!e.cta.primary.book} className="btn btn--primary btn--sm">
               {e.cta.primary.label}
-            </Link>
+            </BookLink>
           </aside>
         </div>
       </section>
@@ -114,9 +115,9 @@ export default function EducationPage() {
             <p className="cta__body">{e.cta.body}</p>
           </div>
           <div className="btn-row btn-row--end">
-            <Link to={e.cta.primary.to} className="btn btn--primary">
+            <BookLink to={e.cta.primary.to} book={!!e.cta.primary.book} className="btn btn--primary">
               {e.cta.primary.label}
-            </Link>
+            </BookLink>
             <Link to={e.cta.secondary.to} className="btn btn--outline-light">
               {e.cta.secondary.label}
             </Link>
