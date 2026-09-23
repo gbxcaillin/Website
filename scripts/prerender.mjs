@@ -168,6 +168,7 @@ function homeBody() {
     <section><h2>${esc(C.diagnostic.home.heading)}</h2><p>${esc(C.diagnostic.home.body)}</p><a href="/diagnostic">${esc(C.diagnostic.home.primary.label)}</a></section>
     <section><h2>${esc(reach.heading)}</h2><p>${esc(reach.intro)}</p></section>
     <section><h2>${esc(cta.heading)}</h2><p>${esc(cta.body)}</p><a href="/contact">${esc(cta.primary.label)}</a></section>
+    ${faqSection(C.homeFaq)}
   </main>`
 }
 function servicesBody() {
@@ -401,7 +402,7 @@ function toolPageBody(slug, meta) {
 }
 
 const routes = [
-  { path: '/', meta: C.pageMeta.home, body: homeBody() },
+  { path: '/', meta: C.pageMeta.home, body: homeBody(), jsonld: [faqJsonLd(C.homeFaq)] },
   { path: '/services', meta: C.pageMeta.services, body: servicesBody(), jsonld: [...servicesJsonLd(), faqJsonLd(C.services.faq)] },
   { path: '/diagnostic', meta: C.pageMeta.diagnostic, body: diagnosticBody(), jsonld: diagnosticJsonLd() },
   { path: '/education', meta: C.pageMeta.education, body: educationBody(), jsonld: [...educationJsonLd(), faqJsonLd(C.education.faq)] },

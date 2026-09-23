@@ -8,11 +8,18 @@ each part. Update it as things ship.
 Guardrails that apply to everything below:
 
 - Positioning: GBX Professional Services offers professional services to any
-  business. Financial services is one vertical (the financial education
-  practice), not the identity. Write content for businesses in general, not
-  mainly for advice and accounting practices, and use financial firms only as
-  one example among several. Do not centre content on AFSL or financial-services
+  business. Write content for businesses in general, not mainly for advice and
+  accounting practices, and use financial firms only as one example among
+  several. Do not centre general content on AFSL or financial-services
   compliance.
+- Both/and, not replace: the firm's decade of experience in financial advice
+  and investment management is credibility, kept visible as depth (it
+  underwrites the financial education offering). Broaden the audience without
+  diminishing that experience.
+- Financial services as a client vertical is distinct from the financial
+  education practice. Financial education is a co-equal practice and stays that
+  way: financial wellbeing applies to employees in every industry, so it is
+  universal, not a financial-services niche. Do not de-emphasise it.
 - Always write "GBX Professional Services" in full.
 - No em dashes anywhere.
 - AFSL appears only as the single necessary disclaimer: GBX Professional
@@ -105,8 +112,9 @@ on the page, so content and schema ship together.
 - [x] Diagnostic FAQ.
 - [x] Services FAQ (five questions, including the AFSL position).
 - [x] Education FAQ (five questions, including the advice boundary).
-- [ ] Home page FAQ (three or four broad questions: what GBX does, who it is
-      for, where it works, the AFSL position).
+- [x] Home page FAQ (six questions) in the "any business" voice: what GBX does,
+      who it works with, how to start, where it works, the financial education
+      practice, and the AFSL position.
 - [x] AI and compliance FAQ (seven questions) on the "Will AI actually help?"
       guide, written for any business adopting AI (regulated fields, including
       financial services, are one example, not the focus).

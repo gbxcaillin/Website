@@ -406,6 +406,39 @@ export const brand = {
   line: 'Combining insight with impact for sustainable business growth.',
 }
 
+// Home page FAQ. Written in the "any business" voice: businesses of every kind
+// lead, financial-sector experience is depth, and financial education is framed
+// as universal (every workplace) rather than a financial-services niche.
+export const homeFaq = {
+  heading: 'Common questions',
+  items: [
+    {
+      q: 'What does GBX Professional Services do?',
+      a: 'We are a Melbourne consultancy with two practices. The business practice helps businesses of every kind run sharper, sell better and adopt AI with discipline, across analytics, process, sales, marketing and AI readiness. The financial education practice teaches people about money in plain language, as a workplace benefit and through client seminars. Both draw on deep experience across professional and regulated industries.',
+    },
+    {
+      q: 'What kinds of businesses do you work with?',
+      a: 'Businesses of every kind, most often five to fifty people, whose owners sense things could run better and want evidence before they act. We have particular depth in professional and regulated sectors, financial services among them, but the analytics, process, sales, marketing and AI work applies to any business.',
+    },
+    {
+      q: 'How do we get started?',
+      a: 'Most engagements start with the Performance Diagnostic, a fixed-scope ten-day review that maps the opportunities and hands you a 90-day plan you own. You are welcome to try the free tools first, or book a short call to talk it through, with no cost and no obligation.',
+    },
+    {
+      q: 'Do you only work with businesses in Melbourne?',
+      a: 'No. We are based in Melbourne and deliver globally through a partner network, with clients across Australia, Asia, the Middle East and North America. Calls and workshops run well over Microsoft Teams.',
+    },
+    {
+      q: 'What is the financial education practice, and who is it for?',
+      a: 'The Financial Fluency Program brings plain-language money education to any workplace as a staff benefit, because financial wellbeing matters to employees in every industry. The Client Education Series gives advice and accounting practices an independent educator for their clients. It is general education, not personal financial advice.',
+    },
+    {
+      q: 'Does GBX Professional Services give financial advice?',
+      a: 'No. GBX Professional Services does not hold an Australian Financial Services Licence and does not provide financial product advice. Our financial education is general information only, and our work with advice and investment firms is operational, analytical and educational support, with the regulated decisions staying inside those licensed businesses.',
+    },
+  ],
+}
+
 // AI and compliance FAQ, shown on the "Will AI actually help?" guide. Written
 // for any business adopting AI. Regulated industries (including financial
 // services) are one example, not the focus. General information only: it must
