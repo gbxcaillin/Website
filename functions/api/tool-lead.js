@@ -70,12 +70,8 @@ export async function onRequestPost(context) {
 
   // 2. Email owner + visitor (best effort)
   let visitorEmailed = false
-  let visitorErr = ''
-  let fromUsed = ''
-  const hasKey = Boolean(env.RESEND_API_KEY)
   if (env.RESEND_API_KEY) {
     const from = env.MAIL_FROM || FROM_DEFAULT
-    fromUsed = from
     const owner = env.MAIL_TO || OWNER_DEFAULT
     const fieldsText = Object.entries(record.fields)
       .map(([k, v]) => `- ${k}: ${v}`)
@@ -112,22 +108,12 @@ export async function onRequestPost(context) {
       })
       visitorEmailed = true
     } catch (e) {
-      visitorErr = String((e && e.message) || e)
       console.error('visitor email failed:', e)
     }
   }
 
   // `emailed` lets the UI promise an email only when one was actually sent.
-  // Temporary: with ?debug=1 the response also explains why an email did not send.
-  const out = { ok: true, emailed: visitorEmailed }
-  try {
-    if (new URL(request.url).searchParams.get('debug')) {
-      out.debug = { hasKey, from: fromUsed, err: visitorErr }
-    }
-  } catch {
-    /* ignore */
-  }
-  return json(out)
+  return json({ ok: true, emailed: visitorEmailed })
 }
 
 async function sendEmail(env, payload) {
