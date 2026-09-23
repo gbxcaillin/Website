@@ -838,7 +838,7 @@ export const diagnostic = {
         title: 'Book a diagnostic call',
         body:
           'Thirty minutes with one of our leaders on the phone or Microsoft Teams. Bring your results, or just the problem. We will tell you plainly whether the Diagnostic is worth your money.',
-        link: { label: 'Book a call', to: '/contact' },
+        link: { label: 'Book a call', to: '/contact', book: true },
         cost: 'Free',
       },
       {
@@ -953,7 +953,7 @@ export const diagnostic = {
   cta: {
     heading: 'Start with a conversation.',
     body: 'Tell us what is going on and we will tell you plainly whether the Diagnostic is the right next step.',
-    primary: { label: 'Book a diagnostic call', to: '/contact' },
+    primary: { label: 'Book a diagnostic call', to: '/contact', book: true },
     secondary: { label: 'Take the free Health Check', to: '/tools/health-check' },
   },
   // Compact strip for the home page.
@@ -1103,7 +1103,7 @@ export const education = {
   cta: {
     heading: 'Book a free taster for your team.',
     body: 'Thirty minutes on Microsoft Teams, no cost, no obligation. See how we teach before you decide anything.',
-    primary: { label: 'Book a taster', to: '/contact' },
+    primary: { label: 'Book a taster', to: '/contact', book: true },
     secondary: { label: 'Check your workplace first', to: '/tools/wellbeing-check' },
   },
   // Compact home-page band.
@@ -1113,7 +1113,7 @@ export const education = {
     body:
       'The Financial Fluency Program brings plain-language money education to your workplace as a staff benefit. For advice and accounting practices, the Client Education Series gives your clients an independent educator.',
     primary: { label: 'Explore the programs', to: '/education' },
-    secondary: { label: 'Book a free taster', to: '/contact' },
+    secondary: { label: 'Book a free taster', to: '/contact', book: true },
   },
   // Two-path section directly under the hero.
   paths: {
