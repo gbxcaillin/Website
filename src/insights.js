@@ -24,6 +24,37 @@ const GENERAL_INFO =
 
 export const articles = [
   {
+    slug: 'compliance-questions-before-adopting-ai',
+    category: 'ai',
+    title: 'The compliance questions every business should ask before adopting AI',
+    date: '2026-09-23',
+    readingTime: '6 min read',
+    summary:
+      'Adopting AI is not only a technology decision, it is a compliance one, and not just for regulated industries. Six questions worth answering before your team starts using AI in earnest.',
+    body: [
+      { type: 'p', text: 'AI has gone from novelty to normal tool faster than most businesses have written a single rule about it. Staff are already pasting documents into chatbots, drafting emails with AI and trialling tools a vendor demoed last week. That is not a problem to stamp out, it is a wave to steer. The businesses that get value from AI without a nasty surprise are the ones that answer a handful of compliance questions before adoption spreads, not after something goes wrong.' },
+      { type: 'p', text: 'None of this is only for banks and law firms. Any business holds information it is obliged to protect, makes decisions it is accountable for, and keeps records it may one day need to produce. AI touches all three. Here are the questions worth answering first, whatever you do.' },
+      { type: 'h', text: 'Where does our data go, and who can see it?' },
+      { type: 'p', text: 'The single biggest risk in day-to-day AI use is data leaving your control. Consumer chatbots may use what your staff type to improve their models, and may store it on servers in another country. Paste a client list, a contract or a health record into the wrong tool and you may have breached a privacy or confidentiality obligation without realising it.' },
+      { type: 'p', text: 'For any tool you are considering, ask: does it train on our inputs, can we turn that off, where is the data stored, and is there an agreement that makes those answers binding? Business-grade versions of the major AI tools usually let you switch training off and offer a data agreement. The free consumer versions often do not. As a working rule, no customer-identifying or confidential information goes into a tool you have not checked against those questions.' },
+      { type: 'h', text: 'Who is accountable when AI gets it wrong?' },
+      { type: 'p', text: 'AI is confident even when it is wrong. It will invent a figure, a citation or a clause and present it as fact. That is manageable, but only if a person owns the output. The business that sends an AI-drafted quote, letter or report to a customer is responsible for it, exactly as if a junior had written it. The tool is not a party you can blame.' },
+      { type: 'p', text: 'So decide, before you adopt, where the human review step sits. Anything that leaves the business, reaches a customer or feeds a real decision gets read by a person who is accountable for it. Build that into the workflow rather than trusting people to remember it under deadline.' },
+      { type: 'h', text: 'Do we have a policy people can actually follow?' },
+      { type: 'p', text: 'Most AI problems trace back to the absence of a simple rule, not to the technology. A one-page AI policy prevents the majority of them. It names the tools that are approved, says what may and may not be put into them, sets the review step above, and tells people who to ask when they are unsure.' },
+      { type: 'p', text: 'Keep it short enough that staff will actually read it. A policy nobody opens is worse than none, because it creates the appearance of control without the substance. The point is to give your team the confidence to use AI well and in the open, rather than quietly and around you.' },
+      { type: 'h', text: 'Does our industry add rules?' },
+      { type: 'p', text: 'Some industries carry obligations that apply to AI-assisted work just as they do to anything else. If you are in a licensed or regulated field, such as financial services, health or law, your regulator or professional body may have specific guidance, and your existing duties still bind you when AI is in the loop. Check their current position before AI touches regulated decisions or advice.' },
+      { type: 'p', text: 'Financial services is a clear example. Providing financial product advice needs an Australian Financial Services Licence whether a person or an AI helped prepare it, because the obligation attaches to the advice, not the software. GBX Professional Services does not hold an AFSL and does not provide financial advice. Our role is to help businesses adopt AI operationally, with the regulated decisions staying inside the licensed businesses that own them.' },
+      { type: 'h', text: 'What is the smallest safe place to start?' },
+      { type: 'p', text: 'The answer to all of the above is not to ban AI or to wait for perfect certainty. It is to start where the risk is low and the repetition is high. Internal drafting, meeting notes, summarising public research and first-draft marketing rarely touch confidential data or produce a final decision, so they make a sensible first use case for almost any business.' },
+      { type: 'p', text: 'Put the one-page policy and an approved-tools list in place, add the human review step, prove the value on a task or two, then expand into higher-stakes work as your confidence and controls grow. Adoption that starts small and safe tends to spread further than a big-bang rollout that trips over its first mistake.' },
+      { type: 'h', text: 'The point of the questions' },
+      { type: 'p', text: 'The businesses that do well with AI are not the most cautious or the most gung-ho. They are the ones that asked these questions early, wrote down a few answers, and got on with it. If you want a structured read on where AI genuinely helps your business and what to put in place first, the free Will AI actually help guide and the AI Readiness Assessment are a good place to begin.' },
+      { type: 'p', text: 'This article is general information, not legal, compliance or financial advice. Your own advisers, and where relevant your licensee or professional body, remain the source of truth on your specific obligations.' },
+    ],
+  },
+  {
     slug: 'benchmarking-are-your-numbers-good',
     category: 'analytics',
     title: 'Benchmarking: how to tell if your numbers are actually good',
