@@ -25,6 +25,7 @@ const FIRM = {
   urlLabel: 'gbxps.com',
   abn: 'ABN 45 674 252 905',
   philosophy: 'Combining insight with impact for sustainable business growth.',
+  booking: 'https://bookings.cloud.microsoft/book/GBXProfessionalServices2@openbookwealth.com.au/',
 }
 
 export function escapeHtml(s) {
@@ -175,7 +176,7 @@ export function visitorEmail(record) {
     bodyHtml: `<p style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:15px;line-height:22px;color:${INK};">Hi${escapeHtml(name)}, thanks for using our ${escapeHtml(record.source)}. Here are your results.</p>
       ${summaryToHtml(record.summary)}
       <p style="margin:16px 0 0;font-family:Arial,sans-serif;font-size:14px;line-height:21px;color:${INK};">A tool like this is a starting point, not the full picture. If anything here rings true, we would be glad to take a proper look with you.</p>`,
-    cta: { label: 'Book a conversation', href: `${FIRM.url}/contact` },
+    cta: { label: 'Book a call', href: FIRM.booking },
   })
 }
 
