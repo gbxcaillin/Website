@@ -330,7 +330,8 @@ function willAiHelpBody() {
     <section><h2>What AI tools actually means</h2><ul>${toolTypes.map((t) => `<li><h3>${esc(t.name)}</h3><p>${esc(t.fit)}</p></li>`).join('')}</ul></section>
     <section><h2>Three sensible levels</h2><ol>${levels.map((l) => `<li><h3>${esc(l.name)}</h3><ul>${l.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><p>${esc(l.warn)}</p></li>`).join('')}</ol></section>
     <section><h2>Compliance changes the answer</h2>${sectors.map((s) => `<h3>${esc(s.label)}</h3><ul>${s.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><p>${esc(s.verdict)}</p>`).join('')}</section>
-    <a href="/contact">Start a conversation</a></main>`
+    <a href="/contact">Start a conversation</a>
+    ${faqSection(C.aiComplianceFaq)}</main>`
 }
 function caseIndexBody() {
   const cp = C.caseStudiesPage
@@ -418,7 +419,7 @@ const routes = [
   { path: '/tools/capability', meta: C.pageMeta.capability, body: toolPageBody('capability', C.pageMeta.capability) },
   { path: '/tools/kpi-starter', meta: C.pageMeta.kpiStarter, body: toolPageBody('kpi-starter', C.pageMeta.kpiStarter) },
   { path: '/tools/wellbeing-check', meta: C.pageMeta.wellbeingCheck, body: toolPageBody('wellbeing-check', C.pageMeta.wellbeingCheck) },
-  { path: '/tools/will-ai-help', meta: C.pageMeta.willAiHelp, body: willAiHelpBody() },
+  { path: '/tools/will-ai-help', meta: C.pageMeta.willAiHelp, body: willAiHelpBody(), jsonld: [faqJsonLd(C.aiComplianceFaq)] },
   { path: '/tools/marketing-rhythm', meta: C.pageMeta.marketingRhythm, body: toolPageBody('marketing-rhythm', C.pageMeta.marketingRhythm) },
   { path: '/insights', meta: C.pageMeta.insights, body: insightsBody() },
   { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },
