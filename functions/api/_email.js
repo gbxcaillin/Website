@@ -114,13 +114,8 @@ export function wrapEmail({ eyebrow, title, preheader, bodyHtml, cta }) {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${SOFT};padding:24px 12px;">
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:${PAPER};border:1px solid ${LINE};border-radius:8px;overflow:hidden;">
-        <tr><td style="background:${VOID};padding:26px 32px;">
-          <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-            <td style="border:1px solid rgba(255,255,255,0.5);padding:8px 12px;">
-              <span style="font-family:Georgia,serif;font-size:22px;font-weight:bold;color:${TEAL};letter-spacing:1px;">GBX</span>
-            </td>
-            <td style="padding-left:14px;font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;color:#ffffff;">PROFESSIONAL<br>SERVICES</td>
-          </tr></table>
+        <tr><td style="background:${VOID};padding:24px 32px;" align="left">
+          <img src="${FIRM.url}/media/logo-poster.jpg" width="116" height="116" alt="${FIRM.name}" style="display:block;border:0;outline:none;text-decoration:none;width:116px;height:116px;" />
         </td></tr>
         <tr><td style="height:3px;background:${TEAL};line-height:3px;font-size:0;">&nbsp;</td></tr>
         <tr><td style="padding:30px 32px 8px;">
