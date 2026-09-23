@@ -12,6 +12,8 @@
 //   Env             MAIL_TO         owner inbox, defaults to admin@gbxps.com
 // See docs/lead-capture-setup.md for the full walkthrough.
 
+import { ownerEmail, visitorEmail } from './_email.js'
+
 const OWNER_DEFAULT = 'admin@gbxps.com'
 const FROM_DEFAULT = 'GBX Professional Services <onboarding@resend.dev>'
 
@@ -83,6 +85,7 @@ export async function onRequestPost(context) {
       reply_to: email,
       subject: `[GBX] ${record.source}: ${email}`,
       text: `New ${record.source} submission\n\nFrom: ${record.name || '(no name)'} <${email}>\nPage: ${record.page}\nTime: ${record.created_at}\n\n${fieldsText}\n\n${record.summary}`,
+      html: ownerEmail(record),
     }).catch((e) => console.error('owner email failed:', e))
 
     const greeting = `Hi${record.name ? ' ' + record.name : ''},`
@@ -105,6 +108,7 @@ export async function onRequestPost(context) {
         to: email,
         subject: visitorSubject,
         text: visitorText,
+        html: visitorEmail(record),
       })
       visitorEmailed = true
     } catch (e) {
