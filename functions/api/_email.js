@@ -25,7 +25,7 @@ const FIRM = {
   urlLabel: 'gbxps.com',
   abn: 'ABN 45 674 252 905',
   philosophy: 'Combining insight with impact for sustainable business growth.',
-  booking: 'https://bookings.cloud.microsoft/book/GBXProfessionalServices2@openbookwealth.com.au/',
+  booking: 'https://gbxps.com/book',
 }
 
 export function escapeHtml(s) {
