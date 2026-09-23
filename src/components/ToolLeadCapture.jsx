@@ -40,7 +40,7 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
     }
   }
 
-  function download() {
+  function downloadText() {
     try {
       const blob = new Blob([findingsText], { type: 'text/plain;charset=utf-8' })
       const url = URL.createObjectURL(blob)
@@ -53,6 +53,16 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
       URL.revokeObjectURL(url)
     } catch {
       /* download not available */
+    }
+  }
+
+  async function download() {
+    // Branded PDF is the default; fall back to plain text if it cannot load.
+    try {
+      const { downloadResultsPdf } = await import('../lib/resultsPdf.js')
+      await downloadResultsPdf({ toolName, findingsText })
+    } catch {
+      downloadText()
     }
   }
 
