@@ -59,7 +59,7 @@ export const hero = {
   heading: 'Sharper businesses. ',
   subheading: 'Financially fluent people.',
   body:
-    'GBX Professional Services is a Melbourne consultancy with two practices. We help professional-services firms and advice practices run sharper, sell better and adopt AI with discipline. And we teach people about money, in plain language, through financial education programs for workplaces and advice practices. Three leaders, one operating view, and free tools you can use before you ever hire us.',
+    'GBX Professional Services is a Melbourne consultancy with two practices. We help businesses of every kind run sharper, sell better and adopt AI with discipline, drawing on deep experience across professional and regulated industries. And we teach people about money, in plain language, through financial education programs for workplaces and advice practices. Three leaders, one operating view, and free tools you can use before you ever hire us.',
   primary: { label: 'For your business', to: '/diagnostic' },
   secondary: { label: 'For your people', to: '/education' },
 }
@@ -121,7 +121,7 @@ export const services = {
       body:
         'Positioning, brand identity, campaigns and content that turn strategy into demand. Brand refresh and revamp, marketing plans, and the creative to run them.',
       detail:
-        'We translate strategy into a brand people recognise and marketing that brings them in. From positioning, identity and messaging through to marketing plans, campaigns and content, we build the demand engine and the creative to run it. Compliance-aware throughout, so regulated businesses stay on the right side of the line.',
+        'We translate strategy into a brand people recognise and marketing that brings them in. From positioning, identity and messaging through to marketing plans, campaigns and content, we build the demand engine and the creative to run it. When your industry is regulated, we keep it compliance-aware so you stay on the right side of the line.',
       includes: [
         'Brand strategy, refresh and revamp',
         'Positioning, messaging and tone of voice',
@@ -134,11 +134,11 @@ export const services = {
       number: '05',
       title: 'Sales Enablement & Lead Generation',
       body:
-        'Compliance-aware sales processes, funnels, paid media, referral systems, nurture journeys and conversion frameworks.',
+        'Repeatable sales processes, funnels, paid media, referral systems, nurture journeys and conversion frameworks, compliance-aware when your industry needs it.',
       detail:
-        'We build repeatable, compliance-aware ways to win and keep clients. From first touch to referral, the sales system is documented, measurable and honest about what works.',
+        'We build repeatable ways to win and keep clients. From first touch to referral, the sales system is documented, measurable and honest about what works, and compliance-aware when your industry needs it.',
       includes: [
-        'Compliance-aware sales processes',
+        'Sales processes that fit your industry',
         'Funnels and nurture journeys',
         'Paid media and lead campaigns',
         'Referral and introducer systems',
@@ -182,7 +182,7 @@ export const services = {
     items: [
       {
         q: 'What does GBX Professional Services actually do?',
-        a: 'We help professional-services firms, advice practices and other businesses run more clearly, sell more confidently and adopt AI with discipline. The work spans seven disciplines, from analytics and process improvement to sales, marketing, AI readiness and financial and compliance education. Most engagements start with a diagnostic and extend into the areas that matter most.',
+        a: 'We help businesses of every kind run more clearly, sell more confidently and adopt AI with discipline, drawing on deep experience across professional and regulated industries. The work spans seven disciplines, from analytics and process improvement to sales, marketing, AI readiness and financial and compliance education. Most engagements start with a diagnostic and extend into the areas that matter most.',
       },
       {
         q: 'Do you only work with businesses in Melbourne?',
@@ -621,7 +621,7 @@ export const homeSummaries = {
 
 export const footer = {
   blurb:
-    'Melbourne consultancy with two practices: business performance and AI readiness for professional-services firms, and plain-language financial education for workplaces and advice practices.',
+    'Melbourne consultancy with two practices: business performance and AI readiness for businesses of every kind, and plain-language financial education for workplaces and advice practices.',
   columns: [
     {
       title: 'Services',
@@ -863,7 +863,7 @@ export const diagnostic = {
   forWhom: {
     heading: 'Who it is for',
     body:
-      'Owners and leaders of professional-services firms, advice practices and other regulated businesses, typically with five to fifty people, who sense the business could run better but want evidence before they act.',
+      'Owners and leaders of businesses, typically with five to fifty people, who sense the business could run better but want evidence before they act. We work across industries, with particular depth in professional and regulated sectors.',
   },
   // Callout beside the fee card.
   pace: {
@@ -1173,7 +1173,7 @@ export const education = {
       {
         eyebrow: 'For your business',
         title: 'Business performance and AI readiness',
-        body: 'Analytics, process, sales, marketing and practical AI for professional-services firms and advice practices. Start with the ten-day Performance Diagnostic.',
+        body: 'Analytics, process, sales, marketing and practical AI for businesses of every kind. Start with the ten-day Performance Diagnostic.',
         link: { label: 'Start with the Diagnostic', to: '/diagnostic' },
         alt: { label: 'All services', to: '/services' },
       },
@@ -1192,7 +1192,7 @@ export const pageMeta = {
   home: {
     title: 'GBX Professional Services | Business Performance and Financial Education, Melbourne',
     description:
-      'Melbourne consultancy with two practices: business performance and AI readiness for professional-services firms, and plain-language financial education programs for workplaces and advice practices. Free tools and a fixed-scope Diagnostic to start.',
+      'Melbourne consultancy with two practices: business performance and AI readiness for businesses of every kind, and plain-language financial education programs for workplaces and advice practices. Free tools and a fixed-scope Diagnostic to start.',
   },
   education: {
     title: 'Financial Education Programs | GBX Professional Services',
@@ -1265,7 +1265,7 @@ export const pageMeta = {
   capacity: {
     title: 'Capacity & Profit Calculator | GBX Professional Services',
     description:
-      'A free calculator for professional-services firms: what your team could deliver, what it delivers today, the revenue left on the table and what each point of utilisation is worth.',
+      'A free calculator for any team that sells its time: what your team could deliver, what it delivers today, the revenue left on the table and what each point of utilisation is worth.',
   },
   automation: {
     title: 'Automation Opportunity Finder | GBX Professional Services',
