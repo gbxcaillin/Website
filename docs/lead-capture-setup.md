@@ -64,6 +64,24 @@ npx wrangler d1 execute gbx-leads --remote \
 - **Visitor**: for a tool, their findings plus a short note; for a contact
   enquiry, an acknowledgement.
 
+## 4. Send leads to the CRM (optional)
+
+Every tool and contact submission can also be pushed into the GBX Pipeline CRM
+(`crm.gbxps.com`) as a scored deal. Newsletter subscribers are not pushed, since
+they are not pipeline leads. The CRM dedupes and scores on its side.
+
+1. In the CRM, sign in as an admin and create an API key with the `deals:write`
+   scope (Integrations / API keys). Copy the key once; it is shown only at creation.
+2. In Cloudflare Pages -> the Website project -> Settings -> Variables and secrets,
+   add:
+   - `CRM_WEBHOOK_URL` = `https://crm.gbxps.com/api/v1/hooks/lead`
+   - `CRM_API_KEY` = the key (mark it encrypted)
+3. Redeploy.
+
+New submissions now appear in the CRM as leads. It is best effort: if the CRM is
+down or the keys are unset, the site still logs to D1 and emails as normal. To
+backfill existing leads, export them from D1 and POST each to the same endpoint.
+
 ## Notes
 
 - The honeypot field (`_gotcha`) silently drops bot submissions.
