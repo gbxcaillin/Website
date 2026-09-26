@@ -12,7 +12,10 @@
 //   Env             MAIL_TO         owner inbox, defaults to admin@gbxps.com
 //   Env             CRM_WEBHOOK_URL https://crm.gbxps.com/api/v1/hooks/lead
 //   Env / secret    CRM_API_KEY     (encrypted)   CRM API key with deals:write
-// See docs/lead-capture-setup.md for the full walkthrough.
+//   Env (optional)  CRM_SUBSCRIBE_URL  newsletter signups; defaults to the lead
+//                     hook with /hooks/lead swapped for /hooks/subscribe
+// Tool and contact submissions become pipeline leads; newsletter signups go to
+// the CRM mailing list. See docs/lead-capture-setup.md for the full walkthrough.
 
 import { ownerEmail, visitorEmail } from './_email.js'
 
@@ -118,36 +121,53 @@ export async function onRequestPost(context) {
     }
   }
 
-  // 3. Push to the CRM as a lead (best effort). Tool and contact submissions
-  // become scored deals in the pipeline; newsletter subscribers are not leads,
-  // so they are skipped. The CRM dedupes and scores on its side.
-  if (env.CRM_WEBHOOK_URL && env.CRM_API_KEY && record.kind !== 'newsletter') {
-    const fieldsText = Object.entries(record.fields)
-      .map(([k, v]) => `- ${k}: ${v}`)
-      .join('\n')
-    const notes = [
-      `Submitted via ${record.source} on gbxps.com (${record.kind}).`,
-      record.page ? `Page: ${record.page}` : '',
-      fieldsText,
-      record.summary,
-    ]
-      .filter(Boolean)
-      .join('\n\n')
-    await fetch(env.CRM_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${env.CRM_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        source: 'website',
-        campaign: record.source,
-        service: record.source,
-        contact: record.name,
-        email: record.email,
-        notes,
-      }),
-    }).catch((e) => console.error('CRM push failed:', e))
+  // 3. Push to the CRM (best effort). Tool and contact submissions become scored
+  // deals in the pipeline; newsletter signups go straight to the CRM mailing list
+  // instead. The CRM dedupes on its side.
+  if (env.CRM_WEBHOOK_URL && env.CRM_API_KEY) {
+    const headers = {
+      Authorization: `Bearer ${env.CRM_API_KEY}`,
+      'Content-Type': 'application/json',
+    }
+    if (record.kind === 'newsletter') {
+      // Derive the subscribe hook from the lead hook unless overridden.
+      const subscribeUrl =
+        env.CRM_SUBSCRIBE_URL || env.CRM_WEBHOOK_URL.replace(/\/hooks\/lead$/, '/hooks/subscribe')
+      await fetch(subscribeUrl, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          email: record.email,
+          name: record.name,
+          source: 'website',
+          tags: ['newsletter'],
+        }),
+      }).catch((e) => console.error('CRM subscribe failed:', e))
+    } else {
+      const fieldsText = Object.entries(record.fields)
+        .map(([k, v]) => `- ${k}: ${v}`)
+        .join('\n')
+      const notes = [
+        `Submitted via ${record.source} on gbxps.com (${record.kind}).`,
+        record.page ? `Page: ${record.page}` : '',
+        fieldsText,
+        record.summary,
+      ]
+        .filter(Boolean)
+        .join('\n\n')
+      await fetch(env.CRM_WEBHOOK_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          source: 'website',
+          campaign: record.source,
+          service: record.source,
+          contact: record.name,
+          email: record.email,
+          notes,
+        }),
+      }).catch((e) => console.error('CRM push failed:', e))
+    }
   }
 
   // `emailed` lets the UI promise an email only when one was actually sent.
