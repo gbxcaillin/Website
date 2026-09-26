@@ -107,17 +107,24 @@ export async function onRequestPost(context) {
       visitorText = `${greeting}\n\nThanks for using our ${record.source}. Here are your results.\n\n${record.summary}\n\nA quick note: a tool like this is a starting point, not the full picture. If anything here rings true, we would be glad to take a proper look with you.\n\nGBX Professional Services\nhttps://gbxps.com`
     }
 
-    try {
-      await sendEmail(env, {
-        from,
-        to: email,
-        subject: visitorSubject,
-        text: visitorText,
-        html: visitorEmail(record),
-      })
-      visitorEmailed = true
-    } catch (e) {
-      console.error('visitor email failed:', e)
+    // Newsletter signups: the CRM sends its own double opt-in confirmation, so only send the
+    // website welcome if the CRM did not take the signup (or does not need confirmation).
+    const crmHandled = record.kind === 'newsletter' && (await crmSubscribe(env, record)) === 'pending'
+    if (!crmHandled) {
+      try {
+        await sendEmail(env, {
+          from,
+          to: email,
+          subject: visitorSubject,
+          text: visitorText,
+          html: visitorEmail(record),
+        })
+        visitorEmailed = true
+      } catch (e) {
+        console.error('visitor email failed:', e)
+      }
+    } else {
+      visitorEmailed = true // the confirmation email counts as "check your inbox"
     }
   }
 
@@ -130,19 +137,7 @@ export async function onRequestPost(context) {
       'Content-Type': 'application/json',
     }
     if (record.kind === 'newsletter') {
-      // Derive the subscribe hook from the lead hook unless overridden.
-      const subscribeUrl =
-        env.CRM_SUBSCRIBE_URL || env.CRM_WEBHOOK_URL.replace(/\/hooks\/lead$/, '/hooks/subscribe')
-      await fetch(subscribeUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          email: record.email,
-          name: record.name,
-          source: 'website',
-          tags: ['newsletter'],
-        }),
-      }).catch((e) => console.error('CRM subscribe failed:', e))
+      if (!env.RESEND_API_KEY) await crmSubscribe(env, record) // otherwise already done above
     } else {
       const fieldsText = Object.entries(record.fields)
         .map(([k, v]) => `- ${k}: ${v}`)
@@ -172,6 +167,28 @@ export async function onRequestPost(context) {
 
   // `emailed` lets the UI promise an email only when one was actually sent.
   return json({ ok: true, emailed: visitorEmailed })
+}
+
+// Subscribe hook on the CRM. Returns 'pending' when the CRM sent a double opt-in confirmation,
+// 'ok' when subscribed immediately, or '' when the CRM is not configured / unreachable.
+async function crmSubscribe(env, record) {
+  if (!env.CRM_WEBHOOK_URL || !env.CRM_API_KEY) return ''
+  // Derive the subscribe hook from the lead hook unless overridden.
+  const subscribeUrl =
+    env.CRM_SUBSCRIBE_URL || env.CRM_WEBHOOK_URL.replace(/\/hooks\/lead$/, '/hooks/subscribe')
+  try {
+    const res = await fetch(subscribeUrl, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${env.CRM_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: record.email, name: record.name, source: 'website', tags: ['newsletter'] }),
+    })
+    if (!res.ok) return ''
+    const j = await res.json().catch(() => ({}))
+    return j.pending ? 'pending' : 'ok'
+  } catch (e) {
+    console.error('CRM subscribe failed:', e)
+    return ''
+  }
 }
 
 async function sendEmail(env, payload) {
