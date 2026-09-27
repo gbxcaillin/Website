@@ -1843,7 +1843,7 @@ button {
   }
 }
 
-/* Approach section accent: the four pillars lighting up (full-bleed, looping) */
+/* Approach section accent: the four pillars lighting up (full-bleed, looping; source video in src/assets) */
 .approach-accent {
   width: 100%;
   /* Match the clip's own 16:9 frame so the pillars show full height, uncropped,
