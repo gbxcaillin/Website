@@ -410,7 +410,7 @@ body{background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6;f
       <span class="legend-item"><span class="spec-chip"><span class="light-only">Black tag</span><span class="dark-only">Cream tag</span></span> other areas where the model also performs well</span>
       <span class="legend-item"><span class="dual-score"><span class="ds ds-adv">8.4<span class="ds-cap">adv</span></span><span class="ds ds-sent up">&#9650;8.7<span class="ds-cap">sent</span></span></span> two scores per model &mdash; <strong>adv</strong> is our research-based capability rating, <strong>sent</strong> is that same rating shifted by community reception (&#9650; above / &#9660; below). Pick a specialty to score that one dimension.</span>
       <span class="legend-item"><span class="reception rc-sleeper"><span class="dot"></span>Sleeper</span> a computed tag: the sentiment score lands <em>above</em> the advertised score &mdash; a possible best or near-best-in-class pick. Community-sourced, dated, and volatile.</span>
-      <span class="legend-item"><span class="free-badge"><span class="star">&#9733;</span>Free</span> official free access (provider's own app/site or open weights); links out to it. Checked Sep 2026 &mdash; availability may change.</span>
+      <span class="legend-item"><span class="free-badge"><span class="star">&#9733;</span>Free tier</span> a golden tag names <em>how</em> it's free &mdash; <strong>Open weights</strong> (run it yourself), <strong>Free tier</strong> (free plan/app, usually sign-up + limited use), <strong>Free trial</strong> (one-off starter credits), or <strong>Free credits</strong> (recurring daily/monthly allowance). Hover, or open a model, for the exact terms and the official link. Checked Sep 2026 &mdash; availability may change.</span>
     </div>
     <div class="model-grid" id="modelGrid"></div>
   </div>
@@ -514,7 +514,6 @@ const MODELS = [
   {id:"grok-imagine-v",name:"Grok Imagine",type:"video",family:"Grok Imagine",desc:"Fast generation of cinematic videos",provider:"xAI",spec:{speed:9,cin:6,mot:6}},
   {id:"kling-2.6",name:"Kling 2.6",type:"video",family:"Kling",desc:"Cinematic videos with audio & voice",provider:"Kuaishou",spec:{aud:9,cin:8,mot:8,con:8}},
   {id:"wan-2.6",name:"Wan 2.6",type:"video",family:"Wan",desc:"Cinematic videos with audio & multi-shots",provider:"Alibaba",spec:{cin:8,aud:8,story:8,mot:7}},
-  {id:"sora-2",name:"Sora 2",type:"video",family:"Sora",desc:"Story-telling videos with audio (API dies Sept 24, 2026 — no successor)",provider:"OpenAI",spec:{story:10,aud:9,cin:9,mot:8,con:8}},
   {id:"ltx-2.5",name:"LTX 2.5",type:"video",family:"LTX",desc:"Open-weight multishot with cross-cut consistency & 4K HDR",provider:"Lightricks",spec:{speed:9,cin:8,mot:8,aud:8,story:8}},
   {id:"ltx-2.3",name:"LTX 2.3",type:"video",family:"LTX",desc:"Next-gen cinematic 4K videos up to 20s",provider:"Lightricks",spec:{speed:9,cin:8,mot:7}},
   {id:"ltx-2.3-audio",name:"LTX 2.3 Audio-to-Video",type:"video",family:"LTX",desc:"Generate video from audio with LTX 2.3",provider:"Lightricks",spec:{aud:10,cin:7}},
@@ -580,7 +579,7 @@ const MODELS = [
   // === AUDIO / MUSIC MODELS (researched Sep 2026) ===
   // — Music generation —
   {id:"suno-v5-5",name:"Suno v6",type:"audio",family:"Suno",desc:"Full songs with vocals; v6/v6-wild/v6-mini, first licensed-data generation",provider:"Suno Inc.",spec:{song:9,inst:8,sfx:3,control:9,speed:7}},
-  {id:"elevenlabs-music",name:"ElevenLabs Music",type:"audio",family:"ElevenLabs Music",desc:"Most human-sounding, commercially-cleared vocals",provider:"ElevenLabs",spec:{song:9,inst:7,voice:6,sfx:3,control:8,speed:8}},
+  {id:"elevenlabs-music",name:"ElevenLabs Music v2.5",type:"audio",family:"ElevenLabs Music",desc:"Most human-sounding, commercially-cleared vocals",provider:"ElevenLabs",spec:{song:9,inst:7,voice:6,sfx:3,control:8,speed:8}},
   {id:"udio-v4",name:"Udio v4",type:"audio",family:"Udio",desc:"Audiophile-grade production and remixing",provider:"Uncharted Labs",spec:{song:9,inst:9,sfx:2,control:9,speed:7}},
   {id:"mureka-v9",name:"Mureka V9.5",type:"audio",family:"Mureka",desc:"Lyrics-first songs with stems & MIDI export",provider:"Kunlun Tech",spec:{song:8,inst:7,voice:5,sfx:2,control:8,speed:8}},
   {id:"tencent-songgeneration-2",name:"SongGeneration 2",type:"audio",family:"SongGeneration",desc:"Open-weights songs with top lyric accuracy",provider:"Tencent AI Lab",spec:{song:8,inst:7,control:7,speed:7}},
@@ -607,21 +606,23 @@ const MODELS = [
   {id:"elevenlabs-sfx",name:"ElevenLabs SFX v2",type:"audio",family:"ElevenLabs",desc:"Best-in-class text-to-SFX and foley",provider:"ElevenLabs",spec:{sfx:10,control:6,speed:9}},
 
   // === TEXT / LLM MODELS ===
-  {id:"claude-fable-5-1",name:"Claude Fable 5.1",type:"text",family:"Claude",desc:"Anthropic's new flagship (Sep 2026): 1M-token context for the most demanding creative and long-horizon work",provider:"Anthropic",spec:{game:9,write:10,world:10,brain:9,follow:10,long:10}},
+  {id:"claude-opus-5-5",name:"Claude Opus 5.5",type:"text",family:"Claude",desc:"Anthropic's new flagship (Sep 22): #1 on the AA Intelligence Index; top agentic coding, ~20% cheaper than Opus 5",provider:"Anthropic",spec:{game:10,write:9,world:8,brain:9,follow:9,long:10}},
+  {id:"claude-fable-5-1",name:"Claude Fable 5.1",type:"text",family:"Claude",desc:"Anthropic's creative-and-long-horizon flagship (Sep 2026): 1M-token context",provider:"Anthropic",spec:{game:9,write:10,world:10,brain:9,follow:10,long:10}},
   {id:"claude-fable-5",name:"Claude Fable 5",type:"text",family:"Claude",desc:"Anthropic's prior flagship, tuned for demanding creative and long-horizon work",provider:"Anthropic",spec:{game:9,write:10,world:10,brain:9,follow:10,long:10}},
-  {id:"claude-opus-5",name:"Claude Opus 5",type:"text",family:"Claude",desc:"Anthropic's flagship for deep creative and coding work",provider:"Anthropic",spec:{game:9,write:10,world:9,brain:8,follow:10,long:10}},
+  {id:"claude-opus-5",name:"Claude Opus 5",type:"text",family:"Claude",desc:"Anthropic's prior Opus; superseded by Opus 5.5",provider:"Anthropic",spec:{game:9,write:10,world:9,brain:8,follow:10,long:10}},
   {id:"claude-sonnet-5",name:"Claude Sonnet 5",type:"text",family:"Claude",desc:"Fast, capable Claude for creative work and app building",provider:"Anthropic",spec:{game:9,write:9,world:9,brain:8,follow:9,long:9}},
   {id:"claude-haiku-4-5",name:"Claude Haiku 4.5",type:"text",family:"Claude",desc:"Quick, affordable Claude for drafts and iteration",provider:"Anthropic",spec:{game:7,write:7,world:7,brain:7,follow:8,long:7}},
   {id:"gpt-6-astra",name:"ChatGPT (GPT-6 Astra)",type:"text",family:"ChatGPT",desc:"OpenAI's new flagship; reasoning/agents/one-shot builds strong, prose weak",provider:"OpenAI",spec:{game:9,write:5,world:6,brain:10,follow:9,long:8}},
-  {id:"gpt-5-6-sol",name:"ChatGPT (GPT-5.6 Sol)",type:"text",family:"ChatGPT",desc:"OpenAI's best-writing tier; strong one-shot builds from a spec",provider:"OpenAI",spec:{game:9,write:6,world:7,brain:8,follow:9,long:7}},
+  {id:"gpt-5-6-sol",name:"ChatGPT (GPT-6 Sol)",type:"text",family:"ChatGPT",desc:"OpenAI's best-writing tier, now GPT-6 gen (Sep 22) at ~half price; strong agentic coding",provider:"OpenAI",spec:{game:8,write:8,world:8,brain:8,follow:8,long:7}},
   {id:"gpt-5-6-terra",name:"ChatGPT (GPT-5.6 Terra)",type:"text",family:"ChatGPT",desc:"OpenAI's balanced everyday tier",provider:"OpenAI",spec:{game:8,write:7,world:7,brain:8,follow:9,long:7}},
-  {id:"gpt-5-6-luna",name:"ChatGPT (GPT-5.6 Luna)",type:"text",family:"ChatGPT",desc:"OpenAI's fast, cost-efficient tier for iteration",provider:"OpenAI",spec:{game:7,write:6,world:6,brain:8,follow:8,long:6}},
+  {id:"gpt-5-6-luna",name:"ChatGPT (GPT-6 Luna)",type:"text",family:"ChatGPT",desc:"OpenAI's fast, high-volume tier, now GPT-6 gen (Sep 22) at ~half price",provider:"OpenAI",spec:{game:6,write:6,world:6,brain:6,follow:7,long:6}},
   {id:"gemini-3-1-pro",name:"Gemini 3.1 Pro",type:"text",family:"Gemini",desc:"Google's flagship; top-ranked at one-shot web games",provider:"Google",spec:{game:10,write:8,world:8,brain:8,follow:9,long:10}},
   {id:"gemini-3-8-flash",name:"Gemini 3.8 Flash",type:"text",family:"Gemini",desc:"Google's newest fast tier (Sep 2026); intro pricing doubles Jan 2027",provider:"Google",spec:{game:9,write:7,world:7,brain:8,follow:8,long:9}},
   {id:"gemini-3-7-flash",name:"Gemini 3.7 Flash",type:"text",family:"Gemini",desc:"Fast Gemini for cheap iteration; current WebDev Arena leader",provider:"Google",spec:{game:8,write:7,world:7,brain:7,follow:8,long:9}},
   {id:"deepseek-v4-pro",name:"DeepSeek V4-Pro",type:"text",family:"DeepSeek",desc:"Open-weights; best single-shot spec-to-patch code generation",provider:"DeepSeek",spec:{game:9,write:6,world:6,brain:8,follow:7,long:7}},
   {id:"glm-5-3",name:"GLM-5.3",type:"text",family:"GLM",desc:"Open-weights; long agentic coding loops & security auditing",provider:"Zhipu / Z.ai",spec:{game:8,write:6,world:6,brain:7,follow:8,long:9}},
-  {id:"grok-4-6",name:"Grok 4.6",type:"text",family:"Grok",desc:"xAI's model; unconventional ideation and worldbuilding",provider:"xAI",spec:{game:7,write:9,world:9,brain:9,follow:7,long:6}},
+  {id:"grok-4-7",name:"Grok 4.7",type:"text",family:"Grok",desc:"xAI's frontier (Sep 21): budget long-horizon agentic work; coding & instruction trail, verbose",provider:"xAI",spec:{game:7,write:9,world:9,brain:9,follow:7,long:8}},
+  {id:"grok-4-6",name:"Grok 4.6",type:"text",family:"Grok",desc:"xAI's prior model; unconventional ideation and worldbuilding",provider:"xAI",spec:{game:7,write:9,world:9,brain:9,follow:7,long:6}},
 ];
 
 const SPECIALTIES = {
@@ -674,18 +675,20 @@ const SPECIALTIES = {
 const SENTIMENT_DATE = "Sep 2026";
 const SENTIMENT = {
   // — Text / LLM —
-  "claude-opus-5": {mood:"gap", note:"Top-tier capability but users report over-confidence and hallucination on long factual/agentic tasks (a calibration tradeoff) plus verbose output. No fix shipped — Anthropic leapfrogged it with Fable 5.1 and now frames Opus 5 as the everyday default.", adj:{follow:-2, brain:-1}},
-  "claude-fable-5-1": {mood:"loved", note:"Early reads (days in) call the writing 'less stereotypically Claude' and more responsive to style instructions — partially answering the personal-voice knock — though the family's over-confidence trait persists in agent work. Too new for arena placement.", adj:{}},
+  "claude-opus-5-5": {mood:"loved", note:"Shipped Sep 22 as 'the most capable model available' and the new #1 on the AA Intelligence Index, displacing Fable 5.1: a big step up on agentic coding (Terminal-Bench, OSWorld), >30% faster, and the first Opus to get cheaper (~20% cut). Only gripe: the effort dial makes real cost less predictable.", adj:{}},
+  "claude-opus-5": {mood:"gap", note:"Superseded by Opus 5.5 (Sep 22), which is the fix for its over-confidence/hallucination on long factual/agentic tasks and verbose output. Reach for 5.5 instead.", adj:{follow:-2, brain:-1}},
+  "claude-fable-5-1": {mood:"loved", note:"Was #1 on the AA Intelligence Index until Opus 5.5 passed it (now #2); still #1 on the LMArena agent board and the Mazur debate benchmark. Writing is 'less stereotypically Claude' and more style-responsive, and it flags guesses instead of inventing facts; caveat, it emits 22-35% more output so capped plans burn fast.", adj:{}},
   "claude-fable-5": {mood:"loved", note:"Still leads blind creative-writing tests for voice and risk; caveat: doesn't preserve a specific personal voice as well as a tuned Sonnet. Superseded as flagship by Fable 5.1 (Sep 2026).", adj:{write:1, world:1}},
   "claude-sonnet-5": {mood:"loved", note:"Reviewers say it wins writing quality and instruction-following outright at a large price undercut; the uplift felt like polish, not a paradigm.", adj:{write:1, follow:1}},
   "claude-haiku-4-5": {mood:"sleeper", note:"Punches above its price on coding and 'vibe coding'; a common fallback when pricier models stall.", adj:{game:1}},
   "gpt-6-astra": {mood:"mixed", note:"OpenAI's new flagship dominates verifiable-answer tasks, math and agentic/one-shot game+3D builds, but creative writing is a genuine weakness — it ranks below GPT-5.6 Sol on writing benchmarks ('no personality, reads as machine-written'). Reach for reasoning and agents, not prose.", adj:{brain:1, write:-1}},
-  "gpt-5-6-sol": {mood:"mixed", note:"Still OpenAI's best writing model (beats Astra on writing Elo) and a strong long-horizon coding lane; headline benchmark leadership is contested as partly test-gamed.", adj:{game:1}},
-  "gpt-5-6-luna": {mood:"mixed", note:"Fast and cheap, but repetitive phrasing and shallow structure on long-form creative.", adj:{write:-1}},
+  "gpt-5-6-sol": {mood:"loved", note:"The Sol tier moved up to GPT-6 (Sep 22) at ~half the old price; OpenAI's best-writing tier and strong long-horizon coding, a notch below Astra on raw reasoning.", adj:{}},
+  "gpt-5-6-luna": {mood:"mixed", note:"Now GPT-6 gen (Sep 22) with price roughly halved; fast and cheap for high volume, but repetitive and shallow on long-form creative.", adj:{write:-1}},
   "gemini-3-1-pro": {mood:"gap", note:"Big reasoning and long-document gains, but users report reduced warmth/creativity and in-session drift — it drops constraints and contradicts itself over long sessions.", adj:{write:-1, follow:-1, long:1}},
   "gemini-3-7-flash": {mood:"sleeper", note:"A genuine value pick for low-cost coding and agents — and the current WebDev Arena leader for one-shot web builds; reviewers caution before accepting its edits unattended in production.", adj:{game:1, follow:1}},
   "gemini-3-8-flash": {mood:"hype", note:"Days old (Sep 2): Google claims it beats Opus 5 on three benchmarks, but there is no community track record yet and the intro pricing doubles Jan 1, 2027 — treat the ratings as vendor-derived for now.", adj:{}},
-  "grok-4-6": {mood:"gap", note:"Best-in-class real-time research and price, but 'robotic' creative writing and weaker real-world coding than benchmarks imply. (Grok 4.7 has missed two ship dates and still isn't out as of Sep 15; 4.8/4.9 are roadmap talk only.)", adj:{write:-1, game:-1, brain:1}},
+  "grok-4-7": {mood:"mixed", note:"xAI's frontier (Sep 21) at the same low price as 4.6: a 'budget frontier' strong on long-horizon agentic knowledge work and legal/finance, but coding and instruction-tightness trail Claude and GPT-6, and verbosity inflates real cost. Worldbuilding and ideation stay its creative strengths.", adj:{game:-1, follow:-1}},
+  "grok-4-6": {mood:"gap", note:"Best-in-class real-time research and price, but 'robotic' creative writing and weaker real-world coding than benchmarks imply; superseded as xAI's frontier by Grok 4.7 (Sep 21).", adj:{write:-1, game:-1, brain:1}},
   "deepseek-v4-pro": {mood:"loved", note:"Open-weights and the community's spec-to-patch codegen pick — highest open-weight SWE-bench Verified; its planned Sep 14 retirement was cancelled so it stays current. Weak at prose; reach for it on well-specified coding tasks.", adj:{}},
   "glm-5-3": {mood:"sleeper", note:"The open-weights momentum pick: ~50% coding gain over 5.2 and emergent security-audit strength on long agentic loops; lags DeepSeek on one-shot codegen and is weak at prose.", adj:{}},
   "inworld-tts-2": {mood:"sleeper", note:"Topped the realtime and controlled-voice arenas at launch and is priced for scale — the value pick for interactive voice agents, though not a premium-VO acting model.", adj:{}},
@@ -718,7 +721,6 @@ const SENTIMENT = {
   "kling-3.0-omni-v": {mood:"loved", note:"Praised for cloth/hair/liquid physics and reliable human animation; same lip-sync-past-5s and burned-credit gripes.", adj:{aud:-1}},
   "veo-3.1": {mood:"loved", note:"Consensus quality leader, but the short 8s clip ceiling and strict, non-overridable contextual censorship are the top professional complaints.", adj:{story:-1}},
   "veo-3.1-fast": {mood:"gap", note:"Value tier, but bug reports of 'random nonsense' outputs that ignore the inputs and burn credits.", adj:{}},
-  "sora-2": {mood:"gap", note:"Genuinely strong audio sync and physics, but widely felt as 'dumbed down' after launch and guardrails 'out of control'. The API dies Sept 24, 2026 with no successor — migrate rather than wait.", adj:{}},
   "ltx-2.5": {mood:"sleeper", note:"The open-source darling: only open model with native single-pass audio+video and 4K HDR, runs on a 32GB consumer GPU; raw fidelity still trails closed flagships.", adj:{speed:2}},
   "pixverse-v6": {mood:"sleeper", note:"Fast, action-heavy anime with clean line art beats its billing; not a realism leader.", adj:{anime:2}},
   "pixverse-c1": {mood:"sleeper", note:"The cinematic-continuity sibling; strong stylized/anime output, quality ceiling below flagships.", adj:{anime:1}},
@@ -1836,7 +1838,7 @@ const TEXT_STRATEGIES = {
       "Structure prompts with Markdown headers: # Role and Objective, # Instructions, # Output Format, # Context",
       "GPT-5 burns reasoning on contradictions; scan your prompt and resolve any conflicting instructions before sending",
       "In long prompts, state critical instructions at the beginning AND repeat them at the end",
-      "Current lineup (Sep 2026): GPT-6 Astra is the new flagship (single model, no tiers); GPT-5.6 (Sol = reasoning, Terra = balanced, Luna = fast free default) stays below it. Match the job: Astra for reasoning/agents/one-shot games, Sol for creative writing (Sol still writes better) and spec-to-code",
+      "Current lineup (Sep 2026): GPT-6 Astra is the flagship (single model, no tiers). GPT-6 Sol and GPT-6 Luna shipped Sep 22 — the Sol/Luna tiers moved up to GPT-6 gen at ~half price (Terra stays a GPT-5.6 tier, unconfirmed at GPT-6). Match the job: Astra for reasoning/agents/one-shot games, Sol for creative writing (best-writing tier) and spec-to-code, Luna for cheap high-volume work",
       "Astra's guide: structure as GOAL / CONTEXT / PRIORITY / AUTONOMY / TOOLS / OUTPUT / VERIFICATION / STOP-CONDITION; it has NO default reasoning-effort level, so set one ('reasoning effort: medium'), and ban slop words by name ('avoid: bottom line, leverage, delve, game-changer, seamlessly, testament to')",
       "GPT-6 Pro is a higher-reasoning Astra tier inside ChatGPT ($100/$200 Pro, Business, Enterprise — not Plus), not a separate model; prompt it exactly like Astra",
       "Reasoning tier (GPT-5.6 Sol) wants a high-level goal like briefing a senior colleague; skip 'think step by step'",
@@ -2383,10 +2385,21 @@ function receptionChip(m) {
   return `<span class="reception rc-${info.mood}" title="${escapeHtml(note)}"><span class="dot"></span>${info.label}</span>`;
 }
 
+// Short scenario label for a free-access entry, derived from its `how` text,
+// so the badge says HOW it's free (open weights / free tier / trial / credits)
+// rather than a bare "Free". Full sentence stays in the tooltip and guide.
+function freeScenario(how) {
+  const h = (how || '').toLowerCase();
+  if (/open[- ]weight|run (it )?yourself|run locally|self-host|checkpoint|open sdxl|apache|cc by/.test(h)) return "Open weights";
+  if (/daily|per day|\/day|monthly|per month|\/mo\b|\/month|quota|allowance|songs?\/day|credits?\/day|gens?\/mo|generations?\/day|characters?\/month/.test(h)) return "Free credits";
+  if (/\btrial\b|starter credit/.test(h)) return "Free trial";
+  return "Free tier";
+}
+
 function freeBadge(m) {
   const f = FREE_ACCESS[m.id];
   if (!f) return '';
-  return `<a class="free-badge" href="${f.url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeHtml(f.how)} — official source, checked ${FREE_CHECKED}. Free access may change; opens the provider's own page."><span class="star">&#9733;</span>Free</a>`;
+  return `<a class="free-badge" href="${f.url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${escapeHtml(f.how)} — official source, checked ${FREE_CHECKED}. Free access may change; opens the provider's own page."><span class="star">&#9733;</span>${freeScenario(f.how)}</a>`;
 }
 
 function topSpecs(m, n) {
