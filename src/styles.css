@@ -2509,12 +2509,24 @@ button {
   line-height: 1.55;
   margin-bottom: 0.85rem;
 }
-.lead-capture__row {
-  display: flex;
-  flex-wrap: wrap;
+/* Email on its own line, then the two optional fields side by side (stacked on phones). */
+.lead-capture__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
 }
-.lead-capture__row input {
+.lead-capture__fields .lead-capture__email {
+  grid-column: 1 / -1;
+}
+@media (max-width: 560px) {
+  .lead-capture__fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.lead-capture__submit {
+  margin-top: 0.6rem;
+}
+.lead-capture__fields input {
   flex: 1 1 12rem;
   min-width: 0;
   font: inherit;
@@ -2526,13 +2538,10 @@ button {
   -webkit-appearance: none;
   appearance: none;
 }
-.lead-capture__row input:focus {
+.lead-capture__fields input:focus {
   outline: none;
   border-color: var(--gbx-teal);
   box-shadow: 0 0 0 1px var(--gbx-teal);
-}
-.lead-capture__row .btn {
-  flex: 0 0 auto;
 }
 .lead-capture__fine {
   font-size: 0.76rem;

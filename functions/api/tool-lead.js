@@ -42,7 +42,8 @@ export async function onRequestPost(context) {
     kind: String(body.kind || 'tool'),
     source: String(body.source || 'Unknown'),
     email,
-    name: body.name ? String(body.name) : '',
+    name: body.name ? String(body.name).trim().slice(0, 120) : '', // a person's or a business's name
+    phone: body.phone ? String(body.phone).trim().slice(0, 40) : '', // optional on the tool results form
     fields: body.fields && typeof body.fields === 'object' ? body.fields : {},
     summary: body.summary ? String(body.summary) : '',
     page: body.page ? String(body.page) : '',
@@ -63,7 +64,8 @@ export async function onRequestPost(context) {
           record.source,
           record.email,
           record.name,
-          JSON.stringify(record.fields),
+          // The phone rides in the fields JSON so the existing D1 table needs no new column.
+          JSON.stringify(record.phone ? { ...record.fields, Phone: record.phone } : record.fields),
           record.summary,
           record.page,
           record.ip,
@@ -89,7 +91,7 @@ export async function onRequestPost(context) {
       to: owner,
       reply_to: email,
       subject: `[GBX] ${record.source}: ${email}`,
-      text: `New ${record.source} submission\n\nFrom: ${record.name || '(no name)'} <${email}>\nPage: ${record.page}\nTime: ${record.created_at}\n\n${fieldsText}\n\n${record.summary}`,
+      text: `New ${record.source} submission\n\nFrom: ${record.name || '(no name)'} <${email}>\n${record.phone ? `Phone: ${record.phone}\n` : ''}Page: ${record.page}\nTime: ${record.created_at}\n\n${fieldsText}\n\n${record.summary}`,
       html: ownerEmail(record),
     }).catch((e) => console.error('owner email failed:', e))
 
@@ -159,6 +161,7 @@ export async function onRequestPost(context) {
           service: record.source,
           contact: record.name,
           email: record.email,
+          phone: record.phone,
           notes,
         }),
       }).catch((e) => console.error('CRM push failed:', e))

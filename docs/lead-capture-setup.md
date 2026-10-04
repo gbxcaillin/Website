@@ -59,8 +59,13 @@ npx wrangler d1 execute gbx-leads --remote \
 
 ## 3. What gets sent
 
-- **Owner** (`MAIL_TO`): every submission, with the email, name, all inputs and
-  results, and the page. Reply-to is set to the visitor.
+The tool results form asks for an email (required) and, optionally, **Your name
+/ Business name** and **Phone**. The name goes in the `name` column (and becomes
+the lead's contact in the CRM); the phone is stored with the inputs in the
+`fields` JSON, so the D1 table needs no new column.
+
+- **Owner** (`MAIL_TO`): every submission, with the email, name, phone (when
+  given), all inputs and results, and the page. Reply-to is set to the visitor.
 - **Visitor**: for a tool, their findings plus a short note; for a contact
   enquiry, an acknowledgement.
 

@@ -14,6 +14,8 @@ import { site } from '../content.js'
  */
 export default function ToolLeadCapture({ toolName, data, findingsText }) {
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('') // optional: a person's or a business's name
+  const [phone, setPhone] = useState('') // optional
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [emailed, setEmailed] = useState(false) // did a results email actually send?
 
@@ -30,6 +32,8 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
           kind: 'tool',
           source: toolName,
           email,
+          name: name.trim(),
+          phone: phone.trim(),
           fields: data || {},
           summary: findingsText,
           page: typeof window !== 'undefined' ? window.location.href : '',
@@ -92,19 +96,40 @@ export default function ToolLeadCapture({ toolName, data, findingsText }) {
         Enter your email to download your results and receive a short note from GBX Professional
         Services on what they mean and where to focus. No spam.
       </p>
-      <div className="lead-capture__row">
+      <div className="lead-capture__fields">
         <input
+          className="lead-capture__email"
           type="email"
           required
+          autoComplete="email"
           placeholder="you@company.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           aria-label="Email address"
         />
-        <button type="submit" className="btn btn--primary btn--sm" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending' : 'Email me my results'}
-        </button>
+        <input
+          type="text"
+          autoComplete="name"
+          maxLength={120}
+          placeholder="Your name / Business name (optional)"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          aria-label="Your name or business name (optional)"
+        />
+        <input
+          type="tel"
+          autoComplete="tel"
+          inputMode="tel"
+          maxLength={40}
+          placeholder="Phone (optional)"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          aria-label="Phone (optional)"
+        />
       </div>
+      <button type="submit" className="btn btn--primary btn--sm lead-capture__submit" disabled={status === 'sending'}>
+        {status === 'sending' ? 'Sending' : 'Email me my results'}
+      </button>
       <input
         type="text"
         name="_gotcha"
