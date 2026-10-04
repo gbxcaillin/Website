@@ -194,6 +194,7 @@ export function ownerEmail(record) {
     preheader: `${record.source}: ${record.email}`,
     bodyHtml: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 16px;">
         <tr><td style="padding:4px 12px 4px 0;font-family:Arial,sans-serif;font-size:13px;color:${MUTE};">From</td><td style="padding:4px 0;font-family:Arial,sans-serif;font-size:13px;color:${INK};">${escapeHtml(record.name || '(no name)')} &lt;<a href="mailto:${escapeHtml(record.email)}" style="color:${DEEP};">${escapeHtml(record.email)}</a>&gt;</td></tr>
+        ${record.phone ? `<tr><td style="padding:4px 12px 4px 0;font-family:Arial,sans-serif;font-size:13px;color:${MUTE};">Phone</td><td style="padding:4px 0;font-family:Arial,sans-serif;font-size:13px;color:${INK};"><a href="tel:${escapeHtml(record.phone.replace(/[^0-9+]/g, ''))}" style="color:${DEEP};">${escapeHtml(record.phone)}</a></td></tr>` : ''}
         <tr><td style="padding:4px 12px 4px 0;font-family:Arial,sans-serif;font-size:13px;color:${MUTE};">Time</td><td style="padding:4px 0;font-family:Arial,sans-serif;font-size:13px;color:${INK};">${escapeHtml(record.created_at)}</td></tr>
         ${record.page ? `<tr><td style="padding:4px 12px 4px 0;font-family:Arial,sans-serif;font-size:13px;color:${MUTE};">Page</td><td style="padding:4px 0;font-family:Arial,sans-serif;font-size:13px;color:${INK};">${escapeHtml(record.page)}</td></tr>` : ''}
         ${rows}
