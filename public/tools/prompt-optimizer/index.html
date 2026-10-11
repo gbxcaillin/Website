@@ -86,6 +86,44 @@ body{background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6;f
 .btn-secondary:hover{background:var(--ink);color:var(--paper)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 
+/* Lead funnel into gbxps.com */
+.gbx-funnel{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:var(--radius);padding:44px 40px;margin:52px 0 0}
+.gbx-funnel h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3.6vw,2.4rem);line-height:1.15;margin:0 0 10px;color:var(--ink)}
+.gbx-funnel .funnel-lead{color:var(--ink2);font-size:.95rem;line-height:1.6;max-width:660px;margin:0 0 28px}
+.funnel-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.funnel-card{display:flex;flex-direction:column;background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.funnel-card.accent{border-color:rgba(46,139,110,.4);background:var(--teal-tint)}
+.funnel-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono,inherit);font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);background:var(--surface);border:1px solid rgba(46,139,110,.35);border-radius:999px;padding:4px 11px;margin:0 0 12px}
+.funnel-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.funnel-card h3{font-family:var(--serif);font-weight:500;font-size:1.32rem;margin:0 0 8px;color:var(--ink)}
+.funnel-card p{color:var(--ink2);font-size:.86rem;line-height:1.6;margin:0 0 18px;flex:1}
+.funnel-card .btn{align-self:flex-start;text-decoration:none}
+.funnel-foot{margin-top:22px;font-size:.82rem;color:var(--ink3);display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.funnel-foot a{color:var(--accent-text);text-decoration:none;border-bottom:1px solid var(--line)}
+.funnel-foot a:hover{border-bottom-color:var(--accent-text)}
+@media(max-width:640px){.funnel-cards{grid-template-columns:1fr}.gbx-funnel{padding:32px 20px}}
+.lead-form{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.lead-hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.lead-label{font-size:.72rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--ink2);margin-top:8px}
+.lead-label span{font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink3)}
+.lead-input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:9px 11px;width:100%;box-sizing:border-box}
+.lead-input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px var(--teal-tint)}
+.lead-form .btn{align-self:stretch;margin-top:14px;border:none;cursor:pointer;text-align:center}
+.lead-form .btn:disabled{opacity:.6;cursor:default}
+.lead-status{font-size:.82rem;line-height:1.5;margin:10px 0 0}
+.lead-status.ok{color:var(--accent-text);font-weight:500}
+.lead-status.err{color:#c0392b}
+.lead-status a{color:inherit;text-decoration:underline}
+.lead-fineprint{font-size:.72rem;color:var(--ink3);line-height:1.5;margin:8px 0 0}
+
+/* High-intent nudge shown with optimized results */
+.results-cta{margin-top:24px;border:1px solid var(--line);border-left:3px solid var(--teal);background:var(--teal-tint);border-radius:var(--radius);padding:16px 18px;font-size:.88rem;line-height:1.55;color:var(--ink2);display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.results-cta strong{color:var(--ink);font-weight:600}
+.results-cta .rc-links{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto}
+.results-cta a{color:var(--accent-text);font-weight:500;text-decoration:none;white-space:nowrap}
+.results-cta a:hover{text-decoration:underline}
+
+
 .type-toggle{display:flex;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
 .type-toggle button{padding:9px 20px;background:none;border:none;color:var(--ink2);font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;font-family:var(--sans)}
 .type-toggle button.active{background:var(--contrast-bg);color:var(--contrast-fg)}
@@ -435,6 +473,13 @@ body{background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6;f
       <button class="action-btn" onclick="regenerate()" title="Re-roll the example variations">&#8635; Regenerate examples</button>
     </div>
     <div id="resultsContainer"></div>
+    <div class="results-cta">
+      <span><strong>You&rsquo;re already optimising prompts.</strong> Want help putting AI to work across your business, or a hand learning the basics in a small group?</span>
+      <span class="rc-links">
+        <a href="https://gbxps.com/tools?utm_source=prompt-optimizer&amp;utm_medium=results&amp;utm_campaign=ai-funnel" target="_blank" rel="noopener">Explore AI &rarr;</a>
+        <a href="https://gbxps.com/contact?utm_source=prompt-optimizer&amp;utm_medium=results&amp;utm_campaign=ai-seminar&amp;enquiry=ai-seminar" target="_blank" rel="noopener">Join a seminar &rarr;</a>
+      </span>
+    </div>
   </div>
 
   <div class="empty-state" id="emptyState">
@@ -472,6 +517,44 @@ body{background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6;f
    <div class="dir-list" id="directoryList"></div>
  </div><!-- /view-directory -->
 
+ <section class="gbx-funnel" aria-labelledby="funnel-h">
+   <span class="section-label">From GBX Professional Services</span>
+   <h2 id="funnel-h">Ready to put AI to work in your business?</h2>
+   <p class="funnel-lead">This optimizer is one of our free tools. GBX Professional Services helps businesses turn AI from a buzzword into real, practical gains &mdash; without the jargon or the overwhelm.</p>
+   <div class="funnel-cards">
+     <div class="funnel-card">
+       <h3>Explore AI for your business</h3>
+       <p>Browse our free tools and plain-English insights, or run the two-minute AI Health Check to find where AI could save your team time and money.</p>
+       <a class="btn btn-secondary" href="https://gbxps.com/tools?utm_source=prompt-optimizer&amp;utm_medium=tool&amp;utm_campaign=ai-funnel" target="_blank" rel="noopener">Explore tools &amp; insights</a>
+     </div>
+     <div class="funnel-card accent">
+       <span class="funnel-tag">Runs in small cohorts</span>
+       <h3>Join a small-group AI seminar</h3>
+       <p>Small groups, high impact. Practical, judgement-free sessions for people who are time-poor or feel they&rsquo;ve missed the basics &mdash; leave knowing how to actually use AI day to day. We run these in small cohorts, so register your interest and we&rsquo;ll be in touch about the next one.</p>
+       <form class="lead-form" id="leadForm" novalidate>
+         <input class="lead-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+         <label class="lead-label" for="leadName">Name <span>(optional)</span></label>
+         <input class="lead-input" id="leadName" name="name" type="text" autocomplete="name" placeholder="Your name">
+         <label class="lead-label" for="leadEmail">Email</label>
+         <input class="lead-input" id="leadEmail" name="email" type="email" autocomplete="email" required placeholder="you@yourbusiness.com">
+         <label class="lead-label" for="leadInterest">I&rsquo;m interested in</label>
+         <select class="lead-input" id="leadInterest" name="interest">
+           <option value="A small-group AI seminar">A small-group AI seminar</option>
+           <option value="Exploring AI for my business">Exploring AI for my business</option>
+           <option value="Both">Both</option>
+         </select>
+         <button class="btn btn-primary" type="submit" id="leadSubmit">Register your interest</button>
+         <p class="lead-status" id="leadStatus" role="status" aria-live="polite"></p>
+         <p class="lead-fineprint">We&rsquo;ll only use your details to reply about your enquiry. No spam, and you can ask us to delete them any time.</p>
+       </form>
+     </div>
+   </div>
+   <div class="funnel-foot">
+     <span>Melbourne-based, working remotely across AU &amp; beyond.</span>
+     <span>Prefer email? <a href="mailto:admin@gbxps.com?subject=AI%20enquiry%20from%20the%20Prompt%20Optimizer">admin@gbxps.com</a></span>
+   </div>
+ </section>
+
 </div>
 
 <footer class="footer">
@@ -479,7 +562,7 @@ body{background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6;f
   <div class="lockup">Professional&nbsp;&nbsp;Services</div>
   <div class="rule"></div>
   Prompt Optimizer. Research-backed prompt engineering for <span id="footerModelCount">86</span> AI models.<br>
-  GBX PS PTY LTD &copy; 2026
+  A free tool by <a href="https://gbxps.com?utm_source=prompt-optimizer&amp;utm_medium=footer&amp;utm_campaign=ai-funnel" target="_blank" rel="noopener" style="color:#fff;border-bottom:1px solid rgba(255,255,255,.4);text-decoration:none">gbxps.com</a> &middot; GBX PS PTY LTD &copy; 2026
 </footer>
 
 <script>
@@ -493,6 +576,7 @@ const MODELS = [
   {id:"gemini-omni-flash",name:"Gemini Omni 1.1 Flash",type:"video",family:"Gemini",desc:"Chainable video: 40s scene extensions, keyframes & draft mode",provider:"Google",spec:{speed:8,story:8,aud:7,cin:8,ref:8}},
   {id:"flux-3-video",name:"FLUX 3 Video",type:"video",family:"Flux",desc:"Native audio, 5-20s, from Black Forest Labs",provider:"Black Forest Labs",spec:{cin:8,aud:8,mot:7,speed:7}},
   {id:"seadance-2.0-mini",name:"Seedance 2.0 Mini",type:"video",family:"Seedance",desc:"Cinematic videos with audio & multi-shots",provider:"ByteDance",spec:{speed:8,story:8,cin:7,aud:7}},
+  {id:"kling-4.0-flash",name:"Kling 4.0 Flash",type:"video",family:"Kling",desc:"30s clips, 4K + stereo audio, 10 keyframes & improved lip-sync (rolling out, subscriber-gated)",provider:"Kuaishou",spec:{mot:9,ref:9,con:9,cin:8,aud:7,story:8}},
   {id:"kling-3.0-omni-v",name:"Kling 3.0 Omni",type:"video",family:"Kling",desc:"Enhanced multimodal references",provider:"Kuaishou",spec:{ref:10,con:9,cin:9,mot:9,aud:8,story:8}},
   {id:"pixverse-c1",name:"PixVerse C1",type:"video",family:"PixVerse",desc:"Great for short videos",provider:"PixVerse",spec:{speed:9,anime:8,mot:7,cin:6}},
   {id:"pixverse-v6",name:"PixVerse V6",type:"video",family:"PixVerse",desc:"Great for short videos",provider:"PixVerse",spec:{speed:9,anime:8,mot:7,cin:7}},
@@ -535,6 +619,7 @@ const MODELS = [
   {id:"gpt-image-2-5-flare",name:"GPT Image 2.5 Flare",type:"image",family:"GPT Image",desc:"OpenAI's fast default; ~7x faster, 4x cheaper than GPT Image 2",provider:"OpenAI",spec:{adh:10,text:10,edit:9,design:9,photo:9,illus:8,speed:8}},
   {id:"gpt-image-2",name:"GPT Image 2",type:"image",family:"GPT Image",desc:"OpenAI's prior image model; now the value/legacy tier",provider:"OpenAI",spec:{adh:10,text:9,edit:9,design:8,photo:8,illus:8}},
   {id:"nano-banana-2-lite",name:"Nano Banana 2 Lite",type:"image",family:"Nano Banana",desc:"Google's high-efficiency image model",provider:"Google",spec:{speed:9,edit:8,photo:7,text:7}},
+  {id:"nano-banana-2-1",name:"Nano Banana 2.1",type:"image",family:"Nano Banana",desc:"Google's Flash update (Oct 2026): better quality, adherence, consistency & text",provider:"Google",spec:{edit:9,text:8,photo:8,adh:8,port:8,speed:9}},
   {id:"nano-banana-2",name:"Nano Banana 2",type:"image",family:"Nano Banana",desc:"Google's Gemini 3.1 Flash image model",provider:"Google",spec:{edit:10,text:9,photo:9,adh:9,port:8}},
   {id:"seedream-5.0-pro",name:"Seedream 5.0 Pro",type:"image",family:"Seedream",desc:"ByteDance's flagship 5.0 image model",provider:"ByteDance",spec:{photo:9,text:9,adh:9,port:9,edit:8}},
   {id:"nano-banana-pro",name:"Nano Banana Pro",type:"image",family:"Nano Banana",desc:"Google's premium image model",provider:"Google",spec:{edit:10,text:10,photo:9,adh:9,design:8}},
@@ -579,6 +664,7 @@ const MODELS = [
   // === AUDIO / MUSIC MODELS (researched Sep 2026) ===
   // — Music generation —
   {id:"suno-v5-5",name:"Suno v6",type:"audio",family:"Suno",desc:"Full songs with vocals; v6/v6-wild/v6-mini, first licensed-data generation",provider:"Suno Inc.",spec:{song:9,inst:8,sfx:3,control:9,speed:7}},
+  {id:"suno-speech",name:"Suno Speech",type:"audio",family:"Suno",desc:"Spoken voice + an original music bed generated together in one take (beta)",provider:"Suno Inc.",spec:{song:8,voice:7,control:6,speed:7}},
   {id:"elevenlabs-music",name:"ElevenLabs Music v2.5",type:"audio",family:"ElevenLabs Music",desc:"Most human-sounding, commercially-cleared vocals",provider:"ElevenLabs",spec:{song:9,inst:7,voice:6,sfx:3,control:8,speed:8}},
   {id:"udio-v4",name:"Udio v4",type:"audio",family:"Udio",desc:"Audiophile-grade production and remixing",provider:"Uncharted Labs",spec:{song:9,inst:9,sfx:2,control:9,speed:7}},
   {id:"mureka-v9",name:"Mureka V9.5",type:"audio",family:"Mureka",desc:"Lyrics-first songs with stems & MIDI export",provider:"Kunlun Tech",spec:{song:8,inst:7,voice:5,sfx:2,control:8,speed:8}},
@@ -610,8 +696,10 @@ const MODELS = [
   {id:"claude-fable-5-1",name:"Claude Fable 5.1",type:"text",family:"Claude",desc:"Anthropic's creative-and-long-horizon flagship (Sep 2026): 1M-token context",provider:"Anthropic",spec:{game:9,write:10,world:10,brain:9,follow:10,long:10}},
   {id:"claude-fable-5",name:"Claude Fable 5",type:"text",family:"Claude",desc:"Anthropic's prior flagship, tuned for demanding creative and long-horizon work",provider:"Anthropic",spec:{game:9,write:10,world:10,brain:9,follow:10,long:10}},
   {id:"claude-opus-5",name:"Claude Opus 5",type:"text",family:"Claude",desc:"Anthropic's prior Opus; superseded by Opus 5.5",provider:"Anthropic",spec:{game:9,write:10,world:9,brain:8,follow:10,long:10}},
-  {id:"claude-sonnet-5",name:"Claude Sonnet 5",type:"text",family:"Claude",desc:"Fast, capable Claude for creative work and app building",provider:"Anthropic",spec:{game:9,write:9,world:9,brain:8,follow:9,long:9}},
-  {id:"claude-haiku-4-5",name:"Claude Haiku 4.5",type:"text",family:"Claude",desc:"Quick, affordable Claude for drafts and iteration",provider:"Anthropic",spec:{game:7,write:7,world:7,brain:7,follow:8,long:7}},
+  {id:"claude-sonnet-5-5",name:"Claude Sonnet 5.5",type:"text",family:"Claude",desc:"Anthropic's new everyday workhorse (Sep 28): #2 on the AA Index at the Sonnet price, near-flagship on agentic & office tasks",provider:"Anthropic",spec:{game:9,write:8,world:7,brain:8,follow:9,long:8}},
+  {id:"claude-sonnet-5",name:"Claude Sonnet 5",type:"text",family:"Claude",desc:"Fast, capable Claude for creative work and app building; superseded by Sonnet 5.5",provider:"Anthropic",spec:{game:9,write:9,world:9,brain:8,follow:9,long:9}},
+  {id:"claude-haiku-5-5",name:"Claude Haiku 5.5",type:"text",family:"Claude",desc:"Anthropic's cheap, fast small model (Oct 7): ~75% cheaper, big agentic jump; supersedes Haiku 4.5",provider:"Anthropic",spec:{game:7,write:7,world:6,brain:6,follow:8,long:7}},
+  {id:"claude-haiku-4-5",name:"Claude Haiku 4.5",type:"text",family:"Claude",desc:"Quick, affordable Claude for drafts; superseded by Haiku 5.5",provider:"Anthropic",spec:{game:7,write:7,world:7,brain:7,follow:8,long:7}},
   {id:"gpt-6-astra",name:"ChatGPT (GPT-6 Astra)",type:"text",family:"ChatGPT",desc:"OpenAI's new flagship; reasoning/agents/one-shot builds strong, prose weak",provider:"OpenAI",spec:{game:9,write:5,world:6,brain:10,follow:9,long:8}},
   {id:"gpt-5-6-sol",name:"ChatGPT (GPT-6 Sol)",type:"text",family:"ChatGPT",desc:"OpenAI's best-writing tier, now GPT-6 gen (Sep 22) at ~half price; strong agentic coding",provider:"OpenAI",spec:{game:8,write:8,world:8,brain:8,follow:8,long:7}},
   {id:"gpt-5-6-terra",name:"ChatGPT (GPT-5.6 Terra)",type:"text",family:"ChatGPT",desc:"OpenAI's balanced everyday tier",provider:"OpenAI",spec:{game:8,write:7,world:7,brain:8,follow:9,long:7}},
@@ -679,8 +767,10 @@ const SENTIMENT = {
   "claude-opus-5": {mood:"gap", note:"Superseded by Opus 5.5 (Sep 22), which is the fix for its over-confidence/hallucination on long factual/agentic tasks and verbose output. Reach for 5.5 instead.", adj:{follow:-2, brain:-1}},
   "claude-fable-5-1": {mood:"loved", note:"Was #1 on the AA Intelligence Index until Opus 5.5 passed it (now #2); still #1 on the LMArena agent board and the Mazur debate benchmark. Writing is 'less stereotypically Claude' and more style-responsive, and it flags guesses instead of inventing facts; caveat, it emits 22-35% more output so capped plans burn fast.", adj:{}},
   "claude-fable-5": {mood:"loved", note:"Still leads blind creative-writing tests for voice and risk; caveat: doesn't preserve a specific personal voice as well as a tuned Sonnet. Superseded as flagship by Fable 5.1 (Sep 2026).", adj:{write:1, world:1}},
-  "claude-sonnet-5": {mood:"loved", note:"Reviewers say it wins writing quality and instruction-following outright at a large price undercut; the uplift felt like polish, not a paradigm.", adj:{write:1, follow:1}},
-  "claude-haiku-4-5": {mood:"sleeper", note:"Punches above its price on coding and 'vibe coding'; a common fallback when pricier models stall.", adj:{game:1}},
+  "claude-sonnet-5-5": {mood:"loved", note:"Shipped Sep 28 and now #2 on the AA Intelligence Index (56) at the unchanged Sonnet price, ~30% faster with fewer tokens/tool calls: near-flagship on everyday agentic, bug-fixing and polished docs/slides/sheets (Opus 5.5 still for complex multi-step work). The default-tier value pick.", adj:{}},
+  "claude-sonnet-5": {mood:"loved", note:"Wins writing quality and instruction-following at a large price undercut; superseded by Sonnet 5.5 (Sep 28), which is the reason to move up.", adj:{write:1, follow:1}},
+  "claude-haiku-5-5": {mood:"sleeper", note:"Shipped Oct 7 at ~75% lower run-cost than Haiku 4.5 with a big agentic/computer-use jump for its tier; the new small-model default for cheap, fast, high-volume classify/extract/summarize and tool-calling (watch the 100K-input threshold).", adj:{}},
+  "claude-haiku-4-5": {mood:"sleeper", note:"Punched above its price on coding and 'vibe coding'; superseded by Haiku 5.5 (Oct 7).", adj:{game:1}},
   "gpt-6-astra": {mood:"mixed", note:"OpenAI's new flagship dominates verifiable-answer tasks, math and agentic/one-shot game+3D builds, but creative writing is a genuine weakness — it ranks below GPT-5.6 Sol on writing benchmarks ('no personality, reads as machine-written'). Reach for reasoning and agents, not prose.", adj:{brain:1, write:-1}},
   "gpt-5-6-sol": {mood:"loved", note:"The Sol tier moved up to GPT-6 (Sep 22) at ~half the old price; OpenAI's best-writing tier and strong long-horizon coding, a notch below Astra on raw reasoning.", adj:{}},
   "gpt-5-6-luna": {mood:"mixed", note:"Now GPT-6 gen (Sep 22) with price roughly halved; fast and cheap for high volume, but repetitive and shallow on long-form creative.", adj:{write:-1}},
@@ -698,6 +788,7 @@ const SENTIMENT = {
   "gpt-image-2-5-sunburst": {mood:"loved", note:"Debuted #1 on both arenas (Sep 8) with the widest #1-to-#2 gap recorded: sharper detail, natural lighting, reliable multi-turn edits. Nano Banana 2 still wins some pure-photorealism rounds.", adj:{}},
   "gpt-image-2-5-flare": {mood:"loved", note:"The fast tier that debuted #2 behind its own Sunburst sibling — near-flagship quality at ~7x the speed and a quarter the cost of GPT Image 2.", adj:{}},
   "gpt-image-2": {mood:"gap", note:"Superseded by GPT Image 2.5 (now #3); still imprecise for exact graphic design/layout and prone to shading degradation after repeated edits, though text and realism are strong.", adj:{design:-2, edit:-1, text:1, photo:1}},
+  "nano-banana-2-1": {mood:"loved", note:"Oct Flash update to Nano Banana 2 claiming better quality, prompt adherence, multi-turn consistency and text rendering with native 4K — Google's own numbers, no independent arena data yet, so treat the quality claims as provisional.", adj:{}},
   "nano-banana-2": {mood:"mixed", note:"Slipping down the boards (~#6-9) after the GPT 2.5 / MAI 2.6 / Reve / Muse wave, but still the go-to for skin, materials, cinematic light and product hero shots; loses on instruction-following and text.", adj:{photo:-1, text:1, adh:1}},
   "reve-2-1": {mood:"sleeper", note:"Layout-first, native 4K; ranks above Nano Banana 2 and Seedream on the arena — the posters / dense-layout / exact-text pick, with famously cheap iterative edits.", adj:{}},
   "muse-image": {mood:"mixed", note:"Meta's agentic model (plans, web-searches, codes charts/QR); Arena #2 at launch but testers put it a notch below the GPT/Google leaders in real use, and there was pushback over Meta training on user photos.", adj:{}},
@@ -718,6 +809,7 @@ const SENTIMENT = {
   "hailuo-2.3": {mood:"gap", note:"Marketed 'physics champion' but community reports frequent morphing failures and unwanted background music baked into audio (Trustpilot ~1.4/5).", adj:{mot:-1, aud:-1}},
   "seadance-2.5": {mood:"mixed", note:"Loved for its multimodal reference control and 30s single-pass; identity drift on long clips (50-reference workflows are emerging as the fix) and censorship burns credits. The old '4K unseen' complaint has softened — API hosts now ship 30s 4K.", adj:{ref:2, con:-1}},
   "kling-3.0": {mood:"loved", note:"The pragmatic community favorite for realistic humans and value; lip-sync widely panned past ~5s and failed generations burn credits with no refund.", adj:{aud:-1}},
+  "kling-4.0-flash": {mood:"mixed", note:"A big step up (Sep 28): 30s clips, 4K + stereo audio, up to 10 keyframes and 15 references, and better lip-sync — but as of early Oct it's gated to annual subscribers (Flash tier) with full launch still rolling out, so 3.0 stays the accessible tier.", adj:{}},
   "kling-3.0-omni-v": {mood:"loved", note:"Praised for cloth/hair/liquid physics and reliable human animation; same lip-sync-past-5s and burned-credit gripes.", adj:{aud:-1}},
   "veo-3.1": {mood:"loved", note:"Consensus quality leader, but the short 8s clip ceiling and strict, non-overridable contextual censorship are the top professional complaints.", adj:{story:-1}},
   "veo-3.1-fast": {mood:"gap", note:"Value tier, but bug reports of 'random nonsense' outputs that ignore the inputs and burn credits.", adj:{}},
@@ -740,6 +832,7 @@ const SENTIMENT = {
   "minimax-h3-max": {mood:"hype", note:"fal's post-trained speed variant instantly topped the I2V-with-audio arena — the 5s-clip-in-under-3s speed is a real breakthrough, but the top rankings lean on fal's own evals and the model is days old.", adj:{}},
   // — Audio / Music —
   "suno-v5-5": {mood:"mixed", note:"v6/v6-wild/v6-mini shipped Sep 9 and retired the whole pre-v6 line; broadly agreed to sound cleaner than v5.5 with a real section-editing leap, but the launch collided with the Sep 3 download caps (free = 7 lifetime downloads) and the forced retirement, so 'best model yet' sits next to 'I'm cancelling'.", adj:{control:1, song:-1}},
+  "suno-speech": {mood:"loved", note:"A novel single model (free beta, Oct 1) that generates spoken voice + an original music bed together as one cohesive take; rough edges on accents and pause length are expected at this stage.", adj:{}},
   "elevenlabs-music": {mood:"loved", note:"Broadly cited as the top pick when the vocal has to pass as human, helped by an unusually clean licensed-data and commercial-clearance story (self-serve clearance still excludes film/TV/games).", adj:{}},
   "udio-v4": {mood:"mixed", note:"Praised as the audiophile's choice for instrumental cleanliness, but the post-settlement download lockdown gutted its practical value; Sony escalated in July 2026 with a new 30,000-recording suit (~$4.5B exposure).", adj:{inst:1, speed:-1}},
   "mureka-v9": {mood:"sleeper", note:"The under-the-radar Suno competitor whose MIDI export, deep stems, and voice cloning give producers more downstream control than the big two.", adj:{control:1}},
@@ -774,7 +867,9 @@ const SENTIMENT = {
 const FREE_CHECKED = "Sep 2026";
 const FREE_ACCESS = {
   // — Text / LLM (only the model the free tier actually serves) —
+  "claude-sonnet-5-5": {url:"https://claude.ai", how:"Free tier on claude.ai (usage-limited)"},
   "claude-sonnet-5": {url:"https://claude.ai", how:"Free tier on claude.ai (usage-limited)"},
+  "claude-haiku-5-5": {url:"https://claude.ai", how:"Free for all users on claude.ai"},
   "claude-haiku-4-5": {url:"https://claude.ai", how:"Free for all users on claude.ai"},
   "gpt-5-6-luna": {url:"https://chatgpt.com", how:"Free-tier default model in ChatGPT"},
   "gemini-3-1-pro": {url:"https://aistudio.google.com", how:"Free to try in Google AI Studio (no free API tier)"},
@@ -786,6 +881,7 @@ const FREE_ACCESS = {
   "mai-image-2-6": {url:"https://microsoft.ai/models/mai-image-2-6/", how:"Free experimentation in MAI Playground; public preview in Foundry"},
   "mai-image-2-6-flash": {url:"https://microsoft.ai/models/mai-image-2-6/", how:"Free experimentation in MAI Playground; public preview in Foundry"},
   "muse-image": {url:"https://www.meta.ai", how:"Free in the Meta AI app / meta.ai (no public API yet)"},
+  "nano-banana-2-1": {url:"https://gemini.google.com", how:"Free in the Gemini app + AI Studio (daily cap)"},
   "nano-banana-2": {url:"https://gemini.google.com", how:"Free in the Gemini app + AI Studio (daily cap)"},
   "nano-banana-2-lite": {url:"https://gemini.google.com", how:"Free in the Gemini app (daily cap)"},
   "nano-banana-pro": {url:"https://gemini.google.com", how:"Free in the Gemini app + AI Studio (daily cap)"},
@@ -846,6 +942,7 @@ const FREE_ACCESS = {
   "ltx-2.3-audio": {url:"https://huggingface.co/Lightricks", how:"Open weights on Hugging Face (free under $10M revenue)"},
   // — Audio / Music —
   "suno-v5-5": {url:"https://suno.com", how:"Free daily credits (older v4.5 model only; non-commercial; 7 lifetime downloads since Sep 3, 2026)"},
+  "suno-speech": {url:"https://suno.com", how:"Free beta to all users (web/iOS/Android; terms provisional)"},
   "elevenlabs-music": {url:"https://elevenlabs.io", how:"Free tier ~7 songs/day (self-serve commercial clearance excludes film/TV/games)"},
   "udio-v4": {url:"https://udio.com", how:"Free monthly credits (downloads may be restricted post-settlement)"},
   "mureka-v9": {url:"https://www.mureka.ai", how:"Free tier with limited monthly credits"},
@@ -1468,7 +1565,8 @@ const IMAGE_STRATEGIES = {
   "Nano Banana": {
     negativePrompt: null,
     tips: [
-      "Official model IDs: Nano Banana 2 = Gemini 3.1 Flash Image; the Lite tier is gemini-3.1-flash-lite-image (~4s generations). Google's Imagen line is deprecated with this family as the migration path",
+      "Official model IDs: Nano Banana 2 = Gemini 3.1 Flash Image; the Lite tier is gemini-3.1-flash-lite-image (~4s generations). The current Flash tier is Nano Banana 2.1 (gemini-nano-banana-2.1, Oct 2026) with quality/adherence/consistency/text gains. Google's Imagen line is deprecated with this family as the migration path",
+      "Set the thinking level — Minimal / Medium (2.1 default) / High — higher for complex compositions",
       "Narrative paragraphs, NOT keyword lists; Gemini-based architecture understands natural language",
       "No negative prompts; use 'semantic positive framing': 'sharp focus' instead of 'not blurry'",
       "Supports up to 14 reference images and 4K output",
@@ -1593,6 +1691,7 @@ const IMAGE_STRATEGIES = {
   Kling: {
     negativePrompt: "blurry, low quality, distorted, extra fingers, deformed hands, unnatural proportions",
     tips: [
+      "Current top video tier is Kling 4.0 Flash (Sep 28, subscriber-gated first): 30s clips, 4K + stereo audio, up to 10 keyframes and 15 references, improved lip-sync — use keyframes to pin beats across the longer duration and write time-progressive prompts; 3.0 Omni stays the widely-available tier",
       "Current image models: Kling Image 3.0 / 3.0 Omni (Feb 2026) — native 2K/4K, text/signage rendering, 7 aspect ratios, up to 3 reference images, Series Mode multi-panel output",
       "Supports extracting features from up to 10 reference images",
       "Reference by image number: 'subjects from image 1 and image 2'",
@@ -1990,6 +2089,17 @@ const AUDIO_STRATEGIES = {
       "Style box / Lyrics box split still holds: style = global sound (genre, production, instruments, vocal identity); lyrics = words + [Intro] [Verse] [Chorus] [Bridge] [Outro] metatags; punctuation is phrasing",
       "Variety slider at 0 keeps your style tags fully authoritative; use the Exclude Styles field to steer away from genres",
       "Enable Max Mode (extra credits) for songs over ~2 min or cross-track vocal consistency; free tier is capped at 7 lifetime downloads"
+    ]
+  },
+  "suno-speech": {
+    negativePrompt: null,
+    tips: [
+      "A beta model (Oct 1, 2026) that generates a spoken voice AND an original backing track together as one cohesive take — not pure TTS, not pure music",
+      "Provide the full script/spoken text plus a short description of the music bed's mood, genre and energy so it sits under the speech rather than competing",
+      "Keep accents simple — testers report accent drift on complex or non-neutral accents",
+      "Don't over-specify dramatic pauses; they can run long",
+      "Generate short segments and stitch for long-form narration",
+      "Free beta to all users (web/iOS/Android); terms still provisional"
     ]
   },
   "elevenlabs-music": {
@@ -2971,6 +3081,81 @@ function toggleTheme() {
 syncThemeLabel();
 (function(){ const el = document.getElementById("footerModelCount"); if (el) el.textContent = MODELS.length; })();
 render();
+
+// Lead capture. The optimizer is published both on gbxps.com (same origin) and
+// standalone on github.io (cross origin), so pick the endpoint from the host:
+// a relative path when we are already on gbxps.com, the absolute URL otherwise.
+(function(){
+  var form = document.getElementById("leadForm");
+  if (!form) return;
+  var onSite = /(^|\.)gbxps\.com$/.test(location.hostname);
+  var endpoint = onSite ? "/api/tool-lead" : "https://gbxps.com/api/tool-lead";
+  var status = document.getElementById("leadStatus");
+  var btn = document.getElementById("leadSubmit");
+  var label = btn.textContent;
+
+  function setStatus(kind, msg) {
+    status.className = "lead-status" + (kind ? " " + kind : "");
+    if (kind === "err") status.innerHTML = msg;
+    else status.textContent = msg;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = document.getElementById("leadEmail").value.trim();
+    var at = email.indexOf("@");
+    if (at < 1 || email.indexOf(".", at) < 0) {
+      setStatus("err", "Please enter a valid email address.");
+      document.getElementById("leadEmail").focus();
+      return;
+    }
+    // Honeypot: a real person leaves this blank. Pretend success for bots.
+    if (form.querySelector('[name="_gotcha"]').value) {
+      form.reset();
+      setStatus("ok", "Thanks! We will be in touch.");
+      return;
+    }
+    var interest = document.getElementById("leadInterest").value;
+    var payload = {
+      kind: "tool",
+      source: "Prompt Optimizer",
+      email: email,
+      name: document.getElementById("leadName").value.trim(),
+      fields: { Interest: interest },
+      summary: "Enquiry from the Prompt Optimizer about: " + interest + ".",
+      page: location.href
+    };
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    setStatus("", "");
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          return { ok: r.ok, body: j };
+        });
+      })
+      .then(function (res) {
+        if (res.ok && res.body && res.body.ok) {
+          form.reset();
+          btn.textContent = "Sent";
+          setStatus("ok", res.body.emailed
+            ? "Thanks! Check your inbox for a confirmation. We will follow up personally soon."
+            : "Thanks! We have your details and will be in touch soon.");
+          return;
+        }
+        throw new Error("rejected");
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = label;
+        setStatus("err", 'Something went wrong. Please email <a href="mailto:admin@gbxps.com?subject=AI%20enquiry%20from%20the%20Prompt%20Optimizer">admin@gbxps.com</a> and we will pick it up.');
+      });
+  });
+})();
 </script>
 </body>
 </html>
