@@ -22,20 +22,52 @@ import { ownerEmail, visitorEmail } from './_email.js'
 const OWNER_DEFAULT = 'admin@gbxps.com'
 const FROM_DEFAULT = 'GBX Professional Services <onboarding@resend.dev>'
 
+// Origins allowed to POST here from another site. The forms on gbxps.com are
+// same origin and need none of this. The standalone Prompt Optimizer hosted on
+// GitHub Pages at gbxcaillin.github.io does: its browser sends a cross origin
+// request that the browser blocks unless we echo the Origin back. The apex and
+// www hosts are listed too so a request from either is accepted.
+const ALLOWED_ORIGINS = new Set([
+  'https://gbxcaillin.github.io',
+  'https://gbxps.com',
+  'https://www.gbxps.com',
+])
+
+// Build the cross origin response headers for a request, echoing the Origin
+// only when it is on the allowlist. An unknown origin gets no headers, so the
+// browser blocks it. Same origin posts carry no Origin header and are unaffected.
+function corsHeaders(request) {
+  const origin = request.headers.get('Origin') || ''
+  if (!ALLOWED_ORIGINS.has(origin)) return {}
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+    Vary: 'Origin',
+  }
+}
+
+// Preflight: the browser sends OPTIONS before a cross origin JSON POST.
+export function onRequestOptions(context) {
+  return new Response(null, { status: 204, headers: corsHeaders(context.request) })
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context
+  const cors = corsHeaders(request)
 
   let body
   try {
     body = await request.json()
   } catch {
-    return json({ ok: false, error: 'bad_request' }, 400)
+    return json({ ok: false, error: 'bad_request' }, 400, cors)
   }
 
-  if (body._gotcha) return json({ ok: true }) // honeypot: pretend success
+  if (body._gotcha) return json({ ok: true }, 200, cors) // honeypot: pretend success
 
   const email = String(body.email || '').trim()
-  if (!email || !email.includes('@')) return json({ ok: false, error: 'invalid_email' }, 400)
+  if (!email || !email.includes('@')) return json({ ok: false, error: 'invalid_email' }, 400, cors)
 
   const record = {
     created_at: new Date().toISOString(),
@@ -169,7 +201,7 @@ export async function onRequestPost(context) {
   }
 
   // `emailed` lets the UI promise an email only when one was actually sent.
-  return json({ ok: true, emailed: visitorEmailed })
+  return json({ ok: true, emailed: visitorEmailed }, 200, cors)
 }
 
 // Subscribe hook on the CRM. Returns 'pending' when the CRM sent a double opt-in confirmation,
@@ -206,9 +238,9 @@ async function sendEmail(env, payload) {
   if (!res.ok) throw new Error(`resend ${res.status}: ${await res.text()}`)
 }
 
-function json(obj, status = 200) {
+function json(obj, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(obj), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...extraHeaders },
   })
 }
