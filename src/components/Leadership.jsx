@@ -1,16 +1,19 @@
 import { Link } from 'react-router-dom'
-import { leadership } from '../content.js'
+import { leadership, ANDERS_LIVE } from '../content.js'
 import caillinWebp from '../assets/leader-caillin.webp'
 import caillinJpg from '../assets/leader-caillin.jpg'
 import roseWebp from '../assets/leader-rose.webp'
 import roseJpg from '../assets/leader-rose.jpg'
 import patrickWebp from '../assets/leader-patrick.webp'
 import patrickJpg from '../assets/leader-patrick.jpg'
+import andersWebp from '../assets/leader-anders.webp'
+import andersJpg from '../assets/leader-anders.jpg'
 
 const PHOTOS = {
   caillin: { webp: caillinWebp, jpg: caillinJpg },
   rose: { webp: roseWebp, jpg: roseJpg },
   patrick: { webp: patrickWebp, jpg: patrickJpg },
+  ...(ANDERS_LIVE ? { anders: { webp: andersWebp, jpg: andersJpg } } : {}),
 }
 
 export default function Leadership({ showHeading = true }) {
@@ -27,7 +30,7 @@ export default function Leadership({ showHeading = true }) {
           </div>
         )}
 
-        <ul className="people-grid">
+        <ul className={`people-grid${leadership.people.length === 4 ? ' people-grid--4' : ''}`}>
           {leadership.people.map((p) => {
             const photo = PHOTOS[p.photo]
             return (

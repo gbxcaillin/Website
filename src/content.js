@@ -12,6 +12,13 @@
 // the Corporations Act 2001. Investment-related work is framed as operational,
 // analytical and educational support to licensed professionals only. Keep it that way.
 
+// FOURTH LEADER: Anders Torcello (Growth Leader) is prepared but not launched. Set this to
+// true to launch him: it adds his card, photo and Person record, and every line that
+// counts the leaders says four. Nothing about him appears on the site while it is false.
+export const ANDERS_LIVE = false
+const leaderCount = ANDERS_LIVE ? 'four' : 'three'
+const LeaderCount = ANDERS_LIVE ? 'Four' : 'Three'
+
 export const site = {
   name: 'GBX Professional Services',
   legalName: 'GBX PS Pty Ltd',
@@ -59,7 +66,7 @@ export const hero = {
   heading: 'Sharper businesses. ',
   subheading: 'Financially fluent people.',
   body:
-    'GBX Professional Services is a Melbourne consultancy with two practices. We help businesses of every kind run sharper, sell better and adopt AI with discipline, drawing on deep experience across professional and regulated industries. And we teach people about money, in plain language, through financial education programs for workplaces and advice practices. Three leaders, one operating view, and free tools you can use before you ever hire us.',
+    `GBX Professional Services is a Melbourne consultancy with two practices. We help businesses of every kind run sharper, sell better and adopt AI with discipline, drawing on deep experience across professional and regulated industries. And we teach people about money, in plain language, through financial education programs for workplaces and advice practices. ${LeaderCount} leaders, one operating view, and free tools you can use before you ever hire us.`,
   primary: { label: 'For your business', to: '/diagnostic' },
   secondary: { label: 'For your people', to: '/education' },
 }
@@ -198,7 +205,7 @@ export const services = {
       },
       {
         q: 'How is this different from a larger consulting firm?',
-        a: 'Every engagement is led by one of our three leaders, close to the work and accountable for the outcome. There are no hand-offs to junior teams and no distance between you and the people doing the thinking.',
+        a: `Every engagement is led by one of our ${leaderCount} leaders, close to the work and accountable for the outcome. There are no hand-offs to junior teams and no distance between you and the people doing the thinking.`,
       },
     ],
   },
@@ -206,7 +213,7 @@ export const services = {
 
 export const leadership = {
   eyebrow: 'Leadership',
-  heading: 'Three leaders, one standard.',
+  heading: `${LeaderCount} leaders, one standard.`,
   intro:
     'We are led, not layered. Every engagement is run by one of our leaders, close to the work and accountable for the outcome. No hand-offs to junior teams, no distance between you and the people doing the thinking.',
   people: [
@@ -255,6 +262,19 @@ export const leadership = {
         'Bachelor of Music',
       ],
     },
+    // Left out of the build entirely until ANDERS_LIVE is true.
+    ...(ANDERS_LIVE ? [{
+      number: '4',
+      name: 'Anders Torcello',
+      lead: 'Growth Leader',
+      role: 'Sales / Fulfilment / Business Development',
+      body:
+        'Leads sales, fulfilment and business development capability, building the pipeline, converting opportunities into well-scoped engagements and making sure the work is delivered as promised.',
+      initials: 'AT',
+      photo: 'anders',
+      // TODO before launch: add Anders' qualifications (shown as a list like the others).
+      quals: [],
+    }] : []),
   ],
 }
 
@@ -960,7 +980,7 @@ export const diagnostic = {
       },
       {
         title: 'Opportunity map and 90-day plan',
-        body: 'Every finding prioritised, sized and sequenced, with owners and measures, in a written report and a readout session with the three leaders.',
+        body: `Every finding prioritised, sized and sequenced, with owners and measures, in a written report and a readout session with the ${leaderCount} leaders.`,
       },
     ],
   },
@@ -1052,8 +1072,8 @@ export const diagnostic = {
 }
 
 // Why GBX Professional Services. The positioning we press site-wide, drawn from
-// what sets the firm apart from other boutique consultancies: three leaders with
-// three disciplines, regulated-sector depth, tools before talk, practical AI, and
+// what sets the firm apart from other boutique consultancies: a leader for each
+// discipline, regulated-sector depth, tools before talk, practical AI, and
 // engagements built to end.
 export const whyUs = {
   eyebrow: 'Why GBX Professional Services',
@@ -1062,9 +1082,10 @@ export const whyUs = {
     'Plenty of consultancies promise sharper operations. These are the things we think you should compare us on.',
   items: [
     {
-      title: 'Three leaders, three disciplines',
-      body:
-        'Most boutiques bring one lens. Every engagement here draws on a systems leader, a brand and communication leader and an education leader, so the plan covers how the business runs, how it is heard and how its people keep the gains.',
+      title: `${LeaderCount} leaders, ${leaderCount} disciplines`,
+      body: ANDERS_LIVE
+        ? 'Most boutiques bring one lens. Every engagement here draws on a systems leader, a brand and communication leader, an education leader and a growth leader, so the plan covers how the business runs, how it is heard, how its people keep the gains and how new work is won and delivered.'
+        : 'Most boutiques bring one lens. Every engagement here draws on a systems leader, a brand and communication leader and an education leader, so the plan covers how the business runs, how it is heard and how its people keep the gains.',
     },
     {
       title: 'Built for regulated businesses',
