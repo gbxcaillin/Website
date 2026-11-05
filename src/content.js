@@ -1054,7 +1054,7 @@ export const legal = {
       {
         heading: '6. Free version, ads and unlocking',
         paragraphs: [
-          'The App is free to download. The free version includes 50 practice questions and is supported by advertising, including full-screen ads shown between practice sessions. You can choose to watch a rewarded ad to unlock the full question bank and timed exams for 24 hours. What the free version includes, the length of an unlock and how often ads appear may change over time.',
+          'The App is free to download. The free version includes 50 practice questions and is supported by advertising, including full-screen ads shown between practice sessions. You can choose to watch a rewarded ad to unlock the full question bank and timed exams for 30 minutes. What the free version includes, the length of an unlock and how often ads appear may change over time.',
         ],
       },
       {
@@ -1063,7 +1063,7 @@ export const legal = {
           'Paid options are sold and billed by Google Play or the Apple App Store, in Australian dollars or your local currency. The price and description are shown in the App and in the store before you buy, and the price shown at checkout is the price you pay. Prices may change. The current options are:',
         ],
         list: [
-          'Monthly subscription (currently A$9.99 a month): the full question bank, timed exams and no ads while the subscription is active.',
+          'Monthly subscription (currently A$19.99 a month): the full question bank, timed exams and no ads while the subscription is active.',
           'Lifetime unlock (currently A$29.99, paid once): the full question bank, timed exams and no ads for as long as we make the App available. Lifetime means the life of the App, not your life. If we discontinue the App, we will give reasonable notice where practical.',
         ],
         after: [
