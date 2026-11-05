@@ -25,7 +25,7 @@ import InsightsPage from './pages/InsightsPage.jsx'
 import ArticlePage from './pages/ArticlePage.jsx'
 import CaseStudiesPage from './pages/CaseStudiesPage.jsx'
 import CaseStudyPage from './pages/CaseStudyPage.jsx'
-import PrivacyPage from './pages/PrivacyPage.jsx'
+import LegalPage from './pages/LegalPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import BookPage from './pages/BookPage.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -60,7 +60,10 @@ export default function App() {
           <Route path="insights/:slug" element={<ArticlePage />} />
           <Route path="case-studies" element={<CaseStudiesPage />} />
           <Route path="case-studies/:slug" element={<CaseStudyPage />} />
-          <Route path="privacy-policy" element={<PrivacyPage />} />
+          <Route path="privacy-policy" element={<LegalPage doc="privacy" />} />
+          <Route path="terms-of-service" element={<LegalPage doc="terms" />} />
+          <Route path="exam-trainer/terms" element={<LegalPage doc="examTerms" />} />
+          <Route path="exam-trainer/privacy" element={<LegalPage doc="examPrivacy" />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="book" element={<BookPage />} />
           <Route path="*" element={<NotFound />} />
