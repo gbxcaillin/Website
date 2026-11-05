@@ -62,6 +62,8 @@ export default function App() {
           <Route path="case-studies/:slug" element={<CaseStudyPage />} />
           <Route path="privacy-policy" element={<LegalPage doc="privacy" />} />
           <Route path="terms-of-service" element={<LegalPage doc="terms" />} />
+          <Route path="exam-trainer/terms" element={<LegalPage doc="examTerms" />} />
+          <Route path="exam-trainer/privacy" element={<LegalPage doc="examPrivacy" />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="book" element={<BookPage />} />
           <Route path="*" element={<NotFound />} />

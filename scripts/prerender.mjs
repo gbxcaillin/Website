@@ -364,13 +364,13 @@ function caseBody(c) {
 
 function legalBody(doc) {
   const p = C.legal[doc]
-  return `<main><p>Legal</p><h1>${esc(p.title)}</h1><p>${esc(p.intro)}</p>
+  return `<main><p>${esc(p.eyebrow || 'Legal')}</p><h1>${esc(p.title)}</h1><p>${esc(p.intro)}</p>
     ${p.sections
       .map(
         (s) =>
           `<section><h2>${esc(s.heading)}</h2>${s.paragraphs.map((x) => `<p>${esc(x)}</p>`).join('')}${
             s.list ? `<ul>${s.list.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : ''
-          }</section>`
+          }${(s.after || []).map((x) => `<p>${esc(x)}</p>`).join('')}</section>`
       )
       .join('')}</main>`
 }
@@ -426,6 +426,8 @@ const routes = [
   { path: '/case-studies', meta: C.pageMeta.caseStudies, body: caseIndexBody() },
   { path: '/privacy-policy', meta: C.pageMeta.privacy, body: legalBody('privacy') },
   { path: '/terms-of-service', meta: C.pageMeta.terms, body: legalBody('terms') },
+  { path: '/exam-trainer/terms', meta: C.pageMeta.examTerms, body: legalBody('examTerms') },
+  { path: '/exam-trainer/privacy', meta: C.pageMeta.examPrivacy, body: legalBody('examPrivacy') },
   { path: '/contact', meta: C.pageMeta.contact, body: contactBody() },
   { path: '/book', meta: C.pageMeta.book, body: bookBody() },
 ]

@@ -778,9 +778,10 @@ export const caseStudies = [
 export const legal = {
   privacy: {
     title: 'Privacy Policy',
+    related: [{ to: '/terms-of-service', label: 'Terms of Service' }],
     updated: '2026-11-05',
     intro:
-      'GBX PS Pty Ltd, trading as GBX Professional Services (we, us, our), respects your privacy and is committed to protecting your personal information. This policy covers our website at gbxps.com, our free tools and our apps, including the GBX CRM app (on the web at crm.gbxps.com and on Android through Google Play). It explains what we collect, why, how we handle it, and your rights, consistent with the Australian Privacy Principles under the Privacy Act 1988 (Cth).',
+      'GBX PS Pty Ltd, trading as GBX Professional Services (we, us, our), respects your privacy and is committed to protecting your personal information. This policy covers our website at gbxps.com, our free tools and the GBX CRM app at crm.gbxps.com. Our Financial Adviser Exam Trainer app has its own privacy policy at gbxps.com/exam-trainer/privacy. This policy explains what we collect, why, how we handle it, and your rights, consistent with the Australian Privacy Principles under the Privacy Act 1988 (Cth).',
     sections: [
       {
         heading: 'The information we collect',
@@ -897,9 +898,10 @@ export const legal = {
   },
   terms: {
     title: 'Terms of Service',
+    related: [{ to: '/privacy-policy', label: 'Privacy Policy' }],
     updated: '2026-11-05',
     intro:
-      'These terms apply when you use the GBX Professional Services website at gbxps.com, our free tools, and our apps, including the GBX CRM app on the web at crm.gbxps.com and on Android through Google Play (together, our services). They are an agreement between you and GBX PS Pty Ltd, trading as GBX Professional Services (we, us, our). By using our services you agree to these terms. If you do not agree, please do not use them.',
+      'These terms apply when you use the GBX Professional Services website at gbxps.com, our free tools, and the GBX CRM app at crm.gbxps.com (together, our services). Our Financial Adviser Exam Trainer app has its own terms at gbxps.com/exam-trainer/terms. They are an agreement between you and GBX PS Pty Ltd, trading as GBX Professional Services (we, us, our). By using our services you agree to these terms. If you do not agree, please do not use them.',
     sections: [
       {
         heading: 'Who we are',
@@ -960,7 +962,7 @@ export const legal = {
       {
         heading: 'Third-party services',
         paragraphs: [
-          'Our services connect to services run by others, such as Microsoft 365, Google Play and Microsoft Bookings, and our website links to other sites. Those services have their own terms and we are not responsible for them. Google is not a party to these terms and is not responsible for the GBX CRM app or its support.',
+          'Our services connect to services run by others, such as Microsoft 365 and Microsoft Bookings, and our website links to other sites. Those services have their own terms and we are not responsible for them.',
         ],
       },
       {
@@ -998,6 +1000,197 @@ export const legal = {
         paragraphs: [
           'GBX PS Pty Ltd (GBX Professional Services), 260 Spencer Street, Melbourne VIC 3000. Email admin@gbxps.com. ABN 45 674 252 905.',
         ],
+      },
+    ],
+  },
+  examTerms: {
+    eyebrow: 'Financial Adviser Exam Trainer',
+    title: 'Terms of Service',
+    dateLabel: 'Effective',
+    updated: '2026-11-05',
+    related: [{ to: '/exam-trainer/privacy', label: 'the Financial Adviser Exam Trainer Privacy Policy' }],
+    intro:
+      'These terms apply to the Financial Adviser Exam Trainer app (the App), on Android through Google Play and on iPhone and iPad through the Apple App Store.',
+    sections: [
+      {
+        heading: '1. Who we are and what these terms cover',
+        paragraphs: [
+          'The App is provided by GBX PS Pty Ltd (ABN 45 674 252 905), trading as GBX Professional Services, of 260 Spencer Street, Melbourne VIC 3000 (we, us, our). These terms are a binding agreement between you and us. By downloading, installing or using the App you agree to them. If you do not agree, do not use the App.',
+          'You must be at least 18 years old to use the App. The App is designed for adults preparing for the financial adviser exam in Australia.',
+        ],
+      },
+      {
+        heading: '2. Educational purpose only',
+        paragraphs: ['The App provides practice questions and study material to help you prepare for the financial adviser exam in Australia. It is an educational tool only.'],
+        list: [
+          'We do not guarantee that using the App will help you pass any exam, achieve any score or obtain any qualification or registration.',
+          'Questions are original practice material written for the App. They are not actual exam questions and do not predict the content of any exam. The App does not replace the official exam guidance or the requirements set for the exam.',
+          'GBX PS Pty Ltd does not hold an Australian Financial Services Licence (AFSL). The App does not give personal financial, investment, legal, tax or compliance advice. Nothing in it should be relied on when advising clients or making financial decisions.',
+        ],
+      },
+      {
+        heading: '3. No affiliation',
+        paragraphs: [
+          'The App is independent. It is not affiliated with, endorsed by or sponsored by the Australian Securities and Investments Commission (ASIC), the Treasury, the former Financial Adviser Standards and Ethics Authority (FASEA), any exam provider, or any licensee or financial services firm. Names of laws, regulators and exams are used only to describe the subject matter.',
+        ],
+      },
+      {
+        heading: '4. Accuracy and currency of content',
+        paragraphs: [
+          'Laws, regulations, standards and exam requirements change. We take reasonable care to keep content accurate, but we do not warrant that it is complete, current or error free. Check primary sources, such as legislation, regulatory guidance and the official exam materials, before relying on anything in the App. If you think a question or answer is wrong, tell us at admin@gbxps.com.',
+        ],
+      },
+      {
+        heading: '5. Licence and acceptable use',
+        paragraphs: ['We grant you a personal, non-exclusive, non-transferable, revocable licence to use the App on devices you own or control, for your own study. You must not:'],
+        list: [
+          'copy, scrape, extract, redistribute, publish or resell the questions, answers, explanations or other content;',
+          'share your paid access with other people or use a single purchase for a group;',
+          'reverse engineer, modify or interfere with the App, its purchase checks or its ads;',
+          'use the App for any unlawful purpose, or use automated tools to access it.',
+        ],
+        after: ['We and our licensors own all intellectual property in the App and its content. These terms do not transfer any ownership to you.'],
+      },
+      {
+        heading: '6. Free version, ads and unlocking',
+        paragraphs: [
+          'The App is free to download. The free version includes 50 practice questions and is supported by advertising, including full-screen ads shown between practice sessions. You can choose to watch a rewarded ad to unlock the full question bank and timed exams for 24 hours. What the free version includes, the length of an unlock and how often ads appear may change over time.',
+        ],
+      },
+      {
+        heading: '7. Purchases',
+        paragraphs: [
+          'Paid options are sold and billed by Google Play or the Apple App Store, in Australian dollars or your local currency. The price and description are shown in the App and in the store before you buy, and the price shown at checkout is the price you pay. Prices may change. The current options are:',
+        ],
+        list: [
+          'Monthly subscription (currently A$9.99 a month): the full question bank, timed exams and no ads while the subscription is active.',
+          'Lifetime unlock (currently A$29.99, paid once): the full question bank, timed exams and no ads for as long as we make the App available. Lifetime means the life of the App, not your life. If we discontinue the App, we will give reasonable notice where practical.',
+        ],
+        after: [
+          'Subscriptions renew automatically each month until you cancel. Cancel at any time in the store: on Android, open the Google Play Store, tap your profile picture, then Payments and subscriptions, then Subscriptions; on iPhone or iPad, open Settings, tap your name, then Subscriptions. Cancelling takes effect at the end of the current billing period and you keep access until then. Deleting the App does not cancel a subscription.',
+          'Refunds are handled by Google Play or Apple under their refund policies. Nothing in these terms limits any rights you have under the Australian Consumer Law, including a remedy for a major failure with a digital product.',
+          'Use Restore purchases in the App to restore a purchase on a new device signed in to the same Google account or Apple ID. Purchases are tied to the store you bought from and do not carry over between Android and Apple devices.',
+        ],
+      },
+      {
+        heading: '8. Third-party services',
+        paragraphs: [
+          'The App uses third-party services, including Google Play and the Apple App Store (purchases), Google AdMob (advertising) and Google Fonts (typefaces). Their own terms and privacy policies apply to your use of them. We are not responsible for third-party ads or websites. How we handle personal information is explained in our privacy policy at gbxps.com/exam-trainer/privacy.',
+        ],
+      },
+      {
+        heading: '9. If you downloaded the App from the Apple App Store',
+        paragraphs: [
+          'These terms are between you and us, not Apple. We, not Apple, are responsible for the App, its content, maintenance, support and any claims about it, including product liability claims, claims that it fails to meet a legal or regulatory requirement, consumer protection claims and intellectual property claims. Apple has no obligation to provide maintenance or support for the App. If the App fails to meet a warranty that applies to it, you may notify Apple and Apple will refund the purchase price; to the extent the law allows, Apple has no other warranty obligation for the App. Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them against you. You must also comply with the Apple Media Services Terms and Conditions.',
+        ],
+      },
+      {
+        heading: '10. Consumer guarantees and limitation of liability',
+        paragraphs: [
+          'Our goods and services come with guarantees that cannot be excluded under the Australian Consumer Law and, for users in New Zealand, the Consumer Guarantees Act 1993. Nothing in these terms excludes, restricts or modifies those guarantees. Subject to that, and to the extent permitted by law:',
+        ],
+        list: [
+          'the App and its content are provided as is, without any warranty that they are error free, uninterrupted or fit for a particular purpose;',
+          'we are not liable for any loss arising from reliance on the App\'s content, including exam results, career or registration outcomes, or any advice you give to others;',
+          'where the law lets us limit our liability for failing to meet a consumer guarantee, our liability is limited to supplying the service again or paying the cost of having it supplied again;',
+          'otherwise, our total liability to you in connection with the App is limited to the amount you paid for the App in the 12 months before the claim.',
+        ],
+      },
+      {
+        heading: '11. Suspension and termination',
+        paragraphs: [
+          'We may suspend or end your access if you breach these terms or misuse the App. You may stop using the App at any time. Sections that by their nature should survive termination (including sections 2 to 5, 10 and 13) continue to apply.',
+        ],
+      },
+      {
+        heading: '12. Changes',
+        paragraphs: [
+          'We may update the App and these terms from time to time. If we make material changes, we will update the effective date and, where appropriate, let you know in the App. Continued use after a change means you accept the updated terms.',
+        ],
+      },
+      {
+        heading: '13. Governing law',
+        paragraphs: [
+          'These terms are governed by the laws of Victoria, Australia, and the parties submit to the non-exclusive jurisdiction of the courts of Victoria. This does not limit any mandatory consumer rights you have under the law of your own country.',
+        ],
+      },
+      {
+        heading: '14. Contact',
+        paragraphs: ['GBX PS Pty Ltd (ABN 45 674 252 905), trading as GBX Professional Services, 260 Spencer Street, Melbourne VIC 3000. Email admin@gbxps.com.'],
+      },
+    ],
+  },
+  examPrivacy: {
+    eyebrow: 'Financial Adviser Exam Trainer',
+    title: 'Privacy Policy',
+    dateLabel: 'Effective',
+    updated: '2026-11-05',
+    related: [{ to: '/exam-trainer/terms', label: 'the Financial Adviser Exam Trainer Terms of Service' }],
+    intro:
+      'GBX PS Pty Ltd (ABN 45 674 252 905), trading as GBX Professional Services (we, us), respects your privacy. This policy explains what information the Financial Adviser Exam Trainer app (the App) collects, how it is used and what choices you have. We handle personal information in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles and, for users in New Zealand, the Privacy Act 2020. The App does not have accounts and does not ask for your name or email address.',
+    sections: [
+      {
+        heading: '1. Information we collect',
+        paragraphs: [
+          'Information you give us. If you email us, we receive your email address and the content of your message.',
+          'Information kept on your device. Your study progress, quiz history and scores, daily practice record, settings (such as text size) and unlock status are stored only on your device. They are not sent to us or to anyone else, and we cannot see or recover them.',
+          'Purchase information. Purchases are processed by Google Play or the Apple App Store. We never receive your payment card details. The App checks with the store whether you have an active subscription or lifetime unlock so it can unlock features, and the store gives us order records (such as the product, price, date and country) for accounting, refunds and tax.',
+          'Advertising and device information. The free version shows ads through Google AdMob. AdMob and its partners may collect your IP address, device and app information, and how you interact with ads, to show and measure ads, prevent fraud and, where permitted, personalise ads. On Android this can include your device\'s advertising ID. On iPhone and iPad the App does not ask permission to track you, so AdMob does not receive your device\'s advertising identifier.',
+          'Fonts. The App loads its typefaces from Google Fonts, which receives your device\'s IP address and basic browser information when it does.',
+          'Analytics and diagnostics. We do not use analytics, crash-reporting or tracking tools of our own in the App. Google Play and Apple may give us aggregated statistics about installs, crashes and performance, which do not identify you.',
+        ],
+      },
+      {
+        heading: '2. How we use information',
+        paragraphs: ['We use information to:'],
+        list: [
+          'provide the App and unlock features you have bought or earned;',
+          'show ads that support the free version and measure how they perform;',
+          'find and fix faults and improve the App;',
+          'respond to your enquiries;',
+          'meet our legal obligations.',
+        ],
+        after: ['We do not sell your personal information. We do not use your information to give financial advice.'],
+      },
+      {
+        heading: '3. Advertising choices',
+        paragraphs: [
+          'On Android you can reset or delete your advertising ID, or opt out of personalised ads, in your device settings (usually Settings, then Google, then Ads, or Settings, then Privacy, then Ads). Opting out does not remove ads, but they will be less relevant to you. If the App is offered somewhere the law requires your consent before personalised ads are shown, we will ask for it first. Google explains how it uses information from apps that show its ads at https://policies.google.com/technologies/partner-sites.',
+          'People with a monthly subscription or lifetime unlock do not see ads.',
+        ],
+      },
+      {
+        heading: '4. Sharing and overseas disclosure',
+        paragraphs: [
+          'We share information only with the service providers that help us run the App, namely Google (Google Play, AdMob and Google Fonts) and Apple (App Store), and where required by law. These providers may process information outside Australia and New Zealand, including in the United States. We take reasonable steps to use providers that handle information consistently with applicable privacy law.',
+        ],
+      },
+      {
+        heading: '5. Retention and security',
+        paragraphs: [
+          'Information stored on your device stays there until you delete the App or clear its data. Emails to us are kept for as long as needed to deal with your enquiry and meet our legal obligations, and order records for as long as tax law requires. We take reasonable steps to protect information, but no method of electronic storage or transmission is completely secure.',
+        ],
+      },
+      {
+        heading: '6. Children',
+        paragraphs: [
+          'The App is intended for adults and is not directed at children under 18. We do not knowingly collect personal information from children. If you believe a child has given us information, contact us and we will delete it.',
+        ],
+      },
+      {
+        heading: '7. Your rights and deleting your data',
+        paragraphs: [
+          'Because the App has no accounts and keeps your progress on your device, you can delete all of it at any time by uninstalling the App or clearing its data in your device settings. You may also ask to access, correct or delete any personal information we hold about you, such as emails you have sent us, by emailing admin@gbxps.com. We will respond within a reasonable time.',
+          'If you are unhappy with how we handle your information, contact us first. In Australia you can then complain to the Office of the Australian Information Commissioner (https://www.oaic.gov.au). In New Zealand you can complain to the Office of the Privacy Commissioner (https://www.privacy.org.nz).',
+        ],
+      },
+      {
+        heading: '8. Changes to this policy',
+        paragraphs: ['We may update this policy from time to time. We will change the effective date above and, where appropriate, let you know in the App.'],
+      },
+      {
+        heading: '9. Contact',
+        paragraphs: ['GBX PS Pty Ltd (ABN 45 674 252 905), trading as GBX Professional Services, 260 Spencer Street, Melbourne VIC 3000. Email admin@gbxps.com.'],
       },
     ],
   },
@@ -1456,10 +1649,20 @@ export const pageMeta = {
     description:
       'How GBX Professional Services collects, uses, stores and protects your personal information across our website, tools and the GBX CRM app, consistent with the Australian Privacy Principles.',
   },
+  examTerms: {
+    title: 'Financial Adviser Exam Trainer Terms of Service | GBX Professional Services',
+    description:
+      'The terms for using the Financial Adviser Exam Trainer app on Google Play and the App Store: the free version, ads, subscriptions, lifetime unlock and refunds.',
+  },
+  examPrivacy: {
+    title: 'Financial Adviser Exam Trainer Privacy Policy | GBX Professional Services',
+    description:
+      'What the Financial Adviser Exam Trainer app collects, how ads and purchases work, and how to delete your data. No accounts; your progress stays on your device.',
+  },
   terms: {
     title: 'Terms of Service | GBX Professional Services',
     description:
-      'The terms for using the GBX Professional Services website, free tools and apps, including the GBX CRM app on the web and Google Play.',
+      'The terms for using the GBX Professional Services website, free tools and the GBX CRM app.',
   },
   caseStudies: {
     title: 'Case Studies | GBX Professional Services',
