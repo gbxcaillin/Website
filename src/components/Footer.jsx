@@ -65,6 +65,10 @@ export default function Footer() {
             {site.copyright}. All rights reserved.{' '}
             <Link to="/privacy-policy" className="footer__link">
               Privacy Policy
+            </Link>{' '}
+            ·{' '}
+            <Link to="/terms-of-service" className="footer__link">
+              Terms of Service
             </Link>
           </p>
           <p className="footer__disclaimer">{footer.disclaimer}</p>
